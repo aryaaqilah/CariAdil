@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers;
 
 Route::get('/', function () {
     return "andreas";
@@ -47,5 +48,5 @@ Route::prefix('/lbh')->group(function(){
 // /admin/pengajuan/edit
 
 Route::prefix('/admin')->group(function(){
-    Route::get('/login', [App\Http\Controllers]);
+    Route::get('/login', []);
 });
