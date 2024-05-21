@@ -31,6 +31,10 @@ Route::prefix('/lbh')->group(function(){
     Route::get('/pengajuan-bantuan-hukum/{id_kasus?}', function($id_kasus){
         return 'a';
     });
+
+    Route::get('/perkara-berlangsung/{id_kasus}', function($id_kasus){
+
+    });
 });
 
 // /admin/login
@@ -41,3 +45,7 @@ Route::prefix('/lbh')->group(function(){
 // /admin/kasus-hukum
 // /admin/pengajuan
 // /admin/pengajuan/edit
+
+Route::prefix('/admin')->group(function(){
+    Route::get('/login', [App\Http\Controllers]);
+});
