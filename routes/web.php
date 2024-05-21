@@ -3,31 +3,23 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers;
 
-Route::get('/', function () {
-    return "andreas";
+use App\Http\Controllers\CaseController;
+use App\Http\Controllers\DashboardController;
+use App\Http\Controllers\DonationController;
+use App\Http\Controllers\FormController;
+use App\Http\Controllers\ProductController;
+use App\Http\Controllers\UserController;
+
+Route::get('/store/{id_barang}', [ProductController::class, 'index']);
+Route::prefix('/kasus-hukum')->group(function(){
+    Route::get('/', [CaseController::class, 'index']);
+    Route::get('/{id_kasus}', [CaseController::class, 'index']);
+    Route::get('/{id_kasus}/donasi', [DonationController::class, 'index']);
 });
+Route::get('/form-pengajuan-hukum', [FormController::class, 'index']);
 
-// /store
-Route::get('/store', function(){
-    return "store";
-});
-
-// store/id-barang
-
-// /kasus-hukum
-// /kasus-hukum/id-kasus
-// /kasus-hukum/id/donasi
-// /form-pengajuan-hukum
-
-// /lbh/login
-// /lbh/pengajuan-bantuan-hukum
-// /lbh/pengajuan-bantuan-hukum/id-kasus
-// /lbh/perkara-berlangsung
-// /lbh/perkara-berlangsung/id-kasus
 Route::prefix('/lbh')->group(function(){
-    Route::get('/login', function(){
-        return "login";
-    });
+    Route::get('/login', [UserController::class, 'index']);
 
     Route::get('/pengajuan-bantuan-hukum/{id_kasus?}', function($id_kasus){
         return 'a';
@@ -38,15 +30,13 @@ Route::prefix('/lbh')->group(function(){
     });
 });
 
-// /admin/login
-// /admin/dashboard
-// /admin/role
-// /admin/donasi
-// /admin/produk
-// /admin/kasus-hukum
-// /admin/pengajuan
-// /admin/pengajuan/edit
 
 Route::prefix('/admin')->group(function(){
-    Route::get('/login', []);
+    Route::get('/login', [UserController::class, 'index']);
+    Route::get('/dashboard', [DashboardController::class, 'index']);
+    Route::get('/role', [UserController::class, 'index']);
+    Route::get('/donasi', [DonationController::class, 'index']);
+    Route::get('/produk', [ProductController::class, 'index']);
+    Route::get('/kasus-hukum', [FormController::class, 'index']);
+    Route::get('/pengajuan', [FormController::class, 'index']);
 });
