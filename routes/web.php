@@ -9,11 +9,13 @@ use App\Http\Controllers\FormController;
 use App\Http\Controllers\ProductController;
 use App\Http\Controllers\UserController;
 
-Route::any('/store/{id_barang}', []);
-Route::any('/kasus-hukum', []);
-Route::any('/kasus-hukum/{id_kasus}', []);
-Route::any('/kasus-hukum/{id_kasus}/donasi', []);
-Route::any('/form-pengajuan-hukum', []);
+Route::get('/store/{id_barang}', [ProductController::class, 'index']);
+Route::prefix('/kasus-hukum')->group(function(){
+    Route::get('/', [CaseController::class, 'index']);
+    Route::get('/{id_kasus}', [CaseController::class, 'index']);
+    Route::get('/{id_kasus}/donasi', [DonationController::class, 'index']);
+});
+Route::get('/form-pengajuan-hukum', [FormController::class, 'index']);
 
 Route::prefix('/lbh')->group(function(){
     Route::get('/login', function(){
