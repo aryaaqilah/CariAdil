@@ -1,10 +1,13 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\ProductController;
+
 use App\Http\Controllers\CaseController;
+use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\DonationController;
 use App\Http\Controllers\FormController;
+use App\Http\Controllers\ProductController;
+use App\Http\Controllers\UserController;
 
 Route::any('/store/{id_barang}', []);
 Route::any('/kasus-hukum', []);
@@ -26,15 +29,13 @@ Route::prefix('/lbh')->group(function(){
     });
 });
 
-// /admin/login
-// /admin/dashboard
-// /admin/role
-// /admin/donasi
-// /admin/produk
-// /admin/kasus-hukum
-// /admin/pengajuan
-// /admin/pengajuan/edit
 
 Route::prefix('/admin')->group(function(){
-    Route::get('/login', [App\Http\Controllers]);
+    Route::get('/login', );
+    Route::get('/dashboard', );
+    Route::get('/role', );
+    Route::get('/donasi', );
+    Route::get('/produk', );
+    Route::get('/kasus-hukum', );
+    Route::get('/pengajuan', );
 });
