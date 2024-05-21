@@ -28,7 +28,9 @@ Route::prefix('/lbh')->group(function(){
         return "login";
     });
 
-    Route::get('/pengajuan-bantuan-hukum/{id_kasus?}', function($id_kasus))
+    Route::get('/pengajuan-bantuan-hukum/{id_kasus?}', function($id_kasus){
+        return 'a';
+    });
 });
 
 // /admin/login
