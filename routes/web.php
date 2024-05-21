@@ -9,6 +9,7 @@ use App\Http\Controllers\FormController;
 use App\Http\Controllers\ProductController;
 use App\Http\Controllers\UserController;
 
+//USER
 Route::get('/store/{id_barang}', [ProductController::class, 'index']);
 Route::prefix('/kasus-hukum')->group(function(){
     Route::get('/', [CaseController::class, 'index']);
@@ -17,19 +18,14 @@ Route::prefix('/kasus-hukum')->group(function(){
 });
 Route::get('/form-pengajuan-hukum', [FormController::class, 'index']);
 
+//LBH
 Route::prefix('/lbh')->group(function(){
     Route::get('/login', [UserController::class, 'index']);
-
-    Route::get('/pengajuan-bantuan-hukum/{id_kasus?}', function($id_kasus){
-        return 'a';
-    });
-
-    Route::get('/perkara-berlangsung/{id_kasus}', function($id_kasus){
-
-    });
+    Route::get('/pengajuan-bantuan-hukum/{id?}', [FormController::class, 'show']);
+    Route::get('/perkara-berlangsung/{id?}', [CaseController::class, 'show']);
 });
 
-
+//ADMIN
 Route::prefix('/admin')->group(function(){
     Route::get('/login', [UserController::class, 'index']);
     Route::get('/dashboard', [DashboardController::class, 'index']);
