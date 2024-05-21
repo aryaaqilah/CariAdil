@@ -17,11 +17,20 @@ Route::get('/store', function(){
 // /kasus-hukum/id-kasus
 // /kasus-hukum/id/donasi
 // /form-pengajuan-hukum
+
 // /lbh/login
 // /lbh/pengajuan-bantuan-hukum
 // /lbh/pengajuan-bantuan-hukum/id-kasus
 // /lbh/perkara-berlangsung
 // /lbh/perkara-berlangsung/id-kasus
+Route::prefix('/lbh')->group(function(){
+    Route::get('/login', function(){
+        return "login";
+    });
+
+    Route::get('/pengajuan-bantuan-hukum/{id_kasus?}', function($id_kasus))
+});
+
 // /admin/login
 // /admin/dashboard
 // /admin/role
