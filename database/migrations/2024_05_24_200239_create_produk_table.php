@@ -19,7 +19,7 @@ return new class extends Migration
             $table->text('image_url');
             $table->timestamps();
 
-            $table->foreign('id_kategori')->references('id')->on('kategori')->onDelete('cascade');
+            $table->foreign('id_kategori')->references('id_kategori')->on('kategori')->onDelete('cascade');
         });
     }
 
