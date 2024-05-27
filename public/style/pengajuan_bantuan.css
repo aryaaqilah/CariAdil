@@ -1,6 +1,6 @@
 @font-face {
     font-family: iosFont;
-    src: url("../public/font/sf-pro-display-cufonfonts/SFPRODISPLAYMEDIUM.OTF");
+    src: url("public/public/font/sf-pro-display-cufonfonts/SFPRODISPLAYMEDIUM.OTF");
 }
 
 @media screen and (max-width : 769px){
@@ -34,10 +34,6 @@ nav .logo{
     width: 50%;
     position: relative;
     top: 7px;
-}
-
-nav li{
-    display: inline;
 }
 
 nav a{
