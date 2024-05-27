@@ -5,7 +5,20 @@
 <!-- external css -->
 <link rel="stylesheet" href="{{ asset('style/pengajuan_bantuan.css') }}">
 <!-- Navigation Bar -->
-<nav class="topnav">
+<nav class="navbar navbar-expand-lg bg-body-tertiary">
+    <div class="container-fluid">
+        <div>
+            <img src="assets/images/Logo CariAdil.png" class="logo" alt="Logo CariAdil">
+        </div>
+      <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+        <div class="navbar-nav">
+          <a class="nav-link active" aria-current="page" href="#">Pengajuan</a>
+          <a class="nav-link" href="#">Berlangsung</a>
+        </div>
+      </div>
+    </div>
+  </nav>
+{{-- <nav class="topnav">
     <div>
         <img src="assets/images/Logo CariAdil.png" class="logo" alt="Logo CariAdil">
     </div>
@@ -17,7 +30,7 @@
         <i class="bi bi-person"></i>
         <p>LBH Ojanlomba</p>
     </div>
-</nav>
+</nav> --}}
 <!-- End Navigation Bar -->
 
 <!-- Container -->

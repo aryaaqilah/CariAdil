@@ -1,6 +1,6 @@
 @font-face {
     font-family: iosFont;
-    src: url("../sf-pro-display-cufonfonts/SFPRODISPLAYMEDIUM.OTF");
+    src: url("../public/font/sf-pro-display-cufonfonts/SFPRODISPLAYMEDIUM.OTF");
 }
 
 @media screen and (max-width : 769px){
