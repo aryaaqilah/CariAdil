@@ -11,7 +11,7 @@ class CaseController extends Controller
      */
     public function index()
     {
-        //
+        return view('');
     }
 
     /**
@@ -19,7 +19,6 @@ class CaseController extends Controller
      */
     public function create()
     {
-        //
     }
 
     /**
@@ -35,7 +34,7 @@ class CaseController extends Controller
      */
     public function show(string $id)
     {
-        //
+        return view('features.kasus_hukum.detail_kasus_hukum');
     }
 
     /**

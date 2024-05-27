@@ -4,14 +4,14 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 
-class FormController extends Controller
+class HomepageController extends Controller
 {
     /**
      * Display a listing of the resource.
      */
     public function index()
     {
-        return view('features.pengajuan_bantuan_hukum.pengajuan_bantuan_hukum');
+        return view('homepage');
     }
 
     /**

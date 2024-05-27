@@ -9,12 +9,15 @@ use App\Http\Controllers\DonationController;
 use App\Http\Controllers\FormController;
 use App\Http\Controllers\ProductController;
 use App\Http\Controllers\UserController;
+use App\Http\Controllers\HomepageController;
+
+Route::get('/', [HomepageController::class, 'index']);
 
 //USER
 Route::get('/store/{id_barang}', [ProductController::class, 'index']);
 Route::prefix('/kasus-hukum')->group(function(){
     Route::get('/', [CaseController::class, 'index']);
-    Route::get('/{id_kasus}', [CaseController::class, 'index']);
+    Route::get('/{id_kasus}', [CaseController::class, 'show']);
     Route::get('/{id_kasus}/donasi', [DonationController::class, 'index']);
 });
 Route::get('/form-pengajuan-hukum', [FormController::class, 'index']);
@@ -35,4 +38,9 @@ Route::prefix('/admin')->group(function(){
     Route::get('/produk', [ProductController::class, 'index']);
     Route::get('/kasus-hukum', [FormController::class, 'index']);
     Route::get('/pengajuan', [FormController::class, 'index']);
+});
+
+
+Route::get("/loading", function() {
+    return view('core.loading');
 });
