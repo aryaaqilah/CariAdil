@@ -39,18 +39,14 @@
         <div class="kasus">
             <h2 class="headline-kasus">Kasus Terbaru</h2>
             <div class="column-kasus">
-                <div class="detail-kasus">
-                    <h3 class="judul-kasus">Berita Pertama</h3>
-                    <p class="deskripsi-kasus">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
-                        tempor incididunt ut labore et dolore magna aliqua...</p>
-                    <a href="#" class="berita-selengkapnya">Berita Selengkapnya ></a>
-                </div>
-                <div class="detail-kasus">
-                    <h3 class="judul-kasus">Berita Pertama</h3>
-                    <p class="deskripsi-kasus">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
-                        tempor incididunt ut labore et dolore magna aliqua...</p>
-                    <a href="#" class="berita-selengkapnya">Berita Selengkapnya ></a>
-                </div>
+                @foreach ($list_kasus_hukum as $kasusHukum)
+                    <div class="detail-kasus">
+                        <h3 class="judul-kasus">{{ $kasusHukum->title }}</h3>
+                        <p class="deskripsi-kasus">{{ $kasusHukum->description }}</p>
+                        <a href="/kasus-hukum/{{ $kasusHukum->id_kasus }}" class="berita-selengkapnya">Berita
+                            Selengkapnya ></a>
+                    </div>
+                @endforeach
             </div>
         </div>
     </div>

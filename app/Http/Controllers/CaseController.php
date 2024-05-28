@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Models\KasusHukum;
 
 class CaseController extends Controller
 {
@@ -19,6 +20,7 @@ class CaseController extends Controller
      */
     public function create()
     {
+        //
     }
 
     /**
@@ -34,7 +36,9 @@ class CaseController extends Controller
      */
     public function show(string $id)
     {
-        return view('features.kasus_hukum.detail_kasus_hukum');
+        $kasusHukum = KasusHukum::find($id);
+
+        return view('features.kasus_hukum.detail_kasus_hukum', ['kasusHukum' => $kasusHukum]);
     }
 
     /**
@@ -58,6 +62,6 @@ class CaseController extends Controller
      */
     public function destroy(string $id)
     {
-        //
+        Post::destroy($id);
     }
 }

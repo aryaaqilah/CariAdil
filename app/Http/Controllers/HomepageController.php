@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Models\KasusHukum;
 
 class HomepageController extends Controller
 {
@@ -11,7 +12,9 @@ class HomepageController extends Controller
      */
     public function index()
     {
-        return view('homepage');
+        $kasusHukum = KasusHukum::orderBy('tanggal', 'DESC')->take(2)->get();
+
+        return view('homepage', ['list_kasus_hukum' => $kasusHukum]);
     }
 
     /**
