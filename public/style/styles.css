@@ -438,3 +438,81 @@ body{
   [dir=rtl] .progress-tracker--center .progress-marker::after {
     left: -50%;
   }
+
+
+
+  /* BOTTOM NAVBAR */
+  .bottom-nav{
+    background-color: rgba(81, 76, 67, 1);
+    height: 70vh;
+    display: flex;
+    justify-content: center;
+}
+
+.info-cariadil{
+    margin-top: 10vh;
+    margin-left: 18vw;
+    margin-right: 10vw;
+    color: white;
+}
+
+.kontak-cariadil{
+    /* background-color: aqua; */
+    height: 40vh;
+    margin-top: 10vh;
+    margin-right: 18vw;
+    color: white;
+}
+
+.social-media-box{
+    height: 15vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.social-media{
+    justify-content: space-between;
+    display: flex;
+    width: 10vw;
+}
+
+.fa-brands{
+    color: rgba(232, 123, 47, 1);
+    font-size: 20px;
+}
+
+.input-container{
+    border: 3px solid rgba(232, 123, 47, 1);
+    height: 8vh;
+    align-content: center;
+    border-radius: 12px;
+}
+
+.custom-textfield{
+    background-color: transparent;
+    padding: 12px;
+    border: none;
+    font-size: 14px;
+}
+
+.custom-textfield::placeholder{
+    color: rgba(232, 123, 47, 1);
+}
+
+.send-button{
+    background-color: transparent;
+    border: none;
+}
+
+.send-button .fa-regular{
+    color: rgba(232, 123, 47, 1);
+    font-size: 16px;
+}
+
+.copyright{
+    justify-content: end;
+    font-weight: bold;
+    font-size: 16px;
+    color: gray;
+}

@@ -1,6 +1,6 @@
 @font-face {
     font-family: iosFont;
-    src: url("../sf-pro-display-cufonfonts/SFPRODISPLAYMEDIUM.OTF");
+    src: url("../font/sf-pro-display-cufonfonts/SFPRODISPLAYMEDIUM.OTF");
 }
 
 @media screen and (max-width : 769px){
@@ -92,7 +92,7 @@ nav a:hover{
     font-weight: 700;
     font-style: italic;
     display: inline-block;
-    border-bottom: 3px solid orange;
+    border-bottom: 3px solid rgba(232, 123, 47, 1);
 }
 
 .column-kasus{
@@ -110,7 +110,7 @@ nav a:hover{
 }
 
 .berita-selengkapnya:hover{
-    color: orange;
+    color: rgba(232, 123, 47, 1);
 }
 
 .judul-kasus{
@@ -136,7 +136,7 @@ nav a:hover{
     text-align: center;
     font-style: italic;
     font-size: 48px;
-    text-decoration: underline solid orange;
+    text-decoration: underline solid rgba(232, 123, 47, 1);
 }
 
 .box-informasi{
@@ -157,13 +157,13 @@ nav a:hover{
 }
 
 .fa-solid{
-    color: orange;
+    color: rgba(232, 123, 47, 1);
     font-size: 30px;
 }
 
 .informasi{
     font-size: 14px;
-    color: orange;
+    color: rgba(232, 123, 47, 1);
 }
 
 .aturan-syarat{
@@ -203,7 +203,7 @@ nav a:hover{
 
 .img-detail-box-kasus-hukum{
     height: 200px;
-    background-color: orange;
+    background-color: rgba(232, 123, 47, 1);
     border-radius: 12px;
 }
 
@@ -213,7 +213,7 @@ nav a:hover{
     font-size: 16px;
     font-weight: bold;
     color: white;
-    background-color: orange;
+    background-color: rgba(232, 123, 47, 1);
     border-radius: 12px;
     border: none;
     padding: 15px 28px;
@@ -279,7 +279,7 @@ nav a:hover{
     font-size: 16px;
     font-weight: bold;
     color: white;
-    background-color: orange;
+    background-color: rgba(232, 123, 47, 1);
     border-radius: 12px;
     border: none;
     padding: 10px 20px;
@@ -292,10 +292,10 @@ nav a:hover{
     align-self: center;
     font-size: 16px;
     font-weight: bold;
-    color: orange;
+    color: rgba(232, 123, 47, 1);
     background-color: transparent;
     border-radius: 12px;
-    border: 2px solid orange;
+    border: 2px solid rgba(232, 123, 47, 1);
     padding: 10px 20px;
     text-align: center;
     display: inline-block;
@@ -337,12 +337,12 @@ nav a:hover{
 }
 
 .fa-brands{
-    color: orange;
+    color: rgba(232, 123, 47, 1);
     font-size: 20px;
 }
 
 .input-container{
-    border: 3px solid orange;
+    border: 3px solid rgba(232, 123, 47, 1);
     height: 8vh;
     align-content: center;
     border-radius: 12px;
@@ -356,7 +356,7 @@ nav a:hover{
 }
 
 .custom-textfield::placeholder{
-    color: orange;
+    color: rgba(232, 123, 47, 1);
 }
 
 .send-button{
@@ -365,7 +365,7 @@ nav a:hover{
 }
 
 .send-button .fa-regular{
-    color: orange;
+    color: rgba(232, 123, 47, 1);
     font-size: 16px;
 }
 

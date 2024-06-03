@@ -26,7 +26,8 @@ Route::get('/form-pengajuan-hukum', [FormController::class, 'index']);
 Route::prefix('/lbh')->group(function(){
     Route::get('/login', [UserController::class, 'index']);
     Route::get('/pengajuan-bantuan-hukum/{id?}', [FormController::class, 'show']);
-    Route::get('/perkara-berlangsung/{id?}', [CaseController::class, 'show']);
+    Route::get('/perkara-berlangsung', [CaseController::class, 'showLBH']); //diandra
+    // Route::get('/perkara-berlangsung/{id?}', [CaseController::class, 'show']); //diandra
 });
 
 //ADMIN

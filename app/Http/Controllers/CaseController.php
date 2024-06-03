@@ -12,7 +12,11 @@ class CaseController extends Controller
      */
     public function index()
     {
-        return view('');
+        return view('pengajuan_bantuan_hukum');
+    }
+
+    public function showLBH(){
+        return view('features.pengajuan_bantuan_hukum.pengajuan_bantuan_hukum');
     }
 
     /**

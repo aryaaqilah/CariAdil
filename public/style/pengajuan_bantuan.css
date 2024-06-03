@@ -1,6 +1,6 @@
 @font-face {
     font-family: iosFont;
-    src: url("public/public/font/sf-pro-display-cufonfonts/SFPRODISPLAYMEDIUM.OTF");
+    src: url("../font/sf-pro-display-cufonfonts/SFPRODISPLAYMEDIUM.OTF");
 }
 
 @media screen and (max-width : 769px){
@@ -9,7 +9,7 @@
 
 body{
     margin: 0;
-    padding: 0vh;
+    padding: 0;
     font-family: iosFont;
     background-size: cover;
     background-position: center;
@@ -29,8 +29,8 @@ nav{
     z-index: 1000;
 }
 
-nav .logo{
-    font-size: 7.rem;
+.logo{
+    font-size: 10rem;
     width: 50%;
     position: relative;
     top: 7px;
@@ -49,30 +49,141 @@ nav a:hover{
     color: black;
 }
 
-.box-profile{
-    border: 3px solid white;
-    color: white;
-    display: flex;
-    height: 6vh;
-    width: 15vw;
-    border-radius: 12px;
-    justify-content: space-around;
-    align-content: center;
-}
-
-.box-profile .bi{
-    font-size: 20px;
-}
-
-.card{
-    border: none;
+/* CONTAINER */
+h1{
+    text-align: center;
+    font-weight: bold;
 }
 
 .row{
-    background-color: red;
+    align-items: center;
+}
+
+#buttonback{
+    border: 2px solid rgba(232, 123, 47, 1);
+    border-radius: 12px;
+    color: black;
+    background-color: white;
+}
+
+#button1{
+    border-radius: 12px;
+    background-color: rgba(232, 123, 47, 1);
+    color: white;
+}
+
+#button2{
+    border-radius: 12px;
+    border: 2px solid rgba(232, 123, 47, 1);
+    color: black;
+}
+
+#button2 :hover{
+    border-radius: 12px;
+    border: 2px solid rgba(232, 123, 47, 1);
+    color: white;
+    background-color: rgba(232, 123, 47, 1);;
+}
+
+#buttonsearch{
+    border-radius: 24px;
+    background-color:rgba(232, 123, 47, 1);
+    color: white;
+}
+
+.card{
+    width: 30vw;
+    /* background-color: aqua; */
+    border-radius: 12px;
+    overflow: hidden;
 }
 
 .card-title{
-    font-size: 18px;
-    font-weight: 900;
+    font-weight: bold;
+}
+
+.row-cols-2{
+    width: 30vw;
+}
+
+.form-control{
+    border-radius: 20px;
+    border: 1px solid rgba(232, 123, 47, 1);
+    width: 28vw;
+}
+
+/* BOTTOM NAVBAR */
+.bottom-nav{
+    background-color: rgba(81, 76, 67, 1);
+    height: 70vh;
+    display: flex;
+    justify-content: center;
+}
+
+.info-cariadil{
+    margin-top: 10vh;
+    margin-left: 18vw;
+    margin-right: 10vw;
+    color: white;
+}
+
+.kontak-cariadil{
+    /* background-color: aqua; */
+    height: 40vh;
+    margin-top: 10vh;
+    margin-right: 18vw;
+    color: white;
+}
+
+.social-media-box{
+    height: 15vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.social-media{
+    justify-content: space-between;
+    display: flex;
+    width: 10vw;
+}
+
+.fa-brands{
+    color: rgba(232, 123, 47, 1);
+    font-size: 20px;
+}
+
+.input-container{
+    border: 3px solid rgba(232, 123, 47, 1)e;
+    height: 8vh;
+    align-content: center;
+    border-radius: 12px;
+}
+
+.custom-textfield{
+    background-color: transparent;
+    padding: 12px;
+    border: none;
+    font-size: 14px;
+}
+
+.custom-textfield::placeholder{
+    color: rgba(232, 123, 47, 1);
+}
+
+.send-button{
+    background-color: transparent;
+    border: none;
+}
+
+.send-button .fa-regular{
+    color: rgba(232, 123, 47, 1);
+    font-size: 16px;
+}
+
+.copyright{
+    justify-content: end;
+    font-weight: bold;
+    font-size: 16px;
+    color: gray;
 }
