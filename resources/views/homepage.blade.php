@@ -66,13 +66,13 @@
             <div class="detail-box-informasi">
                 <i class="fa-solid fa-envelope"></i>
                 <h3 class="informasi">Email</h3>
-                <h5 class="deskripsi-informasi">(+62)21 - 3929840</h5>
+                <h5 class="deskripsi-informasi">CariAdil@gmail.com</h5>
             </div>
 
             <div class="detail-box-informasi">
                 <i class="fa-solid fa-location-dot"></i>
                 <h3 class="informasi">Lokasi</h3>
-                <h5 class="deskripsi-informasi">(+62)21 - 3929840</h5>
+                <h5 class="deskripsi-informasi">Rumah Talenta BCA</h5>
             </div>
         </div>
         <p class="aturan-syarat">Aturan dan ketentuan S&K berlaku*</p>

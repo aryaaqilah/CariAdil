@@ -56,10 +56,10 @@ nav a:hover{
 
 .jumbotron1{
     width: 100%;
-    height: 130vh;
+    height: 100vh;
     background-image: url(../assets/images/jumbotron1.png);
     background-size: cover;
-    background-position: center;
+    background-position: top;
     position: relative;
     align-content: center;
 }
@@ -78,7 +78,7 @@ nav a:hover{
     font-size: 120%;
     margin-left: 18vw;
     margin-right: 18vw;
-    padding-bottom: 20vh;
+    padding-bottom: 15vh;
     border-bottom: 2px solid white;
 }
 
@@ -122,7 +122,7 @@ nav a:hover{
 
 .jumbotron2{
     width: 100%;
-    height: 130vh;
+    height: 80vh;
     background-color: rgba(239, 239, 239, 1);
     align-content: center;
 }
@@ -176,13 +176,15 @@ nav a:hover{
 
 .jumbotron3{
     width: 100%;
-    height: 130vh;
+    height: 100vh;
     background-color: white;
     align-content: center;
 }
 .jumbo3{
     margin-left: 20%;
     margin-right: 20%;
+    display: flex;
+    flex-direction: column;
     justify-content: center;
 }
 
@@ -198,11 +200,12 @@ nav a:hover{
 .judul-kasus{
     display: flex;
     justify-content: space-between;
-    align-items: end;
+    align-items: center;
+    height: 8vh;
 }
 
 .img-detail-box-kasus-hukum{
-    height: 200px;
+    height: 180px;
     background-color: rgba(232, 123, 47, 1);
     border-radius: 12px;
 }
@@ -219,6 +222,7 @@ nav a:hover{
     padding: 15px 28px;
     text-align: center;
     display: inline-block;
+    justify-content: center;
 }
 
 .title1{
@@ -232,6 +236,7 @@ nav a:hover{
 
 .desc-kasus{
     text-align: justify;
+    height: 8vh;
 }
 
 .status{
