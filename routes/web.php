@@ -10,6 +10,7 @@ use App\Http\Controllers\FormController;
 use App\Http\Controllers\ProductController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\HomepageController;
+use App\Http\Controllers\StoreController;
 
 Route::get('/', [HomepageController::class, 'index']);
 
@@ -45,3 +46,5 @@ Route::prefix('/admin')->group(function(){
 Route::get("/loading", function() {
     return view('core.loading');
 });
+
+Route::get('/store', [StoreController::class, 'index']);
