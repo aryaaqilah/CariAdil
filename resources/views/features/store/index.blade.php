@@ -1,3 +1,5 @@
+<link rel="stylesheet" href="{{ asset('style/store.css') }}">
+
 <x-layout>
     <div class="store container">
         <div class="header">

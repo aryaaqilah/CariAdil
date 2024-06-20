@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\PerkaraController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers;
 
@@ -40,6 +41,10 @@ Route::prefix('/admin')->group(function(){
     Route::get('/produk', [ProductController::class, 'index']);
     Route::get('/kasus-hukum', [FormController::class, 'index']);
     Route::get('/pengajuan', [FormController::class, 'index']);
+});
+
+Route::prefix('/perkara')->group(function   () {
+    Route::get('/berlangsung', [PerkaraController::class, 'indexPerkaraBerlangsung']);
 });
 
 
