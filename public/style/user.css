@@ -1,0 +1,20 @@
+.pembatas{
+    height: 100px;
+}
+
+.card {
+    width: 18rem;
+    height: 200px;
+  }
+  
+  .card-body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .card img {
+    max-width: 100%;
+    max-height: 160px;
+    display: none;
+  }

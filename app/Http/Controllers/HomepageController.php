@@ -14,7 +14,7 @@ class HomepageController extends Controller
     {
         $kasusHukum = KasusHukum::orderBy('tanggal', 'DESC')->take(2)->get();
 
-        return view('homepage', ['list_kasus_hukum' => $kasusHukum]);
+        return view('user.homepage', ['list_kasus_hukum' => $kasusHukum]);
     }
 
     /**

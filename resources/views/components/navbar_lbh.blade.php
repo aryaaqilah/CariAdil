@@ -8,19 +8,10 @@
         <div class="navbar-navigation">
             <ul>
                 <li class="navbar-item">
-                    <a href="/">Home</a>
+                    <a href="/">Pengajuan</a>
                 </li>
                 <li class="navbar-item">
-                    <a href="/">Berita</a>
-                </li>
-                <li class="navbar-item">
-                    <a href="/store">Store</a>
-                </li>
-                <li class="navbar-item">
-                    <a href="/form-pengajuan-hukum">Laporan</a>
-                </li>
-                <li class="navbar-item">
-                    <a href="/">Tentang</a>
+                    <a href="/">Berlangsung</a>
                 </li>
             </ul>
         </div>
