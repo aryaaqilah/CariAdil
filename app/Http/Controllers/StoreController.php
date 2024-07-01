@@ -11,7 +11,7 @@ class StoreController extends Controller
      */
     public function index()
     {
-        return view('features.store.index');
+        return view('user.store');
     }
 
     /**

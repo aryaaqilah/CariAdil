@@ -13,16 +13,20 @@ use App\Http\Controllers\UserController;
 use App\Http\Controllers\HomepageController;
 use App\Http\Controllers\StoreController;
 
-Route::get('/', [HomepageController::class, 'index']);
+Route::get("/loading", function() {
+    return view('core.loading');
+});
 
 //USER
-Route::get('/store/{id_barang}', [ProductController::class, 'index']);
+Route::get('/', [HomepageController::class, 'index']);
 Route::prefix('/kasus-hukum')->group(function(){
     Route::get('/', [CaseController::class, 'index']);
     Route::get('/{id_kasus}', [CaseController::class, 'show']);
     Route::get('/{id_kasus}/donasi', [DonationController::class, 'index']);
 });
 Route::get('/form-pengajuan-hukum', [FormController::class, 'index']);
+Route::get('/store', [StoreController::class, 'index']);
+Route::get('/store/{id_barang}', [ProductController::class, 'index']);
 
 //LBH
 Route::prefix('/lbh')->group(function(){
@@ -48,8 +52,5 @@ Route::prefix('/perkara')->group(function   () {
 });
 
 
-Route::get("/loading", function() {
-    return view('core.loading');
-});
 
-Route::get('/store', [StoreController::class, 'index']);
+

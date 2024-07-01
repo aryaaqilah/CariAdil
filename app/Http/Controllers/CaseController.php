@@ -16,7 +16,7 @@ class CaseController extends Controller
     }
 
     public function showLBH(){
-        return view('features.pengajuan_bantuan_hukum.pengajuan_bantuan_hukum');
+        return view('features.perkara_berlangsung.perkara_berlangsung');
     }
 
     /**

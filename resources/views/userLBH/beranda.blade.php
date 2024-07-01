@@ -1,32 +1,6 @@
-<!DOCTYPE html>
-<html lang="en">
+<link rel="stylesheet" href="{{ asset('style/homepage.css') }}">
 
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="{{ asset('style/homepage.css') }}">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
-        integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A=="
-        crossorigin="anonymous" referrerpolicy="no-referrer" />
-    <title>HomePage</title>
-</head>
-
-<body>
-    <!-- Navigation Bar -->
-    <nav class="topnav">
-        <div>
-            <img src="assets/images/Logo CariAdil.png" class="logo" alt="Logo CariAdil">
-        </div>
-        <ul>
-            <li><a href="#">Home</a></li>
-            <li><a href="#">Berita</a></li>
-            <li><a href="#">Laporan</a></li>
-            <li><a href="#">Tentang</a></li>
-        </ul>
-    </nav>
-    <!-- End Navigation Bar -->
-
-    <!-- Quotes Part  -->
+<x-layout>
     <div class="jumbotron1">
         <div class="quotes-part">
             <h1 class="quotes">“Ayo berantas ketidakadilan hukum untuk orang-orang terbelakang dan tertindas dan
@@ -60,7 +34,7 @@
             <div class="detail-box-informasi">
                 <i class="fa-solid fa-phone"></i>
                 <h3 class="informasi">Nomor Telepon</h3>
-                <h5 class="deskripsi-informasi">(+62)21 - 3929840</h5>
+                <h5 class="deskripsi-informasi">(+62)21-3929840</h5>
             </div>
 
             <div class="detail-box-informasi">
@@ -125,55 +99,4 @@
             <button class="button-lapor">Laporkan Bukti</button>
         </div>
     </div>
-
-    <!-- Bottom Navigation -->
-    <div class="bottom-nav">
-        <div class="info-cariadil">
-            <h2>CariAdil</h2>
-            <p>Ayo bela keadilan dan kesetaraan negara kita bersama CariAdil.</p>
-            <!-- Social Media -->
-            <div class="social-media-box">
-                <div class="social-media">
-                    <i class="fa-brands fa-twitter"></i>
-                    <span>@CariAdil.Id</span>
-                </div>
-
-                <div class="social-media">
-                    <i class="fa-brands fa-instagram"></i>
-                    <span>@cari.adil.id</span>
-                </div>
-
-                <div class="social-media">
-                    <i class="fa-brands fa-facebook"></i>
-                    <span>CariAdil</span>
-                </div>
-            </div>
-            <div>
-                <div>
-
-                </div>
-            </div>
-        </div>
-        <div class="kontak-cariadil">
-            <h3>Berlangganan dengan berita dari CariAdil.</h3>
-
-            <div class="input-container">
-                <input type="text" class="custom-textfield" placeholder="Enter Your Email...">
-                <button class="send-button">
-                    <i class="fa-regular fa-paper-plane"></i>
-                </button>
-            </div>
-
-            <div class="copyright">
-                <p>Copyright @2024 by CariAdil</p>
-            </div>
-
-        </div>
-    </div>
-    <script src="script/homepage.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
-        integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous">
-    </script>
-</body>
-
-</html>
+</x-layout>
