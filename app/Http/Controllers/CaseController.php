@@ -66,6 +66,6 @@ class CaseController extends Controller
      */
     public function destroy(string $id)
     {
-        Post::destroy($id);
+
     }
 }
