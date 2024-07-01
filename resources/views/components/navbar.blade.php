@@ -17,7 +17,7 @@
                     <a href="/store">Store</a>
                 </li>
                 <li class="navbar-item">
-                    <a href="/">Laporan</a>
+                    <a href="/form-pengajuan-hukum">Laporan</a>
                 </li>
                 <li class="navbar-item">
                     <a href="/">Tentang</a>

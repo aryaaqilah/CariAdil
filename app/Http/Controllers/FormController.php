@@ -6,17 +6,12 @@ use Illuminate\Http\Request;
 
 class FormController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     */
+    
     public function index()
     {
-        return view('features.pengajuan_bantuan_hukum.pengajuan_bantuan_hukum');
+        return view('user.form');
     }
 
-    /**
-     * Show the form for creating a new resource.
-     */
     public function create()
     {
         //

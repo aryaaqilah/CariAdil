@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Models\KasusHukum;
 
 class UserController extends Controller
 {
@@ -11,7 +12,12 @@ class UserController extends Controller
      */
     public function index()
     {
-        //
+        $kasusHukum = KasusHukum::orderBy('tanggal', 'DESC')->take(2)->get();
+        return view('userLBH.beranda', ['list_kasus_hukum' => $kasusHukum]);
+    }
+
+    public function login(){
+
     }
 
     /**

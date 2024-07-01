@@ -5,51 +5,8 @@
         <div class="quotes-part">
             <h1 class="quotes">“Ayo berantas ketidakadilan hukum untuk orang-orang terbelakang dan tertindas dan
                 termakan.”</h1>
-            <h4 class="from_quotes">-Ojan, S.PPTI</h4>
         </div>
-
-        <div class="divider"></div>
-
-        <div class="kasus">
-            <h2 class="headline-kasus">Kasus Terbaru</h2>
-            <div class="column-kasus">
-                @foreach ($list_kasus_hukum as $kasusHukum)
-                    <div class="detail-kasus">
-                        <h3 class="judul-kasus">{{ $kasusHukum->title }}</h3>
-                        <p class="deskripsi-kasus">{{ $kasusHukum->description }}</p>
-                        <a href="/kasus-hukum/{{ $kasusHukum->id_kasus }}" class="berita-selengkapnya">Berita
-                            Selengkapnya ></a>
-                    </div>
-                @endforeach
-            </div>
-        </div>
-    </div>
-
-    <!-- Hubungi CariAdil -->
-    <div class="jumbotron2">
-        <h3 class="butuh-bantuan">Butuh Bantuan?</h3>
-        <h1 class="hubungi-cariadil">Hubungi CariAdil</h1>
-        <!-- Box Informasi -->
-        <div class="box-informasi">
-            <div class="detail-box-informasi">
-                <i class="fa-solid fa-phone"></i>
-                <h3 class="informasi">Nomor Telepon</h3>
-                <h5 class="deskripsi-informasi">(+62)21-3929840</h5>
-            </div>
-
-            <div class="detail-box-informasi">
-                <i class="fa-solid fa-envelope"></i>
-                <h3 class="informasi">Email</h3>
-                <h5 class="deskripsi-informasi">CariAdil@gmail.com</h5>
-            </div>
-
-            <div class="detail-box-informasi">
-                <i class="fa-solid fa-location-dot"></i>
-                <h3 class="informasi">Lokasi</h3>
-                <h5 class="deskripsi-informasi">Rumah Talenta BCA</h5>
-            </div>
-        </div>
-        <p class="aturan-syarat">Aturan dan ketentuan S&K berlaku*</p>
+        <div class="divider"></div>        
     </div>
 
     <!-- Kasus Hukum -->
@@ -85,18 +42,39 @@
         </div>
     </div>
 
-    <!-- Terlibat Kasus Hukum? -->
-    <div class="jumbotron4">
-        <h2 class="quotes">Terlibat dengan Kasus Hukum yang Tidak Adil?</h2>
-        <div class="box-desc-terlibat">
-            <p class="desc-terlibat">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor
-                incididunt ut labore et dolore magna aliqua. Duis aute irure dolor in reprehenderit in voluptate velit
-                esse cillum dolore eu fugiat nulla pariatur...</p>
-        </div>
+    <!-- Jadwal Persidangan -->
+    <div class="jumbotron2">
+        <h1 class="hubungi-cariadil">Jadwal</h1>
+        <h3 class="butuh-bantuan">Persidangan Selanjutnya</h3>
+        <!-- Box Informasi -->
+        <div class="box-informasi">
+            <div class="detail-box-informasi">
+                <i class="fa-solid fa-calendar"></i>
+                <h3 class="informasi">21 Februari 2024</h3>
+                <h5 class="deskripsi-informasi">10:00 - 20:00</h5>
+                <h5 class="deskripsi-informasi">PN Jakarta Pusat</h5>
+            </div>
 
-        <div class="button-lapor-field">
-            <button class="button-formulir">Formulir Pengajuan</button>
-            <button class="button-lapor">Laporkan Bukti</button>
+            <div class="detail-box-informasi">
+                <i class="fa-solid fa-calendar"></i>
+                <h3 class="informasi">21 Februari 2024</h3>
+                <h5 class="deskripsi-informasi">10:00 - 20:00</h5>
+                <h5 class="deskripsi-informasi">PN Jakarta Pusat</h5>
+            </div>
+
+            <div class="detail-box-informasi">
+                <i class="fa-solid fa-calendar"></i>
+                <h3 class="informasi">21 Februari 2024</h3>
+                <h5 class="deskripsi-informasi">10:00 - 20:00</h5>
+                <h5 class="deskripsi-informasi">PN Jakarta Pusat</h5>
+            </div>
         </div>
+    </div>
+
+    <!-- Terlibat Kasus Hukum? -->
+    <div class="jumbotron4_lbh">
+        <h2 class="quotes d-flex justify-content-center">Terimakasih sudah membantu <br>
+            menegakkan hukum, <br>
+            LBH OjanLomba!</h2>
     </div>
 </x-layout>

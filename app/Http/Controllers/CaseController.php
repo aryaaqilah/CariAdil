@@ -12,7 +12,7 @@ class CaseController extends Controller
      */
     public function index()
     {
-        return view('pengajuan_bantuan_hukum');
+        return view('user.berita');
     }
 
     public function showLBH(){

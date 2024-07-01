@@ -214,6 +214,18 @@
     color: white;
 }
 
+.jumbotron4_lbh{
+    width: 100%;
+    height: 130vh;
+    background-image: url(../assets/images/jumbotron4_lbh.png);
+    background-size: cover;
+    background-position: center;
+    position: relative;
+    z-index: -1;
+    align-content: center;
+    color: white;
+}
+
 .box-desc-terlibat{
     width: 80vw;
 }
@@ -262,4 +274,8 @@
 
 .deskripsi-informasi{
     width: 100%;
+}
+
+.navbar-item a {
+    color: white !important;
 }
