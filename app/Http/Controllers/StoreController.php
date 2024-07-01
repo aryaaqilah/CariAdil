@@ -11,7 +11,9 @@ class StoreController extends Controller
      */
     public function index()
     {
-        return view('features.store.index');
+        $auth = false;
+
+        return view('features.store.index', compact('auth'));
     }
 
     /**

@@ -1,4 +1,6 @@
-<x-layout>
+<link rel="stylesheet" href="{{ asset('style/store.css') }}">
+
+<x-layout :auth="$auth">
     <div class="store container">
         <div class="header">
             <div class="header-blank">

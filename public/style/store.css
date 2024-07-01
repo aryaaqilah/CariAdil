@@ -14,70 +14,6 @@
     box-sizing: border-box;
 }
 
-nav {
-    position: fixed;
-    z-index: 2;
-    width: 100%;
-    /* background: rgba(var(--primary-color), 0.5); */
-}
-
-.navbar {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    height: 80px;
-}
-
-.navbar-section {
-    transition: all 0.3s;
-}
-
-.navbar-section.scrolled {
-    background: rgba(var(--primary-color), 1);
-
-    .navbar-item a {
-        color: white;
-    }
-}
-
-.navbar-logo {
-    padding: 8px;
-    /* background: rgba(var(--primary-color), 1); */
-    border-radius: 8px;
-}
-
-.navbar-logo img {
-    width: 10rem;
-}
-
-.navbar-navigation {
-    display: flex;
-    align-items: center;
-    /* height: vh; */
-}
-
-.navbar-navigation ul {
-    display: flex;
-    align-items: center;
-    list-style-type: none;
-    margin: 0;
-
-    li {
-        display: flex;
-        justify-content: center;
-        width: 100px;
-        /* background: rgba(0, 0, 255, 0.3); */
-    }
-}
-
-.navbar-item a {
-    text-decoration: none;
-    font-weight: bold;
-    color: rgba(var(--primary-color), 1);
-    font-size: 1rem;
-    transition: all 0.3s;
-}
-
 .store.container {
     padding-top: 150px;
 }
@@ -114,10 +50,15 @@ nav {
     width: 40px;
     height: 40px;
     border-radius: 6px;
+    transition: all 0.4s;
 
     i {
         color: rgba(var(--primary-color), 1);
     }
+}
+
+.header-search:hover {
+    width: 100px;
 }
 
 .product-section {
@@ -172,133 +113,4 @@ nav {
 .product-card:hover {
     scale: 1.02;
     box-shadow: 0 0 20px 5px rgba(0, 0, 0, 0.1);
-}
-
-.footer-section {
-    padding: 8vh 0;
-    background: rgba(var(--dark-color), 1);
-    margin-top: 3vh;
-}
-
-.footer {
-    display: flex;
-    justify-content: space-between;
-}
-
-.footer-left {
-    display: flex;
-    justify-content: start;
-    flex-direction: column;
-    gap: 4vh;
-}
-
-.footer-about {
-    display: flex;
-
-    span {
-        font-size: 1.15rem;
-        color: rgba(255, 255, 255, 0.5);
-
-        strong {
-            color: rgba(var(--primary-color), 1);
-        }
-    }
-}
-
-.footer-social {
-    display: flex;
-    flex-direction: column;
-    gap: 1vh;
-
-    .social-item {
-        display: flex;
-        align-items: center;
-        gap: 1vw;
-
-        i {
-            color: rgba(var(--primary-color), 1);
-            cursor: pointer;
-        }
-
-        span {
-            font-size: 1.15rem;
-            color: rgba(255, 255, 255, 0.5);
-            cursor: pointer;
-            transition: all 0.2s;
-        }
-    }
-}
-.social-item span:hover {
-    color: rgba(var(--primary-color), 1);
-}
-
-.footer-right {
-    display: flex;
-    flex-direction: column;
-    align-items: end;
-    justify-content: space-between;
-}
-
-.footer-newsletter {
-    display: flex;
-    flex-direction: column;
-    align-items: end;
-    gap: 3vh;
-
-    span {
-        font-size: 1.15rem;
-        text-align: right;
-        color: rgba(255, 255, 255, 0.5);
-
-        strong {
-            color: rgba(var(--primary-color), 1);
-        }
-    }
-
-    .input-newsletter {
-        display: flex;
-        border: 2px solid rgba(var(--primary-color), 1);
-        border-radius: 8px;
-
-        input {
-            padding: 1.5vh 1vw;
-            padding-right: 0;
-            border-radius: 8px;
-            width: 250px;
-            height: 100%;
-            background: rgba(var(--dark-color), 1);
-            border: none;
-            outline: none;
-            color: rgba(var(--primary-color), 1);
-        }
-
-        input::placeholder {
-            color: rgba(var(--primary-color), 0.5);
-        }
-
-        input:focus {
-            border: none;
-            outline: none;
-        }
-
-        button {
-            background: none;
-            border: none;
-            color: rgba(var(--primary-color), 1);
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            padding: 1rem;
-        }
-    }
-}
-
-.footer-copyright {
-    span {
-        color: rgba(255, 255, 255, 0.5);
-
-        strong {
-            color: rgba(var(--primary-color), 1);
-        }
-    }
 }
