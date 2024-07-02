@@ -1,12 +1,12 @@
 <link rel="stylesheet" href="{{ asset('style/homepage.css') }}">
 
-<x-layout>
+<x-layout :auth="$auth">
     <div class="jumbotron1">
         <div class="quotes-part">
             <h1 class="quotes">“Ayo berantas ketidakadilan hukum untuk orang-orang terbelakang dan tertindas dan
                 termakan.”</h1>
         </div>
-        <div class="divider"></div>        
+        <div class="divider"></div>
     </div>
 
     <!-- Kasus Hukum -->

@@ -13,8 +13,9 @@ class HomepageController extends Controller
     public function index()
     {
         $kasusHukum = KasusHukum::orderBy('tanggal', 'DESC')->take(2)->get();
+        $auth = false;
 
-        return view('user.homepage', ['list_kasus_hukum' => $kasusHukum]);
+        return view('user.homepage', ['list_kasus_hukum' => $kasusHukum, 'auth' => $auth]);
     }
 
     /**

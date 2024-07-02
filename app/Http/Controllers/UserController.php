@@ -13,7 +13,9 @@ class UserController extends Controller
     public function index()
     {
         $kasusHukum = KasusHukum::orderBy('tanggal', 'DESC')->take(2)->get();
-        return view('userLBH.beranda', ['list_kasus_hukum' => $kasusHukum]);
+        $auth = true;
+
+        return view('userLBH.beranda', ['list_kasus_hukum' => $kasusHukum, 'auth' => $auth]);
     }
 
     public function login(){
