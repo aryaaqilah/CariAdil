@@ -13,7 +13,7 @@ class StoreController extends Controller
     {
         $auth = false;
 
-        return view('features.store.index', compact('auth'));
+        return view('user.store', compact('auth'));
     }
 
     /**

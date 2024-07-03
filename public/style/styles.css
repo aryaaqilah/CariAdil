@@ -112,7 +112,7 @@ nav {
 .footer-section {
     padding: 8vh 0;
     background: rgba(var(--dark-color), 1);
-    margin-top: 3vh;
+    /* margin-top: 3vh; */
 }
 
 .footer {

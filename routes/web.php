@@ -24,13 +24,13 @@ Route::prefix('/berita')->group(function(){
     Route::get('/kasus-hukum/{id}', [CaseController::class, 'show']);
     Route::get('/{id}/donasi', [DonationController::class, 'index']);
 });
-Route::get('/form-pengajuan-hukum', [FormController::class, 'index']);
-Route::get('/store', [StoreController::class, 'index']);
+Route::get('/form-pengajuan-hukum', [FormController::class, 'index']); //ok
+Route::get('/store', [StoreController::class, 'index']); //ok
 Route::get('/store/{id}', [ProductController::class, 'index']);
 
 //LBH
 Route::prefix('/lbh')->group(function(){
-    Route::get('/', [UserController::class, 'index']);
+    Route::get('/', [UserController::class, 'index']); //ok
     Route::get('/login', [UserController::class, 'index']);
     Route::get('/pengajuan-bantuan-hukum/{id}', [FormController::class, 'show']);
     Route::get('/perkara-berlangsung', [CaseController::class, 'showLBH']); //diandra

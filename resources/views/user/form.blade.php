@@ -7,7 +7,7 @@
         integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
         crossorigin="anonymous"></script>
 
-<x-layout>
+<x-layout :auth="$auth">
     <div class="container">
         <div class="pembatas"></div>
         <h1 style="text-align: center;">Formulir Permohonan Pengajuan Hukum</h1>

@@ -9,7 +9,8 @@ class FormController extends Controller
     
     public function index()
     {
-        return view('user.form');
+        $auth = false;
+        return view('user.form', ['auth' => $auth]);
     }
 
     public function create()
