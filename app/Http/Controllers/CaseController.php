@@ -12,11 +12,17 @@ class CaseController extends Controller
      */
     public function index()
     {
-        return view('user.berita');
+        $auth = false;
+        return view('user.berita', ['auth' => $auth]);
     }
 
+    public function detail_berita(){
+        $auth = false;
+        return view('user.detail_berita', ['auth' => $auth]);
+    }
     public function showLBH(){
-        return view('features.perkara_berlangsung.perkara_berlangsung');
+        $auth = true;
+        return view('userLBH.perkara_berlangsung', ['auth' => $auth]);
     }
 
     /**

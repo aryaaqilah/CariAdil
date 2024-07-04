@@ -72,7 +72,7 @@
     </div>
 
     <!-- Terlibat Kasus Hukum? -->
-    <div class="jumbotron4_lbh">
+    <div class="jumbotron4">
         <h2 class="quotes d-flex justify-content-center">Terimakasih sudah membantu <br>
             menegakkan hukum, <br>
             LBH OjanLomba!</h2>

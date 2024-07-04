@@ -17,12 +17,16 @@ Route::get("/loading", function() {
     return view('core.loading');
 });
 
+Route::get("/hehe", [CaseController::class, 'detail_berita']);
+Route::get("/donana", [DonationController::class, 'index']);
+
+
 //USER
 Route::get('/', [HomepageController::class, 'index']);
 Route::prefix('/berita')->group(function(){
     Route::get('/', [CaseController::class, 'index']);
     Route::get('/kasus-hukum/{id}', [CaseController::class, 'show']);
-    Route::get('/{id}/donasi', [DonationController::class, 'index']);
+    Route::get('/donasi/{id}', [DonationController::class, 'index']);
 });
 Route::get('/form-pengajuan-hukum', [FormController::class, 'index']); //ok
 Route::get('/store', [StoreController::class, 'index']); //ok

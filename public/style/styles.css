@@ -239,7 +239,6 @@ nav {
 }
 
 
-
 .progress-tracker {
     display: flex;
     margin: 60px auto;
@@ -319,10 +318,10 @@ nav {
     color: #333;
   }
   .progress-step.is-active .progress-marker::before {
-    background-color: #2196F3;
+    background-color: rgba(232, 123, 47, 1);;
   }
   .progress-step.is-complete .progress-marker::before, .progress-step.is-progress .progress-marker::before {
-    background-color: #1976D2;
+    background-color: rgba(232, 123, 47, 1);;
   }
   .progress-step.is-complete .progress-marker::after, .progress-step.is-progress .progress-marker::after {
     background-color: #868686;
@@ -647,6 +646,23 @@ nav {
     left: -50%;
   }
 
+  .progress-bar{
+    background-color: rgba(232, 123, 47, 1);
+  }
+
+  #buttonDonasi{
+    background-color: rgba(232, 123, 47, 1);
+    color: white;
+  }
+
+  .pembatas{
+    height: 50px;
+  }
+
+  .pembatas20{
+    height: 20px;
+  }
+
 
 
   /* BOTTOM NAVBAR */
@@ -724,3 +740,4 @@ nav {
     font-size: 16px;
     color: gray;
 }
+
