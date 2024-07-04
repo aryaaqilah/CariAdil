@@ -47,8 +47,9 @@ class CaseController extends Controller
     public function show(string $id)
     {
         $kasusHukum = KasusHukum::find($id);
+        $auth = true;
         // dd($kasusHukum);
-        return view('user.detail_berita', ['kasusHukum' => $kasusHukum]);
+        return view('user.detail_berita', ['kasusHukum' => $kasusHukum, 'auth' => $auth]);
     }
 
     /**
