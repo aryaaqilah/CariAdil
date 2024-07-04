@@ -11,7 +11,8 @@ class DonationController extends Controller
      */
     public function index()
     {
-        //
+        $auth = false;
+        return view('user.donasi', ['auth'=> $auth]);
     }
 
     /**

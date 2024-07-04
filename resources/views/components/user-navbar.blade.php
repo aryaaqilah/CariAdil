@@ -11,7 +11,7 @@
                     <a href="/">Home</a>
                 </li>
                 <li class="navbar-item">
-                    <a href="/">Berita</a>
+                    <a href="/berita">Berita</a>
                 </li>
                 <li class="navbar-item">
                     <a href="/store">Store</a>

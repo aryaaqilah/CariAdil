@@ -1,3 +1,92 @@
 .pembatas{
     height: 200px;
 }
+
+@font-face {
+    font-family: iosFont;
+    src: url("../font/sf-pro-display-cufonfonts/SFPRODISPLAYMEDIUM.OTF");
+}
+
+@media screen and (max-width : 769px){
+    
+}
+
+/* CONTAINER */
+.container{
+    font-family: iosFont;
+}
+
+.judul{
+    margin-top: 50px;
+}
+h1{
+    text-align: center;
+    font-weight: bold;
+}
+
+.row{
+    align-items: center;
+}
+
+.btn{
+    width: 10vw;
+}
+
+#buttonback{
+    border: 2px solid rgba(232, 123, 47, 1);
+    border-radius: 12px;
+    color: black;
+    background-color: white;
+    width: fit-content;
+}
+
+#button1{
+    border-radius: 12px;
+    background-color: rgba(232, 123, 47, 1);
+    color: white;
+}
+
+#button2{
+    border-radius: 12px;
+    border: 2px solid rgba(232, 123, 47, 1);
+    color: black;
+}
+
+#button2 :hover{
+    border-radius: 12px;
+    border: 2px solid rgba(232, 123, 47, 1);
+    color: white;
+    background-color: rgba(232, 123, 47, 1);;
+}
+
+#buttonsearch{
+    border-radius: 24px;
+    background-color:rgba(232, 123, 47, 1);
+    color: white;
+}
+
+#card{
+    width: 30vw;
+    height: 60vh;
+    border-radius: 20px;
+    overflow: hidden;
+}
+
+.card-title{
+    font-weight: bold;
+}
+
+.row-cols-2{
+    width: 30vw;
+}
+
+.search-input{
+    border-radius: 20px;
+    border: 1px solid rgba(232, 123, 47, 1);
+    width: 28vw;
+}
+
+#search_here{
+    border-radius: 20px;
+    border: 1px solid rgba(232, 123, 47, 1);
+}
