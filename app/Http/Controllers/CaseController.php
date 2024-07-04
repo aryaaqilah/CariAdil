@@ -12,8 +12,12 @@ class CaseController extends Controller
      */
     public function index()
     {
+        $kasusHukum = KasusHukum::orderBy('tanggal', 'DESC')->get();
         $auth = false;
-        return view('user.berita', ['auth' => $auth]);
+
+        // dd($kasusHukum);
+
+        return view('user.berita', ['list_kasus_hukum' => $kasusHukum, 'auth' => $auth]);
     }
 
     public function detail_berita(){

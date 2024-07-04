@@ -4,7 +4,7 @@
 }
 
 @media screen and (max-width : 769px){
-    
+
 }
 
 /* CONTAINER */
@@ -45,7 +45,7 @@ h1{
 #button2{
     border-radius: 12px;
     border: 2px solid rgba(232, 123, 47, 1);
-    color: black;
+    color: rgba(232, 123, 47, 1);
 }
 
 #button2 :hover{
@@ -63,7 +63,6 @@ h1{
 
 #card{
     width: 30vw;
-    height: 75vh;
     border-radius: 20px;
     overflow: hidden;
 }
@@ -89,4 +88,4 @@ h1{
 
 .pembatas{
     height: 80px;
-} 
+}

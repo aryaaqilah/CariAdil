@@ -114,3 +114,8 @@
     scale: 1.02;
     box-shadow: 0 0 20px 5px rgba(0, 0, 0, 0.1);
 }
+
+/* Custom Bootstrap Style */
+.col-3 {
+    width: 24% !important;
+}

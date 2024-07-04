@@ -57,7 +57,7 @@
     <div class="jumbotron3">
         <div class="jumbo3">
             <h2 class="headline-kasus">Kasus Hukum</h2>
-            <div class="box-kasus-hukum">
+            <div class="box-kasus-hukum d-flex justify-content-center gap-5">
                 @foreach ($list_kasus_hukum as $kasusHukum)
                 <div class="detail-box-kasus-hukum">
                     <div class="img-detail-box-kasus-hukum">
