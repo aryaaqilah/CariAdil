@@ -18,7 +18,7 @@
                     <div class="detail-kasus">
                         <h3 class="judul-kasus">{{ $kasusHukum->title }}</h3>
                         <p class="deskripsi-kasus">{{ $kasusHukum->description }}</p>
-                        <a href="/kasus-hukum/{{ $kasusHukum->id_kasus }}" class="berita-selengkapnya">Berita
+                        <a href="/berita/kasus-hukum/{{ $kasusHukum->id_kasus }}" class="berita-selengkapnya">Berita
                             Selengkapnya ></a>
                     </div>
                 @endforeach
