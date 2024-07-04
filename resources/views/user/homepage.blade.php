@@ -12,12 +12,13 @@
 
         <div class="kasus">
             <h2 class="headline-kasus">Kasus Terbaru</h2>
+            <div class="pembatas20"></div>
             <div class="column-kasus">
                 @foreach ($list_kasus_hukum as $kasusHukum)
                     <div class="detail-kasus">
                         <h3 class="judul-kasus">{{ $kasusHukum->title }}</h3>
                         <p class="deskripsi-kasus">{{ $kasusHukum->description }}</p>
-                        <a href="/kasus-hukum/{{ $kasusHukum->id_kasus }}" class="berita-selengkapnya">Berita
+                        <a href="/berita/kasus-hukum/{{ $kasusHukum->id_kasus }}" class="berita-selengkapnya">Berita
                             Selengkapnya ></a>
                     </div>
                 @endforeach
@@ -59,7 +60,10 @@
             <div class="box-kasus-hukum">
                 <div class="detail-box-kasus-hukum">
                     <div class="img-detail-box-kasus-hukum">
-                        <div class="status">Disidang</div>
+                        <button type="button" class="btn"
+                            style="--bs-btn-padding-y: .25rem; --bs-btn-padding-x: 2rem; --bs-btn-font-size: .75rem;
+                            background-color: rgba(232, 123, 47, 1); border-radius: 12px; color: white;
+                            margin-left: 220px; margin-top: 10px">Disidang</button>
                     </div>
                     <div class="judul-kasus">
                         <h4 class="title-1">Title 1</h4>
@@ -71,7 +75,10 @@
 
                 <div class="detail-box-kasus-hukum">
                     <div class="img-detail-box-kasus-hukum">
-                        <div class="status">Disidang</div>
+                        <button type="button" class="btn"
+                            style="--bs-btn-padding-y: .25rem; --bs-btn-padding-x: 2rem; --bs-btn-font-size: .75rem;
+                            background-color: rgba(232, 123, 47, 1); border-radius: 12px; color: white;
+                            margin-left: 220px; margin-top: 10px">Disidang</button>
                     </div>
                     <div class="judul-kasus">
                         <h4 class="title-1">Title 1</h4>
@@ -81,7 +88,14 @@
                         incididunt ut labore et dolore magna aliqua...</p>
                 </div>
             </div>
-            <button class="view-more">View More</button>
+
+            <div class="row mt-5">
+                <div class="col d-flex justify-content-center">
+                    <a href="/berita" type="button" class="btn"
+                            style="--bs-btn-padding-y: .5rem; --bs-btn-padding-x: 2rem; --bs-btn-font-size: 1rem;
+                            background-color: rgba(232, 123, 47, 1); border-radius: 12px; color: white;">View More</a>
+                </div>
+            </div>
         </div>
     </div>
 
@@ -95,8 +109,8 @@
         </div>
 
         <div class="button-lapor-field">
-            <button class="button-formulir">Formulir Pengajuan</button>
-            <button class="button-lapor">Laporkan Bukti</button>
+            <a href="/form-pengajuan-hukum" type="button" class="btn" id="button_formulir">Formulir Pengajuan</a>
+            <a type="button" class="btn btn-outline" id="button_lapor">Laporkan Bukti</a>
         </div>
     </div>
 </x-layout>
