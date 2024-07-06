@@ -18,7 +18,17 @@ return new class extends Migration
             $table->text('description');
             $table->date('tanggal');
             $table->integer('target_donasi');
+            $table->bigInteger('id_bank')->unsigned();
+            $table->bigInteger('id_form')->unsigned();
+
+
+            $table->string('jenis_perkara');
+            $table->string('status_pengajuan');
+            
             $table->text('image_url');
+            
+            $table->foreign('id_form')->references('id_form')->on('form_pengajuan')->onDelete('cascade');
+            $table->foreign('id_bank')->references('id_bank')->on('bank')->onDelete('cascade');
             $table->timestamps();
         });
     }
