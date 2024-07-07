@@ -7,25 +7,25 @@
 
             <div class="row">
                 <div class="col-11">
-                    {{-- <h1 style="text-align: justify;">{{ $kasusHukum->title }}</h1> --}}
-                    <h1 style="text-align: justify;">hehe judul</h1>
+                    <h1 style="text-align: justify;">{{ $kasusHukum->title }}</h1>
+                    {{-- <h1 style="text-align: justify;">hehe judul</h1> --}}
                 </div>
                 <div class="col-1">
                     <a class="btn btn" id="buttonDonasi" style="color: white; width: 100%;" href="#" role="button">Share</i></a>
                 </div>
             </div>
-            
+
             <div class="d-flex">
-                {{-- <p style="color: orange;">{{ $kasusHukum->nama_lbh }}</p> --}}
-                <p style="color: rgba(232, 123, 47, 1); font-weight: bold">hehe lbh</p>
+                <p style="color: orange;">{{ $kasusHukum->nama_lbh }}</p>
+                {{-- <p style="color: rgba(232, 123, 47, 1); font-weight: bold">hehe lbh</p> --}}
                 &nbsp;
                 &nbsp;
                 <i style="color: rgba(232, 123, 47, 1);  font-size: 60px; padding-top: 10px; padding-bottom: 10px;"
                     class="bi bi-circle-fill"></i>
                 &nbsp;
                 &nbsp;
-                {{-- <p>{{ $kasusHukum->tanggal }}</p> --}}
-                <p>hehe</p>
+                <p>{{ $kasusHukum->tanggal }}</p>
+                {{-- <p>hehe</p> --}}
             </div>
 
             <div class="col-12 d-flex justify-content-center">
@@ -35,29 +35,31 @@
             </div>
 
             <div class="row mt-3">
-                {{-- <p style="text-align: justify;"> {{ $kasusHukum->description }}</p> --}}
-                <p style="text-align: justify;"> hehe</p>
+                <p style="text-align: justify;"> {{ $kasusHukum->description }}</p>
+                {{-- <p style="text-align: justify;"> hehe</p> --}}
             </div>
 
             <div class="row m-3">
                 <div class="col-6">
                     <h3 style="">Status Hukum</h3>
                     <ul class="progress-tracker progress-tracker--vertical">
-                        <li class="progress-step is-complete">
-                            <div class="progress-marker"></div>
-                            <div class="progress-text">
-                                <h4 class="progress-title">Step 1</h4>
-                                Summary text explaining this step to the user
-                            </div>
-                        </li>
-                        <li class="progress-step is-complete">
+                        @foreach ($progress as $prog)
+                            <li class="progress-step is-complete">
+                                <div class="progress-marker"></div>
+                                <div class="progress-text">
+                                    <h4 class="progress-title">{{ $prog->topik_progress }}</h4>
+                                    {{ $prog->detail }}
+                                </div>
+                            </li>
+                        @endforeach
+                        {{-- <li class="progress-step is-complete">
                             <div class="progress-marker"></div>
                             <div class="progress-text">
                                 <h4 class="progress-title">Step 2</h4>
                                 Summary text explaining this step to the user
                             </div>
                         </li>
-        
+
                         <li class="progress-step is-active" aria-current="step">
                             <div class="progress-marker"></div>
                             <div class="progress-text">
@@ -65,7 +67,7 @@
                                 Summary text explaining this step to the user
                             </div>
                         </li>
-        
+
                         <li class="progress-step">
                             <div class="progress-marker"></div>
                             <div class="progress-text">
@@ -73,38 +75,38 @@
                                 Summary text explaining this step to the user
                             </div>
                         </li>
-        
+
                         <li class="progress-step">
                             <div class="progress-marker"></div>
                             <div class="progress-text">
                                 <h4 class="progress-title">Step 5</h4>
                                 Summary text explaining this step to the user
                             </div>
-                        </li>
+                        </li> --}}
                     </ul>
                 </div>
 
                 <div class="col-6">
-                    <h3>Partisipasi Hukum</h3> 
+                    <h3>Partisipasi Hukum</h3>
                     <div class="container bg-light my-3 py-3 px-3 rounded-4">
-                        <p>Terkumpul 00.00 %</p>
+                        <p>Terkumpul : {{ $total / $kasusHukum->target_donasi * 100}}%</p>
                         <!-- Previous markup -->
                         <div class="progress">
                             <div class="progress-bar" role="progressbar" aria-label="Basic example"
-                                style="width: 25%" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"></div>
+                                style="width: {{ $total / $kasusHukum->target_donasi * 100 }}%" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"></div>
                         </div>
-        
+
                         <div class="d-flex justify-content-between">
-                            <p>Rp. 6.300.000</p>
-                            <p>Rp. 10.000.000</p>
+                            <p>Rp. {{ number_format( $total ,2,",",".")}}</p>
+                            <p>Rp. {{ number_format( $kasusHukum->target_donasi  ,2,",",".")}}</p>
                         </div>
                     </div>
-        
+
                     <a class="btn btn" id="buttonDonasi" style="color: white; width: 100%;" href="#" role="button">Donasi
                         Sekarang</i></a>
                 </div>
             </div>
         </div>
-    </div>   
+    </div>
 </x-layout>
 
