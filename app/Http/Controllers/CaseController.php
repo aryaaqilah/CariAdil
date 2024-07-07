@@ -29,6 +29,12 @@ class CaseController extends Controller
         return view('userLBH.perkara_berlangsung', ['auth' => $auth]);
     }
 
+    public function PP(){
+        $auth = true;
+        return view('userLBH.perkara_berlangsung', ['auth'=> $auth]);
+    }
+
+
     /**
      * Show the form for creating a new resource.
      */
