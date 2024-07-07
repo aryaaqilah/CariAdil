@@ -105,7 +105,7 @@
                         </div>
                     </div>
 
-                    <a class="btn btn" id="buttonDonasi" style="color: white; width: 100%;" href="#" role="button">Donasi
+                    <a class="btn btn" id="buttonDonasi" style="color: white; width: 100%;" href="/berita/donasi/{{ $kasusHukum->id_kasus }}" role="button">Donasi
                         Sekarang</i></a>
                 </div>
             </div>

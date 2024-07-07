@@ -3,6 +3,8 @@
 
 <x-layout :auth="$auth">
     <div class="container">
+        <form action="/berita/donasi/{{ $id }}/store" method="POST" enctype="multipart/form-data">
+        @csrf
         <div class="pembatas80"></div>
         <div class="row mt-4">
             <div class="col-1"></div>
@@ -15,12 +17,13 @@
             <div class="col-1"></div>
 
             {{-- Masukkan nominal donasi --}}
+
             <div class="col-12 d-flex justify-content-center mt-5">
                 <h4>Masukkan nominal donasi</h4>
             </div>
             <div class="col-3"></div>
             <div class="col-6 mt-2">
-                <input type="text" id="inputDonation" class="form-control">
+                <input type="text" id="nominal" class="form-control" required name="nominal">
             </div>
             <div class="col-3"></div>
 
@@ -105,7 +108,7 @@
                                 </div>
                             </div>
                         </div>
-    
+
                         <div class="col-6 d-flex justify-content-center">
                             <div class="input-containers">
                                 <input type="radio" id="bank", name="radio-bank">
@@ -128,15 +131,15 @@
                     </div>
                     <div class="mb-3">
                         <label for="exampleFormControlInput1" class="form-label">Nama Lengkap</label>
-                        <input type="text" class="form-control" id="exampleFormControlInput1" placeholder="Nama Lengkap">
+                        <input type="text" class="form-control" id="nama" placeholder="Nama Lengkap" required name="nama">
                     </div>
                     <div class="mb-3">
                         <label for="exampleFormControlInput1" class="form-label">Email</label>
-                        <input type="email" class="form-control" id="exampleFormControlInput1" placeholder="Email">
+                        <input type="email" class="form-control" id="email" placeholder="Email" required name="email">
                     </div>
                     <div class="mb-3">
                         <label for="exampleFormControlInput1" class="form-label">Nomor Telepon</label>
-                        <input type="text" class="form-control" id="exampleFormControlInput1" placeholder="Nomor Telepon">
+                        <input type="text" class="form-control" id="nomor_telepon" placeholder="Nomor Telepon" required name="nomor_telepon">
                     </div>
                 </div>
             </div>
@@ -150,7 +153,7 @@
                         <div class="h5">Dukungan atau doamu (optional)</div>
                     </div>
                     <div class="mb-3">
-                        <textarea class="form-control" id="exampleFormControlTextarea1" rows="5" required></textarea>
+                        <textarea class="form-control" id="dukungan" rows="5" required name="dukungan"></textarea>
                     </div>
                 </div>
             </div>
@@ -167,12 +170,13 @@
 
             <div class="col-12 mt-5">
                 <div class="col d-flex justify-content-center">
-                    <button type="button" class="btn"
+                    <button type="submit" class="btn"
                     style="--bs-btn-padding-y: 0.5rem; --bs-btn-padding-x: 2.5rem; --bs-btn-font-size: 1rem;
                     background-color: rgba(232, 123, 47, 1); border-radius: 8px; color: white;
                     margin-top: 10px">Lanjutkan Pembayaran</button>
                 </div>
             </div>
         </div>
+    </form>
     </div>
 </x-layout>
