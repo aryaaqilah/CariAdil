@@ -2,8 +2,10 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\ProgressKasusHukum;
 use Illuminate\Http\Request;
 use App\Models\KasusHukum;
+use Laravel\Prompts\Progress;
 
 class CaseController extends Controller
 {
@@ -51,9 +53,10 @@ class CaseController extends Controller
     public function show(string $id)
     {
         $kasusHukum = KasusHukum::find($id);
+        $progress = ProgressKasusHukum::select('*')->where('id_kasus', '=', $id)->get();
         $auth = false;
-        // dd($kasusHukum);
-        return view('user.detail_berita', ['kasusHukum' => $kasusHukum, 'auth' => $auth]);
+        // dd($progress);
+        return view('user.detail_berita', ['kasusHukum' => $kasusHukum, 'auth' => $auth, 'progress' => $progress]);
     }
 
     /**

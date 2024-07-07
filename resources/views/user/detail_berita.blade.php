@@ -44,14 +44,16 @@
                 <div class="col-6">
                     <h3 style="">Status Hukum</h3>
                     <ul class="progress-tracker progress-tracker--vertical">
-                        <li class="progress-step is-complete">
-                            <div class="progress-marker"></div>
-                            <div class="progress-text">
-                                <h4 class="progress-title">Step 1</h4>
-                                Summary text explaining this step to the user
-                            </div>
-                        </li>
-                        <li class="progress-step is-complete">
+                        @foreach ($progress as $prog)
+                            <li class="progress-step is-complete">
+                                <div class="progress-marker"></div>
+                                <div class="progress-text">
+                                    <h4 class="progress-title">{{ $prog->topik_progress }}</h4>
+                                    {{ $prog->detail }}
+                                </div>
+                            </li>
+                        @endforeach
+                        {{-- <li class="progress-step is-complete">
                             <div class="progress-marker"></div>
                             <div class="progress-text">
                                 <h4 class="progress-title">Step 2</h4>
@@ -81,7 +83,7 @@
                                 <h4 class="progress-title">Step 5</h4>
                                 Summary text explaining this step to the user
                             </div>
-                        </li>
+                        </li> --}}
                     </ul>
                 </div>
 
