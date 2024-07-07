@@ -95,6 +95,12 @@ class DatabaseSeeder extends Seeder
                 'topik_progress' => 'Sidang 1',
                 'date' => Carbon::now(),
                 'detail' => 'Sudah dilaksanakan sidang pertama',
+            ],
+            [
+                'id_kasus' => 1,
+                'topik_progress' => 'Sidang 2',
+                'date' => Carbon::now(),
+                'detail' => 'Sudah dilaksanakan sidang kedua',
             ]
         ];
 
