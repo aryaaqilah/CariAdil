@@ -1,4 +1,3 @@
-
 <link rel="stylesheet" href="{{ asset('style/styles.css') }}">
 
 <x-layout :auth="$auth">
