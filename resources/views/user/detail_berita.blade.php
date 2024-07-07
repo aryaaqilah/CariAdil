@@ -90,16 +90,16 @@
                 <div class="col-6">
                     <h3>Partisipasi Hukum</h3>
                     <div class="container bg-light my-3 py-3 px-3 rounded-4">
-                        <p>Terkumpul 00.00 %</p>
+                        <p>Terkumpul : {{ $total / $kasusHukum->target_donasi * 100}}%</p>
                         <!-- Previous markup -->
                         <div class="progress">
                             <div class="progress-bar" role="progressbar" aria-label="Basic example"
-                                style="width: 25%" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"></div>
+                                style="width: {{ $total / $kasusHukum->target_donasi * 100 }}%" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"></div>
                         </div>
 
                         <div class="d-flex justify-content-between">
-                            <p>Rp. 6.300.000</p>
-                            <p>Rp. 10.000.000</p>
+                            <p>Rp. {{ number_format( $total ,2,",",".")}}</p>
+                            <p>Rp. {{ number_format( $kasusHukum->target_donasi  ,2,",",".")}}</p>
                         </div>
                     </div>
 

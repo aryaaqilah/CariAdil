@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\ProgressKasusHukum;
+use App\Models\TransaksiDonasi;
 use Illuminate\Http\Request;
 use App\Models\KasusHukum;
 use Laravel\Prompts\Progress;
@@ -54,9 +55,14 @@ class CaseController extends Controller
     {
         $kasusHukum = KasusHukum::find($id);
         $progress = ProgressKasusHukum::select('*')->where('id_kasus', '=', $id)->get();
+        $transaksi = TransaksiDonasi::select('*')->where('id_kasus_hukum', '=', $id)->get();
+        $total = 0;
+        foreach ($transaksi as $trans){
+            $total += $trans->nominal;
+        }
         $auth = false;
-        // dd($progress);
-        return view('user.detail_berita', ['kasusHukum' => $kasusHukum, 'auth' => $auth, 'progress' => $progress]);
+        // dd($total);
+        return view('user.detail_berita', ['kasusHukum' => $kasusHukum, 'auth' => $auth, 'progress' => $progress, 'total' => $total]);
     }
 
     /**
