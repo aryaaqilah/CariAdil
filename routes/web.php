@@ -13,9 +13,9 @@ use App\Http\Controllers\UserController;
 use App\Http\Controllers\HomepageController;
 use App\Http\Controllers\StoreController;
 
-Route::get("/loading", function() {
+Route::get("/loading", function () {
     return view('core.loading');
-});
+})->name('loading');
 
 Route::get("/hehe", [CaseController::class, 'detail_berita']);
 Route::get("/donana", [DonationController::class, 'index']);
@@ -23,17 +23,18 @@ Route::get("/donana", [DonationController::class, 'index']);
 
 //USER
 Route::get('/', [HomepageController::class, 'index']);
-Route::prefix('/berita')->group(function(){
+Route::prefix('/berita')->group(function () {
     Route::get('/', [CaseController::class, 'index']);
     Route::get('/kasus-hukum/{id}', [CaseController::class, 'show']);
     Route::get('/donasi/{id}', [DonationController::class, 'index']);
 });
 Route::get('/form-pengajuan-hukum', [FormController::class, 'index']); //ok
+Route::post('/form-pengajuan-hukum', [FormController::class, 'store']);
 Route::get('/store', [StoreController::class, 'index']); //ok
 Route::get('/store/{id}', [ProductController::class, 'index']);
 
 //LBH
-Route::prefix('/lbh')->group(function(){
+Route::prefix('/lbh')->group(function () {
     Route::get('/', [UserController::class, 'index']); //ok
     Route::get('/login', [UserController::class, 'index']);
     Route::get('/pengajuan-bantuan-hukum/{id}', [FormController::class, 'show']);
@@ -44,7 +45,7 @@ Route::prefix('/lbh')->group(function(){
 });
 
 //ADMIN
-Route::prefix('/admin')->group(function(){
+Route::prefix('/admin')->group(function () {
     Route::get('/login', [UserController::class, 'index']);
     Route::get('/dashboard', [DashboardController::class, 'index']);
     Route::get('/role', [UserController::class, 'index']);
@@ -54,10 +55,6 @@ Route::prefix('/admin')->group(function(){
     Route::get('/pengajuan', [FormController::class, 'index']);
 });
 
-Route::prefix('/perkara')->group(function   () {
+Route::prefix('/perkara')->group(function () {
     Route::get('/berlangsung', [PerkaraController::class, 'indexPerkaraBerlangsung']);
 });
-
-
-
-

@@ -9,15 +9,15 @@
             <div class="footer-social">
                 <div class="social-item">
                     <i class="fa-brands fa-twitter"></i>
-                    <span>@CariAdil.Id</span>
+                    <a href="https://instagram.com/cariadil"><span>@CariAdil.Id</span></a>
                 </div>
                 <div class="social-item">
                     <i class="fa-brands fa-instagram"></i>
-                    <span>@cari.adil.id</span>
+                    <a href="https://instagram.com/cariadil"><span>@cari.adil.id</span></a>
                 </div>
                 <div class="social-item">
                     <i class="fa-brands fa-facebook"></i>
-                    <span>CariAdil</span>
+                    <a href="https://instagram.com/cariadil"><span>CariAdil</span></a>
                 </div>
             </div>
         </div>

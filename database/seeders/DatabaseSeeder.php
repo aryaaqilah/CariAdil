@@ -28,6 +28,7 @@ class DatabaseSeeder extends Seeder
         // ]);
         $formArray = [
             [
+                'nomor_pemohon' => 'CA-001',
                 'nama' => 'arya aqilah',
                 'nama_panggilan' => 'arya',
                 'tempat_lahir' => 'Sukabumi',
@@ -40,6 +41,8 @@ class DatabaseSeeder extends Seeder
                 'Kabupaten_Kota' => 'Bogor',
                 'kode_pos' => '43192',
                 'kecamatan' => 'Babakan Madang',
+                'jumlah_anak' => '1',
+                'jumlah_anak_tanggungan' => '1',
                 'provinsi' => 'Jawa Barat',
                 'identitas_diri' => 'KTP',
                 'nomor_identitas' => '320233',
