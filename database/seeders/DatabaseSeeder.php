@@ -111,10 +111,18 @@ class DatabaseSeeder extends Seeder
             [
                 'id_kasus_hukum' => 1,
                 'nominal' => '200000',
+                'nama' => 'Arya',
+                'email' => 'arya@gmail.com',
+                'nomor_telepon' => '087785243656',
+                'dukungan' =>''
             ],
             [
                 'id_kasus_hukum' => 1,
                 'nominal' => '300000',
+                'nama' => 'Arya',
+                'email' => 'arya@gmail.com',
+                'nomor_telepon' => '087785243656',
+                'dukungan' =>''
             ],
         ];
 

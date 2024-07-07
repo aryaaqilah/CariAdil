@@ -27,6 +27,7 @@ Route::prefix('/berita')->group(function () {
     Route::get('/', [CaseController::class, 'index']);
     Route::get('/kasus-hukum/{id}', [CaseController::class, 'show']);
     Route::get('/donasi/{id}', [DonationController::class, 'index']);
+    Route::post('/donasi/{id}/store', [DonationController::class, 'store']);
 });
 Route::get('/form-pengajuan-hukum', [FormController::class, 'index']); //ok
 Route::post('/form-pengajuan-hukum', [FormController::class, 'store']);
@@ -40,6 +41,9 @@ Route::prefix('/lbh')->group(function () {
     Route::get('/pengajuan-bantuan-hukum/{id}', [FormController::class, 'show']);
     Route::get('/perkara-berlangsung', [CaseController::class, 'showLBH']);
     Route::get('/PSB_Progress', [CaseController::class, 'PP']);
+    Route::get('/rawr', function () {
+        return view('userLBH.update_perkara.dropdown');
+    });
     //diandra
     // Route::get('/perkara-berlangsung/{id?}', [CaseController::class, 'show']); //diandra
 });

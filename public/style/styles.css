@@ -651,11 +651,11 @@ nav {
   }
 
   .progress-bar{
-    background-color: rgba(232, 123, 47, 1);
+    background-color: rgba(var(--primary-color), 1);
   }
 
   #buttonDonasi{
-    background-color: rgba(232, 123, 47, 1);
+    background-color: rgba(var(--primary-color), 1);
     color: white;
   }
 
@@ -663,10 +663,77 @@ nav {
     height: 50px;
   }
 
+  .pembatas80{
+    height: 80px;
+  }
+
   .pembatas20{
     height: 20px;
   }
 
+  /* DONATION */
+  .input-containers{
+    position: relative;
+    height: 2.5rem;
+    width: 15rem;
+    margin: 0.5rem;
+  }
+
+  .input-containers input{
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    margin: 0;
+    cursor: pointer;
+    z-index: 2;
+    opacity: 0;
+  }
+
+  .input-containers .radio-title{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+    border: 0.5px solid grey;
+    border-radius: 8px;
+    transition: all 300ms ease;
+  }
+
+  .input-containers label{
+    font-size: 16px;
+  }
+
+  input:checked + .radio-title{
+    background-color: rgba(var(--primary-color), 1);
+  }
+
+  input:hover + .radio-title{
+    background-color: rgba(var(--primary-color), 1);
+  }
+
+  input:checked + .radio-title label{
+    color: white;
+  }
+
+  input:hover + .radio-title label{
+    color: white;
+  }
+
+  .container-bank{
+    border: 0.2px solid grey;
+    border-radius: 8px;
+  }
+
+  .radio-title img{
+    height: 4rem;
+  }
+
+  .container-total{
+    background-color: lightgrey;
+    border-radius: 8px;
+    /* height: 2rem; */
+  }
 
 
   /* BOTTOM NAVBAR */

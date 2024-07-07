@@ -1,4 +1,3 @@
-
 <link rel="stylesheet" href="{{ asset('style/styles.css') }}">
 
 <x-layout :auth="$auth">
@@ -12,7 +11,10 @@
                     {{-- <h1 style="text-align: justify;">hehe judul</h1> --}}
                 </div>
                 <div class="col-1">
-                    <a class="btn btn" id="buttonDonasi" style="color: white; width: 100%;" href="#" role="button">Share</i></a>
+                    {{-- <a class="btn btn" id="buttonDonasi" style="color: white; width: 100%;" href="#" role="button" >Share</i></a> --}}
+                    <button type="button" class="btn btn-secondary" data-bs-toggle="tooltip" data-bs-placement="top" data-bs-title="Copy Link">
+                        Share
+                      </button>
                 </div>
             </div>
 
@@ -103,7 +105,7 @@
                         </div>
                     </div>
 
-                    <a class="btn btn" id="buttonDonasi" style="color: white; width: 100%;" href="#" role="button">Donasi
+                    <a class="btn btn" id="buttonDonasi" style="color: white; width: 100%;" href="/berita/donasi/{{ $kasusHukum->id_kasus }}" role="button">Donasi
                         Sekarang</i></a>
                 </div>
             </div>

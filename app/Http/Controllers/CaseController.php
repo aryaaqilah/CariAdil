@@ -34,7 +34,7 @@ class CaseController extends Controller
 
     public function PP(){
         $auth = true;
-        return view('userLBH.perkara_berlangsung', ['auth'=> $auth]);
+        return view('userLBH.pengajuan_perkara', ['auth'=> $auth]);
     }
 
 

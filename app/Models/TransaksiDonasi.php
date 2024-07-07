@@ -11,5 +11,6 @@ class TransaksiDonasi extends Model
 
     protected $table = 'transaksi_donasi';
     protected $primaryKey = 'id_transaksi';
+    protected $nullable = ['dukungan'];
     protected $guarded = [];
 }
