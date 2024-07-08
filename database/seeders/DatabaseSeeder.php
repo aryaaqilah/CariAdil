@@ -114,7 +114,7 @@ class DatabaseSeeder extends Seeder
                 'nama' => 'Arya',
                 'email' => 'arya@gmail.com',
                 'nomor_telepon' => '087785243656',
-                'dukungan' =>''
+                'dukungan' => ''
             ],
             [
                 'id_kasus_hukum' => 1,
@@ -122,7 +122,7 @@ class DatabaseSeeder extends Seeder
                 'nama' => 'Arya',
                 'email' => 'arya@gmail.com',
                 'nomor_telepon' => '087785243656',
-                'dukungan' =>''
+                'dukungan' => ''
             ],
         ];
 
@@ -154,6 +154,11 @@ class DatabaseSeeder extends Seeder
         // ];
 
         // KasusHukum::insert($kasusHukumArray);
+        $this->call([
+            KategoriSeeder::class,
+            ProdukSeeder::class,
+        ]);
+
         FormPengajuan::insert($formArray);
         Bank::insert($bankArray);
         LBH::insert($lbhArray);

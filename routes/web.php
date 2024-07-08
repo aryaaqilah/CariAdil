@@ -31,8 +31,8 @@ Route::prefix('/berita')->group(function () {
 });
 Route::get('/form-pengajuan-hukum', [FormController::class, 'index']); //ok
 Route::post('/form-pengajuan-hukum', [FormController::class, 'store']);
-Route::get('/store', [StoreController::class, 'index']); //ok
-Route::get('/store/{id}', [ProductController::class, 'index']);
+Route::get('/store', [ProductController::class, 'index']); //ok
+Route::get('/store/{id}', [ProductController::class, 'show']);
 
 //LBH
 Route::prefix('/lbh')->group(function () {
