@@ -28,9 +28,9 @@
         #rowLogo{
             height: 10vh;
         }
-        #rowContent{
+        /* #rowContent{
             height: 90vh;
-        }
+        } */
         #logo{
             height: 50px;
 
@@ -54,7 +54,7 @@
         .boxLogin{
             background-color: rgba(232, 123, 47, 1);
             height: 80vh;
-            width: 30vw;
+            /* width: 30vw; */
             border-radius: 30px;
             padding: 50px;
             flex-direction: column;
@@ -93,35 +93,41 @@
             border-top-right-radius: 15px;
             border-bottom-right-radius: 15px;
         }
-          .input-group-text {
-            height: 5vh;
+        .input-group-text {
+            height: 100%;
             border-radius: 0px;
             background-color: #ffd998;
             color: #ffffffcf;
             border-right: 0px;
-            border: 0px; }
+            border: 0px; 
+        }
 
-            .input-group .input-group-prepend .input-group-text {
-                background-color: #ffd998;
-                color: #ffffffcf;
-                border-right: 0px;
-                border: 0px; }
-                .input-group .form-control {
-                    background-color: #ffd998;
-                    color: #FFF;
-                    border-left: 0px;
-                    border: 0px; }
+        .input-group .input-group-prepend .input-group-text {
+            background-color: #ffd998;
+            color: #ffffffcf;
+            border-right: 0px;
+            border: 0px; 
+        }
+        .input-group .form-control {
+            background-color: #ffd998;
+            color: #FFF;
+            border-left: 0px;
+            border: 0px; 
+        }
 
-                    .input-group .form-control:focus {
-                        border: 0px; }
+        .input-group .form-control:focus {
+            border: 0px;
+        }
+
         #btn-login{
             width: 8vw;
             border-radius: 20px;
-            height: 4vh;
+            /* height: 4vh; */
             background-color: white;
             color: rgba(232, 123, 47, 1);
             font-weight: bold;
         }
+
         .btn-login{
             display: flex;
             align-items: center;
@@ -198,8 +204,7 @@
                                     <label for="">Username</label>
                                         <div class="input-group mb-3">
                                          <div class="input-group-prepend">
-                                           <span class="input-group-text" id="basic-addon1-profile">
-                                               <i class="far fa-user"></i>
+                                           <span class="input-group-text" id="basic-addon1-profile"><i class="far fa-user"></i>
                                            </span>
                                          </div>
                                          <input type="text" class="form-control" placeholder="Enter Username" aria-label="Username" aria-describedby="basic-addon1">
