@@ -7,7 +7,7 @@
         <div class="row mt-4">
             <div class="col-1"></div>
             <div class="col-5">
-                <img src="assets/images/jumbotron1.png" class="img-fluid" alt="..." style="height: 100%; width: 100%x">
+                <img src="assets/images/jumbotron1.png" class="img-fluid" alt="..." style="height: 100%; width: 100%">
             </div>
             <div class="col-5">
                 <h2>Kasusnya apa bang</h2>

@@ -35,7 +35,7 @@ Route::get('/store/{id}', [ProductController::class, 'index']);
 //LBH
 Route::prefix('/lbh')->group(function(){
     Route::get('/', [UserController::class, 'index']); //ok
-    Route::get('/login', [UserController::class, 'index']);
+    Route::get('/login', [UserController::class, 'login']);
     Route::get('/pengajuan-bantuan-hukum/{id}', [FormController::class, 'show']);
     Route::get('/perkara-berlangsung', [CaseController::class, 'showLBH']);
     Route::get('/PSB_Progress', [CaseController::class, 'PP']);

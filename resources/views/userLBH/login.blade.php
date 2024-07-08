@@ -188,52 +188,6 @@
                 </div>
                 <div class="col-6 half-content right-content d-flex align-items-start justify-content-center text-light">
                     <div class="boxLogin">
-                        <!-- <div>
-                            <h1>Masuk</h1>
-                        </div>
-                        <div>
-
-                            <div class="mb-3">
-                                <label for="" class="form-label">Username</label>
-                                <input
-                                    type="username"
-                                    class="form-control"
-                                    name=""
-                                    id=""
-                                    placeholder="Enter your username"
-                                />
-                            </div>
-                            
-                            <div>
-                                Username
-                            </div>
-                            <div>
-                                Box Username
-                            </div>
-                        </div>
-                        <div>
-                            <div>
-                                Password
-                            </div>
-                            <div>
-                                Box Password
-                            </div>
-                        </div>
-                        <div>
-                            Forgot your password?
-                        </div>
-                        <button
-                            type="button"
-                            class="btn btn-primary"
-                        >
-                            Button
-                        </button>
-
-                        <div>
-                            <p>
-                                belum punya akun
-                            </p>
-                        </div> -->
                         <div>
                             <div>
                                 <h1>Masuk</h1>
