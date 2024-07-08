@@ -44,7 +44,7 @@ class CaseController extends Controller
                     "created_at" => $kasus->created_at,
                     "updated_at" => $kasus->updated_at,
                     "total" => $transaksi,
-                    "nama_lbh" => LBH::select('nama_lbh')->where('id_lbh', '=', $kasus->id_lbh)->get()
+                    "nama_lbh" => LBH::select('nama_lbh')->where('id_LBH', '=', $kasus->id_lbh)->get()
                 ];
                 array_push($total, $data);
             }
