@@ -57,7 +57,38 @@ class DatabaseSeeder extends Seeder
                 'lokasi_pembuatan_form' => 'Bogor',
                 'tanggal' => Carbon::now(),
                 'image_url' => 'yguhnjmk',
-            ]
+            ],
+            [
+                'nomor_pemohon' => 'CA-001',
+                'nama' => 'arya aqilah',
+                'nama_panggilan' => 'arya',
+                'tempat_lahir' => 'Sukabumi',
+                'jenis_kelamin' => 'Pria',
+                'agama' => 'Islam',
+                'status_perkawinan' => 'Belum Kawin',
+                'alamat_lengkap' => 'Sentul Sentul Sentul',
+                'RT_RW' => '01/04',
+                'Desa_Kelurahan' => 'Sumur Batu',
+                'Kabupaten_Kota' => 'Bogor',
+                'kode_pos' => '43192',
+                'kecamatan' => 'Babakan Madang',
+                'jumlah_anak' => '1',
+                'jumlah_anak_tanggungan' => '1',
+                'provinsi' => 'Jawa Barat',
+                'identitas_diri' => 'KTP',
+                'nomor_identitas' => '320233',
+                'keterangan_tidak_mampu' => 'Tidak',
+                'nomor_keterangan_tidak_mampu' => '56789',
+                'pekerjaan' => 'mahasiswa',
+                'jumlah_tanggungan' => 2,
+                'pendidikan_terakhir' => 'SMA',
+                'telepon' => 'Tidak Ada',
+                'HP' => '09876',
+                'uraian' => 'Saya adalah seseorang yang terkena masalah',
+                'lokasi_pembuatan_form' => 'Bogor',
+                'tanggal' => Carbon::now(),
+                'image_url' => 'yguhnjmk',
+            ],
         ];
 
         $bankArray = [
@@ -89,6 +120,18 @@ class DatabaseSeeder extends Seeder
                 'jenis_perkara' => 'Perdata',
                 'status_pengajuan' => 'Diterima',
                 'image_url' => 'tygbh'
+            ],
+            [
+                'title' => 'Bantu Pemuda Sukabumi Ini',
+                'id_lbh' => 1,
+                'description' => 'Kasus ini adalah tentang seorang pemuda bogor',
+                'tanggal' => Carbon::now(),
+                'target_donasi' => '10000000',
+                'id_bank' => 1,
+                'id_form' => 1,
+                'jenis_perkara' => 'Perdata',
+                'status_pengajuan' => 'Diterima',
+                'image_url' => 'tygbh'
             ]
         ];
 
@@ -104,6 +147,12 @@ class DatabaseSeeder extends Seeder
                 'topik_progress' => 'Sidang 2',
                 'date' => Carbon::now(),
                 'detail' => 'Sudah dilaksanakan sidang kedua',
+            ],
+            [
+                'id_kasus' => 2,
+                'topik_progress' => 'Sidang 1',
+                'date' => Carbon::now(),
+                'detail' => 'Sudah dilaksanakan sidang SATUUUUUU',
             ]
         ];
 
@@ -123,6 +172,14 @@ class DatabaseSeeder extends Seeder
                 'email' => 'arya@gmail.com',
                 'nomor_telepon' => '087785243656',
                 'dukungan' => ''
+            ],
+            [
+                'id_kasus_hukum' => 2,
+                'nominal' => '300000',
+                'nama' => 'Arya',
+                'email' => 'arya@gmail.com',
+                'nomor_telepon' => '087785243656',
+                'dukungan' =>''
             ],
         ];
 
