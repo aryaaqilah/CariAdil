@@ -62,12 +62,12 @@ class CaseController extends Controller
         $auth = false;
         return view('user.detail_berita', ['auth' => $auth]);
     }
-    public function showLBH(){
+    public function perkara_berlangsung(){
         $auth = true;
         return view('userLBH.perkara_berlangsung', ['auth' => $auth]);
     }
 
-    public function PP(){
+    public function detail_perkara_berlangsung(){
         $auth = true;
         return view('userLBH.detail_perkara_berlangsung', ['auth'=> $auth]);
     }
