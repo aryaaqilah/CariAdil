@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\KasusHukum;
 use App\Models\TransaksiDonasi;
 use Illuminate\Http\Request;
 
@@ -12,8 +13,9 @@ class DonationController extends Controller
      */
     public function index(string $id)
     {
+        $kasusHukum = KasusHukum::find($id);
         $auth = false;
-        return view('user.donasi', ['auth'=> $auth, 'id'=> $id]);
+        return view('user.donasi', ['auth'=> $auth, 'id'=> $id, 'kasusHukum'=>$kasusHukum]);
     }
 
     /**
