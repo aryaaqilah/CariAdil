@@ -14,80 +14,25 @@
             </div>
         </div>
         <div class="content">
-            <div class="product-section">
-                <p>Baju</p>
-                <div class="product-list">
-                    <div class="product-card col-3">
-                        <span class="product-category">Baju</span>
-                        <strong class="product-title">Merch Kasus Hukum</strong>
-                        <br>
-                        <img src="{{ asset('assets/images/Product.png') }}" alt="">
-                        <br>
-                        <strong class="product-price">Rp. 250.000,00</strong>
-                    </div>
-                    <div class="product-card col-3">
-                        <span class="product-category">Baju</span>
-                        <strong class="product-title">Merch Kasus Hukum</strong>
-                        <br>
-                        <img src="{{ asset('assets/images/Product.png') }}" alt="">
-                        <br>
-                        <strong class="product-price">Rp. 250.000,00</strong>
-                    </div>
-                    <div class="product-card col-3">
-                        <span class="product-category">Baju</span>
-                        <strong class="product-title">Merch Kasus Hukum</strong>
-                        <br>
-                        <img src="{{ asset('assets/images/Product.png') }}" alt="">
-                        <br>
-                        <strong class="product-price">Rp. 250.000,00</strong>
-                    </div>
-                    <div class="product-card col-3">
-                        <span class="product-category">Baju</span>
-                        <strong class="product-title">Merch Kasus Hukum</strong>
-                        <br>
-                        <img src="{{ asset('assets/images/Product.png') }}" alt="">
-                        <br>
-                        <strong class="product-price">Rp. 250.000,00</strong>
+            @foreach ($kategori as $per_kategori)
+                <div class="product-section">
+                    <p>{{ $per_kategori->nama }}</p>
+                    <div class="product-list row gap-3">
+                        @foreach ($per_kategori->produk as $per_produk)
+                            <div class="product-card col-3" onclick="onClickProduct()">
+                                <span class="product-category">{{ $per_produk->kategori->nama }}</span>
+                                <strong class="product-title">{{ $per_produk->nama }}</strong>
+                                <br>
+                                <img src="{{ asset('assets/images/Product.png') }}" alt="">
+                                <br>
+                                <strong class="product-price">{{ $per_produk->harga }},00</strong>
+                            </div>
+                        @endforeach
                     </div>
                 </div>
-            </div>
-            <div class="product-section">
-                <p>Baju</p>
-                <div class="product-list d-flex justify-content-between">
-                    <div class="product-card col-3">
-                        <span class="product-category">Baju</span>
-                        <strong class="product-title">Merch Kasus Hukum</strong>
-                        <br>
-                        <img src="{{ asset('assets/images/Product.png') }}" alt="">
-                        <br>
-                        <strong class="product-price">Rp. 250.000,00</strong>
-                    </div>
-                    <div class="product-card col-3">
-                        <span class="product-category">Baju</span>
-                        <strong class="product-title">Merch Kasus Hukum</strong>
-                        <br>
-                        <img src="{{ asset('assets/images/Product.png') }}" alt="">
-                        <br>
-                        <strong class="product-price">Rp. 250.000,00</strong>
-                    </div>
-                    <div class="product-card col-3">
-                        <span class="product-category">Baju</span>
-                        <strong class="product-title">Merch Kasus Hukum</strong>
-                        <br>
-                        <img src="{{ asset('assets/images/Product.png') }}" alt="">
-                        <br>
-                        <strong class="product-price">Rp. 250.000,00</strong>
-                    </div>
-                    <div class="product-card col-3">
-                        <span class="product-category">Baju</span>
-                        <strong class="product-title">Merch Kasus Hukum</strong>
-                        <br>
-                        <img src="{{ asset('assets/images/Product.png') }}" alt="">
-                        <br>
-                        <strong class="product-price">Rp. 250.000,00</strong>
-                    </div>
-                </div>
-            </div>
+            @endforeach
         </div>
     </div>
 </x-layout>
+
+<script src="{{ asset('script/store.js') }}"></script>

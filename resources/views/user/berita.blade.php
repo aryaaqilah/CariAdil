@@ -31,31 +31,34 @@
         {{-- Kasusnya --}}
         <div class="row g-5">
             @foreach ($list_kasus_hukum as $kasusHukum)
+            {{-- @dd($kasusHukum) --}}
                     <div class="col-4 d-flex">
                         <div class="card border border-light-subtle" id="card">
                             <img src="../assets/images/kasus1.png" class="card-img-top" alt="...">
                             <div class="card-body">
                                 <h5 class="card-title">
-                                    <a href="/berita/kasus-hukum/{{ $kasusHukum->id_kasus }}" style="text-decoration: none; color:black">{{ $kasusHukum->title }}</a></h5>
-                                <p class="card-text">{{ $kasusHukum->description }}.</p>
+                                    <a href="/berita/kasus-hukum/{{ $kasusHukum['id_kasus'] }}" style="text-decoration: none; color:black">{{  $kasusHukum['title'] }}</a></h5>
+                                <p class="card-text">{{  $kasusHukum['description'] }}.</p>
                             </div>
                             <ul class="list-group list-group-flush">
                                 <li class="list-group-item">
                                     <div class="d-flex" style="flex-direction: row-reverse;">
-                                        <div class="">{{ $kasusHukum->nama_lbh }}</div>
+                                        @foreach ($kasusHukum['nama_lbh'] as $lbh)
+                                            <div class="">{{ $lbh->nama_lbh }}</div>
+                                        @endforeach
                                     </div>
                                     <div class="div" style="height: 10px;"></div>
                                     <div class="progress">
                                         <div class="progress-bar" role="progressbar" aria-label="Basic example"
-                                            style="width: 25%" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"></div>
+                                            style="width: {{ $kasusHukum['total']/ $kasusHukum['target_donasi'] *100 }}%" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"></div>
                                     </div>
                                     <div class="div" style="height: 10px;"></div>
                                     <div class="d-flex justify-content-between">
                                         <div class="">
-                                            Rp xxx.xxx.xxx,00
+                                            Rp. {{ number_format( $kasusHukum['total'] ,2,",",".")}}
                                         </div>
                                         <div class="">
-                                            {{ $kasusHukum->target_donasi }}
+                                            Rp. {{ number_format( $kasusHukum['target_donasi'] ,2,",",".")}}
                                         </div>
                                     </div>
                                 </li>

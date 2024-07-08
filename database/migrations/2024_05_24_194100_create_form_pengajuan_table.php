@@ -13,12 +13,15 @@ return new class extends Migration
     {
         Schema::create('form_pengajuan', function (Blueprint $table) {
             $table->id('id_form');
+            $table->string('nomor_pemohon');
             $table->string('nama');
             $table->string('nama_panggilan');
             $table->string('tempat_lahir');
             $table->string('jenis_kelamin');
             $table->string('agama');
             $table->string('status_perkawinan');
+            $table->string('jumlah_anak');
+            $table->string('jumlah_anak_tanggungan');
             $table->string('alamat_lengkap');
             $table->string('RT_RW');
             $table->string('Desa_Kelurahan');
