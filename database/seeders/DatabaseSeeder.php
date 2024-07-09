@@ -123,8 +123,8 @@ class DatabaseSeeder extends Seeder
                 'target_donasi' => '10000000',
                 // 'id_bank' => 1,
                 'id_form' => 1,
-                'jenis_perkara' => 'Perdata',
-                'status_pengajuan' => 'Diterima',
+                'jenis_perkara' => 'Pidana',
+                'status_pengajuan' => 'Proses',
                 'image_url' => 'tygbh'
             ],
             [
@@ -136,7 +136,7 @@ class DatabaseSeeder extends Seeder
                 // 'id_bank' => 1,
                 'id_form' => 1,
                 'jenis_perkara' => 'Perdata',
-                'status_pengajuan' => 'Diterima',
+                'status_pengajuan' => 'Selesai',
                 'image_url' => 'tygbh'
             ]
         ];
