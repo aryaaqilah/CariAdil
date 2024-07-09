@@ -37,13 +37,14 @@ Route::get('/store/{id}', [ProductController::class, 'show']);
 //LBH
 Route::prefix('/lbh')->group(function () {
     Route::get('/', [UserController::class, 'index']); //ok
-    Route::get('/login', [UserController::class, 'login']);
+    Route::get('/login', function(){
+        return view('userLBH.login');
+    });
+    Route::post('/login', [UserController::class, 'login']);
     Route::get('/pengajuan-bantuan-hukum', [FormController::class, 'pengajuan_bantuan']);
     Route::get('/pengajuan-bantuan-hukum/1', [FormController::class, 'detail_pengajuan_bantuan']);
     Route::get('/perkara-berlangsung', [CaseController::class, 'perkara_berlangsung']);
     Route::get('/perkara-berlangsung/{id}', [CaseController::class, 'detail_perkara_berlangsung']);
-    //diandra
-    // Route::get('/perkara-berlangsung/{id?}', [CaseController::class, 'show']); //diandra
 });
 
 //ADMIN

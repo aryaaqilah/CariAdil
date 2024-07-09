@@ -45,7 +45,7 @@ class FormController extends Controller
             if ($request->hasFile('image_url')) {
                 $imagePath = $request->file('image_url')->store('public');
             }
-
+            
             FormPengajuan::create([
                 'nomor_pemohon' => $request->nomor_pemohon,
                 'nama' => $request->nama,
@@ -77,11 +77,13 @@ class FormController extends Controller
                 'tanggal' => Carbon::now(),
                 'image_url' => $imagePath,
             ]);
+            
+            dd($request);
         } catch (\Exception $e) {
             DB::rollBack();
             return redirect()->back()->with('error', 'Gagal mengajukan form');
         }
-
+        
         return redirect()->route('loading');
     }
 

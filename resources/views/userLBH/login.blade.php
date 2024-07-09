@@ -28,9 +28,6 @@
         #rowLogo{
             height: 10vh;
         }
-        /* #rowContent{
-            height: 90vh;
-        } */
         #logo{
             height: 50px;
 
@@ -145,14 +142,10 @@
             <div class="row no-gutters">
               <div class="col-md-8 half-bg left-half d-flex align-items-center justify-content-center">
                 <div class="content text-white">
-                  <!-- <h1>Bagian Kiri</h1>
-                  <p>Konten di atas background biru</p> -->
                 </div>
               </div>
               <div class="col-md-4 half-bg right-half d-flex align-items-center justify-content-center">
                 <div class="content text-white">
-                  <!-- <h1>Bagian Kanan</h1>
-                  <p>Konten di atas background merah</p> -->
                 </div>
               </div>
             </div>
@@ -186,7 +179,7 @@
                         </div>
                         <div class="row">
                             <div class="col-12">
-                                <p id="kata-desc">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Debitis, ipsum! Numquam maxime explicabo veniam, iusto quidem dolor porro vero voluptate.</p>
+                                <p id="kata-desc">Cari Adil siap membantu Anda memperjuangkan hak-hak dalam hukum. Jika Anda mengalami masalah dengan hukum? Kami solusinya!</p>
                             </div>
                         </div>
                     </div>
@@ -195,19 +188,18 @@
                 <div class="col-6 half-content right-content d-flex align-items-start justify-content-center text-light">
                     <div class="boxLogin">
                         <div>
-                            <div>
-                                <h1>Masuk</h1>
-                            </div>
+                            <div><h1>Masuk</h1></div>
                             &nbsp;
-                            <form>
-                                <div class="form-row" id="row-username">
-                                    <label for="">Username</label>
+                            <form method="POST" action="{{url('login')}}">
+                                @csrf
+                                <div class="form-row" id="row-email">
+                                    <label for="">Email</label>
                                         <div class="input-group mb-3">
                                          <div class="input-group-prepend">
                                            <span class="input-group-text" id="basic-addon1-profile"><i class="far fa-user"></i>
                                            </span>
                                          </div>
-                                         <input type="text" class="form-control" placeholder="Enter Username" aria-label="Username" aria-describedby="basic-addon1">
+                                         <input type="email" class="form-control" placeholder="Enter Email" aria-label="Email" aria-describedby="basic-addon1">
                                     </div>
                                </div>
                                
@@ -219,7 +211,7 @@
                                                <i class="fas fa-lock"></i>
                                            </span>
                                          </div>
-                                         <input type="text" class="form-control" placeholder="Enter Password" aria-label="Username" aria-describedby="basic-addon1">
+                                         <input type="password" class="form-control" placeholder="Enter Password" aria-label="Email" aria-describedby="basic-addon1">
                                          <div class="input-group-prepend">
                                             <span class="input-group-text" id="basic-addon1-eye">
                                                 <i class="fa fa-eye"></i>
@@ -229,10 +221,8 @@
                                </div>
                                 
                               </form>
-                            <a href="">
-                                <p>
-                                    Forgot your password?
-                                </p>
+                            <a href="#">
+                                <p>Forgot your password?</p>
                             </a>
                         </div>
                         
@@ -241,15 +231,12 @@
                                 <button
                                 type="button"
                                 class="btn btn-primary"
-                                id="btn-login"
-                            >
-                                Login
+                                id="btn-login">Login
                             </button>
                             </div>
                             &nbsp;
                             <div class="belum-akun">
                                 <p>Belum punya akun? <a href="">Daftar disini</a></p>
-     
                             </div>
                         </div>
                     </div>

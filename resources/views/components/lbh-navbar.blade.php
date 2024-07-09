@@ -8,13 +8,13 @@
         <div class="navbar-navigation">
             <ul>
                 <li class="navbar-item">
-                    <a href="/">Home</a>
+                    <a href="/lbh/">Home</a>
                 </li>
                 <li class="navbar-item">
-                    <a href="/">Perkara</a>
+                    <a href="/lbh/perkara-berlangsung">Perkara</a>
                 </li>
                 <li class="navbar-item">
-                    <a href="/">Pengajuan</a>
+                    <a href="/lbh/pengajuan-bantuan-hukum">Pengajuan</a>
                 </li>
             </ul>
         </div>
