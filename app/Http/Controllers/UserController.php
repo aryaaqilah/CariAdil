@@ -18,8 +18,18 @@ class UserController extends Controller
         return view('userLBH.beranda', ['list_kasus_hukum' => $kasusHukum, 'auth' => $auth]);
     }
 
-    public function login(){
-        return view('userLBH.login');
+    public function login(Request $request){
+        $data = 
+        $credentials = $request->only('email', 'password');
+
+        if(Auth::attempt($credentials)){
+            $request->session()->regenerate();
+            return redirect()->intended('dashboard');
+        }
+
+        return back()->withErrors([
+            'email' => 'The provided credentials do not match our records.',
+        ]);
     }
 
     /**
