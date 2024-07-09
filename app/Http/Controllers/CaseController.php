@@ -44,7 +44,7 @@ class CaseController extends Controller
                     "created_at" => $kasus->created_at,
                     "updated_at" => $kasus->updated_at,
                     "total" => $transaksi,
-                    "nama_lbh" => LBH::select('nama_lbh')->where('id_lbh', '=', $kasus->id_lbh)->get()
+                    "nama_lbh" => LBH::select('nama_lbh')->where('id_LBH', '=', $kasus->id_lbh)->get()
                 ];
                 array_push($total, $data);
             }
@@ -62,12 +62,12 @@ class CaseController extends Controller
         $auth = false;
         return view('user.detail_berita', ['auth' => $auth]);
     }
-    public function showLBH(){
+    public function perkara_berlangsung(){
         $auth = true;
         return view('userLBH.perkara_berlangsung', ['auth' => $auth]);
     }
 
-    public function PP(){
+    public function detail_perkara_berlangsung(){
         $auth = true;
         return view('userLBH.detail_perkara_berlangsung', ['auth'=> $auth]);
     }

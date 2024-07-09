@@ -19,6 +19,16 @@ class FormController extends Controller
         return view('user.form', ['auth' => $auth, 'noPemohon' => $noPemohon]);
     }
 
+    public function pengajuan_bantuan(){
+        $auth = true;
+        return view('userLBH.pengajuan_perkara', ['auth' => $auth]);
+    }
+
+    public function detail_pengajuan_bantuan(){
+        $auth = true;
+        return view('userLBH.detail_pengajuan_perkara', ['auth' => $auth]);
+    }
+
     public function create()
     {
         //

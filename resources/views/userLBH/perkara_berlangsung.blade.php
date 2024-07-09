@@ -5,7 +5,7 @@
     <div class="container py-5">
 
         <div class = "judul">
-            <h1>Pengajuan Perkara</h1>
+            <h1>Perkara Berlangsung</h1>
         </div>
 
         <div class="row d-flex justify-content-center py-4">

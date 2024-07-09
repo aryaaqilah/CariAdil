@@ -1,17 +1,18 @@
 <?php
 
-use App\Http\Controllers\PerkaraController;
-use Illuminate\Support\Facades\Route;
 use App\Http\Controllers;
-
+use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\CaseController;
-use App\Http\Controllers\DashboardController;
-use App\Http\Controllers\DonationController;
+
 use App\Http\Controllers\FormController;
-use App\Http\Controllers\ProductController;
 use App\Http\Controllers\UserController;
-use App\Http\Controllers\HomepageController;
 use App\Http\Controllers\StoreController;
+use App\Http\Controllers\PerkaraController;
+use App\Http\Controllers\ProductController;
+use App\Http\Controllers\DonationController;
+use App\Http\Controllers\HomepageController;
+use App\Http\Controllers\DashboardController;
+use App\Http\Controllers\ProgressKasusHukumController;
 
 Route::get("/loading", function () {
     return view('core.loading');
@@ -38,12 +39,17 @@ Route::get('/store/{id}', [ProductController::class, 'show']);
 Route::prefix('/lbh')->group(function () {
     Route::get('/', [UserController::class, 'index']); //ok
     Route::get('/login', [UserController::class, 'login']);
-    Route::get('/pengajuan-bantuan-hukum/{id}', [FormController::class, 'show']);
-    Route::get('/perkara-berlangsung', [CaseController::class, 'showLBH']);
-    Route::get('/PSB_Progress', [CaseController::class, 'PP']);
+    Route::get('/pengajuan-bantuan-hukum', [FormController::class, 'pengajuan_bantuan']);
+    Route::get('/pengajuan-bantuan-hukum/1', [FormController::class, 'detail_pengajuan_bantuan']);
+    Route::get('/perkara-berlangsung', [CaseController::class, 'perkara_berlangsung']);
+    Route::get('/perkara-berlangsung/{id}', [CaseController::class, 'detail_perkara_berlangsung']);
+
     Route::get('/rawr', function () {
-        return view('userLBH.update_perkara.dropdown');
+        return view('userLBH.update_perkara.progress');
     });
+    
+    Route::get('/PSB_Progress', [CaseController::class, 'PP']);
+    Route::post('/PSB_Progress', [ProgressKasusHukumController::class, 'UpdateProgress'])->name('PSB_Progress');
     //diandra
     // Route::get('/perkara-berlangsung/{id?}', [CaseController::class, 'show']); //diandra
 });
@@ -57,6 +63,8 @@ Route::prefix('/admin')->group(function () {
     Route::get('/produk', [ProductController::class, 'index']);
     Route::get('/kasus-hukum', [FormController::class, 'index']);
     Route::get('/pengajuan', [FormController::class, 'index']);
+
+    
 });
 
 Route::prefix('/perkara')->group(function () {

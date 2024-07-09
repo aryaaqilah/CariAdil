@@ -93,9 +93,15 @@ class DatabaseSeeder extends Seeder
 
         $bankArray = [
             [
+
                 'nama' => 'BCA',
                 'no_rekening' => '0381160679',
-            ]
+            ],
+            [
+
+                'nama' => 'BRI',
+                'no_rekening' => '315038701',
+            ],
         ];
 
         $lbhArray = [
@@ -115,7 +121,7 @@ class DatabaseSeeder extends Seeder
                 'description' => 'Kasus ini adalah tentang seorang pemuda bogor',
                 'tanggal' => Carbon::now(),
                 'target_donasi' => '10000000',
-                'id_bank' => 1,
+                // 'id_bank' => 1,
                 'id_form' => 1,
                 'jenis_perkara' => 'Perdata',
                 'status_pengajuan' => 'Diterima',
@@ -127,7 +133,7 @@ class DatabaseSeeder extends Seeder
                 'description' => 'Kasus ini adalah tentang seorang pemuda bogor',
                 'tanggal' => Carbon::now(),
                 'target_donasi' => '10000000',
-                'id_bank' => 1,
+                // 'id_bank' => 1,
                 'id_form' => 1,
                 'jenis_perkara' => 'Perdata',
                 'status_pengajuan' => 'Diterima',
@@ -159,6 +165,7 @@ class DatabaseSeeder extends Seeder
         $transaksiArray = [
             [
                 'id_kasus_hukum' => 1,
+                'id_bank' => 1,
                 'nominal' => '200000',
                 'nama' => 'Arya',
                 'email' => 'arya@gmail.com',
@@ -167,6 +174,7 @@ class DatabaseSeeder extends Seeder
             ],
             [
                 'id_kasus_hukum' => 1,
+                'id_bank' => 2,
                 'nominal' => '300000',
                 'nama' => 'Arya',
                 'email' => 'arya@gmail.com',
@@ -175,6 +183,7 @@ class DatabaseSeeder extends Seeder
             ],
             [
                 'id_kasus_hukum' => 2,
+                'id_bank' => 2,
                 'nominal' => '300000',
                 'nama' => 'Arya',
                 'email' => 'arya@gmail.com',
@@ -217,9 +226,9 @@ class DatabaseSeeder extends Seeder
         ]);
 
         FormPengajuan::insert($formArray);
-        Bank::insert($bankArray);
         LBH::insert($lbhArray);
         KasusHukum::insert($kasusHukumArray);
+        Bank::insert($bankArray);
         ProgressKasusHukum::insert($progressArray);
         TransaksiDonasi::insert($transaksiArray);
     }

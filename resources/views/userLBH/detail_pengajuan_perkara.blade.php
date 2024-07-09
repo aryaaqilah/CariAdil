@@ -1,108 +1,159 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Perkara Berlangsung</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
-    <link rel="stylesheet" href="../styles/perkara-berlangsung-style.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+<link rel="stylesheet" href="{{ asset('style/styles.css') }}">
 
-</head>
-<body>
-    <div class="container-fluid">
-        <div class="row">
-            <div class="col-1 offset-1">
-                <i class="fa-solid fa-chevron-left"></i>
-                back
-            </div>
-            <div class="col-8">
-                <div class="d-flex">
-                    <div class="col-3 fs-6">
-                        Perkara Berlangsung
-                    </div>
-                    <!-- <div class="col-9"></div> -->
-                </div>
-                <div class="d-flex justify-content-center my-3">
-                    <div class="col-10 text-center h1">
-                        <strong>Panah Asmara</strong>
-                    </div>
-                </div>
-                <div class="d-flex justify-content-center gap-3 my-3">
-                    <span class="badge rounded-pill text-dark" style="background-color:rgba(225, 223, 209, 1)">Pidana</span>
-                    <span class="badge rounded-pill text-dark" style="background-color:rgba(225, 223, 209, 1)">Perebutan Hak Asuh Anak</span>
-                    <span class="badge rounded-pill text-dark" style="background-color:rgba(225, 223, 209, 1)">Penggugat</span>
-                </div>
-                <div class="d-flex justify-content-center">
-                    <p class="h6 fst-italic">
-                        29 January 2019
-                    </p>
-                </div>
-                <div class="d-flex justify-content-center my-3">
-                    <img src="..\public\assets\images\kasus1.png" alt="">
-                </div>
-                <div class="d-flex align-items-center justify-content-center" style="width: 100%;">
-                    <div class="col-12">
-                        <hr class="mt-2 mb-2 position-relative" style="height: 1vh;"/>
-                        <!-- test -->
-                    </div>
-                    <div class="col-2 d-flex position-absolute gap-5 my-3">
-                        <span class="badge rounded-pill text-dark" style="background-color:rgba(225, 223, 209, 1)">Informasi</span>
-                        <span class="badge rounded-pill text-dark" style="background-color:rgba(225, 223, 209, 1)">Progres</span>
-                        <span class="badge rounded-pill text-dark" style="background-color:rgba(225, 223, 209, 1)">Detail</span>
-                    </div>
-                </div>
-            <div class="d-flex mt-5 justify-content-center h3" >
-                Terima perkara ini?
-            </div>
-            <div class="d-flex justify-content-center mt-3 gap-4 mb-5" style="color:rgba(232, 123, 47, 1)">
-                <i class="fa-solid fa-circle-check fa-4x"></i>
-                <i class="fa-solid fa-circle-xmark fa-4x"></i>
-            </div>
+<x-layout :auth="$auth">
+  <div class="container-fluid">
+    <div class="pembatas"></div>
+    <div class="row mt-5">
+      <div class="col-1"></div>
+      <div class="col-1">
+        <button type="button" class="btn btn-orange"
+        style="--bs-btn-padding-y: .25rem; --bs-btn-padding-x: .9rem; --bs-btn-font-size: 1rem;">< Back</button>
+      </div>
+      <div class="col-10">
+        <h5>Pengajuan Perkara</h5>
+      </div>
+    </div>
+    <div class="row d-flex justify-content-center mt-3">
+      <div class="col-10 text-center h1">
+         <strong>Panah Asmara</strong>
+      </div>
 
-            <div class="d-flex justify-content-center h4">
-                Rincian Pengajuan
-            </div>
+      <div class="d-flex justify-content-center gap-3 my-3">
+        <span class="badge rounded-pill text-dark" style="background-color:rgba(225, 223, 209, 1); font-size: 14PX">Pidana</span>
+        <span class="badge rounded-pill text-dark" style="background-color:rgba(225, 223, 209, 1); font-size: 14PX">Perebutan Hak Asuh Anak</span>
+        <span class="badge rounded-pill text-dark" style="background-color:rgba(225, 223, 209, 1); font-size: 14PX">Penggugat</span>
+      </div>
 
-            <div class="accordion accordion-flush mt-5" id="accordionFlushExample">
-                <div class="accordion-item">
-                  <h2 class="accordion-header">
-                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseOne" aria-expanded="false" aria-controls="flush-collapseOne">
-                      Data Pribadi
-                    </button>
-                  </h2>
-                  <div id="flush-collapseOne" class="accordion-collapse collapse" data-bs-parent="#accordionFlushExample">
-                    <div class="accordion-body">Placeholder content for this accordion, which is intended to demonstrate the <code>.accordion-flush</code> class. This is the first item's accordion body.</div>
-                  </div>
-                </div>
-                <div class="accordion-item">
-                  <h2 class="accordion-header">
-                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseTwo" aria-expanded="false" aria-controls="flush-collapseTwo">
-                      Data Tambahan
-                    </button>
-                  </h2>
-                  <div id="flush-collapseTwo" class="accordion-collapse collapse" data-bs-parent="#accordionFlushExample">
-                    <div class="accordion-body">Placeholder content for this accordion, which is intended to demonstrate the <code>.accordion-flush</code> class. This is the second item's accordion body. Let's imagine this being filled with some actual content.</div>
-                  </div>
-                </div>
-                <div class="accordion-item">
-                  <h2 class="accordion-header">
-                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseThree" aria-expanded="false" aria-controls="flush-collapseThree">
-                      Pokok Persoalan
-                    </button>
-                  </h2>
-                  <div id="flush-collapseThree" class="accordion-collapse collapse" data-bs-parent="#accordionFlushExample">
-                    <div class="accordion-body">Placeholder content for this accordion, which is intended to demonstrate the <code>.accordion-flush</code> class. This is the third item's accordion body. Nothing more exciting happening here in terms of content, but just filling up the space to make it look, at least at first glance, a bit more representative of how this would look in a real-world application.</div>
+      <div class="d-flex justify-content-center">
+        <p> Diajukan tanggal 20 January 2019 </p>
+      </div>
+
+      <div class="col-4"></div>
+      <div class="col-4">
+        <img src="/assets/images/jumbotron1.png" class="img-fluid" alt="...", style="height: 100%; width: 100%; border-radius: 12px">
+      </div>
+      <div class="col-4"></div>
+
+      <div class="d-flex mt-5 justify-content-center" >
+        <h4>Terima Perkara Ini?</h4>
+      </div>
+
+      <div class="d-flex justify-content-center mt-2 gap-4 mb-5" style="color:rgba(232, 123, 47, 1)">
+        <i class="fa-solid fa-circle-check fa-4x"></i>
+        <i class="fa-solid fa-circle-xmark fa-4x"></i>
+      </div>
+
+      <div class="d-flex mt-3 justify-content-center" >
+        <h4>Rincian pengajuan</h4>
+      </div>
+
+
+      <div class="col-1"></div>
+      <div class="col-10 mb-5">
+        <div class="accordion accordion-flush mt-3" id="accordionFlushExample">
+          <div class="accordion-item">
+            <h2 class="accordion-header">
+              <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseOne" aria-expanded="false" aria-controls="flush-collapseOne">Data Pribadi</button>
+            </h2>
+            <div id="flush-collapseOne" class="accordion-collapse collapse" data-bs-parent="#accordionFlushExample">
+              <div class="accordion-body">
+                <div class="item-container">
+                  <div class="row m-3">
+                    <div class="col-4">
+                      <p>Nama Lengkap</p>
+                      <p>Nama Panggilan</p>
+                      <p>Tempat, Tanggal Lahir</p>
+                      <p>Jenis Kelamin</p>
+                      <p>Agama</p>
+                      <p>Status Perkawinan</p>
+                      <p>Jumlah Anak</p>
+                      <p>Anak Dalam Tanggungan</p>
+                      <p>Alamat</p>
+                      <p>RT/RW</p>
+                      <p>Desa</p>
+                      <p>Kecamatan</p>
+                      <p>Kota</p>
+                      <p>Provinsi</p>
+                      <p>Kode Pos</p>
+                    </div>
+                    <div class="col-8">
+                      <p>: Andreas Liujaya</p>
+                      <p>: Andreas</p>
+                      <p>: Jakarta, 29 Agustus 2004</p>
+                      <p>: Laki-laki</p>
+                      <p>: Kristen</p>
+                      <p>: Belum Kawin</p>
+                      <p>: 2</p>
+                      <p>: 2</p>
+                      <p>: Rumah Talenta BCA</p>
+                      <p>: 67/90</p>
+                      <p>: Sumur Batu</p>
+                      <p>: Babakan Madang</p>
+                      <p>: Kab. Bogor</p>
+                      <p>: Jawa Barat</p>
+                      <p>: 99870</p>
+                    </div>
                   </div>
                 </div>
               </div>
             </div>
-
-
-            <div class="col-2">
-
+          </div>
+          <div class="accordion-item">
+            <h2 class="accordion-header">
+              <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseTwo" aria-expanded="false" aria-controls="flush-collapseTwo">
+                Data Tambahan
+              </button>
+            </h2>
+            <div id="flush-collapseTwo" class="accordion-collapse collapse" data-bs-parent="#accordionFlushExample">
+              <div class="accordion-body">
+                <div class="item-container">
+                  <div class="row m-3">
+                    <div class="col-4">
+                      <p>Identitas Diri</p>
+                      <p>Nomor Identitas Diri</p>
+                      <p>Keterangan Tidak Mampu</p>
+                      <p>Nomor Keterangan Tidak Mampu</p>
+                      <p>Pekerjaan</p>
+                      <p>Jumlah Tanggungan</p>
+                      <p>Pendidikan Terakhir</p>
+                      <p>Telepon</p>
+                      <p>HP</p>
+                    </div>
+                    <div class="col-8">
+                      <p>: SIM</p>
+                      <p>: 1234567890</p>
+                      <p>: Tidak</p>
+                      <p>: -</p>
+                      <p>: Mahasiswa</p>
+                      <p>: 2</p>
+                      <p>: S1</p>
+                      <p>: 09090909</p>
+                      <p>: 084243712301</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
             </div>
+          </div>
+          <div class="accordion-item">
+            <h2 class="accordion-header">
+              <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseThree" aria-expanded="false" aria-controls="flush-collapseThree">
+                Pokok Persoalan
+              </button>
+            </h2>
+            <div id="flush-collapseThree" class="accordion-collapse collapse" data-bs-parent="#accordionFlushExample">
+              <div class="accordion-body">
+                <div class="item-container">
+                  <div class="row m-3">
+                    <p>Andreas adalah seorang yang memiliki hihihiha dan hohohoho. Eas Eas wek wek</P>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
         </div>
+      </div>
     </div>
-</body>
-</html>
+</div>
+</x-layout>
+  

@@ -9,10 +9,10 @@
         <div class="row mt-4">
             <div class="col-1"></div>
             <div class="col-5">
-                <img src="assets/images/jumbotron1.png" class="img-fluid" alt="..." style="height: 100%; width: 100%">
+                <img src="https://media.istockphoto.com/id/1449333398/id/foto/pengusaha-berjabat-tangan-pengacara-mitra-atau-pengacara-mendiskusikan-perjanjian-kontrak.jpg?s=1024x1024&w=is&k=20&c=64UHwZ1G3XqegEU-SbdeELLEXKQNYbivpkvHrKJQLcQ=" class="img-fluid" alt="..." style="height: 100%; width: 100%">
             </div>
             <div class="col-5">
-                <h2>Kasusnya apa bang</h2>
+                <h2>{{ $kasusHukum->title }}</h2>
             </div>
             <div class="col-1"></div>
 
@@ -23,7 +23,7 @@
             </div>
             <div class="col-3"></div>
             <div class="col-6 mt-2">
-                <input type="text" id="nominal" class="form-control" required name="nominal">
+                <input type="text" id="nominalTF" class="form-control" required name="nominal">
             </div>
             <div class="col-3"></div>
 
@@ -38,53 +38,54 @@
         <div class="row d-flex justify-content-center mx-5">
             <div class="col-4 d-flex justify-content-center">
                 <div class="input-containers">
-                    <input type="radio" id="nominal", name="radio">
+                    <input type="radio" id="nominal1" name="radio">
                     <div class="radio-title">
-                        <label for="nominal">10.000</label>
+                        <label for="nominal1">10.000</label>
                     </div>
                 </div>
             </div>
             <div class="col-4 d-flex justify-content-center">
                 <div class="input-containers">
-                    <input type="radio" id="nominal", name="radio">
+                    <input type="radio" id="nominal2" name="radio">
                     <div class="radio-title">
-                        <label for="nominal">20.000</label>
+                        <label for="nominal2">20.000</label>
                     </div>
                 </div>
             </div>
             <div class="col-4 d-flex justify-content-center">
                 <div class="input-containers">
-                    <input type="radio" id="nominal", name="radio">
+                    <input type="radio" id="nominal3" name="radio">
                     <div class="radio-title">
-                        <label for="nominal">50.000</label>
+                        <label for="nominal3">50.000</label>
                     </div>
                 </div>
             </div>
             <div class="col-4 d-flex justify-content-center">
                 <div class="input-containers">
-                    <input type="radio" id="nominal", name="radio">
+                    <input type="radio" id="nominal4" name="radio">
                     <div class="radio-title">
-                        <label for="nominal">100.000</label>
+                        <label for="nominal4">100.000</label>
                     </div>
                 </div>
             </div>
             <div class="col-4 d-flex justify-content-center">
                 <div class="input-containers">
-                    <input type="radio" id="nominal", name="radio">
+                    <input type="radio" id="nominal5" name="radio">
                     <div class="radio-title">
-                        <label for="nominal">200.000</label>
+                        <label for="nominal5">200.000</label>
                     </div>
                 </div>
             </div>
             <div class="col-4 d-flex justify-content-center">
                 <div class="input-containers">
-                    <input type="radio" id="nominal", name="radio">
+                    <input type="radio" id="nominal6" name="radio">
                     <div class="radio-title">
-                        <label for="nominal">500.000</label>
+                        <label for="nominal6">500.000</label>
                     </div>
                 </div>
             </div>
         </div>
+
 
         {{-- Metode Pembayaran --}}
         <div class="row mt-5">
@@ -102,7 +103,7 @@
                     <div class="row mb-4">
                         <div class="col-6 d-flex justify-content-center">
                             <div class="input-containers">
-                                <input type="radio" id="bank", name="radio-bank">
+                                <input type="radio" id="bank-bca" name="radio-bank" value="1">
                                 <div class="radio-title">
                                     <img src="/assets/images/bank-bca.png" alt="">
                                 </div>
@@ -111,7 +112,7 @@
 
                         <div class="col-6 d-flex justify-content-center">
                             <div class="input-containers">
-                                <input type="radio" id="bank", name="radio-bank">
+                                <input type="radio" id="bank-bri" name="radio-bank" value="2">
                                 <div class="radio-title">
                                     <img src="/assets/images/bank-bri.png" alt="">
                                 </div>
@@ -153,22 +154,24 @@
                         <div class="h5">Dukungan atau doamu (optional)</div>
                     </div>
                     <div class="mb-3">
-                        <textarea class="form-control" id="dukungan" rows="5" required name="dukungan"></textarea>
+                        <textarea class="form-control" id="dukungan" rows="5" name="dukungan"></textarea>
                     </div>
                 </div>
             </div>
             <div class="col-1"></div>
 
-            <div class="col-12">
-                <div class="container-total d-flex ">
+            <div class="col-1"></div>
+            <div class="col-10" >
+                <div class="container-total d-flex align-items-center" style="height : 2rem">
                     <div class="col-10"></div>
-                    <div class="col-2">
-                        <h6>Total : Rp20.000,00</h6>
+                    <div class="col-2 d-flex align-items-center justify-content-center">
+                        <div id="totalBayar" style="font-weight: bold">Total : Rp. 0,00</div>
                     </div>
                 </div>
             </div>
+            <div class="col-1"></div>
 
-            <div class="col-12 mt-5">
+            <div class="col-12 mt-1 mb-5">
                 <div class="col d-flex justify-content-center">
                     <button type="submit" class="btn"
                     style="--bs-btn-padding-y: 0.5rem; --bs-btn-padding-x: 2.5rem; --bs-btn-font-size: 1rem;
@@ -177,6 +180,9 @@
                 </div>
             </div>
         </div>
+        <input type="hidden" id="id_bank" name="id_bank">
     </form>
     </div>
 </x-layout>
+
+<script src="{{ asset('script/donasi-page.js') }}"></script>
