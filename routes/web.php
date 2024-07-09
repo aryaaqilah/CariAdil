@@ -1,17 +1,18 @@
 <?php
 
-use App\Http\Controllers\PerkaraController;
-use Illuminate\Support\Facades\Route;
 use App\Http\Controllers;
-
+use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\CaseController;
-use App\Http\Controllers\DashboardController;
-use App\Http\Controllers\DonationController;
+
 use App\Http\Controllers\FormController;
-use App\Http\Controllers\ProductController;
 use App\Http\Controllers\UserController;
-use App\Http\Controllers\HomepageController;
 use App\Http\Controllers\StoreController;
+use App\Http\Controllers\PerkaraController;
+use App\Http\Controllers\ProductController;
+use App\Http\Controllers\DonationController;
+use App\Http\Controllers\HomepageController;
+use App\Http\Controllers\DashboardController;
+use App\Http\Controllers\ProgressKasusHukumController;
 
 Route::get("/loading", function () {
     return view('core.loading');
@@ -56,6 +57,8 @@ Route::prefix('/admin')->group(function () {
     Route::get('/produk', [ProductController::class, 'index']);
     Route::get('/kasus-hukum', [FormController::class, 'index']);
     Route::get('/pengajuan', [FormController::class, 'index']);
+
+    
 });
 
 Route::prefix('/perkara')->group(function () {
