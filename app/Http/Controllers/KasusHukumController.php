@@ -20,4 +20,7 @@ class KasusHukumController extends Controller
     public function kasusHukumHomepage() {
 
     }
+
+
+    
 }

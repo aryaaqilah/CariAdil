@@ -201,27 +201,31 @@
                       Update Perkara
                   </div>
   
-                  <form class="d-flex justify-content-center">
+                  <form class="d-flex justify-content-center" action="PSB_Progress" method="POST">
+                    @csrf
+                    <input type="hidden" name="id_kasus" value="1">
                       <div class="col-10">
                         <div class="col-12 mt-3">
                           <label for="inputAddress" class="form-label">Tanggal</label>
-                            <input type="date" class="form-control">
+                            <input type="date" class="form-control" name="date">
                         </div>
                         <div class="col-12 d-flex justify-content-between gap-4 mt-3">
                           <div class="col-md-5">
                              <label class="form-label">Jenis Kegiatan</label>
-                             <input type="text" class="form-control">
+                             <input type="text" class="form-control" name="topik_progress">
                           </div>
-                        <div class="col-md-6">
-                          <label class="form-label">Agenda Kegiatan</label>
-                          <input class="form-control">
+                          <div class="col-md-6">
+                            <label class="form-label">Agenda Kegiatan</label>
+                            <input type="text" class="form-control" name="detail">
+                          </div>
                         </div>
-                       </div>
   
                        <div class="col-12">
                          <label class="form-label">Catatan</label>
                          <textarea class="form-control" id="exampleFormControlTextarea1" rows="5" required></textarea>
                       </div>
+
+                      <button type="submit">SUBMIT</button>
                   </form>
 
                 </div>

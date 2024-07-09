@@ -1,17 +1,18 @@
 <?php
 
-use App\Http\Controllers\PerkaraController;
-use Illuminate\Support\Facades\Route;
 use App\Http\Controllers;
-
+use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\CaseController;
-use App\Http\Controllers\DashboardController;
-use App\Http\Controllers\DonationController;
+
 use App\Http\Controllers\FormController;
-use App\Http\Controllers\ProductController;
 use App\Http\Controllers\UserController;
-use App\Http\Controllers\HomepageController;
 use App\Http\Controllers\StoreController;
+use App\Http\Controllers\PerkaraController;
+use App\Http\Controllers\ProductController;
+use App\Http\Controllers\DonationController;
+use App\Http\Controllers\HomepageController;
+use App\Http\Controllers\DashboardController;
+use App\Http\Controllers\ProgressKasusHukumController;
 
 Route::get("/loading", function () {
     return view('core.loading');
@@ -40,12 +41,13 @@ Route::prefix('/lbh')->group(function () {
     Route::get('/login', [UserController::class, 'login']);
     Route::get('/pengajuan-bantuan-hukum/{id}', [FormController::class, 'show']);
     Route::get('/perkara-berlangsung', [CaseController::class, 'showLBH']);
-    Route::get('/PSB_Progress', [CaseController::class, 'PP']);
     Route::get('/rawr', function () {
-        return view('userLBH.update_perkara.dropdown');
+        return view('userLBH.update_perkara.progress');
     });
-    //diandra
-    // Route::get('/perkara-berlangsung/{id?}', [CaseController::class, 'show']); //diandra
+    
+    Route::get('/PSB_Progress', [CaseController::class, 'PP']);
+    Route::post('/PSB_Progress', [ProgressKasusHukumController::class, 'UpdateProgress'])->name('PSB_Progress');
+
 });
 
 //ADMIN
