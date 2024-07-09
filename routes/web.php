@@ -39,15 +39,19 @@ Route::get('/store/{id}', [ProductController::class, 'show']);
 Route::prefix('/lbh')->group(function () {
     Route::get('/', [UserController::class, 'index']); //ok
     Route::get('/login', [UserController::class, 'login']);
-    Route::get('/pengajuan-bantuan-hukum/{id}', [FormController::class, 'show']);
-    Route::get('/perkara-berlangsung', [CaseController::class, 'showLBH']);
+    Route::get('/pengajuan-bantuan-hukum', [FormController::class, 'pengajuan_bantuan']);
+    Route::get('/pengajuan-bantuan-hukum/1', [FormController::class, 'detail_pengajuan_bantuan']);
+    Route::get('/perkara-berlangsung', [CaseController::class, 'perkara_berlangsung']);
+    Route::get('/perkara-berlangsung/{id}', [CaseController::class, 'detail_perkara_berlangsung']);
+
     Route::get('/rawr', function () {
         return view('userLBH.update_perkara.progress');
     });
     
     Route::get('/PSB_Progress', [CaseController::class, 'PP']);
     Route::post('/PSB_Progress', [ProgressKasusHukumController::class, 'UpdateProgress'])->name('PSB_Progress');
-
+    //diandra
+    // Route::get('/perkara-berlangsung/{id?}', [CaseController::class, 'show']); //diandra
 });
 
 //ADMIN
@@ -59,6 +63,8 @@ Route::prefix('/admin')->group(function () {
     Route::get('/produk', [ProductController::class, 'index']);
     Route::get('/kasus-hukum', [FormController::class, 'index']);
     Route::get('/pengajuan', [FormController::class, 'index']);
+
+    
 });
 
 Route::prefix('/perkara')->group(function () {
