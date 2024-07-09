@@ -23,9 +23,9 @@ return new class extends Migration
             $table->string('jumlah_anak');
             $table->string('jumlah_anak_tanggungan');
             $table->string('alamat_lengkap');
-            $table->string('RT_RW');
-            $table->string('Desa_Kelurahan');
-            $table->string('Kabupaten_Kota');
+            $table->string('rt_rw');
+            $table->string('desa_kelurahan');
+            $table->string('kabupaten_kota');
             $table->string('kode_pos');
             $table->string('kecamatan');
             $table->string('provinsi');
@@ -37,7 +37,7 @@ return new class extends Migration
             $table->integer('jumlah_tanggungan');
             $table->string('pendidikan_terakhir');
             $table->string('telepon');
-            $table->string('HP');
+            $table->string('hp');
             $table->text('uraian');
             $table->string('lokasi_pembuatan_form');
             $table->date('tanggal');

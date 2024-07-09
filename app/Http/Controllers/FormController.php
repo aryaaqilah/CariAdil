@@ -29,7 +29,7 @@ class FormController extends Controller
      */
     public function store(Request $request)
     {
-        DB::beginTransaction();
+        // DB::beginTransaction();
 
         try {
             if ($request->hasFile('image_url')) {
@@ -44,12 +44,12 @@ class FormController extends Controller
                 'jenis_kelamin' => $request->jenis_kelamin,
                 'agama' => $request->agama,
                 'status_perkawinan' => $request->status_perkawinan,
-                'jumlah_anak' => $request->jumlah_anak,
-                'jumlah_anak_tanggungan' => $request->jumlah_anak_tanggungan,
+                'jumlah_anak' => strval($request->jumlah_anak),
+                'jumlah_anak_tanggungan' => strval($request->jumlah_anak_tanggungan),
                 'alamat_lengkap' => $request->alamat_lengkap,
-                'RT_RW' => $request->RT_RW,
-                'Desa_Kelurahan' => $request->Desa_Kelurahan,
-                'Kabupaten_Kota' => $request->Kabupaten_Kota,
+                'rt_rw' => $request->RT_RW,
+                'desa_kelurahan' => $request->Desa_Kelurahan,
+                'kabupaten_kota' => $request->Kabupaten_Kota,
                 'kode_pos' => $request->kode_pos,
                 'kecamatan' => $request->kecamatan,
                 'provinsi' => $request->provinsi,
@@ -58,13 +58,13 @@ class FormController extends Controller
                 'keterangan_tidak_mampu' => $request->keterangan_tidak_mampu,
                 'nomor_keterangan_tidak_mampu' => $request->nomor_keterangan_tidak_mampu,
                 'pekerjaan' => $request->pekerjaan,
-                'jumlah_tanggungan' => $request->jumlah_tanggungan,
+                'jumlah_tanggungan' => strval($request->jumlah_tanggungan),
                 'pendidikan_terakhir' => $request->pendidikan_terakhir,
                 'telepon' => $request->telepon,
-                'HP' => $request->HP,
+                'hp' => $request->HP,
                 'uraian' => $request->uraian,
                 'lokasi_pembuatan_form' => $request->lokasi_pembuatan_form,
-                'tanggal' => Carbon::now(),
+                'tanggal' => Carbon::now()->format('Y-m-d'),
                 'image_url' => $imagePath,
             ]);
         } catch (\Exception $e) {
