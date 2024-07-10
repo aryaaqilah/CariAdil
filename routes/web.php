@@ -34,6 +34,9 @@ Route::get('/form-pengajuan-hukum', [FormController::class, 'index']); //ok
 Route::post('/form-pengajuan-hukum', [FormController::class, 'store']);
 Route::get('/store', [ProductController::class, 'index']); //ok
 Route::get('/store/{id}', [ProductController::class, 'show']);
+Route::any('/konfirmasi-pembayaran', function () {
+    return view('user.konfirmasi_pembayaran');
+});
 
 //LBH
 Route::prefix('/lbh')->group(function () {
@@ -48,7 +51,7 @@ Route::prefix('/lbh')->group(function () {
         return view('userLBH.update_perkara.progress');
     });
     
-    Route::get('/PSB_Progress', [CaseController::class, 'PP']);
+    Route::get('/PSB_Progress', [CaseController::class, 'detail_perkara_berlangsung']);
     Route::post('/PSB_Progress', [ProgressKasusHukumController::class, 'UpdateProgress'])->name('PSB_Progress');
     //diandra
     // Route::get('/perkara-berlangsung/{id?}', [CaseController::class, 'show']); //diandra

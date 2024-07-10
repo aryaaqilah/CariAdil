@@ -49,6 +49,13 @@
                             required>
                     </div>
                 </div>
+                <div class="col-2"></div>
+                <div class="col-5">
+                    <div class="mb-3">
+                        <label for="exampleFormControlInput1" class="form-label">Tanggal Lahir</label>
+                        <input type="date" class="form-control" name="date" placeholder="Tanggal Lahir">
+                    </div>
+                </div>
             </div>
 
             <div class="row me-4 ms-4">
