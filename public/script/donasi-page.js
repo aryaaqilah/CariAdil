@@ -24,4 +24,14 @@ document.addEventListener('DOMContentLoaded', function() {
 
     // Tambahkan event listener untuk perubahan di nominalTF
     nominalTF.addEventListener('input', updateTotalBayar);
+
+    const bankRadios = document.querySelectorAll('input[name="radio-bank"]');
+
+        // Add change event listener to each radio button
+        bankRadios.forEach((radio) => {
+            radio.addEventListener('change', function() {
+                // Set the hidden input value to the selected radio value
+                document.getElementById('id_bank').value = this.value;
+            });
+        });
 });

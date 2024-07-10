@@ -36,9 +36,9 @@ class DatabaseSeeder extends Seeder
                 'agama' => 'Islam',
                 'status_perkawinan' => 'Belum Kawin',
                 'alamat_lengkap' => 'Sentul Sentul Sentul',
-                'RT_RW' => '01/04',
-                'Desa_Kelurahan' => 'Sumur Batu',
-                'Kabupaten_Kota' => 'Bogor',
+                'rt_rw' => '01/04',
+                'desa_kelurahan' => 'Sumur Batu',
+                'kabupaten_kota' => 'Bogor',
                 'kode_pos' => '43192',
                 'kecamatan' => 'Babakan Madang',
                 'jumlah_anak' => '1',
@@ -52,7 +52,7 @@ class DatabaseSeeder extends Seeder
                 'jumlah_tanggungan' => 2,
                 'pendidikan_terakhir' => 'SMA',
                 'telepon' => 'Tidak Ada',
-                'HP' => '09876',
+                'hp' => '09876',
                 'uraian' => 'Saya adalah seseorang yang terkena masalah',
                 'lokasi_pembuatan_form' => 'Bogor',
                 'tanggal' => Carbon::now(),
@@ -67,9 +67,9 @@ class DatabaseSeeder extends Seeder
                 'agama' => 'Islam',
                 'status_perkawinan' => 'Belum Kawin',
                 'alamat_lengkap' => 'Sentul Sentul Sentul',
-                'RT_RW' => '01/04',
-                'Desa_Kelurahan' => 'Sumur Batu',
-                'Kabupaten_Kota' => 'Bogor',
+                'rt_rw' => '01/04',
+                'desa_kelurahan' => 'Sumur Batu',
+                'kabupaten_kota' => 'Bogor',
                 'kode_pos' => '43192',
                 'kecamatan' => 'Babakan Madang',
                 'jumlah_anak' => '1',
@@ -83,7 +83,7 @@ class DatabaseSeeder extends Seeder
                 'jumlah_tanggungan' => 2,
                 'pendidikan_terakhir' => 'SMA',
                 'telepon' => 'Tidak Ada',
-                'HP' => '09876',
+                'hp' => '09876',
                 'uraian' => 'Saya adalah seseorang yang terkena masalah',
                 'lokasi_pembuatan_form' => 'Bogor',
                 'tanggal' => Carbon::now(),
@@ -93,9 +93,15 @@ class DatabaseSeeder extends Seeder
 
         $bankArray = [
             [
+
                 'nama' => 'BCA',
                 'no_rekening' => '0381160679',
-            ]
+            ],
+            [
+
+                'nama' => 'BRI',
+                'no_rekening' => '315038701',
+            ],
         ];
 
         $lbhArray = [
@@ -115,10 +121,10 @@ class DatabaseSeeder extends Seeder
                 'description' => 'Kasus ini adalah tentang seorang pemuda bogor',
                 'tanggal' => Carbon::now(),
                 'target_donasi' => '10000000',
-                'id_bank' => 1,
+                // 'id_bank' => 1,
                 'id_form' => 1,
-                'jenis_perkara' => 'Perdata',
-                'status_pengajuan' => 'Diterima',
+                'jenis_perkara' => 'Pidana',
+                'status_pengajuan' => 'Proses',
                 'image_url' => 'tygbh'
             ],
             [
@@ -127,10 +133,10 @@ class DatabaseSeeder extends Seeder
                 'description' => 'Kasus ini adalah tentang seorang pemuda bogor',
                 'tanggal' => Carbon::now(),
                 'target_donasi' => '10000000',
-                'id_bank' => 1,
+                // 'id_bank' => 1,
                 'id_form' => 1,
                 'jenis_perkara' => 'Perdata',
-                'status_pengajuan' => 'Diterima',
+                'status_pengajuan' => 'Selesai',
                 'image_url' => 'tygbh'
             ]
         ];
@@ -159,6 +165,7 @@ class DatabaseSeeder extends Seeder
         $transaksiArray = [
             [
                 'id_kasus_hukum' => 1,
+                'id_bank' => 1,
                 'nominal' => '200000',
                 'nama' => 'Arya',
                 'email' => 'arya@gmail.com',
@@ -167,6 +174,7 @@ class DatabaseSeeder extends Seeder
             ],
             [
                 'id_kasus_hukum' => 1,
+                'id_bank' => 2,
                 'nominal' => '300000',
                 'nama' => 'Arya',
                 'email' => 'arya@gmail.com',
@@ -175,11 +183,12 @@ class DatabaseSeeder extends Seeder
             ],
             [
                 'id_kasus_hukum' => 2,
+                'id_bank' => 2,
                 'nominal' => '300000',
                 'nama' => 'Arya',
                 'email' => 'arya@gmail.com',
                 'nomor_telepon' => '087785243656',
-                'dukungan' =>''
+                'dukungan' => ''
             ],
         ];
 
@@ -217,9 +226,9 @@ class DatabaseSeeder extends Seeder
         ]);
 
         FormPengajuan::insert($formArray);
-        Bank::insert($bankArray);
         LBH::insert($lbhArray);
         KasusHukum::insert($kasusHukumArray);
+        Bank::insert($bankArray);
         ProgressKasusHukum::insert($progressArray);
         TransaksiDonasi::insert($transaksiArray);
     }

@@ -103,7 +103,7 @@
                     <div class="row mb-4">
                         <div class="col-6 d-flex justify-content-center">
                             <div class="input-containers">
-                                <input type="radio" id="bank", name="radio-bank">
+                                <input type="radio" id="bank-bca" name="radio-bank" value="1">
                                 <div class="radio-title">
                                     <img src="/assets/images/bank-bca.png" alt="">
                                 </div>
@@ -112,7 +112,7 @@
 
                         <div class="col-6 d-flex justify-content-center">
                             <div class="input-containers">
-                                <input type="radio" id="bank", name="radio-bank">
+                                <input type="radio" id="bank-bri" name="radio-bank" value="2">
                                 <div class="radio-title">
                                     <img src="/assets/images/bank-bri.png" alt="">
                                 </div>
@@ -154,7 +154,7 @@
                         <div class="h5">Dukungan atau doamu (optional)</div>
                     </div>
                     <div class="mb-3">
-                        <textarea class="form-control" id="dukungan" rows="5" required name="dukungan"></textarea>
+                        <textarea class="form-control" id="dukungan" rows="5" name="dukungan"></textarea>
                     </div>
                 </div>
             </div>
@@ -180,6 +180,7 @@
                 </div>
             </div>
         </div>
+        <input type="hidden" id="id_bank" name="id_bank">
     </form>
     </div>
 </x-layout>

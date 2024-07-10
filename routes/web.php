@@ -41,7 +41,10 @@ Route::any('/konfirmasi-pembayaran', function () {
 //LBH
 Route::prefix('/lbh')->group(function () {
     Route::get('/', [UserController::class, 'index']); //ok
-    Route::get('/login', [UserController::class, 'login']);
+    Route::get('/login', function(){
+        return view('userLBH.login');
+    });
+    Route::post('/login', [UserController::class, 'login']);
     Route::get('/pengajuan-bantuan-hukum', [FormController::class, 'pengajuan_bantuan']);
     Route::get('/pengajuan-bantuan-hukum/1', [FormController::class, 'detail_pengajuan_bantuan']);
     Route::get('/perkara-berlangsung', [CaseController::class, 'perkara_berlangsung']);

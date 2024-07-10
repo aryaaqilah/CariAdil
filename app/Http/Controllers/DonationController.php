@@ -42,6 +42,7 @@ class DonationController extends Controller
 
         $validatedData = [
             'id_kasus_hukum' => $id,
+            'id_bank' => $request->id_bank,
             'nominal' => $request->nominal,
             'nama' => $request->nama,
             'email' => $request->email,
