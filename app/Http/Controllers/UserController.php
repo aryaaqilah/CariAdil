@@ -3,7 +3,11 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Hash;
 use App\Models\KasusHukum;
+use App\Models\LBH;
+use Session;
 
 class UserController extends Controller
 {
@@ -18,18 +22,28 @@ class UserController extends Controller
         return view('userLBH.beranda', ['list_kasus_hukum' => $kasusHukum, 'auth' => $auth]);
     }
 
-    public function login(Request $request){
-        $data = 
-        $credentials = $request->only('email', 'password');
+    public function showLogin(){
+        return view('userLBH.login');
+    }
 
-        if(Auth::attempt($credentials)){
-            $request->session()->regenerate();
-            return redirect()->intended('dashboard');
+    public function login(Request $request){
+        $request->validate([
+            'email' => 'required',
+            'password' => 'required',
+        ]);
+
+        $user = LBH::where('email', $request->email)->first();
+        // $hashedPassword = Hash::make('plain-text-password');
+        // $user->password = $hashedPassword;
+        // $user->save();
+
+        if ($user && Hash::check($request->password, $user->password)) {
+            Session::put('user', $user);
+            return redirect()->route('beranda');
+        } else {
+            return redirect()->back()->withErrors(['email' => 'Invalid credentials']);
         }
 
-        return back()->withErrors([
-            'email' => 'The provided credentials do not match our records.',
-        ]);
     }
 
     /**

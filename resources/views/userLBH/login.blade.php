@@ -141,12 +141,8 @@
         <div id="background" class="container-fluid">
             <div class="row no-gutters">
               <div class="col-md-8 half-bg left-half d-flex align-items-center justify-content-center">
-                <div class="content text-white">
-                </div>
               </div>
               <div class="col-md-4 half-bg right-half d-flex align-items-center justify-content-center">
-                <div class="content text-white">
-                </div>
               </div>
             </div>
         </div>
@@ -156,93 +152,94 @@
                 <div class="col-1">
                 </div>
                 <div id="logo" class="col-2">
-                   <img src="..\images\loading-page\CariAdil.png" alt="">
+                   <img src="\assets\images\Logo Cari Adil 1.png" alt="" style="height: 50px; margin-left: 20px">
                 </div>
-                <div class="col-9">
-                </div>
+                <div class="col-9"></div>
             </div>
             <div id="rowContent" class="row">
-                <div class="col-2">
-
-                </div>
+                <div class="col-2"></div>
                 <div class="col-4 half-content left-content d-flex align-items-start justify-content-center">
                     <div class="container-fluid d-grid gap-2">
                         <div class="row">
                             <div class="col-12">
-                                <h1 id="kata-login">
-                                    Login ke CariAdil
-                                </h1>
+                                <h1 id="kata-login">Login ke CariAdil</h1>
                             </div>
-                        </div>
-                        <div class="box">
-
-                        </div>
-                        <div class="row">
                             <div class="col-12">
                                 <p id="kata-desc">Cari Adil siap membantu Anda memperjuangkan hak-hak dalam hukum. Jika Anda mengalami masalah dengan hukum? Kami solusinya!</p>
                             </div>
                         </div>
-                    </div>
-                    
+                    </div>  
                 </div>
                 <div class="col-6 half-content right-content d-flex align-items-start justify-content-center text-light">
                     <div class="boxLogin">
                         <div>
                             <div><h1>Masuk</h1></div>
                             &nbsp;
-                            <form method="POST" action="{{url('login')}}">
+                            <form method="POST" action="{{route('login')}}">
                                 @csrf
+                                
+                                {{-- Email --}}
                                 <div class="form-row" id="row-email">
-                                    <label for="">Email</label>
+                                    <label class="form-label" for="form3Example3">Email</label>
                                         <div class="input-group mb-3">
-                                         <div class="input-group-prepend">
-                                           <span class="input-group-text" id="basic-addon1-profile"><i class="far fa-user"></i>
-                                           </span>
-                                         </div>
-                                         <input type="email" class="form-control" placeholder="Enter Email" aria-label="Email" aria-describedby="basic-addon1">
+                                            <div class="input-group-prepend">
+                                                <span class="input-group-text" id="basic-addon1-profile"><i class="far fa-user"></i></span>
+                                            </div>
+                                        <input type="email" class="form-control" placeholder="Enter Email" aria-label="Email" 
+                                        aria-describedby="basic-addon1" name="email" required autofocus>
                                     </div>
+                                    @if ($errors->has('email'))
+                                        <span class="text-danger">{{$errors->first('email')}}</span>
+                                    @endif
                                </div>
                                
+                               {{-- Password --}}
                                 <div class="form-row">
-                                    <label for="">Password</label>
+                                    <label class="form-label" for="form3Example3">Password</label>
                                         <div class="input-group mb-3">
-                                         <div class="input-group-prepend">
-                                           <span class="input-group-text" id="basic-addon1-lock">
-                                               <i class="fas fa-lock"></i>
-                                           </span>
-                                         </div>
-                                         <input type="password" class="form-control" placeholder="Enter Password" aria-label="Email" aria-describedby="basic-addon1">
-                                         <div class="input-group-prepend">
-                                            <span class="input-group-text" id="basic-addon1-eye">
-                                                <i class="fa fa-eye"></i>
-                                            </span>
-                                          </div>
+                                            <div class="input-group-prepend">
+                                                <span class="input-group-text" id="basic-addon1-lock"><i class="fas fa-lock"></i></span>
+                                            </div>
+                                        <input type="password" class="form-control" placeholder="Enter Password" 
+                                        aria-label="Email" aria-describedby="basic-addon1" name="password" required>
+                                         
+                                        <div class="input-group-prepend">
+                                            <span class="input-group-text" id="basic-addon1-eye"><i class="fa fa-eye"></i></span>
+                                        </div>
                                     </div>
+                                    @if ($errors->has('password'))
+                                        <span class="text-danger">{{$errors->first('password')}}</span>
+                                    @endif
                                </div>
-                                
+
+                               <a href="#">
+                                   <p>Forgot your password?</p>
+                               </a>
+
+                                <div class="btn-login">
+                                    <button type="submit" class="btn" id="btn-login">Login</button>
+                                </div>
+                                &nbsp;
+                                <div class="belum-akun">
+                                    <p>Belum punya akun? <a href="">Daftar disini</a></p>
+                                </div>
                               </form>
-                            <a href="#">
-                                <p>Forgot your password?</p>
-                            </a>
-                        </div>
-                        
-                        <div>
-                            <div class="btn-login">
-                                <button
-                                type="button"
-                                class="btn btn-primary"
-                                id="btn-login">Login
-                            </button>
-                            </div>
-                            &nbsp;
-                            <div class="belum-akun">
-                                <p>Belum punya akun? <a href="">Daftar disini</a></p>
-                            </div>
+
                         </div>
                     </div>
                 </div>
             </div>
         </div>
+
+        @if ($errors->any())
+        <div>
+            <ul>
+                @foreach ($errors->all() as $error)
+                    <li>{{ $error }}</li>
+                @endforeach
+            </ul>
+        </div>
+        @endif
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>

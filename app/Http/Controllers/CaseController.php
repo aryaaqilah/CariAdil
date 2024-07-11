@@ -63,13 +63,26 @@ class CaseController extends Controller
         return view('user.detail_berita', ['auth' => $auth]);
     }
     public function perkara_berlangsung(){
+        $perkaraBerlangsung = KasusHukum::orderBy('tanggal', 'DESC')
+        ->select('*')->get();
         $auth = true;
-        return view('userLBH.perkara_berlangsung', ['auth' => $auth]);
+        return view('userLBH.perkara_berlangsung', ['auth' => $auth, 'perkaraBerlangsung' => $perkaraBerlangsung]);
     }
 
-    public function detail_perkara_berlangsung(){
+    public function detail_perkara_berlangsung($id){
+        $perkaraBerlangsung = KasusHukum::join('form_pengajuan', 'form_pengajuan.id_form', '=', 'kasus_hukum.id_form')
+        // ->join('transaksi_donasi', 'kasus_hukum.id_kasus', '=', 'transaksi_donasi.id_kasus_hukum')
+        ->select('*')
+        ->where('id_kasus', '=', $id)->get();
+        $kasusHukum = KasusHukum::find($id);
+        $progress = ProgressKasusHukum::select('*')->where('id_kasus', '=', $id)->get();
+        $transaksi = TransaksiDonasi::select('*')->where('id_kasus_hukum', '=', $id)->get();
+        $total = 0;
+        foreach ($transaksi as $trans){
+            $total += $trans->nominal;
+        }
         $auth = true;
-        return view('userLBH.detail_perkara_berlangsung', ['auth'=> $auth]);
+        return view('userLBH.detail_perkara_berlangsung', ['auth'=> $auth, 'perkaraBerlangsung' => $perkaraBerlangsung]);
     }
 
 
