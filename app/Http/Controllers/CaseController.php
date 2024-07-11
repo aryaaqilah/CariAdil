@@ -19,43 +19,94 @@ class CaseController extends Controller
         $kasusHukum = KasusHukum::orderBy('tanggal', 'DESC')->get();
         $auth = false;
 
-        $total = array();
-        foreach ($kasusHukum as $kasus) {
-            # code...
-            // $transaksi = TransaksiDonasi::select('*')->where('id_kasus_hukum', '=', $kasus->id_kasus)->get();
-            // $totalEach = 0;
-            // foreach ($transaksi as $trans){
-            //     $totalEach += $trans->nominal;
-            // }
+        $pidana = KasusHukum::select('*')->where('jenis_perkara', '=', 'Pidana')->get();
+        $perdata = KasusHukum::select('*')->where('jenis_perkara', '=', 'Perdata')->get();
+        // dd($perkara);
 
+        $finalPerdata = array();
+        $finalPidana = array();
+
+        foreach ($pidana as $kasus) {
             $transaksi = TransaksiDonasi::where('id_kasus_hukum', $kasus->id_kasus)->sum('nominal');
             $data = [
                 "id_kasus" => $kasus->id_kasus,
                 "title" => $kasus->title,
-                    "description" => $kasus->description,
-                    "tanggal" => $kasus->tanggal,
-                    "target_donasi" => $kasus->target_donasi,
-                    "id_bank" => $kasus->id_bank,
-                    "id_form" => $kasus->id_form,
-                    "id_lbh" => $kasus->id_lbh,
-                    "jenis_perkara" => $kasus->jenis_perkara,
-                    "status_pengajuan" => $kasus->status_pengajuan,
-                    "image_url" => $kasus->image_url,
-                    "created_at" => $kasus->created_at,
-                    "updated_at" => $kasus->updated_at,
-                    "total" => $transaksi,
-                    "nama_lbh" => LBH::select('nama_lbh')->where('id_LBH', '=', $kasus->id_lbh)->get()
-                ];
-                array_push($total, $data);
-            }
+                "description" => $kasus->description,
+                "tanggal" => $kasus->tanggal,
+                "target_donasi" => $kasus->target_donasi,
+                "id_bank" => $kasus->id_bank,
+                "id_form" => $kasus->id_form,
+                "id_lbh" => $kasus->id_lbh,
+                "jenis_perkara" => $kasus->jenis_perkara,
+                "status_pengajuan" => $kasus->status_pengajuan,
+                "image_url" => $kasus->image_url,
+                "created_at" => $kasus->created_at,
+                "updated_at" => $kasus->updated_at,
+                "total" => $transaksi,
+                "nama_lbh" => LBH::select('nama_lbh')->where('id_LBH', '=', $kasus->id_lbh)->get()
+            ];
+            array_push($finalPidana, $data);
+        }
 
-        $finalKasus = array();
+        foreach ($perdata as $kasus) {
+            $transaksi = TransaksiDonasi::where('id_kasus_hukum', $kasus->id_kasus)->sum('nominal');
+            $data = [
+                "id_kasus" => $kasus->id_kasus,
+                "title" => $kasus->title,
+                "description" => $kasus->description,
+                "tanggal" => $kasus->tanggal,
+                "target_donasi" => $kasus->target_donasi,
+                "id_bank" => $kasus->id_bank,
+                "id_form" => $kasus->id_form,
+                "id_lbh" => $kasus->id_lbh,
+                "jenis_perkara" => $kasus->jenis_perkara,
+                "status_pengajuan" => $kasus->status_pengajuan,
+                "image_url" => $kasus->image_url,
+                "created_at" => $kasus->created_at,
+                "updated_at" => $kasus->updated_at,
+                "total" => $transaksi,
+                "nama_lbh" => LBH::select('nama_lbh')->where('id_LBH', '=', $kasus->id_lbh)->get()
+            ];
+            array_push($finalPerdata, $data);
+        }
+
+        // $total = array();
+        // foreach ($kasusHukum as $kasus) {
+        //     # code...
+        //     // $transaksi = TransaksiDonasi::select('*')->where('id_kasus_hukum', '=', $kasus->id_kasus)->get();
+        //     // $totalEach = 0;
+        //     // foreach ($transaksi as $trans){
+        //     //     $totalEach += $trans->nominal;
+        //     // }
+
+        //     $transaksi = TransaksiDonasi::where('id_kasus_hukum', $kasus->id_kasus)->sum('nominal');
+        //     $data = [
+        //         "id_kasus" => $kasus->id_kasus,
+        //         "title" => $kasus->title,
+        //             "description" => $kasus->description,
+        //             "tanggal" => $kasus->tanggal,
+        //             "target_donasi" => $kasus->target_donasi,
+        //             "id_bank" => $kasus->id_bank,
+        //             "id_form" => $kasus->id_form,
+        //             "id_lbh" => $kasus->id_lbh,
+        //             "jenis_perkara" => $kasus->jenis_perkara,
+        //             "status_pengajuan" => $kasus->status_pengajuan,
+        //             "image_url" => $kasus->image_url,
+        //             "created_at" => $kasus->created_at,
+        //             "updated_at" => $kasus->updated_at,
+        //             "total" => $transaksi,
+        //             "nama_lbh" => LBH::select('nama_lbh')->where('id_LBH', '=', $kasus->id_lbh)->get()
+        //         ];
+        //         array_push($total, $data);
+        //     }
+
+        // $finalKasus = array();
 
         // $kasusHukum
 
-        // dd($data);
+        // dd($finalPerdata);
 
-        return view('user.berita', ['list_kasus_hukum' => $total, 'auth' => $auth]);
+        return view('user.berita', ['list_kasus_pidana' => $finalPidana, 'list_kasus_perdata' => $finalPerdata, 'auth' => $auth]);
     }
 
     public function detail_berita(){
