@@ -77,3 +77,42 @@ Route::prefix('/admin')->group(function () {
 Route::prefix('/perkara')->group(function () {
     Route::get('/berlangsung', [PerkaraController::class, 'indexPerkaraBerlangsung']);
 });
+
+
+// Admin
+Route::get('/admindashboard', function(){
+    return view('admin.dashboard');
+});
+Route::get('/donasidetail', function(){
+    return view('admin.donasi-detail');
+});
+Route::get('/donasi', function(){
+    return view('admin.donasi');
+});
+Route::get('/log', function(){
+    return view('admin.log');
+});
+Route::get('/perkaraberita', function(){
+    return view('admin.perkara-berita');
+});
+Route::get('/perkaraberlangsung', function(){
+    return view('admin.perkara-berlangsung');
+});
+Route::get('/perkaramasuk', function(){
+    return view('admin.perkara-masuk');
+});
+Route::get('/perkarapengajuan', function(){
+    return view('admin.perkara-pengajuan');
+});
+Route::get('/addadmin', function(){
+    return view('admin.role-addadmin');
+});
+Route::get('/adduserlbh', function(){
+    return view('admin.role-adduserlbh');
+});
+Route::get('/roleadmin', function(){
+    return view('admin.role-admin');
+});
+Route::get('/roleuserlbh', function(){
+    return view('admin.role-userlbh');
+});
