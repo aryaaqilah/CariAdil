@@ -9,9 +9,11 @@
         <div class="row">
             <div class="col-2"></div>
             <div class="col-8">
-                <form class="d-flex" role="search">
+                <form class="d-flex" role="search" action="/berita/search"
+                enctype="multipart/form-data" method="GET">
+                    @csrf
                     <input class="form-control me-2" style="border-radius: 12px" type="search"
-                        placeholder="Search Here" aria-label="Search">
+                        placeholder="Search Here" aria-label="Search" name="str">
                     <button class="btn"
                         style="border-radius: 12px; color: white; background-color: rgba(232, 123, 47, 1);"
                         type="submit">Search</button>

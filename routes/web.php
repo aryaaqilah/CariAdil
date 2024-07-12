@@ -27,6 +27,7 @@ Route::get("/donana", [DonationController::class, 'index']);
 Route::get('/', [HomepageController::class, 'index']);
 Route::prefix('/berita')->group(function () {
     Route::get('/', [CaseController::class, 'index']);
+    Route::get('/search', [CaseController::class, 'search']);
     Route::get('/kasus-hukum/{id}', [CaseController::class, 'show']);
     Route::get('/donasi/{id}', [DonationController::class, 'index']);
     Route::post('/donasi/{id}/confirm', [DonationController::class, 'confirm']);

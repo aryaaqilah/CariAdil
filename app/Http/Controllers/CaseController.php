@@ -176,6 +176,72 @@ class CaseController extends Controller
         return view('user.detail_berita', ['kasusHukum' => $kasusHukum, 'auth' => $auth, 'progress' => $progress, 'total' => $total]);
     }
 
+    public function search(Request $request){
+        // $kata_kunci = isset($_GET['kata_kunci']) ? $_GET['kata_kunci'] : '';
+        $kata_kunci = $request->str;
+
+        $auth = false;
+
+        $pidana = KasusHukum::select('*')->where('jenis_perkara', '=', 'Pidana')->where('title', 'LIKE', '%'. $kata_kunci.'%')->get();
+        $perdata = KasusHukum::select('*')->where('jenis_perkara', '=', 'Perdata')->where('title', 'LIKE', '%'. $kata_kunci.'%')->get();
+        // dd($perkara);
+
+        $finalPerdata = array();
+        $finalPidana = array();
+
+
+        foreach ($pidana as $kasus) {
+            $conditions = array('id_kasus_hukum' => $kasus->id_kasus, 'status_pembayaran' => 1);
+            $transaksi = TransaksiDonasi::where($conditions)->sum('nominal');
+            $data = [
+                "id_kasus" => $kasus->id_kasus,
+                "title" => $kasus->title,
+                "description" => $kasus->description,
+                "tanggal" => $kasus->tanggal,
+                "target_donasi" => $kasus->target_donasi,
+                "id_bank" => $kasus->id_bank,
+                "id_form" => $kasus->id_form,
+                "id_lbh" => $kasus->id_lbh,
+                "jenis_perkara" => $kasus->jenis_perkara,
+                "status_pengajuan" => $kasus->status_pengajuan,
+                "image_url" => $kasus->image_url,
+                "created_at" => $kasus->created_at,
+                "updated_at" => $kasus->updated_at,
+                "total" => $transaksi,
+                "nama_lbh" => LBH::select('nama_lbh')->where('id_LBH', '=', $kasus->id_lbh)->get()
+            ];
+            array_push($finalPidana, $data);
+        }
+
+
+        foreach ($perdata as $kasus) {
+            // $transaksi = TransaksiDonasi::where('id_kasus_hukum', $kasus->id_kasus)->where('status_pembayaran', 1)->sum('nominal');
+            $conditions = array('id_kasus_hukum' => $kasus->id_kasus, 'status_pembayaran' => 1);
+            $transaksi = TransaksiDonasi::where($conditions)->sum('nominal');
+            $data = [
+                "id_kasus" => $kasus->id_kasus,
+                "title" => $kasus->title,
+                "description" => $kasus->description,
+                "tanggal" => $kasus->tanggal,
+                "target_donasi" => $kasus->target_donasi,
+                "id_bank" => $kasus->id_bank,
+                "id_form" => $kasus->id_form,
+                "id_lbh" => $kasus->id_lbh,
+                "jenis_perkara" => $kasus->jenis_perkara,
+                "status_pengajuan" => $kasus->status_pengajuan,
+                "image_url" => $kasus->image_url,
+                "created_at" => $kasus->created_at,
+                "updated_at" => $kasus->updated_at,
+                "total" => $transaksi,
+                "nama_lbh" => LBH::select('nama_lbh')->where('id_LBH', '=', $kasus->id_lbh)->get()
+            ];
+            array_push($finalPerdata, $data);
+        }
+
+        // dd($kasus);
+        return view('user.berita', ['list_kasus_pidana' => $finalPidana, 'list_kasus_perdata' => $finalPerdata, 'auth' => $auth]);
+    }
+
     /**
      * Show the form for editing the specified resource.
      */
