@@ -1,4 +1,4 @@
-@extends('master')
+@extends('components/admin-layout')
 
 @section('title', 'Perkara Masuk')
 
