@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers;
+use App\Http\Controllers\TransaksiDonasiController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\CaseController;
 
@@ -26,26 +27,38 @@ Route::get("/donana", [DonationController::class, 'index']);
 Route::get('/', [HomepageController::class, 'index']);
 Route::prefix('/berita')->group(function () {
     Route::get('/', [CaseController::class, 'index']);
+    Route::get('/search', [CaseController::class, 'search']);
     Route::get('/kasus-hukum/{id}', [CaseController::class, 'show']);
     Route::get('/donasi/{id}', [DonationController::class, 'index']);
+    Route::post('/donasi/{id}/confirm', [DonationController::class, 'confirm']);
     Route::post('/donasi/{id}/store', [DonationController::class, 'store']);
 });
 Route::get('/form-pengajuan-hukum', [FormController::class, 'index']); //ok
 Route::post('/form-pengajuan-hukum', [FormController::class, 'store']);
 Route::get('/store', [ProductController::class, 'index']); //ok
 Route::get('/store/{id}', [ProductController::class, 'show']);
+Route::any('/konfirmasi-pembayaran',[TransaksiDonasiController::class, 'konfirmasi']);
 
 //LBH
 Route::prefix('/lbh')->group(function () {
-    Route::get('/', [UserController::class, 'index']); //ok
-    Route::get('/login', function(){
-        return view('userLBH.login');
-    });
-    Route::post('/login', [UserController::class, 'login']);
+    Route::get('/', [UserController::class, 'index'])->name('beranda'); //ok
+
+    Route::get('/login', [UserController::class, 'showLogin'])->name('login');
+    Route::post('/login', [UserController::class, 'login'])->name('login.post');
+
     Route::get('/pengajuan-bantuan-hukum', [FormController::class, 'pengajuan_bantuan']);
-    Route::get('/pengajuan-bantuan-hukum/1', [FormController::class, 'detail_pengajuan_bantuan']);
+    Route::get('/pengajuan-bantuan-hukum/{id}', [FormController::class, 'detail_pengajuan_bantuan'])->name('detail_pengajuan');
+
     Route::get('/perkara-berlangsung', [CaseController::class, 'perkara_berlangsung']);
-    Route::get('/perkara-berlangsung/{id}', [CaseController::class, 'detail_perkara_berlangsung']);
+    Route::get('/perkara-berlangsung/{id}', [CaseController::class, 'detail_perkara_berlangsung'])->name('detail_perkara');
+    Route::get('/rawr', function () {
+        return view('userLBH.update_perkara.progress');
+    });
+
+    Route::get('/PSB_Progress', [CaseController::class, 'detail_perkara_berlangsung']);
+    Route::post('/PSB_Progress', [ProgressKasusHukumController::class, 'UpdateProgress'])->name('PSB_Progress');
+    //diandra
+    // Route::get('/perkara-berlangsung/{id?}', [CaseController::class, 'show']); //diandra
 });
 
 //ADMIN
@@ -58,9 +71,48 @@ Route::prefix('/admin')->group(function () {
     Route::get('/kasus-hukum', [FormController::class, 'index']);
     Route::get('/pengajuan', [FormController::class, 'index']);
 
-    
+
 });
 
 Route::prefix('/perkara')->group(function () {
     Route::get('/berlangsung', [PerkaraController::class, 'indexPerkaraBerlangsung']);
+});
+
+
+// Admin
+Route::get('/admindashboard', function(){
+    return view('admin.dashboard');
+});
+Route::get('/donasidetail', function(){
+    return view('admin.donasi-detail');
+});
+Route::get('/donasi', function(){
+    return view('admin.donasi');
+});
+Route::get('/log', function(){
+    return view('admin.log');
+});
+Route::get('/perkaraberita', function(){
+    return view('admin.perkara-berita');
+});
+Route::get('/perkaraberlangsung', function(){
+    return view('admin.perkara-berlangsung');
+});
+Route::get('/perkaramasuk', function(){
+    return view('admin.perkara-masuk');
+});
+Route::get('/perkarapengajuan', function(){
+    return view('admin.perkara-pengajuan');
+});
+Route::get('/addadmin', function(){
+    return view('admin.role-addadmin');
+});
+Route::get('/adduserlbh', function(){
+    return view('admin.role-adduserlbh');
+});
+Route::get('/roleadmin', function(){
+    return view('admin.role-admin');
+});
+Route::get('/roleuserlbh', function(){
+    return view('admin.role-userlbh');
 });

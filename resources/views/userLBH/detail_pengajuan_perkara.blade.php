@@ -15,7 +15,9 @@
     </div>
     <div class="row d-flex justify-content-center mt-3">
       <div class="col-10 text-center h1">
-         <strong>Panah Asmara</strong>
+        @foreach ($pengajuanBantuan as $pengajuan)
+        <strong>{{$pengajuan->nomor_pemohon}} = {{$pengajuan->nama}}</strong>
+        @endforeach
       </div>
 
       <div class="d-flex justify-content-center gap-3 my-3">
@@ -25,7 +27,9 @@
       </div>
 
       <div class="d-flex justify-content-center">
-        <p> Diajukan tanggal 20 January 2019 </p>
+        @foreach ($pengajuanBantuan as $pengajuan)
+        <p> Diajukan tanggal {{$pengajuan->tanggal}} </p>
+        @endforeach
       </div>
 
       <div class="col-4"></div>
@@ -77,21 +81,24 @@
                       <p>Kode Pos</p>
                     </div>
                     <div class="col-8">
-                      <p>: Andreas Liujaya</p>
-                      <p>: Andreas</p>
-                      <p>: Jakarta, 29 Agustus 2004</p>
-                      <p>: Laki-laki</p>
-                      <p>: Kristen</p>
-                      <p>: Belum Kawin</p>
-                      <p>: 2</p>
-                      <p>: 2</p>
-                      <p>: Rumah Talenta BCA</p>
-                      <p>: 67/90</p>
-                      <p>: Sumur Batu</p>
-                      <p>: Babakan Madang</p>
-                      <p>: Kab. Bogor</p>
-                      <p>: Jawa Barat</p>
-                      <p>: 99870</p>
+                      @foreach ($pengajuanBantuan as $pb)
+                      <p>: {{$pb->nama}}</p>
+                      <p>: {{$pb->nama_panggilan}}</p>
+                      <p>: {{$pb->tempat_lahir}}</p>
+                      <p>: {{$pb->jenis_kelamin}}</p>
+                      <p>: {{$pb->agama}}</p>
+                      <p>: {{$pb->status_perkawinan}}</p>
+                      <p>: {{$pb->jumlah_anak}}</p>
+                      <p>: {{$pb->jumlah_anak_tanggungan}}</p>
+                      <p>: {{$pb->alamat_lengkap}}</p>
+                      <p>: {{$pb->RT_RW}}</p>
+                      <p>: {{$pb->Desa_Kelurahan}}</p>
+                      <p>: {{$pb->kecamatan}}</p>
+                      <p>: {{$pb->Kabupaten_Kota}}</p>
+                      <p>: {{$pb->provinsi}}</p>
+                      <p>: {{$pb->kode_pos}}</p>  
+                      @endforeach
+
                     </div>
                   </div>
                 </div>
@@ -120,15 +127,17 @@
                       <p>HP</p>
                     </div>
                     <div class="col-8">
-                      <p>: SIM</p>
-                      <p>: 1234567890</p>
-                      <p>: Tidak</p>
-                      <p>: -</p>
-                      <p>: Mahasiswa</p>
-                      <p>: 2</p>
-                      <p>: S1</p>
-                      <p>: 09090909</p>
-                      <p>: 084243712301</p>
+                      @foreach ($pengajuanBantuan as $pb)
+                      <p>: {{$pb->identitas_diri}}</p>
+                      <p>: {{$pb->nomor_identitas}}</p>
+                      <p>: {{$pb->keterangan_tidak_mampu}}</p>
+                      <p>: {{$pb->nomor_keterangan_tidak_mampu}}</p>
+                      <p>: {{$pb->pekerjaan}}</p>
+                      <p>: {{$pb->jumlah_tanggungan}}</p>
+                      <p>: {{$pb->pendidikan_terakhir}}</p>
+                      <p>: {{$pb->telepon}}</p>
+                      <p>: {{$pb->HP}}</p>
+                      @endforeach
                     </div>
                   </div>
                 </div>
@@ -145,7 +154,9 @@
               <div class="accordion-body">
                 <div class="item-container">
                   <div class="row m-3">
-                    <p>Andreas adalah seorang yang memiliki hihihiha dan hohohoho. Eas Eas wek wek</P>
+                    @foreach ($pengajuanBantuan as $pb)
+                    <p>{{$pb->uraian}}</P>
+                    @endforeach
                   </div>
                 </div>
               </div>

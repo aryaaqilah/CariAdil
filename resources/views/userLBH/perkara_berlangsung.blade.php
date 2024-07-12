@@ -36,47 +36,19 @@
         </div>
 
         <div class="row row-cols-1 row-cols-md-2 g-4 py-4">
-            <div class="col d-flex justify-content-center">
-                <div class="card border border-light-subtle" id="card">
-                    <img src="../assets/images/kasus1.png" class="card-img-top" alt="...">
-                    <div class="card-body">
-                        <h5 class="card-title">Card title 1</h5>
-                        <p class="card-text">This is a longer card with supporting text below as a natural lead-in to
-                            additional content. This content is a little bit longer.</p>
+            @foreach ($perkaraBerlangsung as $pb)
+            <a href="{{route('detail_perkara', $pb->id_kasus)}}" class="card-link">
+                <div class="col d-flex justify-content-center">
+                    <div class="card border border-light-subtle" id="card">
+                        <img src="../assets/images/kasus1.png" class="card-img-top" alt="...">
+                        <div class="card-body">
+                            <h5 class="card-title">{{$pb->title}}</h5>
+                            <p class="card-text">{{$pb->description}}</p>   
+                        </div>
                     </div>
                 </div>
-            </div>
-
-            <div class="col d-flex justify-content-center">
-                <div class="card border border-light-subtle" id="card">
-                    <img src="../assets/images/kasus1.png" class="card-img-top" alt="...">
-                    <div class="card-body">
-                        <h5 class="card-title">Card title 2</h5>
-                        <p class="card-text">This is a longer card with supporting text below as a natural lead-in to
-                            additional content. This content is a little bit longer.</p>
-                    </div>
-                </div>
-            </div>
-            <div class="col d-flex justify-content-center">
-                <div class="card border border-light-subtle" id="card">
-                    <img src="../assets/images/kasus1.png" class="card-img-top" alt="...">
-                    <div class="card-body">
-                        <h5 class="card-title">Card title 3</h5>
-                        <p class="card-text">This is a longer card with supporting text below as a natural lead-in to
-                            additional content.</p>
-                    </div>
-                </div>
-            </div>
-            <div class="col d-flex justify-content-center">
-                <div class="card border border-light-subtle" id="card">
-                    <img src="../assets/images/kasus1.png" class="card-img-top" alt="...">
-                    <div class="card-body">
-                        <h5 class="card-title">Card title 4</h5>
-                        <p class="card-text">This is a longer card with supporting text below as a natural lead-in to
-                            additional content. This content is a little bit longer.</p>
-                    </div>
-                </div>
-            </div>
+            </a>
+            @endforeach
         </div>
     </div>
     {{-- End Container  --}}

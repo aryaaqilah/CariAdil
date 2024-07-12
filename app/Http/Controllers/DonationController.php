@@ -2,9 +2,12 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Bank;
 use App\Models\KasusHukum;
 use App\Models\TransaksiDonasi;
 use Illuminate\Http\Request;
+
+use function Laravel\Prompts\select;
 
 class DonationController extends Controller
 {
@@ -48,13 +51,38 @@ class DonationController extends Controller
             'email' => $request->email,
             'nomor_telepon' => $request->nomor_telepon,
             'dukungan' => $request->dukungan,
+            'status_pembayaran' =>0
         ];
 
         // dd($validatedData);
 
-        TransaksiDonasi::create($validatedData);
+        // TransaksiDonasi::create($validatedData);
 
         return redirect('/berita/kasus-hukum/'.$id);
+    }
+    public function confirm(Request $request,  string $id){
+        // dd($request);
+        $validatedData = [
+            'id_kasus_hukum' => $id,
+            'id_bank' => $request->id_bank,
+            'nominal' => $request->nominal,
+            'nama' => $request->nama,
+            'email' => $request->email,
+            'nomor_telepon' => $request->nomor_telepon,
+            'dukungan' => $request->dukungan,
+            'status_pembayaran' => 0
+        ];
+
+        $count = TransaksiDonasi::count() + 1;
+        $total = $request->nominal + $count;
+
+        // dd($total);
+
+        TransaksiDonasi::create($validatedData);
+
+        $bankData = Bank::select('*')->where('id_bank','=', $validatedData['id_bank'])->get();
+        $auth = false;
+        return view('user.konfirmasi_pembayaran', ['auth'=> $auth, 'data' => $validatedData, 'bank'=> $bankData, 'count'=>$count]);
     }
 
     /**

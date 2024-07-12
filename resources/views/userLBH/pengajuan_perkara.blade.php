@@ -36,97 +36,39 @@
                 <div class="tab-content" id="pills-tabContent">
                     <div class="tab-pane fade show active" id="pills-home" role="tabpanel" aria-labelledby="pills-home-tab" tabindex="0">
                         <h3>Pidana (4)</h3>
+                        {{-- Kasusnya --}}
                         <div class="row row-cols-1 row-cols-md-2 g-4 py-4">
-                            <div class="col d-flex justify-content-center">
-                                <div class="card border border-light-subtle" id="card">
-                                    <img src="../assets/images/kasus1.png" class="card-img-top" alt="...">
-                                    <div class="card-body">
-                                        <h5 class="card-title">Card title 1</h5>
-                                        <p class="card-text">This is a longer card with supporting text below as a natural lead-in to
-                                            additional content. This content is a little bit longer.</p>
+                            @foreach ($pengajuan_bantuan as $bantuan)
+                                <a href="{{route('detail_pengajuan', $bantuan->id_form)}}" class="card-link">
+                                    <div class="col d-flex justify-content-center">
+                                        <div class="card border border-light-subtle" id="card">
+                                            <img src="../assets/images/kasus1.png" class="card-img-top" alt="...">
+                                            <div class="card-body">
+                                                <h5 class="card-title">{{$bantuan->nomor_pemohon}} = {{$bantuan->nama}}</h5>
+                                                <p class="card-text">{{$bantuan->uraian}}</p>
+                                            </div>
+                                        </div>
                                     </div>
-                                </div>
-                            </div>
-                
-                            <div class="col d-flex justify-content-center">
-                                <div class="card border border-light-subtle" id="card">
-                                    <img src="../assets/images/kasus1.png" class="card-img-top" alt="...">
-                                    <div class="card-body">
-                                        <h5 class="card-title">Card title 2</h5>
-                                        <p class="card-text">This is a longer card with supporting text below as a natural lead-in to
-                                            additional content. This content is a little bit longer.</p>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col d-flex justify-content-center">
-                                <div class="card border border-light-subtle" id="card">
-                                    <img src="../assets/images/kasus1.png" class="card-img-top" alt="...">
-                                    <div class="card-body">
-                                        <h5 class="card-title">Card title 3</h5>
-                                        <p class="card-text">This is a longer card with supporting text below as a natural lead-in to
-                                            additional content.</p>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col d-flex justify-content-center">
-                                <div class="card border border-light-subtle" id="card">
-                                    <img src="../assets/images/kasus1.png" class="card-img-top" alt="...">
-                                    <div class="card-body">
-                                        <h5 class="card-title">Card title 4</h5>
-                                        <p class="card-text">This is a longer card with supporting text below as a natural lead-in to
-                                            additional content. This content is a little bit longer.</p>
-                                    </div>
-                                </div>
-                            </div>
+                                </a>
+                            @endforeach
                         </div>
                     </div>
 
                     <div class="tab-pane fade" id="pills-profile" role="tabpanel" aria-labelledby="pills-profile-tab" tabindex="0">
                         <h3>Perdata (4)</h3>
                         <div class="row row-cols-1 row-cols-md-2 g-4 py-4">
-                            <div class="col d-flex justify-content-center">
-                                <div class="card border border-light-subtle" id="card">
-                                    <img src="../assets/images/kasus1.png" class="card-img-top" alt="...">
-                                    <div class="card-body">
-                                        <h5 class="card-title">Card title 1</h5>
-                                        <p class="card-text">This is a longer card with supporting text below as a natural lead-in to
-                                            additional content. This content is a little bit longer.</p>
+                            @foreach ($pengajuan_bantuan as $bantuan)
+                                <div class="col d-flex justify-content-center">
+                                    <div class="card border border-light-subtle" id="card">
+                                        <img src="../assets/images/kasus1.png" class="card-img-top" alt="...">
+                                        <div class="card-body">
+                                            <h5 class="card-title">{{$bantuan->nama}}</h5>
+                                            <p class="card-text">{{$bantuan->uraian}}</p>
+                                        </div>
                                     </div>
                                 </div>
-                            </div>
-                
-                            <div class="col d-flex justify-content-center">
-                                <div class="card border border-light-subtle" id="card">
-                                    <img src="../assets/images/kasus1.png" class="card-img-top" alt="...">
-                                    <div class="card-body">
-                                        <h5 class="card-title">Card title 2</h5>
-                                        <p class="card-text">This is a longer card with supporting text below as a natural lead-in to
-                                            additional content. This content is a little bit longer.</p>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col d-flex justify-content-center">
-                                <div class="card border border-light-subtle" id="card">
-                                    <img src="../assets/images/kasus1.png" class="card-img-top" alt="...">
-                                    <div class="card-body">
-                                        <h5 class="card-title">Card title 3</h5>
-                                        <p class="card-text">This is a longer card with supporting text below as a natural lead-in to
-                                            additional content.</p>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col d-flex justify-content-center">
-                                <div class="card border border-light-subtle" id="card">
-                                    <img src="../assets/images/kasus1.png" class="card-img-top" alt="...">
-                                    <div class="card-body">
-                                        <h5 class="card-title">Card title 4</h5>
-                                        <p class="card-text">This is a longer card with supporting text below as a natural lead-in to
-                                            additional content. This content is a little bit longer.</p>
-                                    </div>
-                                </div>
-                            </div>
+                            @endforeach
                         </div>
-
                     </div>
                 </div>
             </div>
