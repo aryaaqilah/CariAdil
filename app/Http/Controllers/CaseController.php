@@ -26,8 +26,10 @@ class CaseController extends Controller
         $finalPerdata = array();
         $finalPidana = array();
 
+
         foreach ($pidana as $kasus) {
-            $transaksi = TransaksiDonasi::where('id_kasus_hukum', $kasus->id_kasus)->sum('nominal');
+            $conditions = array('id_kasus_hukum' => $kasus->id_kasus, 'status_pembayaran' => 1);
+            $transaksi = TransaksiDonasi::where($conditions)->sum('nominal');
             $data = [
                 "id_kasus" => $kasus->id_kasus,
                 "title" => $kasus->title,
@@ -48,8 +50,11 @@ class CaseController extends Controller
             array_push($finalPidana, $data);
         }
 
+
         foreach ($perdata as $kasus) {
-            $transaksi = TransaksiDonasi::where('id_kasus_hukum', $kasus->id_kasus)->sum('nominal');
+            // $transaksi = TransaksiDonasi::where('id_kasus_hukum', $kasus->id_kasus)->where('status_pembayaran', 1)->sum('nominal');
+            $conditions = array('id_kasus_hukum' => $kasus->id_kasus, 'status_pembayaran' => 1);
+            $transaksi = TransaksiDonasi::where($conditions)->sum('nominal');
             $data = [
                 "id_kasus" => $kasus->id_kasus,
                 "title" => $kasus->title,
@@ -70,6 +75,7 @@ class CaseController extends Controller
             array_push($finalPerdata, $data);
         }
 
+        // dd($transaksi);
         // $total = array();
         // foreach ($kasusHukum as $kasus) {
         //     # code...
@@ -127,7 +133,7 @@ class CaseController extends Controller
         ->where('id_kasus', '=', $id)->get();
         $kasusHukum = KasusHukum::find($id);
         $progress = ProgressKasusHukum::select('*')->where('id_kasus', '=', $id)->get();
-        $transaksi = TransaksiDonasi::select('*')->where('id_kasus_hukum', '=', $id)->get();
+        $transaksi = TransaksiDonasi::select('*')->where('id_kasus_hukum', '=', $id)->where('status_pembayaran','=',1)->get();
         $total = 0;
         foreach ($transaksi as $trans){
             $total += $trans->nominal;
@@ -160,7 +166,7 @@ class CaseController extends Controller
     {
         $kasusHukum = KasusHukum::find($id);
         $progress = ProgressKasusHukum::select('*')->where('id_kasus', '=', $id)->get();
-        $transaksi = TransaksiDonasi::select('*')->where('id_kasus_hukum', '=', $id)->get();
+        $transaksi = TransaksiDonasi::select('*')->where('id_kasus_hukum', '=', $id)->where('status_pembayaran', '=', 1)->get();
         $total = 0;
         foreach ($transaksi as $trans){
             $total += $trans->nominal;

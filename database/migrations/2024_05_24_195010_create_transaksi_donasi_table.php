@@ -18,6 +18,7 @@ return new class extends Migration
             $table->string('nama');
             $table->string('email');
             $table->string('nomor_telepon');
+            $table->boolean('status_pembayaran');
             $table->text('dukungan')->nullable();
             $table->timestamps();
             $table->bigInteger('id_kasus_hukum')->unsigned();

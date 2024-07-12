@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers;
+use App\Http\Controllers\TransaksiDonasiController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\CaseController;
 
@@ -28,15 +29,14 @@ Route::prefix('/berita')->group(function () {
     Route::get('/', [CaseController::class, 'index']);
     Route::get('/kasus-hukum/{id}', [CaseController::class, 'show']);
     Route::get('/donasi/{id}', [DonationController::class, 'index']);
+    Route::post('/donasi/{id}/confirm', [DonationController::class, 'confirm']);
     Route::post('/donasi/{id}/store', [DonationController::class, 'store']);
 });
 Route::get('/form-pengajuan-hukum', [FormController::class, 'index']); //ok
 Route::post('/form-pengajuan-hukum', [FormController::class, 'store']);
 Route::get('/store', [ProductController::class, 'index']); //ok
 Route::get('/store/{id}', [ProductController::class, 'show']);
-Route::any('/konfirmasi-pembayaran', function () {
-    return view('user.konfirmasi_pembayaran');
-});
+Route::any('/konfirmasi-pembayaran',[TransaksiDonasiController::class, 'konfirmasi']);
 
 //LBH
 Route::prefix('/lbh')->group(function () {
@@ -50,6 +50,14 @@ Route::prefix('/lbh')->group(function () {
 
     Route::get('/perkara-berlangsung', [CaseController::class, 'perkara_berlangsung']);
     Route::get('/perkara-berlangsung/{id}', [CaseController::class, 'detail_perkara_berlangsung'])->name('detail_perkara');
+    Route::get('/rawr', function () {
+        return view('userLBH.update_perkara.progress');
+    });
+
+    Route::get('/PSB_Progress', [CaseController::class, 'detail_perkara_berlangsung']);
+    Route::post('/PSB_Progress', [ProgressKasusHukumController::class, 'UpdateProgress'])->name('PSB_Progress');
+    //diandra
+    // Route::get('/perkara-berlangsung/{id?}', [CaseController::class, 'show']); //diandra
 });
 
 //ADMIN
@@ -62,7 +70,7 @@ Route::prefix('/admin')->group(function () {
     Route::get('/kasus-hukum', [FormController::class, 'index']);
     Route::get('/pengajuan', [FormController::class, 'index']);
 
-    
+
 });
 
 Route::prefix('/perkara')->group(function () {

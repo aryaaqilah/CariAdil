@@ -170,7 +170,8 @@ class DatabaseSeeder extends Seeder
                 'nama' => 'Arya',
                 'email' => 'arya@gmail.com',
                 'nomor_telepon' => '087785243656',
-                'dukungan' => ''
+                'dukungan' => '',
+                'status_pembayaran' =>1
             ],
             [
                 'id_kasus_hukum' => 1,
@@ -179,7 +180,8 @@ class DatabaseSeeder extends Seeder
                 'nama' => 'Arya',
                 'email' => 'arya@gmail.com',
                 'nomor_telepon' => '087785243656',
-                'dukungan' => ''
+                'dukungan' => '',
+                'status_pembayaran' =>0
             ],
             [
                 'id_kasus_hukum' => 2,
@@ -188,7 +190,8 @@ class DatabaseSeeder extends Seeder
                 'nama' => 'Arya',
                 'email' => 'arya@gmail.com',
                 'nomor_telepon' => '087785243656',
-                'dukungan' => ''
+                'dukungan' => '',
+                'status_pembayaran' =>1
             ],
         ];
 
