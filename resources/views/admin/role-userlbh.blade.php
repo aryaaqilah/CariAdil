@@ -11,8 +11,13 @@
                 </div>
                 <div class="info px-4">
                     <h6 class="title">Admin</h6>
-                    <h2 class="value">5</h2>
-                    <span class="increase">Ojan, Evo and 3 others ... </span>
+                    <h2 class="value">{{ count($admins) }}</h2>
+                    <span class="increase">
+                        @foreach ($admins->take(2) as $admin)
+                            {{ $admin->username }},
+                        @endforeach
+                        {{ count($admins) - 2 < 0 ? '' : ' and ' . count($admins) - 2 . ' others' }}
+                    </span>
                 </div>
             </div>
             <div class="col-6 px-3 stat">
@@ -21,15 +26,21 @@
                 </div>
                 <div class="info px-4">
                     <h6 class="title">User LBH</h6>
-                    <h2 class="value">10</h2>
-                    <span class="increase">LBH Ojan Lomba and 9 others</span>
+                    <h2 class="value">{{ count($lbh) }}</h2>
+                    <span class="increase">
+                        @foreach ($lbh->take(2) as $user_lbh)
+                            {{ $user_lbh->nama_lbh }},
+                        @endforeach {{ count($lbh) - 2 < 0 ? '' : 'and' . count($lbh) - 2 . 'others' }}
+                    </span>
                 </div>
             </div>
         </div>
     </div>
 
     <div class="add-area">
-        <button type="button" class="btn"><i class="bi bi-person-fill-add"></i> Add User LBH</button>
+        <a href="/admin/lbh-role/create">
+            <button type="button" class="btn"><i class="bi bi-person-fill-add"></i> Add User LBH</button>
+        </a>
     </div>
 
     <div class="form-area">
@@ -52,76 +63,15 @@
                 </tr>
             </thead>
             <tbody>
-                <tr>
-                    <td>U001</td>
-                    <td>LBH Jakarta</td>
-                    <td>03547382033</td>
-                    <td>lbhjakarta@gmail.com</td>
-                    <td>Jalan Puri Indah No. 30, Bekasi</td>
-                </tr>
-                <tr>
-                    <td>U001</td>
-                    <td>LBH Mawar Saron</td>
-                    <td>03547382033</td>
-                    <td>lbhmawarsaron@gmail.com</td>
-                    <td>Jalan Kerayonan Lama No. 10, Kanoranan, Olam, Jakarta Pusat</td>
-                </tr>
-                <tr>
-                    <td>U001</td>
-                    <td>LBH Jakarta</td>
-                    <td>03547382033</td>
-                    <td>lbhjakarta@gmail.com</td>
-                    <td>Jalan Puri Indah No. 30, Bekasi</td>
-                </tr>
-                <tr>
-                    <td>U001</td>
-                    <td>LBH Jakarta</td>
-                    <td>03547382033</td>
-                    <td>lbhjakarta@gmail.com</td>
-                    <td>Jalan Puri Indah No. 30, Bekasi</td>
-                </tr>
-                <tr>
-                    <td>U001</td>
-                    <td>LBH Jakarta</td>
-                    <td>03547382033</td>
-                    <td>lbhjakarta@gmail.com</td>
-                    <td>Jalan Puri Indah No. 30, Bekasi</td>
-                </tr>
-                <tr>
-                    <td>U001</td>
-                    <td>LBH Jakarta</td>
-                    <td>03547382033</td>
-                    <td>lbhjakarta@gmail.com</td>
-                    <td>Jalan Puri Indah No. 30, Bekasi</td>
-                </tr>
-                <tr>
-                    <td>U001</td>
-                    <td>LBH Jakarta</td>
-                    <td>03547382033</td>
-                    <td>lbhjakarta@gmail.com</td>
-                    <td>Jalan Puri Indah No. 30, Bekasi</td>
-                </tr>
-                <tr>
-                    <td>U001</td>
-                    <td>LBH Jakarta</td>
-                    <td>03547382033</td>
-                    <td>lbhjakarta@gmail.com</td>
-                    <td>Jalan Puri Indah No. 30, Bekasi</td>
-                </tr>
-                <tr>
-                    <td>U001</td>
-                    <td>LBH Jakarta</td>
-                    <td>03547382033</td>
-                    <td>lbhjakarta@gmail.com</td>
-                    <td>Jalan Puri Indah No. 30, Bekasi</td>
-                </tr>
-                <tr>
-                    <td>U001</td>
-                    <td>LBH Jakarta</td>
-                    <td>03547382033</td>
-                    <td>lbhjakarta@gmail.com</td>
-                    <td>Jalan Puri Indah No. 30, Bekasi</td>
-                </tr>
+                @foreach ($lbh as $user_lbh)
+                    <tr>
+                        <td>{{ $user_lbh->id_LBH }}</td>
+                        <td>{{ $user_lbh->nama_lbh }}</td>
+                        <td>{{ $user_lbh->nomor_telepon }}</td>
+                        <td>{{ $user_lbh->email }}</td>
+                        <td>{{ $user_lbh->alamat }}</td>
+                    </tr>
+                @endforeach
             </tbody>
         </table>
     </div>

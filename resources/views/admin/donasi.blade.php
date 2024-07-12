@@ -11,7 +11,7 @@
                 </div>
                 <div class="info px-4">
                     <h6 class="title">Transaksi Minggu Ini</h6>
-                    <h2 class="value">30</h2>
+                    <h2 class="value">{{ $countWeeklyTransactions }}</h2>
                     <span class="increase"><i class="bi bi-arrow-up"></i> 16% bulan ini</span>
                 </div>
             </div>
@@ -21,8 +21,8 @@
                 </div>
                 <div class="info px-4">
                     <h6 class="title">Donasi Terbesar</h6>
-                    <h2 class="value">Rp3.000.000</h2>
-                    <span class="increase">dari Epok Epok</span>
+                    <h2 class="value">Rp {{ number_format($biggestDonation->nominal) }}</h2>
+                    <span class="increase">dari {{ $biggestDonation->nama }}</span>
                 </div>
             </div>
         </div>
@@ -47,7 +47,7 @@
                     <option selected>Sort by</option>
                     <option value="1">Oldest</option>
                     <option value="2">Newest</option>
-                  </select>
+                </select>
             </div>
         </div>
         <table class="table logaktivitas">
@@ -62,86 +62,27 @@
                 </tr>
             </thead>
             <tbody>
-                <tr>
-                    <td>Ariya Gunananda</td>
-                    <td>P000020</td>
-                    <td>Rp5.000.000</td>
-                    <td>Rp20.000.000</td>
-                    <td>25%</td>
-                    <td><button class="btn inprogress" type="button">In Progress</button></td>
-                </tr>
-                <tr>
-                    <td>Ariya Gunananda</td>
-                    <td>P000020</td>
-                    <td>Rp5.000.000</td>
-                    <td>Rp20.000.000</td>
-                    <td>25%</td>
-                    <td><button class="btn complete" type="button">Completed</button></td>
-                </tr>
-                <tr>
-                    <td>Ariya Gunananda</td>
-                    <td>P000020</td>
-                    <td>Rp5.000.000</td>
-                    <td>Rp20.000.000</td>
-                    <td>25%</td>
-                    <td><button class="btn inprogress" type="button">In Progress</button></td>
-                </tr>
-                <tr>
-                    <td>Ariya Gunananda</td>
-                    <td>P000020</td>
-                    <td>Rp5.000.000</td>
-                    <td>Rp20.000.000</td>
-                    <td>25%</td>
-                    <td><button class="btn inprogress" type="button">In Progress</button></td>
-                </tr>
-                <tr>
-                    <td>Ariya Gunananda</td>
-                    <td>P000020</td>
-                    <td>Rp5.000.000</td>
-                    <td>Rp20.000.000</td>
-                    <td>25%</td>
-                    <td><button class="btn inprogress" type="button">In Progress</button></td>
-                </tr>
-                <tr>
-                    <td>Ariya Gunananda</td>
-                    <td>P000020</td>
-                    <td>Rp5.000.000</td>
-                    <td>Rp20.000.000</td>
-                    <td>25%</td>
-                    <td><button class="btn inprogress" type="button">In Progress</button></td>
-                </tr>
-                <tr>
-                    <td>Ariya Gunananda</td>
-                    <td>P000020</td>
-                    <td>Rp5.000.000</td>
-                    <td>Rp20.000.000</td>
-                    <td>25%</td>
-                    <td><button class="btn inprogress" type="button">In Progress</button></td>
-                </tr>
-                <tr>
-                    <td>Ariya Gunananda</td>
-                    <td>P000020</td>
-                    <td>Rp5.000.000</td>
-                    <td>Rp20.000.000</td>
-                    <td>25%</td>
-                    <td><button class="btn inprogress" type="button">In Progress</button></td>
-                </tr>
-                <tr>
-                    <td>Ariya Gunananda</td>
-                    <td>P000020</td>
-                    <td>Rp5.000.000</td>
-                    <td>Rp20.000.000</td>
-                    <td>25%</td>
-                    <td><button class="btn inprogress" type="button">In Progress</button></td>
-                </tr>
-                <tr>
-                    <td>Ariya Gunananda</td>
-                    <td>P000020</td>
-                    <td>Rp5.000.000</td>
-                    <td>Rp20.000.000</td>
-                    <td>25%</td>
-                    <td><button class="btn inprogress" type="button">In Progress</button></td>
-                </tr>
+                @foreach ($cases as $case)
+                    @php
+                        $total = 0;
+                        foreach ($case->approvedTransactions as $transaction) {
+                            $total += $transaction->nominal;
+                        }
+
+                        $percentage = ($total / $case->target_donasi) * 100;
+                    @endphp
+                    <tr>
+                        <td>{{ $case->form->nama }}</td>
+                        <td>{{ $case->id_kasus }}</td>
+                        <td>Rp {{ number_format($total) }}</td>
+                        <td>Rp {{ number_format($case->target_donasi) }}</td>
+                        <td>{{ $percentage }}%</td>
+                        <td><button
+                                class="btn @if ($percentage >= 100) complete @else
+                            inprogress @endif "
+                                type="button">In Progress</button></td>
+                    </tr>
+                @endforeach
             </tbody>
         </table>
     </div>

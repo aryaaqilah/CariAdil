@@ -11,8 +11,13 @@
                 </div>
                 <div class="info px-4">
                     <h6 class="title">Admin</h6>
-                    <h2 class="value">5</h2>
-                    <span class="increase">Ojan, Evo and 3 others ... </span>
+                    <h2 class="value">{{ count($admins) }}</h2>
+                    <span class="increase">
+                        @foreach ($admins->take(2) as $admin)
+                            {{ $admin->username }},
+                        @endforeach
+                        {{ count($admins) - 2 < 0 ? '' : ' and ' . count($admins) - 2 . ' others' }}
+                    </span>
                 </div>
             </div>
             <div class="col-6 px-3 stat">
@@ -21,8 +26,12 @@
                 </div>
                 <div class="info px-4">
                     <h6 class="title">User LBH</h6>
-                    <h2 class="value">10</h2>
-                    <span class="increase">LBH Ojan Lomba and 9 others</span>
+                    <h2 class="value">{{ count($lbh) }}</h2>
+                    <span class="increase">
+                        @foreach ($lbh->take(2) as $user_lbh)
+                            {{ $user_lbh->nama_lbh }},
+                        @endforeach {{ count($lbh) - 2 < 0 ? '' : 'and' . count($lbh) - 2 . 'others' }}
+                    </span>
                 </div>
             </div>
         </div>
@@ -38,15 +47,21 @@
             <div class="col-3"></div>
         </div>
 
-          <div class="mb-3">
-            <label for="usernameAdmin" class="form-label">Username</label>
-            <input type="text" class="form-control" id="usernameAdmin">
-          </div>
-          <div class="mb-3">
-            <label for="passwordAdmin" class="form-label">Password (Default)</label>
-            <input type="text" class="form-control" id="passwordAdmin">
-          </div>
-        
+        <form action="/admin/admin-role" method="POST">
+            @csrf
+            @method('POST')
+
+            <div class="mb-3">
+                <label for="usernameAdmin" class="form-label">Username</label>
+                <input type="text" class="form-control" id="usernameAdmin" name="username">
+            </div>
+            <div class="mb-3">
+                <label for="passwordAdmin" class="form-label">Password (Default)</label>
+                <input type="text" class="form-control" id="passwordAdmin" name="password">
+            </div>
+            <button type="submit" class="btn btn-warning">Submit</button>
+        </form>
+
 
     </div>
 

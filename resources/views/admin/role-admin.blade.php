@@ -11,8 +11,13 @@
                 </div>
                 <div class="info px-4">
                     <h6 class="title">Admin</h6>
-                    <h2 class="value">5</h2>
-                    <span class="increase">Ojan, Evo and 3 others ... </span>
+                    <h2 class="value">{{ count($admins) }}</h2>
+                    <span class="increase">
+                        @foreach ($admins->take(2) as $admin)
+                            {{ $admin->username }},
+                        @endforeach
+                        {{ count($admins) - 2 < 0 ? '' : ' and ' . count($admins) - 2 . ' others' }}
+                    </span>
                 </div>
             </div>
             <div class="col-6 px-3 stat">
@@ -21,15 +26,21 @@
                 </div>
                 <div class="info px-4">
                     <h6 class="title">User LBH</h6>
-                    <h2 class="value">10</h2>
-                    <span class="increase">LBH Ojan Lomba and 9 others</span>
+                    <h2 class="value">{{ count($lbh) }}</h2>
+                    <span class="increase">
+                        @foreach ($lbh->take(2) as $user_lbh)
+                            {{ $user_lbh->nama_lbh }},
+                        @endforeach {{ count($lbh) - 2 < 0 ? '' : 'and' . count($lbh) - 2 . 'others' }}
+                    </span>
                 </div>
             </div>
         </div>
     </div>
 
     <div class="add-area">
-        <button type="button" class="btn"><i class="bi bi-person-fill-add"></i> Add Admin</button>
+        <a href="admin-role/create">
+            <button type="button" class="btn"><i class="bi bi-person-fill-add"></i> Add Admin</button>
+        </a>
     </div>
 
     <div class="form-area">
@@ -49,26 +60,12 @@
                 </tr>
             </thead>
             <tbody>
-                <tr>
-                    <td>A001</td>
-                    <td>EvotianaEvo</td>
-                </tr>
-                <tr>
-                    <td>A002</td>
-                    <td>DiandraKina</td>
-                </tr>
-                <tr>
-                    <td>A003</td>
-                    <td>Andreaseas</td>
-                </tr>
-                <tr>
-                    <td>A004</td>
-                    <td>Ojanlomba</td>
-                </tr>
-                <tr>
-                    <td>A005</td>
-                    <td>AgnesOwo</td>
-                </tr>
+                @foreach ($admins as $admin)
+                    <tr>
+                        <td>{{ $admin->id_admin }}</td>
+                        <td>{{ $admin->username }}</td>
+                    </tr>
+                @endforeach
             </tbody>
         </table>
     </div>

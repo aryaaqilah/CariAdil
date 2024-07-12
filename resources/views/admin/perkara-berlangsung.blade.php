@@ -3,40 +3,6 @@
 @section('title', 'Perkara Berlangsung')
 
 @section('content')
-    <div class="summary-area">
-        <div class="row">
-            <div class="col-4 px-3 stat">
-                <div class="circle-icon">
-                    <i class="bi bi-person-fill-check"></i>
-                </div>
-                <div class="info px-4">
-                    <h6 class="title">Admin</h6>
-                    <h2 class="value">5</h2>
-                    <span class="increase">Ojan, Evo and 3 others ... </span>
-                </div>
-            </div>
-            <div class="col-4 px-3 stat">
-                <div class="circle-icon">
-                    <i class="bi bi-person-fill-check"></i>
-                </div>
-                <div class="info px-4">
-                    <h6 class="title">Admin</h6>
-                    <h2 class="value">5</h2>
-                    <span class="increase">Ojan, Evo and 3 others ... </span>
-                </div>
-            </div>
-            <div class="col-4 px-3 stat">
-                <div class="circle-icon">
-                    <i class="bi bi-person-fill-check"></i>
-                </div>
-                <div class="info px-4">
-                    <h6 class="title">Admin</h6>
-                    <h2 class="value">5</h2>
-                    <span class="increase">Ojan, Evo and 3 others ... </span>
-                </div>
-            </div>
-        </div>
-    </div>
 
     <div class="form-area">
         <div class="row">
@@ -59,86 +25,16 @@
                 </tr>
             </thead>
             <tbody>
-                <tr>
-                    <td>P00020</td>
-                    <td>Joeliardo Gerald Leviothniel</td>
-                    <td>LBH Mawar Saron</td>
-                    <td>28 Mei 2024</td>
-                    <td>Perjuangan untuk Mendapat Hak Cipta</td>
-                    <td><button class="btn detail" type="button">Detail</button></td>
-                </tr>
-                <tr>
-                    <td>P00020</td>
-                    <td>Joeliardo Gerald Leviothniel</td>
-                    <td>LBH Mawar Saron</td>
-                    <td>28 Mei 2024</td>
-                    <td>Perjuangan untuk Mendapat Hak Cipta</td>
-                    <td><button class="btn detail" type="button">Detail</button></td>
-                </tr>
-                <tr>
-                    <td>P00020</td>
-                    <td>Joeliardo Gerald Leviothniel</td>
-                    <td>LBH Mawar Saron</td>
-                    <td>28 Mei 2024</td>
-                    <td>Perjuangan untuk Mendapat Hak Cipta</td>
-                    <td><button class="btn detail" type="button">Detail</button></td>
-                </tr>
-                <tr>
-                    <td>P00020</td>
-                    <td>Joeliardo Gerald Leviothniel</td>
-                    <td>LBH Mawar Saron</td>
-                    <td>28 Mei 2024</td>
-                    <td>Perjuangan untuk Mendapat Hak Cipta</td>
-                    <td><button class="btn detail" type="button">Detail</button></td>
-                </tr>
-                <tr>
-                    <td>P00020</td>
-                    <td>Joeliardo Gerald Leviothniel</td>
-                    <td>LBH Mawar Saron</td>
-                    <td>28 Mei 2024</td>
-                    <td>Perjuangan untuk Mendapat Hak Cipta</td>
-                    <td><button class="btn detail" type="button">Detail</button></td>
-                </tr>
-                <tr>
-                    <td>P00020</td>
-                    <td>Joeliardo Gerald Leviothniel</td>
-                    <td>LBH Mawar Saron</td>
-                    <td>28 Mei 2024</td>
-                    <td>Perjuangan untuk Mendapat Hak Cipta</td>
-                    <td><button class="btn detail" type="button">Detail</button></td>
-                </tr>
-                <tr>
-                    <td>P00020</td>
-                    <td>Joeliardo Gerald Leviothniel</td>
-                    <td>LBH Mawar Saron</td>
-                    <td>28 Mei 2024</td>
-                    <td>Perjuangan untuk Mendapat Hak Cipta</td>
-                    <td><button class="btn detail" type="button">Detail</button></td>
-                </tr>
-                <tr>
-                    <td>P00020</td>
-                    <td>Joeliardo Gerald Leviothniel</td>
-                    <td>LBH Mawar Saron</td>
-                    <td>28 Mei 2024</td>
-                    <td>Perjuangan untuk Mendapat Hak Cipta</td>
-                    <td><button class="btn detail" type="button">Detail</button></td>
-                </tr>
-                <tr>
-                    <td>P00020</td>
-                    <td>Joeliardo Gerald Leviothniel</td>
-                    <td>LBH Mawar Saron</td>
-                    <td>28 Mei 2024</td>
-                    <td>Perjuangan untuk Mendapat Hak Cipta</td>
-                    <td><button class="btn detail" type="button">Detail</button></td>
-                </tr>
-                <tr>
-                    <td>P00020</td>
-                    <td>Joeliardo Gerald Leviothniel</td>
-                    <td>LBH Mawar Saron</td>
-                    <td>28 Mei 2024</td>
-                    <td>Perjuangan untuk Mendapat Hak Cipta</td>
-                    <td><button class="btn detail" type="button">Detail</button></td>
-                </tr>
+                @foreach ($cases as $case)
+                    <tr>
+                        <td>{{ $case->id_kasus }}</td>
+                        <td>{{ $case->form->nama }}</td>
+                        <td>{{ $case->lbh->nama_lbh }}</td>
+                        <td>{{ $case->created_at }}</td>
+                        <td>{{ $case->description }}</td>
+                        <td><button class="btn detail" type="button">Detail</button></td>
+                    </tr>
+                @endforeach
             </tbody>
         </table>
     </div>

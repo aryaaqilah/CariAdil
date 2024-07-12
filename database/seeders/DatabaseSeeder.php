@@ -29,7 +29,7 @@ class DatabaseSeeder extends Seeder
         $formArray = [
             [
                 'nomor_pemohon' => 'CA-001',
-                'nama' => 'arya aqilah',
+                'nama' => 'joeliardo joel',
                 'nama_panggilan' => 'arya',
                 'tempat_lahir' => 'Sukabumi',
                 'jenis_kelamin' => 'Pria',
@@ -59,10 +59,10 @@ class DatabaseSeeder extends Seeder
                 'image_url' => 'yguhnjmk',
             ],
             [
-                'nomor_pemohon' => 'CA-001',
+                'nomor_pemohon' => 'CA-002',
                 'nama' => 'arya aqilah',
-                'nama_panggilan' => 'arya',
-                'tempat_lahir' => 'Sukabumi',
+                'nama_panggilan' => 'joel',
+                'tempat_lahir' => 'Bogor',
                 'jenis_kelamin' => 'Pria',
                 'agama' => 'Islam',
                 'status_perkawinan' => 'Belum Kawin',
@@ -134,7 +134,7 @@ class DatabaseSeeder extends Seeder
                 'tanggal' => Carbon::now(),
                 'target_donasi' => '10000000',
                 // 'id_bank' => 1,
-                'id_form' => 1,
+                'id_form' => 2,
                 'jenis_perkara' => 'Perdata',
                 'status_pengajuan' => 'Selesai',
                 'image_url' => 'tygbh'
@@ -171,7 +171,8 @@ class DatabaseSeeder extends Seeder
                 'email' => 'arya@gmail.com',
                 'nomor_telepon' => '087785243656',
                 'dukungan' => '',
-                'status_pembayaran' =>1
+                'status_pembayaran' => 0,
+                'created_at' => Carbon::now()
             ],
             [
                 'id_kasus_hukum' => 1,
@@ -181,17 +182,19 @@ class DatabaseSeeder extends Seeder
                 'email' => 'arya@gmail.com',
                 'nomor_telepon' => '087785243656',
                 'dukungan' => '',
-                'status_pembayaran' =>0
+                'status_pembayaran' => 0,
+                'created_at' => Carbon::now()
             ],
             [
                 'id_kasus_hukum' => 2,
                 'id_bank' => 2,
-                'nominal' => '300000',
+                'nominal' => '500000',
                 'nama' => 'Arya',
                 'email' => 'arya@gmail.com',
                 'nomor_telepon' => '087785243656',
                 'dukungan' => '',
-                'status_pembayaran' =>1
+                'status_pembayaran' => 0,
+                'created_at' => Carbon::now()
             ],
         ];
 
@@ -226,6 +229,7 @@ class DatabaseSeeder extends Seeder
         $this->call([
             KategoriSeeder::class,
             ProdukSeeder::class,
+            AdminSeeder::class,
         ]);
 
         FormPengajuan::insert($formArray);
