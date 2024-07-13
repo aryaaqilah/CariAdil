@@ -3,7 +3,7 @@
 
 <x-layout :auth="$auth">
     <div class="container">
-        <form action="/berita/donasi/{{ $id }}/store" method="POST" enctype="multipart/form-data">
+        <form action="/berita/donasi/{{ $id }}/confirm" method="POST" enctype="multipart/form-data">
         @csrf
         <div class="pembatas80"></div>
         <div class="row mt-4">

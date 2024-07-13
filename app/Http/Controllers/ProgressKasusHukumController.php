@@ -7,9 +7,7 @@ use App\Models\ProgressKasusHukum;
 
 class ProgressKasusHukumController extends Controller
 {
-    public function UpdateProgress(Request $request){
-
-        // dd($request->all());
+    public function UpdateProgress(Request $request, $id){
 
         $request->validate([
             'topik_progress' => 'required|string|max:255',
@@ -28,8 +26,7 @@ class ProgressKasusHukumController extends Controller
 
         ]);
 
-        $auth = true;
-        return view('userLBH.detail_perkara_berlangsung', ['auth'=> $auth]);
+        return redirect()->route('detail_perkara', ['id' => $id])->with('success', 'Progress has been added');
 
     }
 }

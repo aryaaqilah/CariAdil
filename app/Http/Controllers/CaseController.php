@@ -26,8 +26,10 @@ class CaseController extends Controller
         $finalPerdata = array();
         $finalPidana = array();
 
+
         foreach ($pidana as $kasus) {
-            $transaksi = TransaksiDonasi::where('id_kasus_hukum', $kasus->id_kasus)->sum('nominal');
+            $conditions = array('id_kasus_hukum' => $kasus->id_kasus, 'status_pembayaran' => 1);
+            $transaksi = TransaksiDonasi::where($conditions)->sum('nominal');
             $data = [
                 "id_kasus" => $kasus->id_kasus,
                 "title" => $kasus->title,
@@ -48,8 +50,11 @@ class CaseController extends Controller
             array_push($finalPidana, $data);
         }
 
+
         foreach ($perdata as $kasus) {
-            $transaksi = TransaksiDonasi::where('id_kasus_hukum', $kasus->id_kasus)->sum('nominal');
+            // $transaksi = TransaksiDonasi::where('id_kasus_hukum', $kasus->id_kasus)->where('status_pembayaran', 1)->sum('nominal');
+            $conditions = array('id_kasus_hukum' => $kasus->id_kasus, 'status_pembayaran' => 1);
+            $transaksi = TransaksiDonasi::where($conditions)->sum('nominal');
             $data = [
                 "id_kasus" => $kasus->id_kasus,
                 "title" => $kasus->title,
@@ -70,6 +75,7 @@ class CaseController extends Controller
             array_push($finalPerdata, $data);
         }
 
+        // dd($transaksi);
         // $total = array();
         // foreach ($kasusHukum as $kasus) {
         //     # code...
@@ -124,16 +130,17 @@ class CaseController extends Controller
         $perkaraBerlangsung = KasusHukum::join('form_pengajuan', 'form_pengajuan.id_form', '=', 'kasus_hukum.id_form')
         // ->join('transaksi_donasi', 'kasus_hukum.id_kasus', '=', 'transaksi_donasi.id_kasus_hukum')
         ->select('*')
-        ->where('id_kasus', '=', $id)->get();
+        ->where('id_kasus', '=', $id)->first();
         $kasusHukum = KasusHukum::find($id);
         $progress = ProgressKasusHukum::select('*')->where('id_kasus', '=', $id)->get();
-        $transaksi = TransaksiDonasi::select('*')->where('id_kasus_hukum', '=', $id)->get();
+        $transaksi = TransaksiDonasi::select('*')->where('id_kasus_hukum', '=', $id)->where('status_pembayaran','=',1)->get();
         $total = 0;
         foreach ($transaksi as $trans){
             $total += $trans->nominal;
         }
         $auth = true;
         return view('userLBH.detail_perkara_berlangsung', ['auth'=> $auth, 'perkaraBerlangsung' => $perkaraBerlangsung, 'total' => $total, 'kasusHukum' => $kasusHukum]);
+        // return view('userLBH.detail_perkara_berlangsung', ['auth'=> $auth, 'perkaraBerlangsung' => $perkaraBerlangsung, 'progress' => $progress]);
     }
 
 
@@ -160,7 +167,7 @@ class CaseController extends Controller
     {
         $kasusHukum = KasusHukum::find($id);
         $progress = ProgressKasusHukum::select('*')->where('id_kasus', '=', $id)->get();
-        $transaksi = TransaksiDonasi::select('*')->where('id_kasus_hukum', '=', $id)->get();
+        $transaksi = TransaksiDonasi::select('*')->where('id_kasus_hukum', '=', $id)->where('status_pembayaran', '=', 1)->get();
         $total = 0;
         foreach ($transaksi as $trans){
             $total += $trans->nominal;
@@ -168,6 +175,72 @@ class CaseController extends Controller
         $auth = false;
         // dd($total);
         return view('user.detail_berita', ['kasusHukum' => $kasusHukum, 'auth' => $auth, 'progress' => $progress, 'total' => $total]);
+    }
+
+    public function search(Request $request){
+        // $kata_kunci = isset($_GET['kata_kunci']) ? $_GET['kata_kunci'] : '';
+        $kata_kunci = $request->str;
+
+        $auth = false;
+
+        $pidana = KasusHukum::select('*')->where('jenis_perkara', '=', 'Pidana')->where('title', 'LIKE', '%'. $kata_kunci.'%')->get();
+        $perdata = KasusHukum::select('*')->where('jenis_perkara', '=', 'Perdata')->where('title', 'LIKE', '%'. $kata_kunci.'%')->get();
+        // dd($perkara);
+
+        $finalPerdata = array();
+        $finalPidana = array();
+
+
+        foreach ($pidana as $kasus) {
+            $conditions = array('id_kasus_hukum' => $kasus->id_kasus, 'status_pembayaran' => 1);
+            $transaksi = TransaksiDonasi::where($conditions)->sum('nominal');
+            $data = [
+                "id_kasus" => $kasus->id_kasus,
+                "title" => $kasus->title,
+                "description" => $kasus->description,
+                "tanggal" => $kasus->tanggal,
+                "target_donasi" => $kasus->target_donasi,
+                "id_bank" => $kasus->id_bank,
+                "id_form" => $kasus->id_form,
+                "id_lbh" => $kasus->id_lbh,
+                "jenis_perkara" => $kasus->jenis_perkara,
+                "status_pengajuan" => $kasus->status_pengajuan,
+                "image_url" => $kasus->image_url,
+                "created_at" => $kasus->created_at,
+                "updated_at" => $kasus->updated_at,
+                "total" => $transaksi,
+                "nama_lbh" => LBH::select('nama_lbh')->where('id_LBH', '=', $kasus->id_lbh)->get()
+            ];
+            array_push($finalPidana, $data);
+        }
+
+
+        foreach ($perdata as $kasus) {
+            // $transaksi = TransaksiDonasi::where('id_kasus_hukum', $kasus->id_kasus)->where('status_pembayaran', 1)->sum('nominal');
+            $conditions = array('id_kasus_hukum' => $kasus->id_kasus, 'status_pembayaran' => 1);
+            $transaksi = TransaksiDonasi::where($conditions)->sum('nominal');
+            $data = [
+                "id_kasus" => $kasus->id_kasus,
+                "title" => $kasus->title,
+                "description" => $kasus->description,
+                "tanggal" => $kasus->tanggal,
+                "target_donasi" => $kasus->target_donasi,
+                "id_bank" => $kasus->id_bank,
+                "id_form" => $kasus->id_form,
+                "id_lbh" => $kasus->id_lbh,
+                "jenis_perkara" => $kasus->jenis_perkara,
+                "status_pengajuan" => $kasus->status_pengajuan,
+                "image_url" => $kasus->image_url,
+                "created_at" => $kasus->created_at,
+                "updated_at" => $kasus->updated_at,
+                "total" => $transaksi,
+                "nama_lbh" => LBH::select('nama_lbh')->where('id_LBH', '=', $kasus->id_lbh)->get()
+            ];
+            array_push($finalPerdata, $data);
+        }
+
+        // dd($kasus);
+        return view('user.berita', ['list_kasus_pidana' => $finalPidana, 'list_kasus_perdata' => $finalPerdata, 'auth' => $auth]);
     }
 
     /**

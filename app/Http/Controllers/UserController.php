@@ -7,7 +7,7 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
 use App\Models\KasusHukum;
 use App\Models\LBH;
-use Session;
+use Illuminate\Support\Facades\Session;
 
 class UserController extends Controller
 {
@@ -38,12 +38,12 @@ class UserController extends Controller
         // $user->save();
 
         if ($user && Hash::check($request->password, $user->password)) {
+            $request->session()->regenerate();
             Session::put('user', $user);
             return redirect()->route('beranda');
         } else {
             return redirect()->back()->withErrors(['email' => 'Invalid credentials']);
         }
-
     }
 
     /**

@@ -15,9 +15,9 @@
     </div>
     <div class="row d-flex justify-content-center mt-3">
       <div class="col-10 text-center h1">
-        @foreach ($pengajuanBantuan as $pengajuan)
-        <strong>{{$pengajuan->nomor_pemohon}} = {{$pengajuan->nama}}</strong>
-        @endforeach
+        {{-- @foreach ($pengajuanBantuan as $pengajuan) --}}
+        <strong>{{$pengajuanBantuan->nomor_pemohon}} = {{$pengajuanBantuan->nama}}</strong>
+        {{-- @endforeach --}}
       </div>
 
       <div class="d-flex justify-content-center gap-3 my-3">
@@ -27,9 +27,9 @@
       </div>
 
       <div class="d-flex justify-content-center">
-        @foreach ($pengajuanBantuan as $pengajuan)
-        <p> Diajukan tanggal {{$pengajuan->tanggal}} </p>
-        @endforeach
+        {{-- @foreach ($pengajuanBantuan as $pengajuan) --}}
+        <p> Diajukan tanggal {{$pengajuanBantuan->tanggal}} </p>
+        {{-- @endforeach --}}
       </div>
 
       <div class="col-4"></div>
@@ -43,7 +43,15 @@
       </div>
 
       <div class="d-flex justify-content-center mt-2 gap-4 mb-5" style="color:rgba(232, 123, 47, 1)">
-        <i class="fa-solid fa-circle-check fa-4x"></i>
+        <form action="{{ url('/lbh/pengajuan-bantuan-hukum/') }}" method="POST">
+          @csrf
+          @method('PUT')
+          <input type="hidden" name="id_form" value="{{ $pengajuanBantuan->id_form }}"> 
+          {{-- <input type="hidden" name="id_LBH" value="{{$pengajuanBantuan->id_LBH}}">  --}}
+          <button type="submit">
+            <i class="fa-solid fa-circle-check fa-4x"></i>
+          </button>
+        </form>
         <i class="fa-solid fa-circle-xmark fa-4x"></i>
       </div>
 
@@ -81,23 +89,23 @@
                       <p>Kode Pos</p>
                     </div>
                     <div class="col-8">
-                      @foreach ($pengajuanBantuan as $pb)
-                      <p>: {{$pb->nama}}</p>
-                      <p>: {{$pb->nama_panggilan}}</p>
-                      <p>: {{$pb->tempat_lahir}}</p>
-                      <p>: {{$pb->jenis_kelamin}}</p>
-                      <p>: {{$pb->agama}}</p>
-                      <p>: {{$pb->status_perkawinan}}</p>
-                      <p>: {{$pb->jumlah_anak}}</p>
-                      <p>: {{$pb->jumlah_anak_tanggungan}}</p>
-                      <p>: {{$pb->alamat_lengkap}}</p>
-                      <p>: {{$pb->RT_RW}}</p>
-                      <p>: {{$pb->Desa_Kelurahan}}</p>
-                      <p>: {{$pb->kecamatan}}</p>
-                      <p>: {{$pb->Kabupaten_Kota}}</p>
-                      <p>: {{$pb->provinsi}}</p>
-                      <p>: {{$pb->kode_pos}}</p>  
-                      @endforeach
+                      {{-- @foreach ($pengajuanBantuan as $pb) --}}
+                      <p>: {{$pengajuanBantuan->nama}}</p>
+                      <p>: {{$pengajuanBantuan->nama_panggilan}}</p>
+                      <p>: {{$pengajuanBantuan->tempat_lahir}}</p>
+                      <p>: {{$pengajuanBantuan->jenis_kelamin}}</p>
+                      <p>: {{$pengajuanBantuan->agama}}</p>
+                      <p>: {{$pengajuanBantuan->status_perkawinan}}</p>
+                      <p>: {{$pengajuanBantuan->jumlah_anak}}</p>
+                      <p>: {{$pengajuanBantuan->jumlah_anak_tanggungan}}</p>
+                      <p>: {{$pengajuanBantuan->alamat_lengkap}}</p>
+                      <p>: {{$pengajuanBantuan->RT_RW}}</p>
+                      <p>: {{$pengajuanBantuan->Desa_Kelurahan}}</p>
+                      <p>: {{$pengajuanBantuan->kecamatan}}</p>
+                      <p>: {{$pengajuanBantuan->Kabupaten_Kota}}</p>
+                      <p>: {{$pengajuanBantuan->provinsi}}</p>
+                      <p>: {{$pengajuanBantuan->kode_pos}}</p>  
+                      {{-- @endforeach --}}
 
                     </div>
                   </div>
@@ -127,17 +135,17 @@
                       <p>HP</p>
                     </div>
                     <div class="col-8">
-                      @foreach ($pengajuanBantuan as $pb)
-                      <p>: {{$pb->identitas_diri}}</p>
-                      <p>: {{$pb->nomor_identitas}}</p>
-                      <p>: {{$pb->keterangan_tidak_mampu}}</p>
-                      <p>: {{$pb->nomor_keterangan_tidak_mampu}}</p>
-                      <p>: {{$pb->pekerjaan}}</p>
-                      <p>: {{$pb->jumlah_tanggungan}}</p>
-                      <p>: {{$pb->pendidikan_terakhir}}</p>
-                      <p>: {{$pb->telepon}}</p>
-                      <p>: {{$pb->HP}}</p>
-                      @endforeach
+                      {{-- @foreach ($pengajuanBantuan as $pb) --}}
+                      <p>: {{$pengajuanBantuan->identitas_diri}}</p>
+                      <p>: {{$pengajuanBantuan->nomor_identitas}}</p>
+                      <p>: {{$pengajuanBantuan->keterangan_tidak_mampu}}</p>
+                      <p>: {{$pengajuanBantuan->nomor_keterangan_tidak_mampu}}</p>
+                      <p>: {{$pengajuanBantuan->pekerjaan}}</p>
+                      <p>: {{$pengajuanBantuan->jumlah_tanggungan}}</p>
+                      <p>: {{$pengajuanBantuan->pendidikan_terakhir}}</p>
+                      <p>: {{$pengajuanBantuan->telepon}}</p>
+                      <p>: {{$pengajuanBantuan->HP}}</p>
+                      {{-- @endforeach --}}
                     </div>
                   </div>
                 </div>
@@ -154,9 +162,9 @@
               <div class="accordion-body">
                 <div class="item-container">
                   <div class="row m-3">
-                    @foreach ($pengajuanBantuan as $pb)
-                    <p>{{$pb->uraian}}</P>
-                    @endforeach
+                    {{-- @foreach ($pengajuanBantuan as $pb) --}}
+                    <p>{{$pengajuanBantuan->uraian}}</P>
+                    {{-- @endforeach --}}
                   </div>
                 </div>
               </div>
