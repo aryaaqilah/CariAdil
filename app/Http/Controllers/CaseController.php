@@ -133,7 +133,7 @@ class CaseController extends Controller
             $total += $trans->nominal;
         }
         $auth = true;
-        return view('userLBH.detail_perkara_berlangsung', ['auth'=> $auth, 'perkaraBerlangsung' => $perkaraBerlangsung]);
+        return view('userLBH.detail_perkara_berlangsung', ['auth'=> $auth, 'perkaraBerlangsung' => $perkaraBerlangsung, 'total' => $total, 'kasusHukum' => $kasusHukum]);
     }
 
 
