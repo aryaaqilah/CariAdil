@@ -1,0 +1,168 @@
+.container-fluid{
+    background-color: #EFEFEF;
+}
+
+.form-area{
+    margin: 2rem;
+    background: white;
+    border-radius: 1.75rem;
+    padding: 2rem;
+}
+
+.summary-area{
+    margin: 2rem;
+    background: white;
+    border-radius: 1.75rem;
+    padding: 2rem;
+}
+
+.donation-area{
+    margin: 2rem;
+    background: white;
+    border-radius: 1.75rem;
+    padding: 2rem;
+}
+
+.date-area{
+    border-radius: 1.75rem;
+    padding-left: 2rem;
+}
+
+.db .big-stat{
+    margin: 2rem;
+    background: white;
+    border-radius: 1.75rem;
+    padding: 2rem;
+}
+
+.table.logaktivitas thead th{
+    color: #B5B7C0;
+    font-size: 0.8rem;
+    font-weight: normal;
+}
+
+.table.logaktivitas tbody td{
+    color:#292D32;
+    font-size: 0.9rem;
+}
+
+.table.logaktivitas #date{
+    margin: 0;
+}
+
+.table.logaktivitas #hours{
+    margin: 0;
+    font-size: 0.8rem;
+}
+
+.circle-icon{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    background-color: #E87B2F;
+    opacity: 100%;
+    width: 5rem;
+    height: 5rem;
+    border-radius: 50%;
+    z-index: 0;
+}
+
+.circle-icon i{
+    color: black;
+    font-size: 2rem;
+    opacity: 100%;
+    position: absolute;
+    z-index: 1;
+}
+
+.stat{
+    display: flex;
+    align-items: center;
+    padding-left: 3rem;
+}
+
+.stat .info{
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    color: black;
+}
+
+.stat .info .title{
+    color:#B5B7C0;
+    font-size: 0.9rem;
+    margin: 0;
+}
+
+.stat .info .value{
+    font-size: 2rem;
+    font-weight: bold;
+    color: black;
+    margin: 0;
+}
+
+.stat .info .increase{
+    color:#E87B2F;
+    font-size: 0.8rem;
+}
+
+.add-area{
+    display: flex;
+    justify-content: end;
+    padding-right: 2rem;
+}
+
+.add-area .btn{
+    display: flex;
+    background-color: #E87B2F;
+    width: 12rem;
+    height: 2rem;
+    font-size: 0.9rem;
+    align-items: center;
+    justify-content: center;
+    border-radius: 1.75rem;
+}
+
+.bar-stat{
+    height: 7rem;
+    display: flex;
+    align-items: flex-end;
+}
+
+.bar{
+    width: 5rem;
+    margin: 0 2rem;
+    background-color: linear-gradient(to top, orange 50%, #fff 50%);
+    border-radius: 20%;
+}
+
+.table.logaktivitas .btn.inprogress{
+    background-color: #E87B2F;
+    width: 7rem;
+    height: 2rem;
+    color: white;
+    font-size: 0.8rem;
+}
+
+.table.logaktivitas .btn.complete{
+    background-color: #00B087;
+    width: 7rem;
+    height: 2rem;
+    color: white;
+    font-size: 0.8rem;
+}
+
+.table.logaktivitas .btn.detail{
+    background-color: #E87B2F;
+    width: 7rem;
+    height: 2rem;
+    color: white;
+    font-size: 0.8rem;
+}
+
+.donation-area .donation-stat{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}

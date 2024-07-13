@@ -18,4 +18,9 @@ class TransaksiDonasiController extends Controller
 
         return redirect('/');
     }
+
+    public function konfirmasi(){
+        $auth = True;
+        return view('user.konfirmasi_pembayaran', ['auth' => $auth]);
+    }
 }
