@@ -124,7 +124,7 @@ class CaseController extends Controller
         $perkaraBerlangsung = KasusHukum::join('form_pengajuan', 'form_pengajuan.id_form', '=', 'kasus_hukum.id_form')
         // ->join('transaksi_donasi', 'kasus_hukum.id_kasus', '=', 'transaksi_donasi.id_kasus_hukum')
         ->select('*')
-        ->where('id_kasus', '=', $id)->get();
+        ->where('id_kasus', '=', $id)->first();
         $kasusHukum = KasusHukum::find($id);
         $progress = ProgressKasusHukum::select('*')->where('id_kasus', '=', $id)->get();
         $transaksi = TransaksiDonasi::select('*')->where('id_kasus_hukum', '=', $id)->get();
@@ -133,7 +133,7 @@ class CaseController extends Controller
             $total += $trans->nominal;
         }
         $auth = true;
-        return view('userLBH.detail_perkara_berlangsung', ['auth'=> $auth, 'perkaraBerlangsung' => $perkaraBerlangsung]);
+        return view('userLBH.detail_perkara_berlangsung', ['auth'=> $auth, 'perkaraBerlangsung' => $perkaraBerlangsung, 'progress' => $progress]);
     }
 
 

@@ -21,13 +21,13 @@ class DatabaseSeeder extends Seeder
     public function run(): void
     {
         // User::factory(10)->create();
-
+        
         // User::factory()->create([
-        //     'name' => 'Test User',
-        //     'email' => 'test@example.com',
-        // ]);
-        $formArray = [
-            [
+            //     'name' => 'Test User',
+            //     'email' => 'test@example.com',
+            // ]);
+            $formArray = [
+                [
                 'nomor_pemohon' => 'CA-001',
                 'nama' => 'arya aqilah',
                 'nama_panggilan' => 'arya',

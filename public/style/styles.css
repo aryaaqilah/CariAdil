@@ -301,7 +301,7 @@ nav {
   .progress-text {
     display: block;
     padding: 8px 8px;
-    overflow: hidden;
+    /* overflow: hidden; */
     text-overflow: ellipsis;
   }
 

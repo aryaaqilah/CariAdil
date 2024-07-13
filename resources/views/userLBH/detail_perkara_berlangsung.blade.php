@@ -1,4 +1,5 @@
 <link rel="stylesheet" href="{{ asset('style/styles.css') }}">
+
 <x-layout :auth="$auth">
   <div class="container-fluid">
     <div class="pembatas"></div>
@@ -14,9 +15,9 @@
     </div>
     <div class="row d-flex justify-content-center mt-3">
       <div class="col-10 text-center h1">
-        @foreach ($perkaraBerlangsung as $pb)
-        <strong>{{$pb->title}}</strong>
-        @endforeach
+        {{-- @foreach ($perkaraBerlangsung as $pb) --}}
+        <strong>{{$perkaraBerlangsung->title}}</strong>
+        {{-- @endforeach --}}
       </div>
 
       <div class="d-flex justify-content-center gap-3 my-3">
@@ -26,9 +27,9 @@
       </div>
 
       <div class="d-flex justify-content-center">
-        @foreach ($perkaraBerlangsung as $pb)
-        <p> Diterima tanggal {{$pb->tanggal}} </p>
-        @endforeach
+        {{-- @foreach ($perkaraBerlangsung as $pb) --}}
+        <p> Diterima tanggal {{$perkaraBerlangsung->tanggal}} </p>
+        {{-- @endforeach --}}
       </div>
 
       <div class="col-4"></div>
@@ -81,23 +82,23 @@
                           <p>Kode Pos</p>
                         </div>
                         <div class="col-8">
-                          @foreach ($perkaraBerlangsung as $pb)
-                          <p>: {{$pb->nama}}</p>
-                          <p>: {{$pb->nama_panggilan}}</p>
-                          <p>: {{$pb->tempat_lahir}}</p>
-                          <p>: {{$pb->jenis_kelamin}}</p>
-                          <p>: {{$pb->agama}}</p>
-                          <p>: {{$pb->status_perkawinan}}</p>
-                          <p>: {{$pb->jumlah_anak}}</p>
-                          <p>: {{$pb->jumlah_anak_tanggungan}}</p>
-                          <p>: {{$pb->alamat_lengkap}}</p>
-                          <p>: {{$pb->RT_RW}}</p>
-                          <p>: {{$pb->Desa_Kelurahan}}</p>
-                          <p>: {{$pb->kecamatan}}</p>
-                          <p>: {{$pb->Kabupaten_Kota}}</p>
-                          <p>: {{$pb->provinsi}}</p>
-                          <p>: {{$pb->kode_pos}}</p>  
-                          @endforeach
+                          {{-- @foreach ($perkaraBerlangsung as $pb) --}}
+                          <p>: {{$perkaraBerlangsung->nama}}</p>
+                          <p>: {{$perkaraBerlangsung->nama_panggilan}}</p>
+                          <p>: {{$perkaraBerlangsung->tempat_lahir}}</p>
+                          <p>: {{$perkaraBerlangsung->jenis_kelamin}}</p>
+                          <p>: {{$perkaraBerlangsung->agama}}</p>
+                          <p>: {{$perkaraBerlangsung->status_perkawinan}}</p>
+                          <p>: {{$perkaraBerlangsung->jumlah_anak}}</p>
+                          <p>: {{$perkaraBerlangsung->jumlah_anak_tanggungan}}</p>
+                          <p>: {{$perkaraBerlangsung->alamat_lengkap}}</p>
+                          <p>: {{$perkaraBerlangsung->RT_RW}}</p>
+                          <p>: {{$perkaraBerlangsung->Desa_Kelurahan}}</p>
+                          <p>: {{$perkaraBerlangsung->kecamatan}}</p>
+                          <p>: {{$perkaraBerlangsung->Kabupaten_Kota}}</p>
+                          <p>: {{$perkaraBerlangsung->provinsi}}</p>
+                          <p>: {{$perkaraBerlangsung->kode_pos}}</p>  
+                          {{-- @endforeach --}}
                         </div>
                       </div>
                     </div>
@@ -126,17 +127,17 @@
                           <p>HP</p>
                         </div>
                         <div class="col-8">
-                          @foreach ($perkaraBerlangsung as $pb)
-                          <p>: {{$pb->identitas_diri}}</p>
-                          <p>: {{$pb->nomor_identitas}}</p>
-                          <p>: {{$pb->keterangan_tidak_mampu}}</p>
-                          <p>: {{$pb->nomor_keterangan_tidak_mampu}}</p>
-                          <p>: {{$pb->pekerjaan}}</p>
-                          <p>: {{$pb->jumlah_tanggungan}}</p>
-                          <p>: {{$pb->pendidikan_terakhir}}</p>
-                          <p>: {{$pb->telepon}}</p>
-                          <p>: {{$pb->HP}}</p>
-                          @endforeach
+                          {{-- @foreach ($perkaraBerlangsung as $pb) --}}
+                          <p>: {{$perkaraBerlangsung->identitas_diri}}</p>
+                          <p>: {{$perkaraBerlangsung->nomor_identitas}}</p>
+                          <p>: {{$perkaraBerlangsung->keterangan_tidak_mampu}}</p>
+                          <p>: {{$perkaraBerlangsung->nomor_keterangan_tidak_mampu}}</p>
+                          <p>: {{$perkaraBerlangsung->pekerjaan}}</p>
+                          <p>: {{$perkaraBerlangsung->jumlah_tanggungan}}</p>
+                          <p>: {{$perkaraBerlangsung->pendidikan_terakhir}}</p>
+                          <p>: {{$perkaraBerlangsung->telepon}}</p>
+                          <p>: {{$perkaraBerlangsung->HP}}</p>
+                          {{-- @endforeach --}}
                         </div>
                       </div>
                     </div>
@@ -153,9 +154,9 @@
                   <div class="accordion-body">
                     <div class="item-container">
                       <div class="row m-3">
-                        @foreach ($perkaraBerlangsung as $pb)
-                        <p>{{$pb->uraian}}</p>
-                        @endforeach
+                        {{-- @foreach ($perkaraBerlangsung as $pb) --}}
+                        <p>{{$perkaraBerlangsung->uraian}}</p>
+                        {{-- @endforeach --}}
                       </div>
                     </div>
                   </div>
@@ -171,8 +172,8 @@
                 Progress Perkara
             </div>
                 <div class="d-flex justify-content-center">
-                  <div class="col-5">
-                  <div class="position-relative m-4 mt-5">
+                  <div class="col-12">
+                  {{-- <div class="position-relative m-4 mt-5">
                         <div class="progress" role="progressbar" aria-label="Progress" aria-valuenow="50" aria-valuemin="0" aria-valuemax="100" style="height: 1px; ">
                           <div class="progress-bar" style="width: 100%;"></div>
                         </div>
@@ -201,20 +202,34 @@
                         </div>
                       </div>
 
+                    </div> --}}
+
+                      <ul class="progress-tracker progress-tracker--horizontal">
+                        @foreach ($progress as $index => $prog)
+                            <li class="progress-step is-complete">
+                                <div style="color: white" class="progress-marker" data-text="{{$index+1}}"></div>
+                                <div class="progress-text">
+                                    <h4 class="progress-title">{{ $prog->topik_progress }}</h4>
+                                    {{-- {{ $prog->detail }} --}}
+                                </div>
+                            </li>
+                        @endforeach
+                      </ul>
                     </div>
+                    {{-- {{ $progress->links() }} --}}
                     
-                    <div class="d-flex align-items-center m-3">
+                    {{-- <div class="d-flex align-items-center m-3">
                           <i class="fa-solid fa-chevron-right", style="color:rgba(232, 123, 47, 1)"></i>
-                      </div>
+                      </div> --}}
                   </div>
   
                   <div class="d-flex mt-5 h5 ms-5">
                       Update Perkara
                   </div>
   
-                  <form class="d-flex justify-content-center" action="PSB_Progress" method="POST">
+                  <form class="d-flex justify-content-center" action="{{ url('/lbh/perkara-berangsung/' . $perkaraBerlangsung->id_kasus) }}" method="POST">
                     @csrf
-                    <input type="hidden" name="id_kasus" value="1">
+                    <input type="hidden" name="id_kasus" value=" {{$perkaraBerlangsung->id_kasus}}">
                       <div class="col-10">
                         <div class="col-12 mt-3">
                           <label for="inputAddress" class="form-label">Tanggal</label>
@@ -263,21 +278,21 @@
               {{-- @endforeach   --}}
             </div>
             <div class="d-flex h7 mt-2">
-              @foreach ($perkaraBerlangsung as $pb)
-              Rp {{number_format($pb->target_donasi ,2,",",".")}}
-              @endforeach
+              {{-- @foreach ($perkaraBerlangsung as $pb) --}}
+              Rp {{number_format($perkaraBerlangsung->target_donasi ,2,",",".")}}
+              {{-- @endforeach --}}
             </div>
             
             <div class="progress mt-4" style="height: 20px; background-color:rgb(255, 223, 200); border-radius: 12px">
               <div class="progress-bar" role="progressbar" style="width: 30%; background-color:rgba(232, 123, 47, 1); border-radius: 12px" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"></div>
             </div>
           </div>
-
         </div>  
       </div>
       <div class="col-1"></div>
-    </div>
-</div>
 
+    </div>
+
+</div>
 
 </x-layout>
