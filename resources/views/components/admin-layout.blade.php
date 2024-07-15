@@ -48,6 +48,7 @@
 
     <!-- Admin Style CSS -->
     <link href="{{ asset('style/admin.css') }}" rel="stylesheet">
+    <link href="{{ asset('style/styles.css') }}" rel="stylesheet">
 
 </head>
 

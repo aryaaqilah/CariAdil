@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Admin;
 use App\Models\KasusHukum;
+use App\Models\FormPengajuan;
 use App\Models\LBH;
 use App\Models\TransaksiDonasi;
 use Carbon\Carbon;
@@ -153,5 +154,10 @@ class AdminController extends Controller
         $cases = KasusHukum::all();
 
         return view('admin.perkara-berlangsung', compact('cases'));
+    }
+
+    public function detail_pengajuan_perkara($id){
+        $perkara = FormPengajuan::select('*')->where('form_pengajuan.id_form', '=', $id)->get();
+        return view('admin.perkara-pengajuan-detail', ['perkara'=>$perkara]);
     }
 }
