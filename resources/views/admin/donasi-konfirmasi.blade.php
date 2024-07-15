@@ -63,7 +63,10 @@
             </thead>
             <tbody>
                 <tr>
-                    <td scope="col">27/05/2023</td>
+                    <td class="time">
+                        <p id="date">30/05/2024</p>
+                        <p id="hours">03:00</p>
+                    </td>
                     <td>Andreas Liujaya Wiranata</td>
                     <td>721928291</td>
                     <td>BTN</td>
