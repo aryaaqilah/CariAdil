@@ -46,8 +46,7 @@
         <form action="{{ url('/lbh/pengajuan-bantuan-hukum/') }}" method="POST">
           @csrf
           @method('PUT')
-          <input type="hidden" name="id_form" value="{{ $pengajuanBantuan->id_form }}"> 
-          {{-- <input type="hidden" name="id_LBH" value="{{$pengajuanBantuan->id_LBH}}">  --}}
+          <input type="hidden" name="id_kasus" value="{{ $pengajuanBantuan->id_kasus }}"> 
           <button type="submit">
             <i class="fa-solid fa-circle-check fa-4x"></i>
           </button>

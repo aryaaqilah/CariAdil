@@ -13,7 +13,7 @@ return new class extends Migration
     {
         Schema::create('form_pengajuan', function (Blueprint $table) {
             $table->id('id_form');
-            $table->bigInteger('id_LBH')->unsigned()->nullable();
+            $table->string('jenis_perkara')->nullable();
             $table->string('nomor_pemohon');
             $table->string('nama');
             $table->string('nama_panggilan');
@@ -45,7 +45,6 @@ return new class extends Migration
             $table->text('image_url');
             $table->timestamps();
 
-            $table->foreign('id_LBH')->references('id_LBH')->on('lbh')->onDelete('cascade');
         });
     }
 

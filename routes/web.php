@@ -47,9 +47,9 @@ Route::prefix('/lbh')->group(function () {
     Route::get('/login', [UserController::class, 'showLogin'])->name('login');
     Route::post('/login', [UserController::class, 'login'])->name('login.post');
 
-    Route::get('/pengajuan-bantuan-hukum', [FormController::class, 'pengajuan_bantuan']);
-    Route::get('/pengajuan-bantuan-hukum/{id}', [FormController::class, 'detail_pengajuan_bantuan'])->name('detail_pengajuan');
-    Route::put('/pengajuan-bantuan-hukum', [FormController::class, 'terima_pengajuan']);
+    Route::get('/pengajuan-bantuan-hukum', [CaseController::class, 'pengajuan_bantuan']);
+    Route::get('/pengajuan-bantuan-hukum/{id}', [CaseController::class, 'detail_pengajuan_bantuan'])->name('detail_pengajuan');
+    Route::put('/pengajuan-bantuan-hukum', [CaseController::class, 'terima_pengajuan']);
 
     Route::get('/perkara-berlangsung', [CaseController::class, 'perkara_berlangsung']);
     Route::get('/perkara-berlangsung/{id}', [CaseController::class, 'detail_perkara_berlangsung'])->name('detail_perkara');
