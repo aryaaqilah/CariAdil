@@ -46,8 +46,8 @@
     <div class="form-area">
         <div class="row">
             <div class="col-5">
-                <h6 style="font-weight: bold">Admin</h6>
-                <p style="font-size: 0.75rem">Daftar admin</p>
+                <h6 style="font-weight: bold">LBH</h6>
+                <p style="font-size: 0.75rem">Daftar LBH</p>
             </div>
             <div class="col-4"></div>
             <div class="col-3"></div>
