@@ -2,7 +2,7 @@
   <aside id="sidebar" class="sidebar">
 
       <div class="sidebar-top d-flex">
-          <img src="{{ asset('/assets/img/Logo Cari Adil 1.png') }}" class="m-2 pb-3" width="55rem" alt="">
+          <img src="{{ asset('/assets/images/Logo Cari Adil 1.png') }}" class="m-2 pb-3" width="55rem" alt="">
           <h4 class="pt-3 px-1" style="font-weight:bold">Dashboard</h4>
       </div>
 

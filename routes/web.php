@@ -100,6 +100,9 @@ Route::get('/donasidetail', function () {
 Route::get('/donasi', function () {
     return view('admin.donasi');
 });
+Route::get('/donasikonfirmasi', function(){
+    return view('admin.donasi-konfirmasi');
+});
 Route::get('/log', function () {
     return view('admin.log');
 });
