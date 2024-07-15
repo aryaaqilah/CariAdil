@@ -11,7 +11,7 @@
                 </div>
                 <div class="info px-4">
                     <h6 class="title">Transaksi Minggu Ini</h6>
-                    <h2 class="value">{{ $countWeeklyTransactions }}</h2>
+                    {{-- <h2 class="value">{{ $countWeeklyTransactions }}</h2> --}}
                     <span class="increase"><i class="bi bi-arrow-up"></i> 16% bulan ini</span>
                 </div>
             </div>
@@ -21,8 +21,8 @@
                 </div>
                 <div class="info px-4">
                     <h6 class="title">Donasi Terbesar</h6>
-                    <h2 class="value">Rp {{ number_format($biggestDonation->nominal) }}</h2>
-                    <span class="increase">dari {{ $biggestDonation->nama }}</span>
+                    {{-- <h2 class="value">Rp {{ number_format($biggestDonation->nominal) }}</h2> --}}
+                    {{-- <span class="increase">dari {{ $biggestDonation->nama }}</span> --}}
                 </div>
             </div>
         </div>
@@ -53,36 +53,36 @@
         <table class="table logaktivitas">
             <thead>
                 <tr>
-                    <th scope="col">Nama Pemohon</th>
-                    <th scope="col">ID Kasus</th>
-                    <th scope="col">Terkumpul</th>
-                    <th scope="col">Target</th>
-                    <th scope="col">Persentase</th>
+                    <th scope="col" width="100rem">Time</th>
+                    <th scope="col" width="210rem">Nama Donatur</th>
+                    <th scope="col" width="120rem">No Rekening</th>
+                    <th scope="col" width="100rem">Bank Asal</th>
+                    <th scope="col" width="130rem">Nominal</th>
                     <th scope="col">Status</th>
                 </tr>
             </thead>
             <tbody>
-                @foreach ($cases as $case)
-                    @php
-                        $total = 0;
-                        foreach ($case->approvedTransactions as $transaction) {
-                            $total += $transaction->nominal;
-                        }
-
-                        $percentage = ($total / $case->target_donasi) * 100;
-                    @endphp
-                    <tr>
-                        <td>{{ $case->form->nama }}</td>
-                        <td>{{ $case->id_kasus }}</td>
-                        <td>Rp {{ number_format($total) }}</td>
-                        <td>Rp {{ number_format($case->target_donasi) }}</td>
-                        <td>{{ $percentage }}%</td>
-                        <td><button
-                                class="btn @if ($percentage >= 100) complete @else
-                            inprogress @endif "
-                                type="button">In Progress</button></td>
-                    </tr>
-                @endforeach
+                <tr>
+                    <td scope="col">27/05/2023</td>
+                    <td>Andreas Liujaya Wiranata</td>
+                    <td>721928291</td>
+                    <td>BTN</td>
+                    <td>Rp30.000.000</td>
+                    <td>
+                        <div class="d-flex">
+                            <div class="accept">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-check2" viewBox="0 0 16 16" stroke-width="3">
+                                    <path d="M13.854 3.646a.5.5 0 0 1 0 .708l-7 7a.5.5 0 0 1-.708 0l-3.5-3.5a.5.5 0 1 1 .708-.708L6.5 10.293l6.646-6.647a.5.5 0 0 1 .708 0"/>
+                                </svg>
+                            </div>
+                            <div class="deny">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-x-lg" viewBox="0 0 16 16">
+                                    <path d="M2.146 2.854a.5.5 0 1 1 .708-.708L8 7.293l5.146-5.147a.5.5 0 0 1 .708.708L8.707 8l5.147 5.146a.5.5 0 0 1-.708.708L8 8.707l-5.146 5.147a.5.5 0 0 1-.708-.708L7.293 8z"/>
+                                </svg>
+                            </div>
+                        </div>
+                    </td>
+                </tr>
             </tbody>
         </table>
     </div>
