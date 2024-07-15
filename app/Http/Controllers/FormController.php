@@ -21,28 +21,7 @@ class FormController extends Controller
         return view('user.form', ['auth' => $auth, 'noPemohon' => $noPemohon]);
     }
 
-    public function pengajuan_bantuan()
-    {
-        $pengajuanBantuan = FormPengajuan::whereNULL('id_lbh')->orderBy('tanggal', 'DESC')
-        // ->join('kasus_hukum', 'form_pengajuan.id_form', '=', 'kasus_hukum.id_form')
-        ->select('*')->get();
-        // ->select('form_pengajuan.*', 'kasus_hukum.jenis_perkara')->get();
-        $auth = true;
-
-        return view('userLBH.pengajuan_perkara', ['pengajuan_bantuan' => $pengajuanBantuan, 'auth' => $auth]);
-    }
-
-    public function detail_pengajuan_bantuan($id)
-    {
-        // $pengajuanBantuan = FormPengajuan::join('kasus_hukum', 'form_pengajuan.id_form', '=', 'kasus_hukum.id_form')
-        // ->select('form_pengajuan.*', 'kasus_hukum.jenis_perkara')
-        // ->where('form_pengajuan.id_form', $id)->get();
-        $pengajuanBantuan = FormPengajuan::select('*')
-        ->where('id_form', '=', $id)->first();
-        
-        $auth = true;
-        return view('userLBH.detail_pengajuan_perkara', ['auth' => $auth, 'pengajuanBantuan' => $pengajuanBantuan]);
-    }
+    
 
     public function create()
     {
@@ -132,38 +111,5 @@ class FormController extends Controller
         //
     }
 
-    public function terima_pengajuan(Request $request)
-    {
-        $request->validate([
-            'id_form' => 'required|integer|exists:form_pengajuan,id_form',
-        ]);
-        
-        $formPengajuan = FormPengajuan::find($request->id_form);
-        $user = Session::get('user');
-        $formPengajuan->id_LBH = $user->id_LBH;
-        //     // $formPengajuan->id_LBH = Auth::user()->id_LBH;
-        $formPengajuan->save();
-
-        return redirect()->back();
     
-        // dd($formPengajuan);
-
-        // return response()->json(['success' => true, 'message' => 'id_LBH updated successfully']);
-
-        // $request->validate([
-        //     'id_form' => 'required|integer|exists:form_pengajuan,id_form',
-        // ]);
-        
-        // $formPengajuan = FormPengajuan::find($request->id_form);
-        
-        
-        // if ($formPengajuan) {
-        //     $formPengajuan->id_LBH = auth()->user()->id_LBH;
-        //     $formPengajuan->save();
-            
-        //     return response()->json(['success' => true, 'message' => 'id_LBH updated successfully']);
-        // }
-    
-        // return response()->json(['success' => false, 'message' => 'Form not found']);
-    }
 }

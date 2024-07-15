@@ -9,6 +9,9 @@ use Illuminate\Http\Request;
 use App\Models\KasusHukum;
 use Laravel\Prompts\Progress;
 
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Session;
+
 class CaseController extends Controller
 {
     /**
@@ -265,4 +268,59 @@ class CaseController extends Controller
     {
 
     }
+
+
+    public function kasusTerbaruHomepage() {
+        $kasusHukum = KasusHukum::orderBy('created_at')->take(2)->get();
+
+        if ($kasusHukum->isEmpty()) {
+            return 'No data';
+        }
+
+        return $kasusHukum;
+    }
+
+    public function kasusHukumHomepage() {
+
+    }
+
+    public function pengajuan_bantuan()
+    {
+        $pengajuanBantuan = KasusHukum::whereNULL('id_lbh')->orderBy('tanggal', 'DESC')
+        // ->join('kasus_hukum', 'form_pengajuan.id_form', '=', 'kasus_hukum.id_form')
+        ->select('*')->get();
+        // ->select('form_pengajuan.*', 'kasus_hukum.jenis_perkara')->get();
+        $auth = true;
+
+        // dd($pengajuanBantuan);
+
+        return view('userLBH.pengajuan_perkara', ['pengajuanBantuan' => $pengajuanBantuan, 'auth' => $auth]);
+    }
+
+    public function detail_pengajuan_bantuan($id)
+    {   
+        $pengajuanBantuan = KasusHukum::join('form_pengajuan', 'form_pengajuan.id_form', '=', 'kasus_hukum.id_form')
+        // ->join('transaksi_donasi', 'kasus_hukum.id_kasus', '=', 'transaksi_donasi.id_kasus_hukum')
+        ->select('*')
+        ->where('id_kasus', '=', $id)->first();
+        // $kasusHukum = KasusHukum::find($id);
+
+        $auth = true;
+        return view('userLBH.detail_pengajuan_perkara', ['auth' => $auth, 'pengajuanBantuan' => $pengajuanBantuan]);
+    }
+
+    public function terima_pengajuan(Request $request)
+    {
+        $request->validate([
+            'id_kasus' => 'required|integer|exists:kasus_hukum,id_kasus',
+        ]);
+        
+        $PengajuanLBH = KasusHukum::find($request->id_kasus);
+        $user = Session::get('user');
+        $PengajuanLBH->id_LBH = $user->id_LBH;
+        $PengajuanLBH->save();
+
+        return redirect()->back();
+    }
+
 }

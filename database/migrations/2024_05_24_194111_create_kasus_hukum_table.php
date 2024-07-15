@@ -19,9 +19,8 @@ return new class extends Migration
             $table->integer('target_donasi');
             // $table->bigInteger('id_bank')->unsigned();
             $table->bigInteger('id_form')->unsigned();
-            $table->bigInteger('id_lbh')->unsigned();
+            $table->bigInteger('id_lbh')->unsigned()->nullable();
 
-            $table->string('jenis_perkara');
             $table->string('status_pengajuan');
 
             $table->text('image_url');
