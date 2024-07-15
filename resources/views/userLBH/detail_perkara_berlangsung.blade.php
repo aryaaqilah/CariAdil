@@ -273,18 +273,14 @@
               Donasi untuk Perkara
             </div>
             <div class="d-flex h7 mt-4" style="color: rgba(232, 123, 47, 1);">
-              {{-- @foreach ($total as $item) --}}
-              {{-- Rp {{number_format($total ,2,",",".")}} --}}
-              {{-- @endforeach   --}}
+              Rp {{number_format($total ,2,",",".")}}
             </div>
-            <div class="d-flex h7 mt-2">
-              {{-- @foreach ($perkaraBerlangsung as $pb) --}}
-              Rp {{number_format($perkaraBerlangsung->target_donasi ,2,",",".")}}
-              {{-- @endforeach --}}
+            <div class="d-flex h7 mt-2">           
+              Terkumpul dari Rp {{number_format($kasusHukum->target_donasi ,2,",",".")}}
             </div>
             
             <div class="progress mt-4" style="height: 20px; background-color:rgb(255, 223, 200); border-radius: 12px">
-              <div class="progress-bar" role="progressbar" style="width: 30%; background-color:rgba(232, 123, 47, 1); border-radius: 12px" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"></div>
+              <div class="progress-bar" role="progressbar" style="width: {{ $total / $kasusHukum->target_donasi * 100 }}%; background-color:rgba(232, 123, 47, 1); border-radius: 12px" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"></div>
             </div>
           </div>
         </div>  

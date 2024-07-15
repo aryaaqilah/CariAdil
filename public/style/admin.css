@@ -166,3 +166,30 @@
     justify-content: center;
     align-items: center;
 }
+
+.accept{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-right: 0.3rem;
+    width: 2rem;
+    height: 2rem;
+    background-color: #0EC698;
+    border-radius: 50%;
+    border-color: #16C098;
+    color: white;
+    font-weight: bold;
+}
+
+.deny{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 2rem;
+    height: 2rem;
+    background-color: #F79C5C;
+    border-radius: 50%;
+    border-color: #E87B2F;
+    color: white;
+    font-weight: bolder;
+}

@@ -100,6 +100,9 @@ Route::get('/donasidetail', function () {
 Route::get('/donasi', function () {
     return view('admin.donasi');
 });
+Route::get('/donasikonfirmasi', function(){
+    return view('admin.donasi-konfirmasi');
+});
 Route::get('/log', function () {
     return view('admin.log');
 });
@@ -114,6 +117,9 @@ Route::get('/perkaramasuk', function () {
 });
 Route::get('/perkarapengajuan', function () {
     return view('admin.perkara-pengajuan');
+});
+Route::get('/perkarapengajuandetail', function(){
+    return view('admin.perkara-pengajuan-detail');
 });
 Route::get('/addadmin', function () {
     return view('admin.role-addadmin');
