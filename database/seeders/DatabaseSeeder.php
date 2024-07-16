@@ -12,6 +12,7 @@ use App\Models\KasusHukum;
 use App\Models\LBH;
 use App\Models\ProgressKasusHukum;
 use Carbon\Carbon;
+use Illuminate\Support\Facades\Hash;
 
 class DatabaseSeeder extends Seeder
 {
@@ -141,7 +142,7 @@ class DatabaseSeeder extends Seeder
         $lbhArray = [
             [
                 'nama_lbh' => 'Ojan Lomba',
-                'password' => '1234',
+                'password' => bcrypt('1234'),
                 'nomor_telepon' => '012345',
                 'email' => 'gmail@com',
                 'alamat' => 'Sukabumi'
@@ -189,19 +190,25 @@ class DatabaseSeeder extends Seeder
             [
                 'id_kasus' => 1,
                 'topik_progress' => 'Sidang 1',
+                'lokasi' => 'PN Jakarta',
                 'date' => Carbon::now(),
+                'waktu' => Carbon::now(),
                 'detail' => 'Sudah dilaksanakan sidang pertama',
             ],
             [
                 'id_kasus' => 1,
                 'topik_progress' => 'Sidang 2',
+                'lokasi' => 'PN Bogor',
                 'date' => Carbon::now(),
+                'waktu' => Carbon::now(),
                 'detail' => 'Sudah dilaksanakan sidang kedua',
             ],
             [
                 'id_kasus' => 2,
                 'topik_progress' => 'Sidang 1',
+                'lokasi' => 'PN Sukabumi',
                 'date' => Carbon::now(),
+                'waktu' => Carbon::now(),
                 'detail' => 'Sudah dilaksanakan sidang SATUUUUUU',
             ]
         ];
