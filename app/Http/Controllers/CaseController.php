@@ -138,7 +138,7 @@ class CaseController extends Controller
         ->where('form_pengajuan.jenis_perkara', '=', 'Pidana')
         ->where('kasus_hukum.id_lbh', '=', $user->id_LBH)
         ->get();
-        
+
         $perdata = KasusHukum::join('form_pengajuan', 'kasus_hukum.id_form', '=', 'form_pengajuan.id_form')
         ->select('id_kasus', 'title', 'description', 'form_pengajuan.tanggal', 'target_donasi', 'kasus_hukum.id_form', 'id_lbh', 'status_pengajuan', 'kasus_hukum.image_url', 'kasus_hukum.created_at', 'kasus_hukum.updated_at')
         ->where('form_pengajuan.jenis_perkara', '=', 'Perdata')
@@ -352,6 +352,7 @@ class CaseController extends Controller
 
         $PengajuanLBH = KasusHukum::find($request->id_kasus);
         $user = Session::get('user');
+        // dd($PengajuanLBH);
         $PengajuanLBH->id_LBH = $user->id_LBH;
         $PengajuanLBH->save();
 

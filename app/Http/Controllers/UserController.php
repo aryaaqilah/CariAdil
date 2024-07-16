@@ -18,7 +18,7 @@ class UserController extends Controller
     public function index()
     {
         $user = Session::get('user');
-
+        // dd($user->id_LBH);
         $kasusHukum = KasusHukum::orderBy('tanggal', 'DESC')->where('id_LBH', '=', $user->id_LBH)->take(2)->get();
         $jadwal = ProgressKasusHukum::join('kasus_hukum', 'kasus_hukum.id_kasus', '=', 'progress_kasus_hukum.id_kasus')
         ->select('*')

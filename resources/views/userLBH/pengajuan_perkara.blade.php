@@ -3,12 +3,12 @@
 
 <x-layout :auth="$auth">
     <div class="container py-5">
-        
-        <div class="pembatas"></div>    
+
+        <div class="pembatas"></div>
         <div class = "judul">
             <h1>Pengajuan Bantuan Hukum</h1>
         </div>
-        <div class="pembatas"></div>        
+        <div class="pembatas"></div>
 
         <div class="row">
             <div class="col-2"></div>
@@ -60,12 +60,12 @@
                                             <img src="../assets/images/kasus1.png" class="card-img-top" alt="...">
                                             <div class="card-body">
                                                 <h5 class="card-title">
-                                                    <a href="/berita/kasus-hukum/{{ $kasusHukum['id_kasus'] }}"
+                                                    <a href="/lbh/pengajuan-bantuan-hukum/{{ $kasusHukum['id_kasus'] }}"
                                                         style="text-decoration: none; color:black">{{ $kasusHukum['title'] }}</a>
                                                 </h5>
                                                 <p class="card-text">{{ $kasusHukum['description'] }}.</p>
                                             </div>
-                                            
+
                                         </div>
                                     </div>
                                 @endforeach
@@ -84,12 +84,12 @@
                                             <img src="../assets/images/kasus1.png" class="card-img-top" alt="...">
                                             <div class="card-body">
                                                 <h5 class="card-title">
-                                                    <a href="/berita/kasus-hukum/{{ $kasusHukum['id_kasus'] }}"
+                                                    <a href="/lbh/pengajuan-bantuan-hukum/{{ $kasusHukum['id_kasus'] }}"
                                                         style="text-decoration: none; color:black">{{ $kasusHukum['title'] }}</a>
                                                 </h5>
                                                 <p class="card-text">{{ $kasusHukum['description'] }}.</p>
                                             </div>
-                
+
                                         </div>
                                     </div>
                                 @endforeach
@@ -102,7 +102,7 @@
             </div>
         </div>
 
-        
+
     </div>
     {{-- End Container  --}}
 </x-layout>

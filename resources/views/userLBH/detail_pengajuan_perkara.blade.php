@@ -43,10 +43,10 @@
       </div>
 
       <div class="d-flex justify-content-center mt-2 gap-4 mb-5" style="color:rgba(232, 123, 47, 1)">
-        <form action="{{ url('/lbh/pengajuan-bantuan-hukum/') }}" method="POST">
+        <form action="{{ url('/lbh/pengajuan-bantuan-hukum/'.$pengajuanBantuan->id_kasus) }}" method="POST">
           @csrf
           @method('PUT')
-          <input type="hidden" name="id_kasus" value="{{ $pengajuanBantuan->id_kasus }}"> 
+          <input type="hidden" name="id_kasus" value="{{ $pengajuanBantuan->id_kasus }}">
           <button type="submit">
             <i class="fa-solid fa-circle-check fa-4x"></i>
           </button>
@@ -103,7 +103,7 @@
                       <p>: {{$pengajuanBantuan->kecamatan}}</p>
                       <p>: {{$pengajuanBantuan->Kabupaten_Kota}}</p>
                       <p>: {{$pengajuanBantuan->provinsi}}</p>
-                      <p>: {{$pengajuanBantuan->kode_pos}}</p>  
+                      <p>: {{$pengajuanBantuan->kode_pos}}</p>
                       {{-- @endforeach --}}
 
                     </div>
@@ -174,4 +174,4 @@
     </div>
 </div>
 </x-layout>
-  
+
