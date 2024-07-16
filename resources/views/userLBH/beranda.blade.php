@@ -52,9 +52,9 @@
             @foreach ($jadwal as $j)
             <div class="detail-box-informasi">
                 <i class="fa-solid fa-calendar"></i>
-                <h3 class="informasi">{{$}}</h3>
-                <h5 class="deskripsi-informasi">10:00 - 20:00</h5>
-                <h5 class="deskripsi-informasi">PN Jakarta Pusat</h5>
+                <h3 class="informasi">{{$j->topik_progress}}</h3>
+                <h5 class="deskripsi-informasi">{{ \Carbon\Carbon::parse($j->date)->format('d F  Y')}}</h5>
+                <h5 class="deskripsi-informasi">{{$j->lokasi}}</h5>
             </div>
             @endforeach
 

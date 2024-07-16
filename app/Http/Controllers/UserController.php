@@ -26,7 +26,7 @@ class UserController extends Controller
         ->orderBy('tanggal', 'DESC')
         ->take(3)
         ->get();
-        dd($jadwal);
+        // dd($jadwal);
         $auth = true;
 
         return view('userLBH.beranda', ['list_kasus_hukum' => $kasusHukum, 'jadwal' => $jadwal, 'auth' => $auth]);
