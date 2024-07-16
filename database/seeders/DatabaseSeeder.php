@@ -141,7 +141,7 @@ class DatabaseSeeder extends Seeder
         $lbhArray = [
             [
                 'nama_lbh' => 'Ojan Lomba',
-                'password' => '1234',
+                'password' => bcrypt('1234'),
                 'nomor_telepon' => '012345',
                 'email' => 'gmail@com',
                 'alamat' => 'Sukabumi'

@@ -2,11 +2,12 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\LBH;
+use App\Models\KasusHukum;
 use Illuminate\Http\Request;
+use App\Models\ProgressKasusHukum;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
-use App\Models\KasusHukum;
-use App\Models\LBH;
 use Illuminate\Support\Facades\Session;
 
 class UserController extends Controller
@@ -16,10 +17,19 @@ class UserController extends Controller
      */
     public function index()
     {
-        $kasusHukum = KasusHukum::orderBy('tanggal', 'DESC')->take(2)->get();
+        $user = Session::get('user');
+
+        $kasusHukum = KasusHukum::orderBy('tanggal', 'DESC')->where('id_LBH', '=', $user->id_LBH)->take(2)->get();
+        $jadwal = ProgressKasusHukum::join('kasus_hukum', 'kasus_hukum.id_kasus', '=', 'progress_kasus_hukum.id_kasus')
+        ->select('*')
+        ->where('kasus_hukum.id_lbh', '=', $user->id_LBH)
+        ->orderBy('tanggal', 'DESC')
+        ->take(3)
+        ->get();
+        dd($jadwal);
         $auth = true;
 
-        return view('userLBH.beranda', ['list_kasus_hukum' => $kasusHukum, 'auth' => $auth]);
+        return view('userLBH.beranda', ['list_kasus_hukum' => $kasusHukum, 'jadwal' => $jadwal, 'auth' => $auth]);
     }
 
     public function showLogin(){
