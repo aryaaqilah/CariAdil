@@ -97,7 +97,7 @@
                           <p>: {{$perkaraBerlangsung->kecamatan}}</p>
                           <p>: {{$perkaraBerlangsung->Kabupaten_Kota}}</p>
                           <p>: {{$perkaraBerlangsung->provinsi}}</p>
-                          <p>: {{$perkaraBerlangsung->kode_pos}}</p>  
+                          <p>: {{$perkaraBerlangsung->kode_pos}}</p>
                           {{-- @endforeach --}}
                         </div>
                       </div>
@@ -164,10 +164,10 @@
               </div>
             </div>
           </div>
-  
+
           {{-- PROGRESS --}}
           <div class="tab-pane fade" id="progress-tab-pane" role="tabpanel" aria-labelledby="progress-tab" tabindex="0">
-            <div class="row m-4"> 
+            <div class="row m-4">
               <div class="d-flex h5 ms-5">
                 Progress Perkara
             </div>
@@ -187,16 +187,16 @@
                           <button type="button" class=" btn btn-sm rounded-pill progress-btn" style="width: 2.5rem; height:2.5rem;; background-color:rgba(232, 123, 47, 1); color: white">3</button>
                         </div>
                       </div>
-                      
+
                       <div class="position-relative m-4 mt-5 ">
                         <div class="d-flex flex-column justify-content-center align-items-center position-absolute top-0 start-0 translate-middle gap-2 bg-transparent h6" style="width: 10rem">
                           <p class="text-center h6">Pengajuan Perkara ke Pengadilan</p>
                         </div>
-  
+
                         <div class="d-flex flex-column justify-content-center align-items-center position-absolute top-0 start-50 translate-middle gap-2 bg-transparent h6" style="width: 10rem">
                           <p class="text-center h6">Persidangan Pertama</p>
                         </div>
-                        
+
                         <div class="d-flex flex-column justify-content-center align-items-center position-absolute top-0 start-100 translate-middle gap-2 bg-transparent h6" style="width: 10rem">
                           <p class="text-center h6">Persidangan Kedua</p>
                         </div>
@@ -217,16 +217,16 @@
                       </ul>
                     </div>
                     {{-- {{ $progress->links() }} --}}
-                    
+
                     {{-- <div class="d-flex align-items-center m-3">
                           <i class="fa-solid fa-chevron-right", style="color:rgba(232, 123, 47, 1)"></i>
                       </div> --}}
                   </div>
-  
+
                   <div class="d-flex mt-5 h5 ms-5">
                       Update Perkara
                   </div>
-  
+
                   <form class="d-flex justify-content-center" action="{{ url('/lbh/perkara-berangsung/' . $perkaraBerlangsung->id_kasus) }}" method="POST">
                     @csrf
                     <input type="hidden" name="id_kasus" value=" {{$perkaraBerlangsung->id_kasus}}">
@@ -245,7 +245,7 @@
                             <input type="text" class="form-control" name="detail">
                           </div>
                         </div>
-  
+
                        <div class="col-12">
                          <label class="form-label">Catatan</label>
                          <textarea class="form-control" id="exampleFormControlTextarea1" rows="5" required></textarea>
@@ -275,15 +275,15 @@
             <div class="d-flex h7 mt-4" style="color: rgba(232, 123, 47, 1);">
               Rp {{number_format($total ,2,",",".")}}
             </div>
-            <div class="d-flex h7 mt-2">           
+            <div class="d-flex h7 mt-2">
               Terkumpul dari Rp {{number_format($kasusHukum->target_donasi ,2,",",".")}}
             </div>
-            
+
             <div class="progress mt-4" style="height: 20px; background-color:rgb(255, 223, 200); border-radius: 12px">
               <div class="progress-bar" role="progressbar" style="width: {{ $total / $kasusHukum->target_donasi * 100 }}%; background-color:rgba(232, 123, 47, 1); border-radius: 12px" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"></div>
             </div>
           </div>
-        </div>  
+        </div>
       </div>
       <div class="col-1"></div>
 
