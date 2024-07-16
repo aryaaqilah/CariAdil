@@ -29,4 +29,6 @@ class ProgressKasusHukumController extends Controller
         return redirect()->route('detail_perkara', ['id' => $id])->with('success', 'Progress has been added');
 
     }
+
+    
 }

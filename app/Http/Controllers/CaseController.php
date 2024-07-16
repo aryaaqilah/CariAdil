@@ -131,10 +131,25 @@ class CaseController extends Controller
         return view('user.detail_berita', ['auth' => $auth]);
     }
     public function perkara_berlangsung(){
+        $user = Session::get('user');
+
+        $pidana = KasusHukum::join('form_pengajuan', 'kasus_hukum.id_form', '=', 'form_pengajuan.id_form')
+        ->select('id_kasus', 'title', 'description', 'form_pengajuan.tanggal', 'target_donasi', 'kasus_hukum.id_form', 'id_lbh', 'status_pengajuan', 'kasus_hukum.image_url', 'kasus_hukum.created_at', 'kasus_hukum.updated_at')
+        ->where('form_pengajuan.jenis_perkara', '=', 'Pidana')
+        ->where('kasus_hukum.id_lbh', '=', $user->id_LBH)
+        ->get();
+        
+        $perdata = KasusHukum::join('form_pengajuan', 'kasus_hukum.id_form', '=', 'form_pengajuan.id_form')
+        ->select('id_kasus', 'title', 'description', 'form_pengajuan.tanggal', 'target_donasi', 'kasus_hukum.id_form', 'id_lbh', 'status_pengajuan', 'kasus_hukum.image_url', 'kasus_hukum.created_at', 'kasus_hukum.updated_at')
+        ->where('form_pengajuan.jenis_perkara', '=', 'Perdata')
+        ->where('kasus_hukum.id_lbh', '=', $user->id_LBH)
+
+        ->get();
+
         $perkaraBerlangsung = KasusHukum::orderBy('tanggal', 'DESC')
         ->select('*')->get();
         $auth = true;
-        return view('userLBH.perkara_berlangsung', ['auth' => $auth, 'perkaraBerlangsung' => $perkaraBerlangsung]);
+        return view('userLBH.perkara_berlangsung', ['auth' => $auth, 'perkaraBerlangsung' => $perkaraBerlangsung, 'pidana'=>$pidana, 'perdata'=>$perdata]);
     }
 
     public function detail_perkara_berlangsung($id){
@@ -294,6 +309,18 @@ class CaseController extends Controller
 
     public function pengajuan_bantuan()
     {
+        $pidana = KasusHukum::join('form_pengajuan', 'kasus_hukum.id_form', '=', 'form_pengajuan.id_form')
+        ->select('id_kasus', 'title', 'description', 'form_pengajuan.tanggal', 'target_donasi', 'kasus_hukum.id_form', 'id_lbh', 'status_pengajuan', 'kasus_hukum.image_url', 'kasus_hukum.created_at', 'kasus_hukum.updated_at')
+        ->where('form_pengajuan.jenis_perkara', '=', 'Pidana')
+        ->whereNULL('id_lbh')
+        ->get();
+
+        $perdata = KasusHukum::join('form_pengajuan', 'kasus_hukum.id_form', '=', 'form_pengajuan.id_form')
+        ->select('id_kasus', 'title', 'description', 'form_pengajuan.tanggal', 'target_donasi', 'kasus_hukum.id_form', 'id_lbh', 'status_pengajuan', 'kasus_hukum.image_url', 'kasus_hukum.created_at', 'kasus_hukum.updated_at')
+        ->where('form_pengajuan.jenis_perkara', '=', 'Perdata')
+        ->whereNULL('id_lbh')
+        ->get();
+
         $pengajuanBantuan = KasusHukum::whereNULL('id_lbh')->orderBy('tanggal', 'DESC')
         // ->join('kasus_hukum', 'form_pengajuan.id_form', '=', 'kasus_hukum.id_form')
         ->select('*')->get();
@@ -302,7 +329,7 @@ class CaseController extends Controller
 
         // dd($pengajuanBantuan);
 
-        return view('userLBH.pengajuan_perkara', ['pengajuanBantuan' => $pengajuanBantuan, 'auth' => $auth]);
+        return view('userLBH.pengajuan_perkara', ['pengajuanBantuan' => $pengajuanBantuan, 'pidana' => $pidana, 'perdata' => $perdata, 'auth' => $auth]);
     }
 
     public function detail_pengajuan_bantuan($id)

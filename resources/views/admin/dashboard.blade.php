@@ -97,43 +97,38 @@
             <div class="progress-bar-area">
                 <div class="progress vertical">
                     <div class="progress-bar" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100" style="10%"></div>
-                    <p>P0011</p>
+                </div>
+                <p>P0011</p>
+            </div>
+            <div class="progress-bar-area">
+                <div class="progress vertical">
+                    <div class="progress-bar" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100" style="10%"></div>
+                </div>
+                <p>P0012</p>
+            </div>
+            <div class="progress-bar-area">
+                <div class="progress vertical">
+                    <div class="progress-bar" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100" style="10%"></div>
                 </div>
             </div>
             <div class="progress-bar-area">
                 <div class="progress vertical">
                     <div class="progress-bar" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100" style="10%"></div>
-                    <p>P0012</p>
                 </div>
             </div>
             <div class="progress-bar-area">
                 <div class="progress vertical">
                     <div class="progress-bar" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100" style="10%"></div>
-                    <p>P0013</p>
                 </div>
             </div>
             <div class="progress-bar-area">
                 <div class="progress vertical">
                     <div class="progress-bar" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100" style="10%"></div>
-                    <p>P0014</p>
                 </div>
             </div>
             <div class="progress-bar-area">
                 <div class="progress vertical">
                     <div class="progress-bar" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100" style="10%"></div>
-                    <p>P0015</p>
-                </div>
-            </div>
-            <div class="progress-bar-area">
-                <div class="progress vertical">
-                    <div class="progress-bar" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100" style="10%"></div>
-                    <p>P0015</p>
-                </div>
-            </div>
-            <div class="progress-bar-area">
-                <div class="progress vertical">
-                    <div class="progress-bar" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100" style="10%"></div>
-                    <p>P0015</p>
                 </div>
             </div>
             
