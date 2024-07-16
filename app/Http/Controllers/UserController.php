@@ -50,6 +50,7 @@ class UserController extends Controller
         if ($user && Hash::check($request->password, $user->password)) {
             $request->session()->regenerate();
             Session::put('user', $user);
+            // dd($user);
             return redirect()->route('beranda');
         } else {
             return redirect()->back()->withErrors(['email' => 'Invalid credentials']);

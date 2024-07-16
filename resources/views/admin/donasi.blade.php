@@ -11,7 +11,7 @@
                 </div>
                 <div class="info px-4">
                     <h6 class="title">Transaksi Minggu Ini</h6>
-                    <h2 class="value">{{ $countWeeklyTransactions }}</h2>
+                    <h2 class="value"> {{ $countWeeklyTransactions }}</h2>
                     <span class="increase"><i class="bi bi-arrow-up"></i> 16% bulan ini</span>
                 </div>
             </div>
@@ -77,10 +77,9 @@
                         <td>Rp {{ number_format($total) }}</td>
                         <td>Rp {{ number_format($case->target_donasi) }}</td>
                         <td>{{ $percentage }}%</td>
-                        <td><button
-                                class="btn @if ($percentage >= 100) complete @else
+                        <td><a class="btn @if ($percentage >= 100) complete @else
                             inprogress @endif "
-                                type="button">In Progress</button></td>
+                                href="{{ route('donasi_detail', $data->id_kasus) }}" type="button">In Progress</a></td>
                     </tr>
                 @endforeach
             </tbody>

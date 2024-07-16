@@ -15,7 +15,9 @@ return new class extends Migration
             $table->id('id_progress');
             $table->bigInteger('id_kasus')->unsigned();
             $table->string('topik_progress');
+            $table->string('lokasi');
             $table->date('date');
+            $table->time('waktu');
             $table->string('detail');
             $table->timestamps();
 

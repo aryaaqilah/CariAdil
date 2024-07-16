@@ -46,6 +46,8 @@
                                 <div class="progress-marker"></div>
                                 <div class="progress-text">
                                     <h4 class="progress-title">{{ $prog->topik_progress }}</h4>
+                                    <h6>Lokasi : {{ $prog->lokasi }}</h6>
+                                    <h6>Waktu : {{ \Carbon\Carbon::createFromFormat('H:i:s',$prog->waktu)->format('h.i') }}</h6>
                                     {{ $prog->detail }}
                                 </div>
                             </li>

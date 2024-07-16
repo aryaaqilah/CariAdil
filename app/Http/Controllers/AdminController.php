@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Admin;
 use App\Models\KasusHukum;
+use App\Models\FormPengajuan;
 use App\Models\LBH;
 use App\Models\TransaksiDonasi;
 use Carbon\Carbon;
@@ -40,8 +41,24 @@ class AdminController extends Controller
                 }
             }
         }
-
         return view('admin.donasi', compact('cases', 'countWeeklyTransactions', 'biggestDonation'));
+    }
+
+    public function donation_detail($id){
+        $data = KasusHukum::join('form_pengajuan', 'kasus_hukum.id_form', '=', 'form_pengajuan.id_form')
+        ->join('lbh', 'lbh.id_LBH', '=', 'kasus_hukum.id_lbh')->select('*')
+        ->where('kasus_hukum.id_kasus', '=', $id)->first();
+        
+        $donation = TransaksiDonasi::join('kasus_hukum', 'kasus_hukum.id_kasus', '=', 'transaksi_donasi.id_kasus_hukum')
+        ->join('bank', 'transaksi_donasi.id_bank', '=', 'bank.id_bank')
+        ->select('transaksi_donasi.*', 'bank.nama as nama_bank', 'kasus_hukum.*')
+        ->where('kasus_hukum.id_kasus', '=', $id)->get();
+        $kasusHukum = KasusHukum::find($id);
+        $total = 0;
+        foreach ($donation as $d){
+            $total+= $d->nominal;
+        }
+        return view('admin.donasi-detail', compact('data', 'donation', 'total', 'kasusHukum'));
     }
 
     /**
@@ -153,5 +170,10 @@ class AdminController extends Controller
         $cases = KasusHukum::all();
 
         return view('admin.perkara-berlangsung', compact('cases'));
+    }
+
+    public function detail_pengajuan_perkara($id){
+        $perkara = FormPengajuan::select('*')->where('form_pengajuan.id_form', '=', $id)->get();
+        return view('admin.perkara-pengajuan-detail', ['perkara'=>$perkara]);
     }
 }
