@@ -49,7 +49,7 @@ Route::prefix('/lbh')->group(function () {
 
     Route::get('/pengajuan-bantuan-hukum', [CaseController::class, 'pengajuan_bantuan']);
     Route::get('/pengajuan-bantuan-hukum/{id}', [CaseController::class, 'detail_pengajuan_bantuan'])->name('detail_pengajuan');
-    Route::put('/pengajuan-bantuan-hukum', [CaseController::class, 'terima_pengajuan']);
+    Route::put('/pengajuan-bantuan-hukum/{id}', [CaseController::class, 'terima_pengajuan']);
 
     Route::get('/perkara-berlangsung', [CaseController::class, 'perkara_berlangsung']);
     Route::get('/perkara-berlangsung/{id}', [CaseController::class, 'detail_perkara_berlangsung'])->name('detail_perkara');
@@ -63,74 +63,19 @@ Route::prefix('/admin')->group(function () {
 
     Route::get('/dashboard', [AdminController::class, 'index']);
 
-    Route::get('/admin-role', [AdminController::class, 'adminRole'])->name('admin.admin-role');
-    Route::get('/admin-role/create', [AdminController::class, 'adminCreate']);
-    Route::post('/admin-role', [AdminController::class, 'adminStore']);
-
-    Route::get('/lbh-role', [AdminController::class, 'lbhRole'])->name('admin.lbh-role');
-    Route::get('/lbh-role/create', [AdminController::class, 'lbhCreate']);
-    Route::post('/lbh-role', [AdminController::class, 'lbhStore']);
-
     Route::get('/donasi', [AdminController::class, 'donation']);
     Route::get('/donasi/{id}', [AdminController::class, 'donation_detail'])->name('donasi_detail');
-
-    Route::get('/log', [AdminController::class, 'log']);
-
-    Route::get('/pengajuan', [AdminController::class, 'submission']);
-    Route::get('/perkara-pengajuan/{id}', [AdminController::class, 'detail_pengajuan_perkara']);
-
-    Route::get('/kasus-perkara', [AdminController::class, 'activeCases']);
-    // Route::get('/produk', [AdminController::class, 'index']);
+    
+    Route::get('/pengajuan-perkara', [AdminController::class, 'pengajuan_perkara']);
+    Route::get('/pengajuan-perkara/{id}', [AdminController::class, 'detail_pengajuan_perkara'])->name('detail_pengajuan_perkara');
+    Route::put('/pengajuan-perkara/{id}', [AdminController::class, 'terima_pengajuan']);
 
     // New added
-    Route::get('/perkara-berlangsung', [AdminController::class, 'workingRole']);
+    Route::get('/perkara-berlangsung', [AdminController::class, 'perkara_berlangsung']);
+    Route::get('/perkara-berlangsung/{id}', [AdminController::class, 'detail_perkara_berlangsung'])->name('detail_perkara_berlangsung');
 });
 
 Route::prefix('/perkara')->group(function () {
     Route::get('/berlangsung', [PerkaraController::class, 'indexPerkaraBerlangsung']);
 });
 
-
-// Admin
-Route::get('/admindashboard', function () {
-    return view('admin.dashboard');
-});
-Route::get('/donasidetail', function () {
-    return view('admin.donasi-detail');
-});
-Route::get('/donasi', function () {
-    return view('admin.donasi');
-});
-Route::get('/donasikonfirmasi', function(){
-    return view('admin.donasi-konfirmasi');
-});
-Route::get('/log', function () {
-    return view('admin.log');
-});
-Route::get('/perkaraberita', function () {
-    return view('admin.perkara-berita');
-});
-Route::get('/perkaraberlangsung', function () {
-    return view('admin.perkara-berlangsung');
-});
-Route::get('/perkaramasuk', function () {
-    return view('admin.perkara-masuk');
-});
-Route::get('/perkarapengajuan', function () {
-    return view('admin.perkara-pengajuan');
-});
-Route::get('/perkarapengajuandetail', function () {
-    return view('admin.perkara-pengajuan-detail');
-});
-Route::get('/addadmin', function () {
-    return view('admin.role-addadmin');
-});
-Route::get('/adduserlbh', function () {
-    return view('admin.role-adduserlbh');
-});
-Route::get('/roleadmin', function () {
-    return view('admin.role-admin');
-});
-Route::get('/roleuserlbh', function () {
-    return view('admin.role-userlbh');
-});

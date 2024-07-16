@@ -14,7 +14,7 @@
             <div style="width : 30rem; height: 2rem">
                 <div class="progress">
                     <div class="progress-bar" role="progressbar" aria-label="Basic example"
-                        style="width: {{ ($total / $kasusHukum->target_donasi) * 100 }}; height:2rem; color:orange"
+                        style="width: {{ ($total / $kasusHukum->target_donasi) * 100 }}%; height:2rem; color:orange"
                         aria-valuenow="25" aria-valuemin="0" aria-valuemax="100">
                     </div>
                 </div>
@@ -22,7 +22,7 @@
         </div>
     </div>
 
-    <div class="row db">
+    {{-- <div class="row db">
         <div class="col-5 big-stat">
             <h6 style="font-weight: bold">Riwayat Penarikan</h6>
             <p style="font-size: 0.75rem">Catatan penarikan donasi</p>
@@ -38,8 +38,8 @@
                         <tr>
                             <td>Rp {{ number_format($d->nominal, 2, ',', '.') }}</td>
                             {{-- <td>{{ $d->nominal }}</td> --}}
-                            {{-- <td>{{ $d->transaksi_donasi->created_at }}</td> --}}
-                        </tr>
+    {{-- <td>{{ $d->transaksi_donasi->created_at }}</td> --}}
+    {{-- </tr>
                     @endforeach
                 </tbody>
             </table>
@@ -61,7 +61,7 @@
             </div>
             <button type="button" class="btn btn-primary">Submit</button>
         </div>
-    </div>
+    </div> --}}
 
     <div class="form-area">
         <h6 style="font-weight: bold">Riwayat Donasi</h6>

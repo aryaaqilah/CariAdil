@@ -79,7 +79,7 @@
                         <td>{{ $percentage }}%</td>
                         <td><a class="btn @if ($percentage >= 100) complete @else
                             inprogress @endif "
-                                href="{{ route('donasi_detail', $data->id_kasus) }}" type="button">In Progress</a></td>
+                                href="{{ route('donasi_detail', $case->id_kasus) }}" type="button">In Progress</a></td>
                     </tr>
                 @endforeach
             </tbody>

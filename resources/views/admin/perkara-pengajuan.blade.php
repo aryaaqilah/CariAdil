@@ -57,67 +57,16 @@
                 </tr>
             </thead>
             <tbody>
-                <tr>
-                    <td>Joeliardo Gerald Leviothniel</td>
-                    <td>28 Mei 2024</td>
-                    <td>Pidana</td>
-                    <td><button class="btn detail" type="button">Detail</button></td>
-                </tr>
-                <tr>
-                    <td>Putu Aryasatya Dharma Kenzhie</td>
-                    <td>28 September 2023</td>
-                    <td>Perdata</td>
-                    <td><button class="btn detail" type="button">Detail</button></td>
-                </tr>
-                <tr>
-                    <td>Joeliardo Gerald Leviothniel</td>
-                    <td>28 Mei 2024</td>
-                    <td>Pidana</td>
-                    <td><button class="btn detail" type="button">Detail</button></td>
-                </tr>
-                <tr>
-                    <td>Joeliardo Gerald Leviothniel</td>
-                    <td>28 Mei 2024</td>
-                    <td>Pidana</td>
-                    <td><button class="btn detail" type="button">Detail</button></td>
-                </tr>
-                <tr>
-                    <td>Joeliardo Gerald Leviothniel</td>
-                    <td>28 Mei 2024</td>
-                    <td>Pidana</td>
-                    <td><button class="btn detail" type="button">Detail</button></td>
-                </tr>
-                <tr>
-                    <td>Joeliardo Gerald Leviothniel</td>
-                    <td>28 Mei 2024</td>
-                    <td>Pidana</td>
-                    <td><button class="btn detail" type="button">Detail</button></td>
-                </tr>
-                <tr>
-                    <td>Joeliardo Gerald Leviothniel</td>
-                    <td>28 Mei 2024</td>
-                    <td>Pidana</td>
-                    <td><button class="btn detail" type="button">Detail</button></td>
-                </tr>
-                <tr>
-                    <td>Joeliardo Gerald Leviothniel</td>
-                    <td>28 Mei 2024</td>
-                    <td>Pidana</td>
-                    <td><button class="btn detail" type="button">Detail</button></td>
-                </tr>
-                <tr>
-                    <td>Joeliardo Gerald Leviothniel</td>
-                    <td>28 Mei 2024</td>
-                    <td>Pidana</td>
-                    <td><button class="btn detail" type="button">Detail</button></td>
-                </tr>
-                <tr>
-                    <td>Joeliardo Gerald Leviothniel</td>
-                    <td>28 Mei 2024</td>
-                    <td>Pidana</td>
-                    <td><button class="btn detail" type="button">Detail</button></td>
-                </tr>
-                
+                @foreach ($cases as $c)
+                    <tr>
+                        <td>{{ $c->nama }}</td>
+                        <td>{{ $c->tanggal }}</td>
+                        <td>{{ $c->jenis_perkara }}</td>
+                        <td><a class="btn detail" href="{{ route('detail_pengajuan_perkara', $c->id_form) }}"
+                                type="button">Detail</a></td>
+                    </tr>
+                @endforeach
+
             </tbody>
         </table>
     </div>

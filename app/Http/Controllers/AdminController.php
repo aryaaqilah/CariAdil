@@ -141,39 +141,31 @@ class AdminController extends Controller
         return redirect()->route('admin.lbh-role');
     }
 
-    /**
-     * Display the specified resource.
-     */
-    public function log()
-    {
-        // Halaman Log
-
-        return view('admin.log');
-    }
-
-    /**
-     * Show the form for editing the specified resource.
-     */
-    public function submission()
-    {
-        // Halaman Pengajuan
-
-        return view('admin.perkara-pengajuan');
-    }
-
-    /**
-     * Show the form for editing the specified resource.
-     */
-    public function activeCases()
-    {
-        // Halaman Pengajuan
-        $cases = KasusHukum::all();
-
-        return view('admin.perkara-berlangsung', compact('cases'));
+  
+    public function pengajuan_perkara(){
+        $cases = FormPengajuan::all();
+        return view('admin.perkara-pengajuan', compact('cases'));
     }
 
     public function detail_pengajuan_perkara($id){
-        $perkara = FormPengajuan::select('*')->where('form_pengajuan.id_form', '=', $id)->get();
+        $perkara = FormPengajuan::select('*')->where('form_pengajuan.id_form', '=', $id)->first();
         return view('admin.perkara-pengajuan-detail', ['perkara'=>$perkara]);
+    }
+
+    public function perkara_berlangsung(){
+        $cases = KasusHukum::all();
+        return view('admin.perkara-berlangsung', compact('cases'));
+    }
+
+    public function detail_perkara_berlangsung($id){
+        // return view('admin.')
+    }
+
+    public function terima_pengajuan(Request $request, $id) {
+        FormPengajuan::find($id)->update([
+            'jenis_perkara' => $request->jenis_perkara,
+        ]);
+        
+        return redirect()->route('admin.pengajuan-perkara');
     }
 }

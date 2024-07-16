@@ -35,23 +35,21 @@
                                         <p>Kode Pos</p>
                                     </div>
                                     <div class="col-8">
-                                        @foreach ($perkara as $p)
-                                            <p>: {{ $p->nama }}</p>
-                                            <p>: {{ $p->nama_panggilan }}</p>
-                                            <p>: {{ $p->tempat_lahir }}</p>
-                                            <p>: {{ $p->jenis_kelamin }}</p>
-                                            <p>: {{ $p->agama }}</p>
-                                            <p>: {{ $p->status_perkawinan }}</p>
-                                            <p>: {{ $p->jumlah_anak }}</p>
-                                            <p>: {{ $p->jumlah_anak_tanggungan }}</p>
-                                            <p>: {{ $p->alamat_lengkap }}</p>
-                                            <p>: {{ $p->rt_rw }}</p>
-                                            <p>: {{ $p->desa_kelurahan }}</p>
-                                            <p>: {{ $p->kecamatan }}</p>
-                                            <p>: {{ $p->kabupaten_kota }}</p>
-                                            <p>: {{ $p->provinsi }}</p>
-                                            <p>: {{ $p->kode_pos }}</p>
-                                        @endforeach
+                                        <p>: {{ $perkara->nama }}</p>
+                                        <p>: {{ $perkara->nama_panggilan }}</p>
+                                        <p>: {{ $perkara->tempat_lahir }}</p>
+                                        <p>: {{ $perkara->jenis_kelamin }}</p>
+                                        <p>: {{ $perkara->agama }}</p>
+                                        <p>: {{ $perkara->status_perkawinan }}</p>
+                                        <p>: {{ $perkara->jumlah_anak }}</p>
+                                        <p>: {{ $perkara->jumlah_anak_tanggungan }}</p>
+                                        <p>: {{ $perkara->alamat_lengkap }}</p>
+                                        <p>: {{ $perkara->rt_rw }}</p>
+                                        <p>: {{ $perkara->desa_kelurahan }}</p>
+                                        <p>: {{ $perkara->kecamatan }}</p>
+                                        <p>: {{ $perkara->kabupaten_kota }}</p>
+                                        <p>: {{ $perkara->provinsi }}</p>
+                                        <p>: {{ $perkara->kode_pos }}</p>
                                     </div>
                                 </div>
                             </div>
@@ -81,17 +79,15 @@
                                         <p>HP</p>
                                     </div>
                                     <div class="col-7">
-                                        @foreach ($perkara as $p)
-                                            <p>: {{ $p->identitas_diri }}</p>
-                                            <p>: {{ $p->nomor_identitas }}</p>
-                                            <p>: {{ $p->keterangan_tidak_mampu }}</p>
-                                            <p>: {{ $p->nomor_keterangan_tidak_mampu }}</p>
-                                            <p>: {{ $p->pekerjaan }}</p>
-                                            <p>: {{ $p->jumlah_tanggungan }}</p>
-                                            <p>: {{ $p->pendidikan_terakhir }}</p>
-                                            <p>: {{ $p->telepon }}</p>
-                                            <p>: {{ $p->hp }}</p>
-                                        @endforeach
+                                        <p>: {{ $perkara->identitas_diri }}</p>
+                                        <p>: {{ $perkara->nomor_identitas }}</p>
+                                        <p>: {{ $perkara->keterangan_tidak_mampu }}</p>
+                                        <p>: {{ $perkara->nomor_keterangan_tidak_mampu }}</p>
+                                        <p>: {{ $perkara->pekerjaan }}</p>
+                                        <p>: {{ $perkara->jumlah_tanggungan }}</p>
+                                        <p>: {{ $perkara->pendidikan_terakhir }}</p>
+                                        <p>: {{ $perkara->telepon }}</p>
+                                        <p>: {{ $perkara->hp }}</p>
                                     </div>
                                 </div>
                             </div>
@@ -110,9 +106,7 @@
                         <div class="accordion-body">
                             <div class="item-container">
                                 <div class="row m-3">
-                                    @foreach ($perkara as $pb)
-                                        <p>{{ $pb->uraian }}</p>
-                                    @endforeach
+                                    <p>{{ $perkara->uraian }}</p>
                                 </div>
                             </div>
                         </div>
@@ -130,28 +124,41 @@
             </div>
         </div>
 
-        <div class="d-flex justify-content-center mt-3 gap-4 mb-4" style="color:rgba(232, 123, 47, 1)">
-            <form action="{{ url('/lbh/pengajuan-bantuan-hukum/') }}" method="POST">
+        <div class="d-flex justify-content-center mt-3 gap-4 mb-4 col-11" style="color:rgba(232, 123, 47, 1)">
+            <form action="/admin/pengajuan-perkara/{{ $perkara->id_form }}" method="POST" class="row ms-5"
+                style="width: 100%">
                 @csrf
                 @method('PUT')
+
+                <select class="form-select" name="jenis_perkara" aria-label="Default select example" style="width: 100%">
+                    <option selected disabled>-- Pilih Jenis Perkara --</option>
+                    <option value="Pidana">Pidana</option>
+                    <option value="Perdata">Perdata</option>
+                </select>
+
+
                 <input type="hidden" name="id_form" value="">
                 {{-- <button type="submit"> --}}
-                <div class="accept">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor"
-                        class="bi bi-check2" viewBox="0 0 16 16" stroke-width="3">
-                        <path
-                            d="M13.854 3.646a.5.5 0 0 1 0 .708l-7 7a.5.5 0 0 1-.708 0l-3.5-3.5a.5.5 0 1 1 .708-.708L6.5 10.293l6.646-6.647a.5.5 0 0 1 .708 0" />
-                    </svg>
+                <div class="button-wrapper d-flex justify-content-center mt-3">
+                    <button type="submit">
+                        <div class="accept">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor"
+                                class="bi bi-check2" viewBox="0 0 16 16" stroke-width="3">
+                                <path
+                                    d="M13.854 3.646a.5.5 0 0 1 0 .708l-7 7a.5.5 0 0 1-.708 0l-3.5-3.5a.5.5 0 1 1 .708-.708L6.5 10.293l6.646-6.647a.5.5 0 0 1 .708 0" />
+                            </svg>
+                        </div>
+                    </button>
+                    <div class="deny">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                            class="bi bi-x-lg" viewBox="0 0 16 16">
+                            <path
+                                d="M2.146 2.854a.5.5 0 1 1 .708-.708L8 7.293l5.146-5.147a.5.5 0 0 1 .708.708L8.707 8l5.147 5.146a.5.5 0 0 1-.708.708L8 8.707l-5.146 5.147a.5.5 0 0 1-.708-.708L7.293 8z" />
+                        </svg>
+                    </div>
                 </div>
                 {{-- </button> --}}
             </form>
-            <div class="deny">
-                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-x-lg"
-                    viewBox="0 0 16 16">
-                    <path
-                        d="M2.146 2.854a.5.5 0 1 1 .708-.708L8 7.293l5.146-5.147a.5.5 0 0 1 .708.708L8.707 8l5.147 5.146a.5.5 0 0 1-.708.708L8 8.707l-5.146 5.147a.5.5 0 0 1-.708-.708L7.293 8z" />
-                </svg>
-            </div>
         </div>
     </div>
 @endsection
