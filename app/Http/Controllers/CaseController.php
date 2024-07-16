@@ -22,15 +22,23 @@ class CaseController extends Controller
         $kasusHukum = KasusHukum::orderBy('tanggal', 'DESC')->get();
         $auth = false;
 
-        $pidana = KasusHukum::select('*')->where('jenis_perkara', '=', 'Pidana')->get();
-        $perdata = KasusHukum::select('*')->where('jenis_perkara', '=', 'Perdata')->get();
-        // dd($perkara);
+        // $pidana = KasusHukum::select('*')->where('jenis_perkara', '=', 'Pidana')->get();
+        // $perdata = KasusHukum::select('*')->where('jenis_perkara', '=', 'Perdata')->get();
+
+        $pidana = KasusHukum::join('form_pengajuan', 'kasus_hukum.id_form', '=', 'form_pengajuan.id_form')
+        ->select('id_kasus', 'title', 'description', 'form_pengajuan.tanggal', 'target_donasi', 'kasus_hukum.id_form', 'id_lbh', 'status_pengajuan', 'kasus_hukum.image_url', 'kasus_hukum.created_at', 'kasus_hukum.updated_at')
+        ->where('form_pengajuan.jenis_perkara', '=', 'Pidana')->get();
+
+        $perdata = KasusHukum::join('form_pengajuan', 'kasus_hukum.id_form', '=', 'form_pengajuan.id_form')
+        ->select('id_kasus', 'title', 'description', 'form_pengajuan.tanggal', 'target_donasi', 'kasus_hukum.id_form', 'id_lbh', 'status_pengajuan', 'kasus_hukum.image_url', 'kasus_hukum.created_at', 'kasus_hukum.updated_at')
+        ->where('form_pengajuan.jenis_perkara', '=', 'Perdata')->get();
 
         $finalPerdata = array();
         $finalPidana = array();
 
 
         foreach ($pidana as $kasus) {
+            // dd($kasus);
             $conditions = array('id_kasus_hukum' => $kasus->id_kasus, 'status_pembayaran' => 1);
             $transaksi = TransaksiDonasi::where($conditions)->sum('nominal');
             $data = [
@@ -39,10 +47,9 @@ class CaseController extends Controller
                 "description" => $kasus->description,
                 "tanggal" => $kasus->tanggal,
                 "target_donasi" => $kasus->target_donasi,
-                "id_bank" => $kasus->id_bank,
                 "id_form" => $kasus->id_form,
                 "id_lbh" => $kasus->id_lbh,
-                "jenis_perkara" => $kasus->jenis_perkara,
+                // "jenis_perkara" => $kasus->jenis_perkara,
                 "status_pengajuan" => $kasus->status_pengajuan,
                 "image_url" => $kasus->image_url,
                 "created_at" => $kasus->created_at,
@@ -58,6 +65,7 @@ class CaseController extends Controller
             // $transaksi = TransaksiDonasi::where('id_kasus_hukum', $kasus->id_kasus)->where('status_pembayaran', 1)->sum('nominal');
             $conditions = array('id_kasus_hukum' => $kasus->id_kasus, 'status_pembayaran' => 1);
             $transaksi = TransaksiDonasi::where($conditions)->sum('nominal');
+            // dd($transaksi);
             $data = [
                 "id_kasus" => $kasus->id_kasus,
                 "title" => $kasus->title,
@@ -67,7 +75,7 @@ class CaseController extends Controller
                 "id_bank" => $kasus->id_bank,
                 "id_form" => $kasus->id_form,
                 "id_lbh" => $kasus->id_lbh,
-                "jenis_perkara" => $kasus->jenis_perkara,
+                // "jenis_perkara" => $kasus->jenis_perkara,
                 "status_pengajuan" => $kasus->status_pengajuan,
                 "image_url" => $kasus->image_url,
                 "created_at" => $kasus->created_at,
@@ -298,7 +306,7 @@ class CaseController extends Controller
     }
 
     public function detail_pengajuan_bantuan($id)
-    {   
+    {
         $pengajuanBantuan = KasusHukum::join('form_pengajuan', 'form_pengajuan.id_form', '=', 'kasus_hukum.id_form')
         // ->join('transaksi_donasi', 'kasus_hukum.id_kasus', '=', 'transaksi_donasi.id_kasus_hukum')
         ->select('*')
@@ -314,7 +322,7 @@ class CaseController extends Controller
         $request->validate([
             'id_kasus' => 'required|integer|exists:kasus_hukum,id_kasus',
         ]);
-        
+
         $PengajuanLBH = KasusHukum::find($request->id_kasus);
         $user = Session::get('user');
         $PengajuanLBH->id_LBH = $user->id_LBH;
