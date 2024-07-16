@@ -172,7 +172,7 @@
                 Progress Perkara
             </div>
                 <div class="d-flex justify-content-center">
-                  <div class="col-12">
+                  <div class="col-10" style="">
                   {{-- <div class="position-relative m-4 mt-5">
                         <div class="progress" role="progressbar" aria-label="Progress" aria-valuenow="50" aria-valuemin="0" aria-valuemax="100" style="height: 1px; ">
                           <div class="progress-bar" style="width: 100%;"></div>
@@ -208,7 +208,7 @@
                         @foreach ($progress as $index => $prog)
                             <li class="progress-step is-complete">
                                 <div style="color: white" class="progress-marker" data-text="{{$index+1}}"></div>
-                                <div class="progress-text">
+                                <div class="progress-text" style="background-color:">
                                     <h4 class="progress-title">{{ $prog->topik_progress }}</h4>
                                     {{-- {{ $prog->detail }} --}}
                                 </div>
@@ -231,24 +231,35 @@
                     @csrf
                     <input type="hidden" name="id_kasus" value=" {{$perkaraBerlangsung->id_kasus}}">
                       <div class="col-10">
-                        <div class="col-12 mt-3">
+                        {{-- <div class="col-12 mt-3">
                           <label for="inputAddress" class="form-label">Tanggal</label>
                             <input type="date" class="form-control" name="date">
-                        </div>
+                        </div> --}}
+
                         <div class="col-12 d-flex justify-content-between gap-4 mt-3">
                           <div class="col-md-5">
-                             <label class="form-label">Jenis Kegiatan</label>
+                             <label class="form-label">Topik Progres</label>
                              <input type="text" class="form-control" name="topik_progress">
                           </div>
                           <div class="col-md-6">
-                            <label class="form-label">Agenda Kegiatan</label>
-                            <input type="text" class="form-control" name="detail">
+                            <label class="form-label">Lokasi Progres</label>
+                            <input type="text" class="form-control" name="lokasi">
                           </div>
+                        </div>
+                        <div class="col-12 d-flex justify-content-between gap-4 mt-3">
+                            <div class="col-md-5">
+                                <label for="inputAddress" class="form-label">Tanggal</label>
+                                <input type="date" class="form-control" name="date">
+                            </div>
+                            <div class="col-md-6">
+                                <label for="inputAddress" class="form-label">Waktu</label>
+                                <input type="time" class="form-control" name="waktu">
+                            </div>
                         </div>
 
                        <div class="col-12">
-                         <label class="form-label">Catatan</label>
-                         <textarea class="form-control" id="exampleFormControlTextarea1" rows="5" required></textarea>
+                         <label class="form-label">Detail</label>
+                         <textarea class="form-control" rows="5" required name="detail"></textarea>
                       </div>
 
                       <button type="submit">SUBMIT</button>
