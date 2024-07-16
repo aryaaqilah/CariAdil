@@ -1,6 +1,6 @@
 @extends('components/admin-layout')
 
-@section('title', 'Dashboard Page')
+@section('title', 'Dashboard')
 
 @section('content')
     <div class="summary-area">

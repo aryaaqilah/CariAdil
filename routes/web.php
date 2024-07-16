@@ -72,6 +72,7 @@ Route::prefix('/admin')->group(function () {
     Route::post('/lbh-role', [AdminController::class, 'lbhStore']);
 
     Route::get('/donasi', [AdminController::class, 'donation']);
+    Route::get('/donasi/{id}', [AdminController::class, 'donation_detail'])->name('donasi_detail');
 
     Route::get('/log', [AdminController::class, 'log']);
 

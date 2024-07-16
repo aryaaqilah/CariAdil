@@ -3,7 +3,7 @@
 
       <div class="sidebar-top d-flex">
           <img src="{{ asset('/assets/images/Logo Cari Adil 1.png') }}" class="m-2 pb-3" width="55rem" alt="">
-          <h4 class="pt-3 px-1" style="font-weight:bold">Dashboard</h4>
+          <h4 class="pt-3 px-1" style="font-weight:bold">@yield('title')</h4>
       </div>
 
       <ul class="sidebar-nav" id="sidebar-nav">
@@ -11,7 +11,7 @@
           {{-- <img src="/assets/img/Logo Cari Adil 1.png" class="m-2 pb-3" alt=""> --}}
 
           <li class="nav-item">
-              <a class="nav-link " href="/">
+              <a class="nav-link " href="/admin/dashboard">
                   <i class="bi bi-grid"></i>
                   <span>Dashboard</span>
               </a>
@@ -41,10 +41,13 @@
           </li><!-- End Components Nav -->
 
           <li class="nav-item">
-              <a class="nav-link collapsed" data-bs-target="#forms-nav" data-bs-toggle="collapse" href="/donasi">
-                  <i class="bi bi-journal-text"></i><span>Donasi</span>
+              <a class="nav-link collapsed" href="/admin/donasi">
+                  <i class="bi bi-journal-text"></i>
+                  <span>Donasi</span>
               </a>
-          </li><!-- End Forms Nav -->
+          </li>
+
+          <!-- End Forms Nav -->
 
           <li class="nav-item">
               <a class="nav-link collapsed" data-bs-target="#tables-nav" data-bs-toggle="collapse" href="/role">
