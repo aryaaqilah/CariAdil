@@ -11,7 +11,7 @@
           {{-- <img src="/assets/img/Logo Cari Adil 1.png" class="m-2 pb-3" alt=""> --}}
 
           <li class="nav-item">
-              <a class="nav-link " href="/">
+              <a class="nav-link" href="/">
                   <i class="bi bi-grid"></i>
                   <span>Dashboard</span>
               </a>

@@ -11,7 +11,7 @@
             <p class="flex-column" style="font-size:0.8rem; margin:0">ID Kasus: P00030</p>
             <p class="flex-column" style="font-size:0.8rem; margin:0">LBH Mawar Saron</p>
             <br>
-            <div style="width : 30rem; height: 2rem">
+            <div class="progress-area" style="width : 30rem; height: 2rem">
                 <div class="progress" style="width:100%">
                     <div class="progress-bar" role="progressbar"
                         aria-label="Basic example"

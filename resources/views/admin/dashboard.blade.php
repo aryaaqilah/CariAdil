@@ -57,11 +57,59 @@
     <div class="form-area">
         <h6 style="font-weight: bold">Update Donasi</h6>
         <p style="font-size: 0.75rem">Banyak donasi yang terkumpul hingga sekarang</p>
-        <div class="row text-center">
-            <div class="col-1 bar-stat">
-                <div class="bar" style="height: 80%"></div>
-                <div class="w-100">D21</div>
+        <div class="row">
+            <div class="progress-bar-area">
+                <div class="progress vertical">
+                    <div class="progress-bar" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100" style="10%"></div>
+                    <p>P0011</p>
+                </div>
             </div>
+            <div class="progress-bar-area">
+                <div class="progress vertical">
+                    <div class="progress-bar" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100" style="10%"></div>
+                    <p>P0012</p>
+                </div>
+            </div>
+            <div class="progress-bar-area">
+                <div class="progress vertical">
+                    <div class="progress-bar" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100" style="10%"></div>
+                    <p>P0013</p>
+                </div>
+            </div>
+            <div class="progress-bar-area">
+                <div class="progress vertical">
+                    <div class="progress-bar" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100" style="10%"></div>
+                    <p>P0014</p>
+                </div>
+            </div>
+            <div class="progress-bar-area">
+                <div class="progress vertical">
+                    <div class="progress-bar" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100" style="10%"></div>
+                    <p>P0015</p>
+                </div>
+            </div>
+            <div class="progress-bar-area">
+                <div class="progress vertical">
+                    <div class="progress-bar" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100" style="10%"></div>
+                    <p>P0015</p>
+                </div>
+            </div>
+            <div class="progress-bar-area">
+                <div class="progress vertical">
+                    <div class="progress-bar" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100" style="10%"></div>
+                    <p>P0015</p>
+                </div>
+            </div>
+            {{-- <div style="width : 5rem; height: 10rem">
+                <div class="progress" style="width:100%">
+                    <div class="progress-bar" role="progressbar"
+                        aria-label="Basic example"
+                        style="width: 73%; height:2rem; color:orange"
+                        aria-valuenow="25" aria-valuemin="0" aria-valuemax="100">
+                    </div>
+                </div>
+            </div> --}}
+            
         </div>
     </div>
 
