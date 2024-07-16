@@ -41,7 +41,7 @@
     <div class="form-area">
         <div class="row">
             <div class="col-5">
-                <h6 style="font-weight: bold">Perkara Diproses</h6>
+                <h6 style="font-weight: bold">Perkara Pengajuan</h6>
                 <p style="font-size: 0.75rem">Menunggu LBH yang bertanggung jawab</p>
             </div>
             <div class="col-4"></div>

@@ -10,9 +10,9 @@
                     <i class="bi bi-person-fill-check"></i>
                 </div>
                 <div class="info px-4">
-                    <h6 class="title">Admin</h6>
-                    <h2 class="value">5</h2>
-                    <span class="increase">Ojan, Evo and 3 others ... </span>
+                    <h6 class="title">Perkara Pengajuan</h6>
+                    <h2 class="value">4</h2>
+                    <span class="increase">Joeliardo G. L. and 3 others</span>
                 </div>
             </div>
             <div class="col-4 px-3 stat">
@@ -20,9 +20,9 @@
                     <i class="bi bi-people-fill"></i>
                 </div>
                 <div class="info px-4">
-                    <h6 class="title">User LBH</h6>
+                    <h6 class="title">Konfirmasi Donasi</h6>
                     <h2 class="value">10</h2>
-                    <span class="increase">LBH Ojan Lomba and 9 others</span>
+                    <span class="increase">Grisella M., Richie H., and 7 others</span>
                 </div>
             </div>
             <div class="col-4 px-3 stat">
@@ -45,12 +45,48 @@
 
     <div class="row db">
         <div class="col-5 big-stat">
-            <h6 style="font-weight: bold">Perkara Masuk</h6>
+            <h6 style="font-weight: bold">Perkara Pengajuan</h6>
             <p style="font-size: 0.75rem">Verifikasi setiap permohonan perkara</p>
+            <table class="table logaktivitas">
+                <thead>
+                    <tr>
+                        <th scope="col" width="100rem">Nama Pemohon</th>
+                        <th scope="col">Tanggal Dikirim</th>
+                        <th scope="col">Kategori</th>
+                        <th scope="col">Detail</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Joeliardo G. L.</td>
+                        <td>28/05/2024</td>
+                        <td>Pidana</td>
+                        <td><button class="btn detail" type="button" style="width: 4rem; font-size:0.7rem">Detail</button></td>
+                    </tr>
+                </tbody>
+            </table>
         </div>
         <div class="col-5 big-stat">
-            <h6 style="font-weight: bold">Perkara Diproses</h6>
+            <h6 style="font-weight: bold">Perkara Berlangsung</h6>
             <p style="font-size: 0.75rem">Menunggu konfirmasi User LBH</p>
+            <table class="table logaktivitas">
+                <thead>
+                    <tr>
+                        <th>ID Perkara</th>
+                        <th>Nama Pemohon</th>
+                        <th>LBH</th>
+                        <th>Detail</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>P0010</td>
+                        <td>Evotianus</td>
+                        <td>LBH Ojanlomba</td>
+                        <td><button class="btn detail" type="button" style="width: 4rem; font-size:0.7rem">Detail</button></td>
+                    </tr>
+                </tbody>
+            </table>
         </div>
     </div>
 
@@ -100,15 +136,6 @@
                     <p>P0015</p>
                 </div>
             </div>
-            {{-- <div style="width : 5rem; height: 10rem">
-                <div class="progress" style="width:100%">
-                    <div class="progress-bar" role="progressbar"
-                        aria-label="Basic example"
-                        style="width: 73%; height:2rem; color:orange"
-                        aria-valuenow="25" aria-valuemin="0" aria-valuemax="100">
-                    </div>
-                </div>
-            </div> --}}
             
         </div>
     </div>
