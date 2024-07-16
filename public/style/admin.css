@@ -193,3 +193,29 @@
     color: white;
     font-weight: bolder;
 }
+
+.progress.vertical{
+    background-color: #00B087;
+    display: inline-block;
+    width: 10rem;
+    height: 1rem;
+    -webkit-transform: rotate(-90deg);
+    transform: rotate(-90deg);
+}
+
+.vertical{
+    box-shadow: inset 0px 4px 6px #dbe8db;
+    height: 7rem;
+    width: 10rem;
+}
+
+.progress-bar-area{
+    padding-left: 0;
+    padding: 0;
+    padding-inline-start: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 7rem;
+    height: 10rem;
+}
