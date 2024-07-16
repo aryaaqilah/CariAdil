@@ -21,7 +21,7 @@ class DatabaseSeeder extends Seeder
     public function run(): void
     {
         // User::factory(10)->create();
-        
+
         // User::factory()->create([
             //     'name' => 'Test User',
             //     'email' => 'test@example.com',
@@ -157,7 +157,7 @@ class DatabaseSeeder extends Seeder
                 'target_donasi' => '10000000',
                 // 'id_bank' => 1,
                 'id_form' => 1,
-                
+
                 'status_pengajuan' => 'Proses',
                 'image_url' => 'tygbh'
             ],
@@ -215,7 +215,7 @@ class DatabaseSeeder extends Seeder
                 'email' => 'arya@gmail.com',
                 'nomor_telepon' => '087785243656',
                 'dukungan' => '',
-                'status_pembayaran' => 0,
+                'status_pembayaran' => 1,
                 'created_at' => Carbon::now()
             ],
             [
@@ -226,7 +226,7 @@ class DatabaseSeeder extends Seeder
                 'email' => 'arya@gmail.com',
                 'nomor_telepon' => '087785243656',
                 'dukungan' => '',
-                'status_pembayaran' => 0,
+                'status_pembayaran' => 1,
                 'created_at' => Carbon::now()
             ],
             [
@@ -237,7 +237,7 @@ class DatabaseSeeder extends Seeder
                 'email' => 'arya@gmail.com',
                 'nomor_telepon' => '087785243656',
                 'dukungan' => '',
-                'status_pembayaran' => 0,
+                'status_pembayaran' => 1,
                 'created_at' => Carbon::now()
             ],
         ];
