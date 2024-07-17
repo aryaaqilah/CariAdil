@@ -20,7 +20,7 @@
                     <a href="/form-pengajuan-hukum">Laporan</a>
                 </li>
                 <li class="navbar-item">
-                    <a href="/">Tentang</a>
+                    <a href="/tentang">Tentang</a>
                 </li>
             </ul>
         </div>

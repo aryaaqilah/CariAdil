@@ -34,6 +34,7 @@ Route::prefix('/berita')->group(function () {
     Route::post('/donasi/{id}/confirm', [DonationController::class, 'confirm']);
     Route::post('/donasi/{id}/store', [DonationController::class, 'store']);
 });
+Route::get('/tentang', [HomepageController::class, 'tentang']);
 Route::get('/form-pengajuan-hukum', [FormController::class, 'index']); //ok
 Route::post('/form-pengajuan-hukum', [FormController::class, 'store']);
 Route::get('/store', [ProductController::class, 'index']); //ok
@@ -81,11 +82,11 @@ Route::prefix('/admin')->group(function () {
    
     Route::get('/role-admin', [AdminController::class, 'adminRole']);
     Route::get('/role-admin/create', [AdminController::class, 'adminCreate']);
-    Route::put('/role-admin/create', [AdminController::class, 'adminStore']);
+    Route::post('/role-admin/create', [AdminController::class, 'adminStore']);
 
     Route::get('/role-lbh', [AdminController::class, 'lbhRole']);
     Route::get('/role-lbh/create', [AdminController::class, 'lbhCreate']);
-    Route::put('/role-lbh/create', [AdminController::class, 'lbhStore']);
+    Route::post('/role-lbh/create', [AdminController::class, 'lbhStore']);
 });
 
 Route::prefix('/perkara')->group(function () {

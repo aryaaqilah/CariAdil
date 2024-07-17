@@ -5,14 +5,19 @@
 @section('content')
     <div class="summary-area">
         <div class="row">
-            <div class="col-6 px-3 stat">
+            <div class="col-6 stat">
                 <div class="circle-icon">
                     <i class="bi bi-person-fill-check"></i>
                 </div>
                 <div class="info px-4">
                     <h6 class="title">Belum Diverifikasi</h6>
-                    <h2 class="value">2</h2>
-                    <span class="increase">Abraham M. S., Catherine O. W. </span>
+                    <h2 class="value">{{ count($belumVerifikasi) }}</h2>
+                    <span class="increase">
+                        @foreach ($belumVerifikasi->take(1) as $p)
+                            {{ $p->nama }}
+                        @endforeach
+                        {{ count($belumVerifikasi) - 1 < 0 ? '' : ' and ' . count($belumVerifikasi) - 1 . ' others' }}
+                    </span>
                 </div>
             </div>
             <div class="col-6 px-3 stat">
@@ -21,8 +26,13 @@
                 </div>
                 <div class="info px-4">
                     <h6 class="title">Sudah diverifikasi</h6>
-                    <h2 class="value">3</h2>
-                    <span class="increase">Hosannia M. M. H., Matthew A. S., and 1 other</span>
+                    <h2 class="value">{{ count($verifikasi) }}</h2>
+                    <span class="increase">
+                        @foreach ($verifikasi->take(1) as $p)
+                            {{ $p->nama }}
+                        @endforeach
+                        {{ count($verifikasi) - 1 < 0 ? '' : ' and ' . count($verifikasi) - 1 . ' others' }}
+                    </span>
                 </div>
             </div>
         </div>

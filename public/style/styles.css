@@ -858,3 +858,15 @@ nav {
     color: gray;
 }
 
+#containerTentang{
+  width: 100%;
+  height: 100vh;
+  background-image: url(../assets/images/jumbotron4_lbh.png);
+  background-size: cover;
+  background-position: top;
+  position: relative;
+  align-content: center;
+  color: white;
+}
+
+

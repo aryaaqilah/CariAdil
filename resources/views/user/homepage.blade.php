@@ -32,23 +32,25 @@
                 <h1 class="hubungi-cariadil">Hubungi CariAdil</h1>
                 <!-- Box Informasi -->
                 <div class="box-informasi">
-                    <div class="detail-box-informasi">
+                    <a class="detail-box-informasi" href="https://wa.me/62895389916688">
                         <i class="fa-solid fa-phone"></i>
                         <h3 class="informasi">Nomor Telepon</h3>
                         <h5 class="deskripsi-informasi">(+62)21-3929840</h5>
-                    </div>
+                    </a>
 
-                    <div class="detail-box-informasi">
+                    <a class="detail-box-informasi"
+                        href="mailto:cariAdil@gmail.com?subject=Subjek%20Email&body=Ini%20adalah%20isi%20email.">
                         <i class="fa-solid fa-envelope"></i>
                         <h3 class="informasi">Email</h3>
                         <h5 class="deskripsi-informasi">CariAdil@gmail.com</h5>
-                    </div>
+                    </a>
 
-                    <div class="detail-box-informasi">
+                    <a class="detail-box-informasi"
+                        href="https://www.google.com/maps/place/Rumah+Talenta+BCA/@-6.5886849,106.8798058,17z/data=!3m1!4b1!4m6!3m5!1s0x2e69c7ff4c5bd601:0xbaf218b456b897e4!8m2!3d-6.5886902!4d106.8823807!16s%2Fg%2F11l0dmgc3q?entry=ttu">
                         <i class="fa-solid fa-location-dot"></i>
                         <h3 class="informasi">Lokasi</h3>
                         <h5 class="deskripsi-informasi">Rumah Talenta BCA</h5>
-                    </div>
+                    </a>
                 </div>
                 <p class="aturan-syarat">Aturan dan ketentuan S&K berlaku*</p>
             </div>
@@ -99,16 +101,15 @@
         <div class="jumbotron4">
             <h2 class="quotes">Terlibat dengan Kasus Hukum yang Tidak Adil?</h2>
             <div class="box-desc-terlibat">
-                <p class="desc-terlibat">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor
-                    incididunt ut labore et dolore magna aliqua. Duis aute irure dolor in reprehenderit in voluptate
-                    velit
-                    esse cillum dolore eu fugiat nulla pariatur...</p>
+                <p class="desc-terlibat">Jika Anda mengalami ketidakadilan dalam kasus hukum yang sedang Anda alami,
+                    silakan hubungi kami. Kami akan membantu menyediakan Lembaga Bantuan Hukum terbaik dari seluruh
+                    Indonesia.</p>
             </div>
 
             <div class="button-lapor-field">
                 <a href="/form-pengajuan-hukum" type="button" class="btn" id="button_formulir">Formulir
                     Pengajuan</a>
-                <a type="button" class="btn btn-outline" id="button_lapor">Laporkan Bukti</a>
+                {{-- <a type="button" class="btn btn-outline" id="button_lapor">Laporkan Bukti</a> --}}
             </div>
         </div>
     </div>

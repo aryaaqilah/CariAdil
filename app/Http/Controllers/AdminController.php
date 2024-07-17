@@ -17,9 +17,14 @@ class AdminController extends Controller
      */
     public function index()
     {
-        // Dashboard
+        $pengajuan = FormPengajuan::select('*')->get();
+        $kasusHukum = KasusHukum::join('lbh', 'lbh.id_LBH', '=', 'kasus_hukum.id_lbh')
+        ->join('form_pengajuan', 'form_pengajuan.id_form', '=', 'kasus_hukum.id_form')
+        ->select('*')->get();
+        $donasi = TransaksiDonasi::select('*')->get();
+        $lbh = LBH::select('*')->get();
 
-        return view('admin.dashboard');
+        return view('admin.dashboard', compact('pengajuan', 'kasusHukum','donasi', 'lbh'));
     }
 
     /**
@@ -144,7 +149,9 @@ class AdminController extends Controller
   
     public function pengajuan_perkara(){
         $cases = FormPengajuan::all();
-        return view('admin.perkara-pengajuan', compact('cases'));
+        $belumVerifikasi = FormPengajuan::whereNull('form_pengajuan.jenis_perkara')->get();
+        $verifikasi = FormPengajuan::whereNotNull('form_pengajuan.jenis_perkara')->get();
+        return view('admin.perkara-pengajuan', compact('cases', 'belumVerifikasi', 'verifikasi'));
     }
 
     public function detail_pengajuan_perkara($id){

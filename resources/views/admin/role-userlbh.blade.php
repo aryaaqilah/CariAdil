@@ -30,7 +30,8 @@
                     <span class="increase">
                         @foreach ($lbh->take(2) as $user_lbh)
                             {{ $user_lbh->nama_lbh }},
-                        @endforeach {{ count($lbh) - 2 < 0 ? '' : 'and' . count($lbh) - 2 . 'others' }}
+                        @endforeach
+                        {{ count($lbh) - 2 < 0 ? '' : ' and ' . count($lbh) - 2 . ' others' }}
                     </span>
                 </div>
             </div>

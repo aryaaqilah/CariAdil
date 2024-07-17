@@ -18,6 +18,11 @@ class HomepageController extends Controller
         return view('user.homepage', ['list_kasus_hukum' => $kasusHukum, 'auth' => $auth]);
     }
 
+    public function tentang(){
+        $auth = false;
+        return view('user.tentang', ['auth'=>$auth]);
+    }
+
     /**
      * Show the form for creating a new resource.
      */

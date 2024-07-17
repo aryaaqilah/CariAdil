@@ -13,8 +13,13 @@
                 </div>
                 <div class="info px-4">
                     <h6 class="title">Perkara Pengajuan</h6>
-                    <h2 class="value">4</h2>
-                    <span class="increase">Joeliardo G. L. and 3 others</span>
+                    <h2 class="value">{{ count($pengajuan) }}</h2>
+                    <span class="increase">
+                        @foreach ($pengajuan->take(1) as $p)
+                            {{ $p->nama }}
+                        @endforeach
+                        {{ count($pengajuan) - 1 < 0 ? '' : ' and ' . count($pengajuan) - 1 . ' others' }}
+                    </span>
                 </div>
             </div>
             <div class="col-4 stat">
@@ -25,8 +30,13 @@
                 </div>
                 <div class="info px-4">
                     <h6 class="title">Konfirmasi Donasi</h6>
-                    <h2 class="value">10</h2>
-                    <span class="increase">Grisella M. and 9 others</span>
+                    <h2 class="value">{{ count($donasi) }}</h2>
+                    <span class="increase">
+                        @foreach ($donasi->take(1) as $d)
+                            {{ $d->nama }}
+                        @endforeach
+                        {{ count($donasi) - 1 < 0 ? '' : ' and ' . count($donasi) - 1 . ' others' }}
+                    </span>
                 </div>
             </div>
             <div class="col-4 stat">
@@ -37,8 +47,13 @@
                 </div>
                 <div class="info px-4">
                     <h6 class="title">User LBH</h6>
-                    <h2 class="value">10</h2>
-                    <span class="increase">LBH Ojan Lomba and 9 others</span>
+                    <h2 class="value">{{ count($lbh) }}</h2>
+                    <span class="increase">
+                        @foreach ($lbh->take(1) as $l)
+                            {{ $l->nama }}
+                        @endforeach
+                        {{ count($lbh) - 1 < 0 ? '' : ' and ' . count($lbh) - 1 . ' others' }}
+                    </span>
                 </div>
             </div>
         </div>
@@ -58,17 +73,20 @@
                     <tr>
                         <th scope="col" width="100rem">Nama Pemohon</th>
                         <th scope="col">Tanggal Dikirim</th>
-                        <th scope="col">Kategori</th>
                         <th scope="col">Detail</th>
                     </tr>
                 </thead>
                 <tbody>
-                    <tr>
-                        <td>Joeliardo G. L.</td>
-                        <td>28/05/2024</td>
-                        <td>Pidana</td>
-                        <td><button class="btn detail" type="button" style="width: 4rem; font-size:0.7rem">Detail</button></td>
-                    </tr>
+                    @foreach ($pengajuan as $p)
+                        <tr>
+                            <td>{{ $p->nama }}</td>
+                            <td>{{ $p->tanggal }}</td>
+                            <td><a class="btn detail" type="button"
+                                    href="{{ route('detail_pengajuan_perkara', $p->id_form) }}"
+                                    style="width: 4rem; font-size:0.7rem">Detail</a>
+                            </td>
+                        </tr>
+                    @endforeach
                 </tbody>
             </table>
         </div>
@@ -85,12 +103,16 @@
                     </tr>
                 </thead>
                 <tbody>
-                    <tr>
-                        <td>P0010</td>
-                        <td>Evotianus</td>
-                        <td>LBH Ojanlomba</td>
-                        <td><button class="btn detail" type="button" style="width: 4rem; font-size:0.7rem">Detail</button></td>
-                    </tr>
+                    @foreach ($kasusHukum as $k)
+                        <tr>
+                            <td>{{ $k->id_kasus }}</td>
+                            <td>{{ $k->nama }}</td>
+                            <td>{{ $k->nama_lbh }}</td>
+                            <td><a class="btn detail" href="{{ route('detail_perkara_berlangsung', $k->id_form) }}"
+                                    style="width: 4rem; font-size:0.7rem">Detail</a>
+                            </td>
+                        </tr>
+                    @endforeach
                 </tbody>
             </table>
         </div>
@@ -102,65 +124,75 @@
         <div class="row">
             <div class="progress-bar-area">
                 <div class="progress vertical">
-                    <div class="progress-bar" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100" style="10%"></div>
+                    <div class="progress-bar" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100"
+                        style="10%"></div>
                 </div>
                 <h5 class="progress-text">P0011</h5>
             </div>
             <div class="progress-bar-area">
                 <div class="progress vertical">
-                    <div class="progress-bar" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100" style="10%"></div>
+                    <div class="progress-bar" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100"
+                        style="10%"></div>
                 </div>
                 <h5 class="progress-text">P0012</h5>
             </div>
             <div class="progress-bar-area">
                 <div class="progress vertical">
-                    <div class="progress-bar" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100" style="10%"></div>
+                    <div class="progress-bar" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100"
+                        style="10%"></div>
                 </div>
                 <h5 class="progress-text">P0013</h5>
             </div>
             <div class="progress-bar-area">
                 <div class="progress vertical">
-                    <div class="progress-bar" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100" style="10%"></div>
+                    <div class="progress-bar" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100"
+                        style="10%"></div>
                 </div>
                 <h5 class="progress-text">P0014</h5>
             </div>
             <div class="progress-bar-area">
                 <div class="progress vertical">
-                    <div class="progress-bar" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100" style="10%"></div>
+                    <div class="progress-bar" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100"
+                        style="10%"></div>
                 </div>
                 <h5 class="progress-text">P0015</h5>
             </div>
             <div class="progress-bar-area">
                 <div class="progress vertical">
-                    <div class="progress-bar" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100" style="10%"></div>
+                    <div class="progress-bar" role="progressbar" aria-valuenow="0" aria-valuemin="0"
+                        aria-valuemax="100" style="10%"></div>
                 </div>
                 <h5 class="progress-text">P0016</h5>
             </div>
             <div class="progress-bar-area">
                 <div class="progress vertical">
-                    <div class="progress-bar" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100" style="10%"></div>
+                    <div class="progress-bar" role="progressbar" aria-valuenow="0" aria-valuemin="0"
+                        aria-valuemax="100" style="10%"></div>
                 </div>
                 <h5 class="progress-text">P0017</h5>
             </div>
             <div class="progress-bar-area">
                 <div class="progress vertical">
-                    <div class="progress-bar" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100" style="10%"></div>
+                    <div class="progress-bar" role="progressbar" aria-valuenow="0" aria-valuemin="0"
+                        aria-valuemax="100" style="10%"></div>
                 </div>
                 <h5 class="progress-text">P0018</h5>
             </div>
             <div class="progress-bar-area">
                 <div class="progress vertical">
-                    <div class="progress-bar" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100" style="10%"></div>
+                    <div class="progress-bar" role="progressbar" aria-valuenow="0" aria-valuemin="0"
+                        aria-valuemax="100" style="10%"></div>
                 </div>
                 <h5 class="progress-text">P0019</h5>
             </div>
             <div class="progress-bar-area">
                 <div class="progress vertical">
-                    <div class="progress-bar" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100" style="10%"></div>
+                    <div class="progress-bar" role="progressbar" aria-valuenow="0" aria-valuemin="0"
+                        aria-valuemax="100" style="10%"></div>
                 </div>
                 <h5 class="progress-text">P0020</h5>
             </div>
-            
+
         </div>
     </div>
 
