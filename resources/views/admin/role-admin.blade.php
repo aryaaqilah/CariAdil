@@ -38,7 +38,7 @@
     </div>
 
     <div class="add-area">
-        <a href="admin-role/create">
+        <a href="/admin/role-admin/create">
             <button type="button" class="btn"><i class="bi bi-person-fill-add"></i> Add Admin</button>
         </a>
     </div>

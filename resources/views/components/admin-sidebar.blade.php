@@ -42,27 +42,15 @@
               </a>
               <ul id="components-nav-account" class="nav-content collapse " data-bs-parent="#sidebar-nav">
                   <li>
-                      <a href="/admin/pengajuan-perkara">
+                      <a href="/admin/role-admin">
                           <i class="bi bi-person"></i><span>Admin</span>
                       </a>
                   </li>
                   <li>
-                      <a href="/admin/perkara-berlangsung">
+                      <a href="/admin/role-lbh">
                           <i class="bi bi-circle"></i><span>User LBH</span>
                       </a>
                   </li>
               </ul>
           </li><!--
-
-          <li class="nav-item">
-              <a class="nav-link collapsed" href="/admin/donasi">
-                  <i class="bi bi-journal-text"></i>
-                  <span>Donasi</span>
-              </a>
-          </li>
-
-          <!-- End Forms Nav -->
-
-
-
   </aside><!-- End Sidebar-->

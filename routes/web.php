@@ -78,6 +78,14 @@ Route::prefix('/admin')->group(function () {
     // New added
     Route::get('/perkara-berlangsung', [AdminController::class, 'perkara_berlangsung']);
     Route::get('/perkara-berlangsung/{id}', [AdminController::class, 'detail_perkara_berlangsung'])->name('detail_perkara_berlangsung');
+   
+    Route::get('/role-admin', [AdminController::class, 'adminRole']);
+    Route::get('/role-admin/create', [AdminController::class, 'adminCreate']);
+    Route::put('/role-admin/create', [AdminController::class, 'adminStore']);
+
+    Route::get('/role-lbh', [AdminController::class, 'lbhRole']);
+    Route::get('/role-lbh/create', [AdminController::class, 'lbhCreate']);
+    Route::put('/role-lbh/create', [AdminController::class, 'lbhStore']);
 });
 
 Route::prefix('/perkara')->group(function () {
