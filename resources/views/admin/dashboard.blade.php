@@ -5,9 +5,11 @@
 @section('content')
     <div class="summary-area">
         <div class="row">
-            <div class="col-4 stat" style="background-color: aqua">
-                <div class="circle-icon">
-                    <i class="bi bi-chat-left-text-fill"></i>
+            <div class="col-4 stat">
+                <div class="circle-icon-area">
+                    <div class="circle-icon">
+                        <i class="bi bi-chat-left-text-fill"></i>
+                    </div>
                 </div>
                 <div class="info px-4">
                     <h6 class="title">Perkara Pengajuan</h6>
@@ -15,19 +17,23 @@
                     <span class="increase">Joeliardo G. L. and 3 others</span>
                 </div>
             </div>
-            <div class="col-4 stat" style="background-color: antiquewhite">
-                <div class="circle-icon">
-                    <i class="bi bi-check-square-fill"></i>
+            <div class="col-4 stat">
+                <div class="circle-icon-area">
+                    <div class="circle-icon">
+                        <i class="bi bi-check-square-fill"></i>
+                    </div>
                 </div>
                 <div class="info px-4">
                     <h6 class="title">Konfirmasi Donasi</h6>
                     <h2 class="value">10</h2>
-                    <span class="increase">Grisella M., Richie H., and 7 others</span>
+                    <span class="increase">Grisella M. and 9 others</span>
                 </div>
             </div>
-            <div class="col-4 stat" style="background-color: black">
-                <div class="circle-icon">
-                    <i class="bi bi-people-fill"></i>
+            <div class="col-4 stat">
+                <div class="circle-icon-area">
+                    <div class="circle-icon">
+                        <i class="bi bi-people-fill"></i>
+                    </div>
                 </div>
                 <div class="info px-4">
                     <h6 class="title">User LBH</h6>
