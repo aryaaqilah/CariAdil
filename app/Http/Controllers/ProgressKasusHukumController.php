@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\KasusHukum;
 use Illuminate\Http\Request;
 use App\Models\ProgressKasusHukum;
 
@@ -34,4 +35,18 @@ class ProgressKasusHukumController extends Controller
     }
 
 
+    public function ProgressSelesai(Request $request, $id){
+
+        $request->validate([
+            'id_kasus' => 'required|integer|exists:kasus_hukum,id_kasus',
+        ]);
+
+        $selesai  = KasusHukum::find($request->id_kasus);
+        $selesai->status_pengajuan = 'Selesai';
+        $selesai -> save();
+        // dd($selesai);
+
+        return redirect()->route('detail_perkara', ['id' => $id, 'selesai' => $selesai])->with('success', 'Progress has been added');
+
+    }
 }

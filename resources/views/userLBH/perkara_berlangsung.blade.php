@@ -14,7 +14,7 @@
         <div class="row">
             <div class="col-2"></div>
             <div class="col-8">
-                <form class="d-flex" role="search" action="/berita/search"
+                <form class="d-flex" role="search" action="/lbh/perkara-berlangsung/search"
                 enctype="multipart/form-data" method="GET">
                     @csrf
                     <input class="form-control me-2" style="border-radius: 12px" type="search"
@@ -51,7 +51,7 @@
                 <div class="tab-content" id="pills-tabContent">
                     <div class="tab-pane fade show active" id="pills-home" role="tabpanel"
                         aria-labelledby="pills-home-tab" tabindex="0">
-                        {{-- <h3>Pidana ({{ count($list_kasus_pidana) }})</h3> --}}
+                        <h3>Pidana ({{ count($pidana) }})</h3>
                         <div class="row">
                             <div class="row">
                                 @foreach ($pidana as $kasusHukum)
@@ -75,7 +75,7 @@
                     </div>
                     <div class="tab-pane fade" id="pills-profile" role="tabpanel" aria-labelledby="pills-profile-tab"
                         tabindex="0">
-                        {{-- <h3>Perdata ({{ count($list_kasus_perdata) }})</h3> --}}
+                        <h3>Perdata ({{ count($perdata) }})</h3>
                         <div class="row">
                             <div class="row">
                                 @foreach ($perdata as $kasusHukum)

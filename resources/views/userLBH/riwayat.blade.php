@@ -6,14 +6,14 @@
 
         <div class="pembatas"></div>
         <div class = "judul">
-            <h1>Pengajuan Bantuan Hukum</h1>
+            <h1>Riwayat Bantuan Hukum</h1>
         </div>
         <div class="pembatas"></div>
 
         <div class="row">
             <div class="col-2"></div>
             <div class="col-8">
-                <form class="d-flex" role="search" action="/lbh/pengajuan-bantuan-hukum/search"
+                <form class="d-flex" role="search" action="/lbh/riwayat-kasus/search"
                 enctype="multipart/form-data" method="GET">
                     @csrf
                     <input class="form-control me-2" style="border-radius: 12px" type="search"

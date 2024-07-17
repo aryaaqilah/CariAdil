@@ -16,6 +16,9 @@
                 <li class="navbar-item">
                     <a href="/lbh/pengajuan-bantuan-hukum">Pengajuan</a>
                 </li>
+                <li class="navbar-item">
+                    <a href="/lbh/riwayat-kasus">Riwayat</a>
+                </li>
             </ul>
         </div>
         <div class="navbar-profile">
@@ -23,7 +26,11 @@
                 <i class="fa fa-user"></i>
             </div>
             <div class="profile-name">
-                <span>Username</span>
+                <span>
+                    @if (Session::get('user'))
+                        {{ Session::get('user')['nama_lbh'] }}
+                    @endif
+                </span>
             </div>
         </div>
     </div>

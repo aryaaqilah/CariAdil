@@ -43,18 +43,23 @@ Route::any('/konfirmasi-pembayaran', [TransaksiDonasiController::class, 'konfirm
 //LBH
 Route::prefix('/lbh')->group(function () {
     Route::get('/', [UserController::class, 'index'])->name('beranda'); //ok
-
+    
     Route::get('/login', [UserController::class, 'showLogin'])->name('login');
     Route::post('/login', [UserController::class, 'login'])->name('login.post');
-
+    
     Route::get('/pengajuan-bantuan-hukum', [CaseController::class, 'pengajuan_bantuan']);
+    Route::get('/pengajuan-bantuan-hukum/search', [CaseController::class, 'search_pengajuan']);
     Route::get('/pengajuan-bantuan-hukum/{id}', [CaseController::class, 'detail_pengajuan_bantuan'])->name('detail_pengajuan');
     Route::put('/pengajuan-bantuan-hukum/{id}', [CaseController::class, 'terima_pengajuan']);
-
+    
     Route::get('/perkara-berlangsung', [CaseController::class, 'perkara_berlangsung']);
+    Route::get('/perkara-berlangsung/search', [CaseController::class, 'search_perkara']);
     Route::get('/perkara-berlangsung/{id}', [CaseController::class, 'detail_perkara_berlangsung'])->name('detail_perkara');
     Route::post('/perkara-berangsung/{id}', [ProgressKasusHukumController::class, 'UpdateProgress']);
-
+    Route::put('/perkara-berangsung/{id}', [ProgressKasusHukumController::class, 'ProgressSelesai']);
+    
+    Route::get('/riwayat-kasus', [CaseController::class, 'riwayat_kasus']);
+    Route::get('/riwayat-kasus/search', [CaseController::class, 'search_riwayat']);
 });
 
 //ADMIN

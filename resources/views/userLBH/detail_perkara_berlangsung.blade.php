@@ -272,7 +272,14 @@
                 </div>
 
                 <div class="d-flex justify-content-center mt-2 gap-4 mb-5" style="color:rgba(232, 123, 47, 1)">
-                  <i class="fa-solid fa-circle-check fa-4x"></i>
+                  <form action="{{url('lbh/perkara-berangsung/' . $perkaraBerlangsung->id_kasus)}}" method="POST">
+                    @csrf
+                    @method('PUT')
+                    <input type="hidden" name="id_kasus" value="{{ $perkaraBerlangsung->id_kasus }}">
+                    <button type="submit">
+                      <i class="fa-solid fa-circle-check fa-4x"></i>
+                    </button>
+                  </form>
                   <i class="fa-solid fa-circle-xmark fa-4x"></i>
                 </div>
           </div>

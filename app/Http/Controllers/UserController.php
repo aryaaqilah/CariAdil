@@ -29,7 +29,7 @@ class UserController extends Controller
         // dd($jadwal);
         $auth = true;
 
-        return view('userLBH.beranda', ['list_kasus_hukum' => $kasusHukum, 'jadwal' => $jadwal, 'auth' => $auth]);
+        return view('userLBH.beranda', ['list_kasus_hukum' => $kasusHukum, 'jadwal' => $jadwal, 'auth' => $auth, 'user'=>$user]);
     }
 
     public function showLogin(){

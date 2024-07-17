@@ -66,6 +66,8 @@
     <div class="jumbotron4">
         <h2 class="quotes d-flex justify-content-center">Terimakasih sudah membantu <br>
             menegakkan hukum, <br>
-            LBH OjanLomba!</h2>
+            @if (Session::get('user'))
+                        {{ Session::get('user')['nama_lbh'] }}
+                    @endif !</h2>
     </div>
 </x-layout>
