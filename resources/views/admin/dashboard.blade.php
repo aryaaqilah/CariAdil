@@ -5,9 +5,9 @@
 @section('content')
     <div class="summary-area">
         <div class="row">
-            <div class="col-4 px-3 stat">
+            <div class="col-4 stat" style="background-color: aqua">
                 <div class="circle-icon">
-                    <i class="bi bi-person-fill-check"></i>
+                    <i class="bi bi-chat-left-text-fill"></i>
                 </div>
                 <div class="info px-4">
                     <h6 class="title">Perkara Pengajuan</h6>
@@ -15,9 +15,9 @@
                     <span class="increase">Joeliardo G. L. and 3 others</span>
                 </div>
             </div>
-            <div class="col-4 px-3 stat">
+            <div class="col-4 stat" style="background-color: antiquewhite">
                 <div class="circle-icon">
-                    <i class="bi bi-people-fill"></i>
+                    <i class="bi bi-check-square-fill"></i>
                 </div>
                 <div class="info px-4">
                     <h6 class="title">Konfirmasi Donasi</h6>
@@ -25,7 +25,7 @@
                     <span class="increase">Grisella M., Richie H., and 7 others</span>
                 </div>
             </div>
-            <div class="col-4 px-3 stat">
+            <div class="col-4 stat" style="background-color: black">
                 <div class="circle-icon">
                     <i class="bi bi-people-fill"></i>
                 </div>
@@ -43,7 +43,7 @@
         <h6 style="font-size: 0.8rem">28 Mei 2024</h6>
     </div>
 
-    <div class="row db">
+    <div class="row big-stat-area">
         <div class="col-5 big-stat">
             <h6 style="font-weight: bold">Perkara Pengajuan</h6>
             <p style="font-size: 0.75rem">Verifikasi setiap permohonan perkara</p>
@@ -66,7 +66,7 @@
                 </tbody>
             </table>
         </div>
-        <div class="col-5 big-stat">
+        <div class="col-5 big-stat" style="margin-right: 0">
             <h6 style="font-weight: bold">Perkara Berlangsung</h6>
             <p style="font-size: 0.75rem">Menunggu konfirmasi User LBH</p>
             <table class="table logaktivitas">
@@ -90,7 +90,7 @@
         </div>
     </div>
 
-    <div class="form-area">
+    <div class="summary-area">
         <h6 style="font-weight: bold">Update Donasi</h6>
         <p style="font-size: 0.75rem">Banyak donasi yang terkumpul hingga sekarang</p>
         <div class="row">
@@ -98,38 +98,61 @@
                 <div class="progress vertical">
                     <div class="progress-bar" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100" style="10%"></div>
                 </div>
-                <p>P0011</p>
+                <h5 class="progress-text">P0011</h5>
             </div>
             <div class="progress-bar-area">
                 <div class="progress vertical">
                     <div class="progress-bar" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100" style="10%"></div>
                 </div>
-                <p>P0012</p>
+                <h5 class="progress-text">P0012</h5>
             </div>
             <div class="progress-bar-area">
                 <div class="progress vertical">
                     <div class="progress-bar" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100" style="10%"></div>
                 </div>
+                <h5 class="progress-text">P0013</h5>
             </div>
             <div class="progress-bar-area">
                 <div class="progress vertical">
                     <div class="progress-bar" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100" style="10%"></div>
                 </div>
+                <h5 class="progress-text">P0014</h5>
             </div>
             <div class="progress-bar-area">
                 <div class="progress vertical">
                     <div class="progress-bar" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100" style="10%"></div>
                 </div>
+                <h5 class="progress-text">P0015</h5>
             </div>
             <div class="progress-bar-area">
                 <div class="progress vertical">
                     <div class="progress-bar" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100" style="10%"></div>
                 </div>
+                <h5 class="progress-text">P0016</h5>
             </div>
             <div class="progress-bar-area">
                 <div class="progress vertical">
                     <div class="progress-bar" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100" style="10%"></div>
                 </div>
+                <h5 class="progress-text">P0017</h5>
+            </div>
+            <div class="progress-bar-area">
+                <div class="progress vertical">
+                    <div class="progress-bar" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100" style="10%"></div>
+                </div>
+                <h5 class="progress-text">P0018</h5>
+            </div>
+            <div class="progress-bar-area">
+                <div class="progress vertical">
+                    <div class="progress-bar" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100" style="10%"></div>
+                </div>
+                <h5 class="progress-text">P0019</h5>
+            </div>
+            <div class="progress-bar-area">
+                <div class="progress vertical">
+                    <div class="progress-bar" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100" style="10%"></div>
+                </div>
+                <h5 class="progress-text">P0020</h5>
             </div>
             
         </div>

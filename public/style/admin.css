@@ -28,11 +28,18 @@
     padding-left: 2rem;
 }
 
-.db .big-stat{
+.big-stat-area{
     margin: 2rem;
+    margin-bottom: 3rem;
+    /* background-color: black; */
+}
+
+.big-stat{
+    margin-right: 3.555rem;
     background: white;
     border-radius: 1.75rem;
     padding: 2rem;
+    width: 24.5rem;
 }
 
 .table.logaktivitas thead th{
@@ -79,7 +86,7 @@
 .stat{
     display: flex;
     align-items: center;
-    padding-left: 3rem;
+    padding-left: 1rem;
 }
 
 .stat .info{
@@ -205,17 +212,21 @@
 
 .vertical{
     box-shadow: inset 0px 4px 6px #dbe8db;
-    /* height: 7rem;
-    width: 10rem; */
 }
 
 .progress-bar-area{
-    /* padding-inline-start: 0; */
+    margin-top: 1rem;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    width: 7rem;
+    width: 5rem;
     height: 10rem;
     /* background-color: #292D32; */
+}
+
+.progress-text{
+    font-size: 0.75rem;
+    color: #B5B7C0;
+    padding-top: 1rem;
 }

@@ -38,17 +38,17 @@
           <li class="nav-item">
               <a class="nav-link collapsed" data-bs-target="#components-nav-account" data-bs-toggle="collapse"
                   href="">
-                  <i class="bi bi-menu-button-wide"></i><span>Role</span><i class="bi bi-chevron-down ms-auto"></i>
+                  <i class="bi bi-menu-button-wide"></i><span>Accounts</span><i class="bi bi-chevron-down ms-auto"></i>
               </a>
               <ul id="components-nav-account" class="nav-content collapse " data-bs-parent="#sidebar-nav">
                   <li>
                       <a href="/admin/pengajuan-perkara">
-                          <i class="bi bi-person"></i><span>Account</span>
+                          <i class="bi bi-person"></i><span>Admin</span>
                       </a>
                   </li>
                   <li>
                       <a href="/admin/perkara-berlangsung">
-                          <i class="bi bi-circle"></i><span>Berlangsung</span>
+                          <i class="bi bi-circle"></i><span>User LBH</span>
                       </a>
                   </li>
               </ul>
