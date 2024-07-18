@@ -16,26 +16,26 @@ class AdminSeeder extends Seeder
     {
         $admins = [
             [
-                'username' => 'admin',
-                'password' => bcrypt('admin'),
+                'username' => 'Andreas Liujaya',
+                'password' => bcrypt('admin1'),
                 'created_at' => Carbon::now(),
                 'updated_at' => Carbon::now()
             ],
             [
-                'username' => 'evo',
-                'password' => bcrypt('evo'),
+                'username' => 'Diandra Pramesti',
+                'password' => bcrypt('andmin2'),
                 'created_at' => Carbon::now(),
                 'updated_at' => Carbon::now()
             ],
             [
-                'username' => 'david',
-                'password' => bcrypt('david'),
+                'username' => 'Agnes Sianturi',
+                'password' => bcrypt('admin3'),
                 'created_at' => Carbon::now(),
                 'updated_at' => Carbon::now()
             ],
             [
-                'username' => 'jason',
-                'password' => bcrypt('jason'),
+                'username' => 'Catherine Olivia',
+                'password' => bcrypt('admin4'),
                 'created_at' => Carbon::now(),
                 'updated_at' => Carbon::now()
             ],
