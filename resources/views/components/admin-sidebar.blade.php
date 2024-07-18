@@ -52,5 +52,24 @@
                       </a>
                   </li>
               </ul>
-          </li><!--
+          </li>
+
+          <li class="nav-item">
+              <a class="nav-link collapsed" data-bs-target="#components-nav-donation" data-bs-toggle="collapse"
+                  href="">
+                  <i class="bi bi-wallet"></i><span>Donasi</span><i class="bi bi-chevron-down ms-auto"></i>
+              </a>
+              <ul id="components-nav-donation" class="nav-content collapse " data-bs-parent="#sidebar-nav">
+                  <li>
+                      <a href="/admin/role-admin">
+                          <i class="bi bi-person"></i><span>Detail Donasi per Kasus</span>
+                      </a>
+                  </li>
+                  <li>
+                      <a href="/admin/role-lbh">
+                          <i class="bi bi-circle"></i><span>Konfirmasi Transaksi Donasi</span>
+                      </a>
+                  </li>
+              </ul>
+          </li>
   </aside><!-- End Sidebar-->

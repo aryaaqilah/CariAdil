@@ -62,8 +62,13 @@
                         <td>{{ $c->nama }}</td>
                         <td>{{ $c->tanggal }}</td>
                         <td>{{ $c->jenis_perkara }}</td>
-                        <td><a class="btn detail" href="{{ route('detail_pengajuan_perkara', $c->id_form) }}"
-                                type="button">Detail</a></td>
+                        @if ($c->jenis_perkara == null)
+                            <td><a class="btn detail" href="{{ route('detail_pengajuan_perkara', $c->id_form) }}"
+                                    type="button">Detail</a></td>
+                        @else
+                            <td><button class="btn detail" href="{{ route('detail_pengajuan_perkara', $c->id_form) }}"
+                                    type="button" disabled>Completed</button></td>
+                        @endif
                     </tr>
                 @endforeach
 

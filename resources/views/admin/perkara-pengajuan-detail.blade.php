@@ -116,21 +116,15 @@
         </div>
         <div class="col-1"></div>
         <div class="pembatas80"></div>
-        <div class="col-11">
-            <div class="row d-flex ms-5">
-                <p>Tambahkan Informasi</p>
-                <input class="form-control" type="text" placeholder="Tambahkan Informasi" aria-label="Search"
-                    style="border: 1px solid rgba(232, 123, 47, 1); border-radius: 12px; background-color: #EFEFEF">
-            </div>
-        </div>
-
         <div class="d-flex justify-content-center mt-3 gap-4 mb-4 col-11" style="color:rgba(232, 123, 47, 1)">
             <form action="/admin/pengajuan-perkara/{{ $perkara->id_form }}" method="POST" class="row ms-5"
                 style="width: 100%">
                 @csrf
                 @method('PUT')
 
-                <select class="form-select" name="jenis_perkara" aria-label="Default select example" style="width: 100%">
+                <label for="jenis_perkara">Tentukan Jenis Perkara</label>
+                <select class="form-select" name="jenis_perkara" id="jenis_perkara" aria-label="Default select example"
+                    style="width: 100%">
                     <option selected disabled>-- Pilih Jenis Perkara --</option>
                     <option value="Pidana">Pidana</option>
                     <option value="Perdata">Perdata</option>
@@ -149,13 +143,15 @@
                             </svg>
                         </div>
                     </button>
-                    <div class="deny">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
-                            class="bi bi-x-lg" viewBox="0 0 16 16">
-                            <path
-                                d="M2.146 2.854a.5.5 0 1 1 .708-.708L8 7.293l5.146-5.147a.5.5 0 0 1 .708.708L8.707 8l5.147 5.146a.5.5 0 0 1-.708.708L8 8.707l-5.146 5.147a.5.5 0 0 1-.708-.708L7.293 8z" />
-                        </svg>
-                    </div>
+                    <a href="{{ url()->previous() }}">
+                        <div class="deny">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                                class="bi bi-x-lg" viewBox="0 0 16 16">
+                                <path
+                                    d="M2.146 2.854a.5.5 0 1 1 .708-.708L8 7.293l5.146-5.147a.5.5 0 0 1 .708.708L8.707 8l5.147 5.146a.5.5 0 0 1-.708.708L8 8.707l-5.146 5.147a.5.5 0 0 1-.708-.708L7.293 8z" />
+                            </svg>
+                        </div>
+                    </a>
                 </div>
                 {{-- </button> --}}
             </form>

@@ -34,10 +34,16 @@
                         @else
                             <td>-</td>
                         @endif
-                        <td>{{ $case->created_at }}</td>
+                        <td>{{ \Carbon\Carbon::parse($case->created_at)->translatedFormat('l, j F Y') }}</td>
                         <td>{{ $case->description }}</td>
-                        <td><a class="btn detail" href=""type="button">Detail</a>
-                        </td>
+                        @if ($case->description == null)
+                            <td><a class="btn detail" href="/admin/perkara-berlangsung/{{ $case->id_kasus }}"
+                                    type="button">Detail</a>
+                            </td>
+                        @else
+                            <td><button class="btn detail" href="{{ route('detail_pengajuan_perkara', $case->id_form) }}"
+                                    type="button" disabled>Completed</button></td>
+                        @endif
                     </tr>
                 @endforeach
             </tbody>

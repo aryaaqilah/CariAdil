@@ -58,11 +58,12 @@ class DatabaseSeeder extends Seeder
                 'uraian' => 'Saya adalah seseorang yang terkena masalah',
                 'lokasi_pembuatan_form' => 'Bogor',
                 'tanggal' => Carbon::now(),
+                'target_donasi' => 1000000,
                 'image_url' => 'yguhnjmk',
             ],
             [
                 'nomor_pemohon' => 'CA-002',
-                'jenis_perkara' => 'Perdata',
+                'jenis_perkara' => NULL,
                 'nama' => 'arya aqilah',
                 'nama_panggilan' => 'joel',
                 'tempat_lahir' => 'Bogor',
@@ -90,6 +91,7 @@ class DatabaseSeeder extends Seeder
                 'uraian' => 'Saya adalah seseorang yang terkena masalah',
                 'lokasi_pembuatan_form' => 'Bogor',
                 'tanggal' => Carbon::now(),
+                'target_donasi' => 25000000,
                 'image_url' => 'yguhnjmk',
             ],
             [
@@ -122,6 +124,7 @@ class DatabaseSeeder extends Seeder
                 'uraian' => 'Saya adalah seseorang yang terkena masalah',
                 'lokasi_pembuatan_form' => 'Bogor',
                 'tanggal' => Carbon::now(),
+                'target_donasi' => 4000000,
                 'image_url' => 'yguhnjmk',
             ],
         ];
@@ -160,7 +163,8 @@ class DatabaseSeeder extends Seeder
                 'id_form' => 1,
 
                 'status_pengajuan' => 'Proses',
-                'image_url' => 'tygbh'
+                'image_url' => 'tygbh',
+                'created_at' => Carbon::now()
             ],
             [
                 'title' => 'Bantu Pemuda Sukabumi Ini',
@@ -171,7 +175,8 @@ class DatabaseSeeder extends Seeder
                 // 'id_bank' => 1,
                 'id_form' => 2,
                 'status_pengajuan' => 'Selesai',
-                'image_url' => 'tygbh'
+                'image_url' => 'tygbh',
+                'created_at' => Carbon::now()
             ],
             [
                 'title' => 'Bantu Wanita Pekanbaru ini',
@@ -182,7 +187,8 @@ class DatabaseSeeder extends Seeder
                 // 'id_bank' => 1,
                 'id_form' => 2,
                 'status_pengajuan' => 'Proses',
-                'image_url' => 'tygbh'
+                'image_url' => 'tygbh',
+                'created_at' => Carbon::now()
             ]
         ];
 

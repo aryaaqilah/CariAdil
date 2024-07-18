@@ -74,13 +74,14 @@ Route::prefix('/admin')->group(function () {
 
     Route::get('/pengajuan-perkara', [AdminController::class, 'pengajuan_perkara']);
     Route::get('/pengajuan-perkara/{id}', [AdminController::class, 'detail_pengajuan_perkara'])->name('detail_pengajuan_perkara');
+    Route::put('/pengajuan-perkara/{id}', [AdminController::class, 'terima_pengajuan']);
 
     // Route::get('/kasus-perkara-berita')
-    Route::put('/pengajuan-perkara/{id}', [AdminController::class, 'terima_pengajuan']);
 
     // New added
     Route::get('/perkara-berlangsung', [AdminController::class, 'perkara_berlangsung']);
     Route::get('/perkara-berlangsung/{id}', [AdminController::class, 'detail_perkara_berlangsung'])->name('detail_perkara_berlangsung');
+    Route::put('/perkara-berlangsung/{id}', [AdminController::class, 'update_perkara_berlangsung']);
 
     Route::get('/role-admin', [AdminController::class, 'adminRole']);
     Route::get('/role-admin/create', [AdminController::class, 'adminCreate']);
@@ -95,6 +96,3 @@ Route::prefix('/perkara')->group(function () {
     Route::get('/berlangsung', [PerkaraController::class, 'indexPerkaraBerlangsung']);
 });
 
-Route::get('/a', function(){
-    return view('admin.perkara-berita');
-});

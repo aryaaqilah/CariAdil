@@ -13,8 +13,8 @@ return new class extends Migration
     {
         Schema::create('kasus_hukum', function (Blueprint $table) {
             $table->id('id_kasus');
-            $table->string('title');
-            $table->text('description');
+            $table->string('title')->nullable();
+            $table->text('description')->nullable();
             $table->date('tanggal');
             $table->integer('target_donasi');
             // $table->bigInteger('id_bank')->unsigned();
@@ -23,7 +23,7 @@ return new class extends Migration
 
             $table->string('status_pengajuan');
 
-            $table->text('image_url');
+            $table->text('image_url')->nullable();
 
             $table->foreign('id_form')->references('id_form')->on('form_pengajuan')->onDelete('cascade');
             // $table->foreign('id_bank')->references('id_bank')->on('bank')->onDelete('cascade');

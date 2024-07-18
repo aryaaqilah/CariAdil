@@ -9,6 +9,7 @@ use App\Models\LBH;
 use App\Models\TransaksiDonasi;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Storage;
 
 class AdminController extends Controller
 {
@@ -53,7 +54,7 @@ class AdminController extends Controller
         $data = KasusHukum::join('form_pengajuan', 'kasus_hukum.id_form', '=', 'form_pengajuan.id_form')
         ->join('lbh', 'lbh.id_LBH', '=', 'kasus_hukum.id_lbh')->select('*')
         ->where('kasus_hukum.id_kasus', '=', $id)->first();
-        
+
         $donation = TransaksiDonasi::join('kasus_hukum', 'kasus_hukum.id_kasus', '=', 'transaksi_donasi.id_kasus_hukum')
         ->join('bank', 'transaksi_donasi.id_bank', '=', 'bank.id_bank')
         ->select('transaksi_donasi.*', 'bank.nama as nama_bank', 'kasus_hukum.*')
@@ -146,9 +147,9 @@ class AdminController extends Controller
         return redirect()->route('admin.lbh-role');
     }
 
-  
+
     public function pengajuan_perkara(){
-        $cases = FormPengajuan::all();
+        $cases = FormPengajuan::orderBy('id_form', 'asc')->get();
         $belumVerifikasi = FormPengajuan::whereNull('form_pengajuan.jenis_perkara')->get();
         $verifikasi = FormPengajuan::whereNotNull('form_pengajuan.jenis_perkara')->get();
         return view('admin.perkara-pengajuan', compact('cases', 'belumVerifikasi', 'verifikasi'));
@@ -165,15 +166,43 @@ class AdminController extends Controller
     }
 
     public function detail_perkara_berlangsung($id){
-
-        return view('admin.perkara-berita');
+        return view('admin.perkara-berita', compact('id'));
     }
 
     public function terima_pengajuan(Request $request, $id) {
-        FormPengajuan::find($id)->update([
+        $formPengajuan = FormPengajuan::find($id);
+
+        $formPengajuan->update([
             'jenis_perkara' => $request->jenis_perkara,
         ]);
-        
-        return redirect()->route('admin.pengajuan-perkara');
+
+        KasusHukum::create([
+            'tanggal' => Carbon::now(),
+            'id_form' => $id,
+            'target_donasi' => $formPengajuan->target_donasi,
+            'status_pengajuan' => 'Proses',
+        ]);
+
+        return redirect('admin/pengajuan-perkara');
+    }
+
+    public function update_perkara_berlangsung(Request $request, $id) {
+        $kasusHukum = KasusHukum::find($id);
+
+        if (!Storage::disk('public')->exists('kasus_hukum')) {
+            Storage::disk('public')->makeDirectory('kasus_hukum');
+        }
+        // return $kasusHukum;
+
+        $image = $request->file('image_url');
+        $imagePath = Storage::disk('public')->putFileAs('kasus_hukum', $image, $image->getClientOriginalName());
+
+        $kasusHukum->update([
+            'title' => $request->title,
+            'description' => $request->description,
+            'image_url' => $imagePath, // Use the new image URL
+        ]);
+
+        return redirect('admin/perkara-berlangsung');
     }
 }
