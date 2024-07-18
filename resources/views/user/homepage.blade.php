@@ -64,7 +64,7 @@
                         <div class="row">
                             @foreach ($list_kasus_hukum as $kasusHukum)
                                 <div class="col-6 box-kasus-hukum d-flex gap-5">
-                                    <div class="detail-box-kasus-hukum" style="width: 23rem">
+                                    <div class="detail-box-kasus-hukum" style="width: 100%">
                                         <div class="img-detail-box-kasus-hukum">
                                             <button type="button" class="btn"
                                                 style="--bs-btn-padding-y: .25rem; --bs-btn-padding-x: 2rem; --bs-btn-font-size: .75rem;
@@ -75,8 +75,9 @@
                                             <a class="title-1 text-truncate col-8"
                                                 href="/berita/kasus-hukum/{{ $kasusHukum->id_kasus }}"
                                                 style="font-size:1.4rem; text-decoration:none">{{ $kasusHukum->title }}</a>
-                                            <p class="date col-4 d-flex justify-content-end">{{ $kasusHukum->tanggal }}
-                                            </p>
+                                            <span
+                                                class="date col-4 d-flex justify-content-end">{{ $kasusHukum->tanggal }}
+                                            </span>
                                         </div>
                                         <p class="desc-kasus">{{ $kasusHukum->description }}</p>
                                     </div>

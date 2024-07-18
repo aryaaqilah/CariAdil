@@ -3,7 +3,11 @@
 @section('title', 'Buat Berita Perkara')
 
 @section('content')
-    <div class="form-area">
+    <form class="form-area" action="/admin/perkara-berlangsung/{{ $id }}" method="POST"
+        enctype="multipart/form-data">
+        @csrf
+        @method('PUT')
+
         <h6 style="font-weight: bold">Perkara Berlangsung</h6>
         <p style="font-size: 0.75rem">Buat berita mengenai perkara yang sedang berlangsung</p>
         <form action="#" method="POST" enctype="multipart/form-data">
@@ -28,6 +32,6 @@
 
             <button class="btn" type="submit">Create</button>
         </form>
-    </div>
+        </div>
 
-@endsection
+    @endsection

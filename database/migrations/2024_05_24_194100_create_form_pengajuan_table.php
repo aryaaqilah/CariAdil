@@ -43,6 +43,7 @@ return new class extends Migration
             $table->string('lokasi_pembuatan_form');
             $table->date('tanggal');
             $table->text('image_url');
+            $table->integer('target_donasi');
             $table->timestamps();
 
         });
