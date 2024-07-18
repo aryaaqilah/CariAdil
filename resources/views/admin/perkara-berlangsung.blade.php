@@ -29,10 +29,15 @@
                     <tr>
                         <td>{{ $case->id_kasus }}</td>
                         <td>{{ $case->form->nama }}</td>
-                        <td>{{ $case->lbh->nama_lbh }}</td>
+                        @if (!empty($case->lbh->nama_lbh))
+                            <td>{{ $case->lbh->nama_lbh }}</td>
+                        @else
+                            <td>-</td>
+                        @endif
                         <td>{{ $case->created_at }}</td>
                         <td>{{ $case->description }}</td>
-                        <td><button class="btn detail" type="button">Detail</button></td>
+                        <td><a class="btn detail" href=""type="button">Detail</a>
+                        </td>
                     </tr>
                 @endforeach
             </tbody>

@@ -165,7 +165,8 @@ class AdminController extends Controller
     }
 
     public function detail_perkara_berlangsung($id){
-        // return view('admin.')
+
+        return view('admin.perkara-berita');
     }
 
     public function terima_pengajuan(Request $request, $id) {

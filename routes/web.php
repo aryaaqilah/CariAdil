@@ -93,3 +93,6 @@ Route::prefix('/perkara')->group(function () {
     Route::get('/berlangsung', [PerkaraController::class, 'indexPerkaraBerlangsung']);
 });
 
+Route::get('/a', function(){
+    return view('admin.perkara-berita');
+});
