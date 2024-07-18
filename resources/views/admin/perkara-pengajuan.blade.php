@@ -5,9 +5,11 @@
 @section('content')
     <div class="summary-area">
         <div class="row">
-            <div class="col-6 stat">
-                <div class="circle-icon">
-                    <i class="bi bi-person-fill-check"></i>
+            <div class="col-6 stat ml-3">
+                <div class="circle-icon-area">
+                    <div class="circle-icon">
+                        <i class="bi bi-person-fill-check"></i>
+                    </div>
                 </div>
                 <div class="info px-4">
                     <h6 class="title">Belum Diverifikasi</h6>
@@ -20,9 +22,11 @@
                     </span>
                 </div>
             </div>
-            <div class="col-6 px-3 stat">
-                <div class="circle-icon">
-                    <i class="bi bi-person-fill-check"></i>
+            <div class="col-6 stat">
+                <div class="circle-icon-area">
+                    <div class="circle-icon">
+                        <i class="bi bi-person-fill-check"></i>
+                    </div>
                 </div>
                 <div class="info px-4">
                     <h6 class="title">Sudah diverifikasi</h6>

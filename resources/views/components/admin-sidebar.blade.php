@@ -61,8 +61,8 @@
               </a>
               <ul id="components-nav-donation" class="nav-content collapse " data-bs-parent="#sidebar-nav">
                   <li>
-                      <a href="/admin/role-admin">
-                          <i class="bi bi-person"></i><span>Detail Donasi per Kasus</span>
+                      <a href="/admin/donasi">
+                          <i class="bi bi-person"></i><span>Donasi</span>
                       </a>
                   </li>
                   <li>
