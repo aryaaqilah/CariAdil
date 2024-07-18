@@ -23,14 +23,14 @@
             </div>
             <div class="mb-3">
                 <label for="gambarKasus" class="form-label">Gambar</label>
-                <input type="file" class="form-control" id="gambarKasus">
+                <input type="file" class="form-control" id="gambarKasus" name="image_url">
             </div>
             <div class="mb-3">
                 <label for="isiKasus" class="form-label">Isi</label>
-                <textarea class="form-control" id="isiKasus" rows="15"></textarea>
+                <textarea class="form-control" id="isiKasus" rows="15" name="description"></textarea>
             </div>
 
-            <button class="btn" type="submit">Create</button>
+            <button class="btn btn-warning" type="submit">Create</button>
         </form>
         </div>
 

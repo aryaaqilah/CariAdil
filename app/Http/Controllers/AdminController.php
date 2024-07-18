@@ -170,7 +170,7 @@ class AdminController extends Controller
     public function detail_perkara_berlangsung($id){
         $case = KasusHukum::join('form_pengajuan', 'form_pengajuan.id_form', '=', 'kasus_hukum.id_form')
         ->select('*')->where('kasus_hukum.id_form', $id)->get();
-        return view('admin.perkara-berita', compact('case'));
+        return view('admin.perkara-berita', compact('case', 'id'));
     }
 
     public function detail_perkara_berlangsung_create(Request $request){
@@ -190,17 +190,20 @@ class AdminController extends Controller
         if($validator->fails()){
             return redirect()->back()->withInput()->withErrors($validator)->with('danger', 'Pastikan semua field diisi');
         }else{
+            if (!Storage::disk('public')->exists('kasus_hukum')) {
+                Storage::disk('public')->makeDirectory('kasus_hukum');
+            }
+
             $image = $request->file('image_url');
-            $image_url = time().".".$image->getClientOriginalExtension();
-            $path_image_url = Storage::disk('public')->putFileAs('image', $image, $image_url);
+            $imagePath = Storage::disk('public')->putFileAs('kasus_hukum', $image, $image->getClientOriginalName());
 
             KasusHukum::create([
                 'title' => $request->title,
                 'description' => $request->description,
-                'image_url' => $request->image
+                'image_url' => $imagePath
             ]);
             
-            return redirect()->route('admin.perkara-berlangsung')->with('success', "Tambah berita berhasil!");
+            return redirect('admin.perkara-berlangsung')->with('success', "Tambah berita berhasil!");
         }
     }
 

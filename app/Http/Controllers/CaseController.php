@@ -134,14 +134,14 @@ class CaseController extends Controller
         $user = Session::get('user');
 
         $pidana = KasusHukum::join('form_pengajuan', 'kasus_hukum.id_form', '=', 'form_pengajuan.id_form')
-        ->select('id_kasus', 'title', 'description', 'form_pengajuan.tanggal', 'target_donasi', 'kasus_hukum.id_form', 'id_lbh', 'status_pengajuan', 'kasus_hukum.image_url', 'kasus_hukum.created_at', 'kasus_hukum.updated_at')
+        ->select('id_kasus', 'title', 'description', 'form_pengajuan.tanggal', 'kasus_hukum.target_donasi', 'kasus_hukum.id_form', 'id_lbh', 'status_pengajuan', 'kasus_hukum.image_url', 'kasus_hukum.created_at', 'kasus_hukum.updated_at')
         ->where('form_pengajuan.jenis_perkara', '=', 'Pidana')
         ->where('kasus_hukum.id_lbh', '=', $user->id_LBH)
         ->where('status_pengajuan', '=', 'Proses')
         ->get();
         
         $perdata = KasusHukum::join('form_pengajuan', 'kasus_hukum.id_form', '=', 'form_pengajuan.id_form')
-        ->select('id_kasus', 'title', 'description', 'form_pengajuan.tanggal', 'target_donasi', 'kasus_hukum.id_form', 'id_lbh', 'status_pengajuan', 'kasus_hukum.image_url', 'kasus_hukum.created_at', 'kasus_hukum.updated_at')
+        ->select('id_kasus', 'title', 'description', 'form_pengajuan.tanggal', 'kasus_hukum.target_donasi', 'kasus_hukum.id_form', 'id_lbh', 'status_pengajuan', 'kasus_hukum.image_url', 'kasus_hukum.created_at', 'kasus_hukum.updated_at')
         ->where('form_pengajuan.jenis_perkara', '=', 'Perdata')
         ->where('kasus_hukum.id_lbh', '=', $user->id_LBH)
         ->where('status_pengajuan', '=', 'Proses')
@@ -392,13 +392,13 @@ class CaseController extends Controller
     public function pengajuan_bantuan()
     {
         $pidana = KasusHukum::join('form_pengajuan', 'kasus_hukum.id_form', '=', 'form_pengajuan.id_form')
-        ->select('id_kasus', 'title', 'description', 'form_pengajuan.tanggal', 'target_donasi', 'kasus_hukum.id_form', 'id_lbh', 'status_pengajuan', 'kasus_hukum.image_url', 'kasus_hukum.created_at', 'kasus_hukum.updated_at')
+        ->select('id_kasus', 'title', 'description', 'form_pengajuan.tanggal', 'kasus_hukum.target_donasi', 'kasus_hukum.id_form', 'id_lbh', 'status_pengajuan', 'kasus_hukum.image_url', 'kasus_hukum.created_at', 'kasus_hukum.updated_at')
         ->where('form_pengajuan.jenis_perkara', '=', 'Pidana')
         ->whereNULL('id_lbh')
         ->get();
 
         $perdata = KasusHukum::join('form_pengajuan', 'kasus_hukum.id_form', '=', 'form_pengajuan.id_form')
-        ->select('id_kasus', 'title', 'description', 'form_pengajuan.tanggal', 'target_donasi', 'kasus_hukum.id_form', 'id_lbh', 'status_pengajuan', 'kasus_hukum.image_url', 'kasus_hukum.created_at', 'kasus_hukum.updated_at')
+        ->select('id_kasus', 'title', 'description', 'form_pengajuan.tanggal', 'kasus_hukum.target_donasi', 'kasus_hukum.id_form', 'id_lbh', 'status_pengajuan', 'kasus_hukum.image_url', 'kasus_hukum.created_at', 'kasus_hukum.updated_at')
         ->where('form_pengajuan.jenis_perkara', '=', 'Perdata')
         ->whereNULL('id_lbh')
         ->get();
