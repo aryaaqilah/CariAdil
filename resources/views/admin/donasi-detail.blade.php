@@ -7,15 +7,14 @@
         <h6 style="font-weight: bold">Donasi</h6>
         <p style="font-size: 0.75rem">Donasi terkumpul hingga sekarang</p>
         <div class="donation-stat d-flex flex-column">
-            <p style="font-weight: bold; margin:0">Andreas Liujaya</p>
-            <p class="flex-column" style="font-size:0.8rem; margin:0">ID Kasus: P00030</p>
-            <p class="flex-column" style="font-size:0.8rem; margin:0">LBH Mawar Saron</p>
+            <p style="font-weight: bold; margin:0">{{ $data->nama }}</p>
+            <p class="flex-column" style="font-size:0.8rem; margin:0">ID Kasus: CA00{{ $data->id_kasus }}</p>
+            <p class="flex-column" style="font-size:0.8rem; margin:0">{{ $data->nama_lbh }}</p>
             <br>
             <div style="width : 30rem; height: 2rem">
-                <div class="progress" style="width:100%">
-                    <div class="progress-bar" role="progressbar"
-                        aria-label="Basic example"
-                        style="width: 73%; height:2rem; color:orange"
+                <div class="progress">
+                    <div class="progress-bar" role="progressbar" aria-label="Basic example"
+                        style="width: {{ ($total / $kasusHukum->target_donasi) * 100 }}%; height:2rem; color:orange"
                         aria-valuenow="25" aria-valuemin="0" aria-valuemax="100">
                     </div>
                 </div>
@@ -23,7 +22,7 @@
         </div>
     </div>
 
-    <div class="row db">
+    {{-- <div class="row db">
         <div class="col-5 big-stat">
             <h6 style="font-weight: bold">Riwayat Penarikan</h6>
             <p style="font-size: 0.75rem">Catatan penarikan donasi</p>
@@ -32,40 +31,16 @@
                     <tr>
                         <th scope="col" width="130rem">Nominal</th>
                         <th scope="col" width="130rem">Tanggal</th>
-                        <th scope="col" width="130rem">Bukti</th>
                     </tr>
                 </thead>
                 <tbody>
-                    <tr>
-                        <td>70.000</td>
-                        <td>30 Juni 2024</td>
-                        <td>uyo.png</td>
-                    </tr>
-                    <tr>
-                        <td>70.000</td>
-                        <td>30 Juni 2024</td>
-                        <td>uyo.png</td>
-                    </tr>
-                    <tr>
-                        <td>70.000</td>
-                        <td>30 Juni 2024</td>
-                        <td>uyo.png</td>
-                    </tr>
-                    <tr>
-                        <td>70.000</td>
-                        <td>30 Juni 2024</td>
-                        <td>uyo.png</td>
-                    </tr>
-                    <tr>
-                        <td>70.000</td>
-                        <td>30 Juni 2024</td>
-                        <td>uyo.png</td>
-                    </tr>
-                    <tr>
-                        <td>70.000</td>
-                        <td>30 Juni 2024</td>
-                        <td>uyo.png</td>
-                    </tr>
+                    @foreach ($donation as $d)
+                        <tr>
+                            <td>Rp {{ number_format($d->nominal, 2, ',', '.') }}</td>
+                            {{-- <td>{{ $d->nominal }}</td> --}}
+    {{-- <td>{{ $d->transaksi_donasi->created_at }}</td> --}}
+    {{-- </tr>
+                    @endforeach
                 </tbody>
             </table>
         </div>
@@ -86,7 +61,7 @@
             </div>
             <button type="button" class="btn btn-primary">Submit</button>
         </div>
-    </div>
+    </div> --}}
 
     <div class="form-area">
         <h6 style="font-weight: bold">Riwayat Donasi</h6>
@@ -97,53 +72,23 @@
                 <tr>
                     <th scope="col" width="130rem">Nama</th>
                     <th scope="col" width="50rem">Bank</th>
-                    <th scope="col" width="110rem">Jumlah Donasi</th>
+                    <th scope="col" width="120rem">Jumlah Donasi</th>
                     <th scope="col" width="160rem">Email</th>
                     <th scope="col" width="110rem">Nomor Telepon</th>
                     <th scope="col">Dukungan</th>
                 </tr>
             </thead>
             <tbody>
-                <tr>
-                    <td>Evotiana</td>
-                    <td>BRI</td>
-                    <td>3.000.000</td>
-                    <td>evoganteng@gmail.com</td>
-                    <td>0213894828</td>
-                    <td>Tetap semangat kak</td>
-                </tr>
-                <tr>
-                    <td>Fauzan Ganteng Bang</td>
-                    <td>BRI</td>
-                    <td>300.000</td>
-                    <td>ojanojanojan@gmail.com</td>
-                    <td>0213894828</td>
-                    <td>Jangan menyerah ya kak. Tetap semangat</td>
-                </tr>
-                <tr>
-                    <td>Fauzan Ganteng Bang</td>
-                    <td>BRI</td>
-                    <td>300.000</td>
-                    <td>ojanojanojan@gmail.com</td>
-                    <td>0213894828</td>
-                    <td>Jangan menyerah ya kak. Tetap semangat</td>
-                </tr>
-                <tr>
-                    <td>Fauzan Ganteng Bang</td>
-                    <td>BRI</td>
-                    <td>300.000</td>
-                    <td>ojanojanojan@gmail.com</td>
-                    <td>0213894828</td>
-                    <td>Jangan menyerah ya kak. Tetap semangat</td>
-                </tr>
-                <tr>
-                    <td>Fauzan Ganteng Bang</td>
-                    <td>BRI</td>
-                    <td>300.000</td>
-                    <td>ojanojanojan@gmail.com</td>
-                    <td>0213894828</td>
-                    <td>Jangan menyerah ya kak. Tetap semangat</td>
-                </tr>
+                @foreach ($donation as $d)
+                    <tr>
+                        <td>{{ $d->nama }}</td>
+                        <td>{{ $d->nama_bank }}</td>
+                        <td>Rp {{ number_format($d->nominal, 2, ',', '.') }}</td>
+                        <td>{{ $d->email }}</td>
+                        <td>{{ $d->nomor_telepon }}</td>
+                        <td>{{ $d->dukungan }}</td>
+                    </tr>
+                @endforeach
             </tbody>
         </table>
     </div>

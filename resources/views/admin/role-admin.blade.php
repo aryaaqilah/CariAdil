@@ -30,7 +30,8 @@
                     <span class="increase">
                         @foreach ($lbh->take(2) as $user_lbh)
                             {{ $user_lbh->nama_lbh }},
-                        @endforeach {{ count($lbh) - 2 < 0 ? '' : 'and' . count($lbh) - 2 . 'others' }}
+                        @endforeach
+                        {{ count($lbh) - 2 < 0 ? '' : ' and ' . count($lbh) - 2 . ' others' }}
                     </span>
                 </div>
             </div>
@@ -38,7 +39,7 @@
     </div>
 
     <div class="add-area">
-        <a href="admin-role/create">
+        <a href="/admin/role-admin/create">
             <button type="button" class="btn"><i class="bi bi-person-fill-add"></i> Add Admin</button>
         </a>
     </div>

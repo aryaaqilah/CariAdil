@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Admin;
 use App\Models\KasusHukum;
+use App\Models\FormPengajuan;
 use App\Models\LBH;
 use App\Models\TransaksiDonasi;
 use Carbon\Carbon;
@@ -16,9 +17,14 @@ class AdminController extends Controller
      */
     public function index()
     {
-        // Dashboard
+        $pengajuan = FormPengajuan::select('*')->get();
+        $kasusHukum = KasusHukum::join('lbh', 'lbh.id_LBH', '=', 'kasus_hukum.id_lbh')
+        ->join('form_pengajuan', 'form_pengajuan.id_form', '=', 'kasus_hukum.id_form')
+        ->select('*')->get();
+        $donasi = TransaksiDonasi::select('*')->get();
+        $lbh = LBH::select('*')->get();
 
-        return view('admin.dashboard');
+        return view('admin.dashboard', compact('pengajuan', 'kasusHukum','donasi', 'lbh'));
     }
 
     /**
@@ -40,8 +46,24 @@ class AdminController extends Controller
                 }
             }
         }
-
         return view('admin.donasi', compact('cases', 'countWeeklyTransactions', 'biggestDonation'));
+    }
+
+    public function donation_detail($id){
+        $data = KasusHukum::join('form_pengajuan', 'kasus_hukum.id_form', '=', 'form_pengajuan.id_form')
+        ->join('lbh', 'lbh.id_LBH', '=', 'kasus_hukum.id_lbh')->select('*')
+        ->where('kasus_hukum.id_kasus', '=', $id)->first();
+        
+        $donation = TransaksiDonasi::join('kasus_hukum', 'kasus_hukum.id_kasus', '=', 'transaksi_donasi.id_kasus_hukum')
+        ->join('bank', 'transaksi_donasi.id_bank', '=', 'bank.id_bank')
+        ->select('transaksi_donasi.*', 'bank.nama as nama_bank', 'kasus_hukum.*')
+        ->where('kasus_hukum.id_kasus', '=', $id)->get();
+        $kasusHukum = KasusHukum::find($id);
+        $total = 0;
+        foreach ($donation as $d){
+            $total+= $d->nominal;
+        }
+        return view('admin.donasi-detail', compact('data', 'donation', 'total', 'kasusHukum'));
     }
 
     /**
@@ -124,34 +146,33 @@ class AdminController extends Controller
         return redirect()->route('admin.lbh-role');
     }
 
-    /**
-     * Display the specified resource.
-     */
-    public function log()
-    {
-        // Halaman Log
-
-        return view('admin.log');
+  
+    public function pengajuan_perkara(){
+        $cases = FormPengajuan::all();
+        $belumVerifikasi = FormPengajuan::whereNull('form_pengajuan.jenis_perkara')->get();
+        $verifikasi = FormPengajuan::whereNotNull('form_pengajuan.jenis_perkara')->get();
+        return view('admin.perkara-pengajuan', compact('cases', 'belumVerifikasi', 'verifikasi'));
     }
 
-    /**
-     * Show the form for editing the specified resource.
-     */
-    public function submission()
-    {
-        // Halaman Pengajuan
-
-        return view('admin.perkara-pengajuan');
+    public function detail_pengajuan_perkara($id){
+        $perkara = FormPengajuan::select('*')->where('form_pengajuan.id_form', '=', $id)->first();
+        return view('admin.perkara-pengajuan-detail', ['perkara'=>$perkara]);
     }
 
-    /**
-     * Show the form for editing the specified resource.
-     */
-    public function activeCases()
-    {
-        // Halaman Pengajuan
+    public function perkara_berlangsung(){
         $cases = KasusHukum::all();
-
         return view('admin.perkara-berlangsung', compact('cases'));
+    }
+
+    public function detail_perkara_berlangsung($id){
+        // return view('admin.')
+    }
+
+    public function terima_pengajuan(Request $request, $id) {
+        FormPengajuan::find($id)->update([
+            'jenis_perkara' => $request->jenis_perkara,
+        ]);
+        
+        return redirect()->route('admin.pengajuan-perkara');
     }
 }

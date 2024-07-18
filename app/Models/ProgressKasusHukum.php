@@ -12,5 +12,5 @@ class ProgressKasusHukum extends Model
     protected $table = 'progress_kasus_hukum';
     protected $primaryKey = 'id_progress';
     protected $guarded = [];
-    protected $fillable = ['topik_progress', 'date', 'detail', 'catatan', 'id_kasus'];
+    protected $fillable = ['topik_progress', 'date', 'detail', 'catatan', 'id_kasus', 'lokasi', 'waktu'];
 }

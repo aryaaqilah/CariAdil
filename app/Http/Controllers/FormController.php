@@ -7,6 +7,8 @@ use Carbon\Carbon;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Storage;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Session;
 
 class FormController extends Controller
 {
@@ -19,28 +21,7 @@ class FormController extends Controller
         return view('user.form', ['auth' => $auth, 'noPemohon' => $noPemohon]);
     }
 
-    public function pengajuan_bantuan()
-    {
-        $pengajuanBantuan = FormPengajuan::orderBy('tanggal', 'DESC')
-        // ->join('kasus_hukum', 'form_pengajuan.id_form', '=', 'kasus_hukum.id_form')
-        ->select('*')->get();
-        // ->select('form_pengajuan.*', 'kasus_hukum.jenis_perkara')->get();
-        $auth = true;
-
-        return view('userLBH.pengajuan_perkara', ['pengajuan_bantuan' => $pengajuanBantuan, 'auth' => $auth]);
-    }
-
-    public function detail_pengajuan_bantuan($id)
-    {
-        // $pengajuanBantuan = FormPengajuan::join('kasus_hukum', 'form_pengajuan.id_form', '=', 'kasus_hukum.id_form')
-        // ->select('form_pengajuan.*', 'kasus_hukum.jenis_perkara')
-        // ->where('form_pengajuan.id_form', $id)->get();
-        $pengajuanBantuan = FormPengajuan::select('*')
-        ->where('id_form', '=', $id)->get();
-        
-        $auth = true;
-        return view('userLBH.detail_pengajuan_perkara', ['auth' => $auth, 'pengajuanBantuan' => $pengajuanBantuan]);
-    }
+    
 
     public function create()
     {
@@ -129,4 +110,6 @@ class FormController extends Controller
     {
         //
     }
+
+    
 }

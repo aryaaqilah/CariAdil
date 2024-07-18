@@ -1,38 +1,59 @@
 @extends('components/admin-layout')
 
-@section('title', 'Dashboard Page')
+@section('title', 'Dashboard')
 
 @section('content')
     <div class="summary-area">
         <div class="row">
-            <div class="col-4 px-3 stat">
-                <div class="circle-icon">
-                    <i class="bi bi-person-fill-check"></i>
+            <div class="col-4 stat">
+                <div class="circle-icon-area">
+                    <div class="circle-icon">
+                        <i class="bi bi-chat-left-text-fill"></i>
+                    </div>
                 </div>
                 <div class="info px-4">
-                    <h6 class="title">Admin</h6>
-                    <h2 class="value">5</h2>
-                    <span class="increase">Ojan, Evo and 3 others ... </span>
+                    <h6 class="title">Perkara Pengajuan</h6>
+                    <h2 class="value">{{ count($pengajuan) }}</h2>
+                    <span class="increase">
+                        @foreach ($pengajuan->take(1) as $p)
+                            {{ $p->nama }}
+                        @endforeach
+                        {{ count($pengajuan) - 1 < 0 ? '' : ' and ' . count($pengajuan) - 1 . ' others' }}
+                    </span>
                 </div>
             </div>
-            <div class="col-4 px-3 stat">
-                <div class="circle-icon">
-                    <i class="bi bi-people-fill"></i>
+            <div class="col-4 stat">
+                <div class="circle-icon-area">
+                    <div class="circle-icon">
+                        <i class="bi bi-check-square-fill"></i>
+                    </div>
+                </div>
+                <div class="info px-4">
+                    <h6 class="title">Konfirmasi Donasi</h6>
+                    <h2 class="value">{{ count($donasi) }}</h2>
+                    <span class="increase">
+                        @foreach ($donasi->take(1) as $d)
+                            {{ $d->nama }}
+                        @endforeach
+                        {{ count($donasi) - 1 < 0 ? '' : ' and ' . count($donasi) - 1 . ' others' }}
+                    </span>
+                </div>
+            </div>
+            <div class="col-4 stat">
+                <div class="circle-icon-area">
+                    <div class="circle-icon">
+                        <i class="bi bi-people-fill"></i>
+                    </div>
                 </div>
                 <div class="info px-4">
                     <h6 class="title">User LBH</h6>
-                    <h2 class="value">10</h2>
-                    <span class="increase">LBH Ojan Lomba and 9 others</span>
-                </div>
-            </div>
-            <div class="col-4 px-3 stat">
-                <div class="circle-icon">
-                    <i class="bi bi-people-fill"></i>
-                </div>
-                <div class="info px-4">
-                    <h6 class="title">User LBH</h6>
-                    <h2 class="value">10</h2>
-                    <span class="increase">LBH Ojan Lomba and 9 others</span>
+                    <h2 class="value">{{ count($lbh) }}</h2>
+                    <span class="increase">
+                        @foreach ($lbh->take(1) as $l)
+                            {{ $l->nama }}
+                        @endforeach
+                        {{ count($lbh) - 1 < 0 ? '' : ' and ' . count($lbh) - 1 . ' others' }}
+                    </span>
                 </div>
             </div>
         </div>
@@ -43,25 +64,135 @@
         <h6 style="font-size: 0.8rem">28 Mei 2024</h6>
     </div>
 
-    <div class="row db">
+    <div class="row big-stat-area">
         <div class="col-5 big-stat">
-            <h6 style="font-weight: bold">Perkara Masuk</h6>
+            <h6 style="font-weight: bold">Perkara Pengajuan</h6>
             <p style="font-size: 0.75rem">Verifikasi setiap permohonan perkara</p>
+            <table class="table logaktivitas">
+                <thead>
+                    <tr>
+                        <th scope="col" width="100rem">Nama Pemohon</th>
+                        <th scope="col">Tanggal Dikirim</th>
+                        <th scope="col">Detail</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach ($pengajuan as $p)
+                        <tr>
+                            <td>{{ $p->nama }}</td>
+                            <td>{{ $p->tanggal }}</td>
+                            <td><a class="btn detail" type="button"
+                                    href="{{ route('detail_pengajuan_perkara', $p->id_form) }}"
+                                    style="width: 4rem; font-size:0.7rem">Detail</a>
+                            </td>
+                        </tr>
+                    @endforeach
+                </tbody>
+            </table>
         </div>
-        <div class="col-5 big-stat">
-            <h6 style="font-weight: bold">Perkara Diproses</h6>
+        <div class="col-5 big-stat" style="margin-right: 0">
+            <h6 style="font-weight: bold">Perkara Berlangsung</h6>
             <p style="font-size: 0.75rem">Menunggu konfirmasi User LBH</p>
+            <table class="table logaktivitas">
+                <thead>
+                    <tr>
+                        <th>ID Perkara</th>
+                        <th>Nama Pemohon</th>
+                        <th>LBH</th>
+                        <th>Detail</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach ($kasusHukum as $k)
+                        <tr>
+                            <td>{{ $k->id_kasus }}</td>
+                            <td>{{ $k->nama }}</td>
+                            <td>{{ $k->nama_lbh }}</td>
+                            <td><a class="btn detail" href="{{ route('detail_perkara_berlangsung', $k->id_form) }}"
+                                    style="width: 4rem; font-size:0.7rem">Detail</a>
+                            </td>
+                        </tr>
+                    @endforeach
+                </tbody>
+            </table>
         </div>
     </div>
 
-    <div class="form-area">
+    <div class="summary-area">
         <h6 style="font-weight: bold">Update Donasi</h6>
         <p style="font-size: 0.75rem">Banyak donasi yang terkumpul hingga sekarang</p>
-        <div class="row text-center">
-            <div class="col-1 bar-stat">
-                <div class="bar" style="height: 80%"></div>
-                <div class="w-100">D21</div>
+        <div class="row">
+            <div class="progress-bar-area">
+                <div class="progress vertical">
+                    <div class="progress-bar" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100"
+                        style="10%"></div>
+                </div>
+                <h5 class="progress-text">P0011</h5>
             </div>
+            <div class="progress-bar-area">
+                <div class="progress vertical">
+                    <div class="progress-bar" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100"
+                        style="10%"></div>
+                </div>
+                <h5 class="progress-text">P0012</h5>
+            </div>
+            <div class="progress-bar-area">
+                <div class="progress vertical">
+                    <div class="progress-bar" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100"
+                        style="10%"></div>
+                </div>
+                <h5 class="progress-text">P0013</h5>
+            </div>
+            <div class="progress-bar-area">
+                <div class="progress vertical">
+                    <div class="progress-bar" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100"
+                        style="10%"></div>
+                </div>
+                <h5 class="progress-text">P0014</h5>
+            </div>
+            <div class="progress-bar-area">
+                <div class="progress vertical">
+                    <div class="progress-bar" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100"
+                        style="10%"></div>
+                </div>
+                <h5 class="progress-text">P0015</h5>
+            </div>
+            <div class="progress-bar-area">
+                <div class="progress vertical">
+                    <div class="progress-bar" role="progressbar" aria-valuenow="0" aria-valuemin="0"
+                        aria-valuemax="100" style="10%"></div>
+                </div>
+                <h5 class="progress-text">P0016</h5>
+            </div>
+            <div class="progress-bar-area">
+                <div class="progress vertical">
+                    <div class="progress-bar" role="progressbar" aria-valuenow="0" aria-valuemin="0"
+                        aria-valuemax="100" style="10%"></div>
+                </div>
+                <h5 class="progress-text">P0017</h5>
+            </div>
+            <div class="progress-bar-area">
+                <div class="progress vertical">
+                    <div class="progress-bar" role="progressbar" aria-valuenow="0" aria-valuemin="0"
+                        aria-valuemax="100" style="10%"></div>
+                </div>
+                <h5 class="progress-text">P0018</h5>
+            </div>
+            <div class="progress-bar-area">
+                <div class="progress vertical">
+                    <div class="progress-bar" role="progressbar" aria-valuenow="0" aria-valuemin="0"
+                        aria-valuemax="100" style="10%"></div>
+                </div>
+                <h5 class="progress-text">P0019</h5>
+            </div>
+            <div class="progress-bar-area">
+                <div class="progress vertical">
+                    <div class="progress-bar" role="progressbar" aria-valuenow="0" aria-valuemin="0"
+                        aria-valuemax="100" style="10%"></div>
+                </div>
+                <h5 class="progress-text">P0020</h5>
+            </div>
+
         </div>
     </div>
 

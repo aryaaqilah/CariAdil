@@ -2,12 +2,13 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\LBH;
+use App\Models\KasusHukum;
 use Illuminate\Http\Request;
+use App\Models\ProgressKasusHukum;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
-use App\Models\KasusHukum;
-use App\Models\LBH;
-use Session;
+use Illuminate\Support\Facades\Session;
 
 class UserController extends Controller
 {
@@ -16,10 +17,19 @@ class UserController extends Controller
      */
     public function index()
     {
-        $kasusHukum = KasusHukum::orderBy('tanggal', 'DESC')->take(2)->get();
+        $user = Session::get('user');
+        // dd($user->id_LBH);
+        $kasusHukum = KasusHukum::orderBy('tanggal', 'DESC')->where('id_LBH', '=', $user->id_LBH)->take(2)->get();
+        $jadwal = ProgressKasusHukum::join('kasus_hukum', 'kasus_hukum.id_kasus', '=', 'progress_kasus_hukum.id_kasus')
+        ->select('*')
+        ->where('kasus_hukum.id_lbh', '=', $user->id_LBH)
+        ->orderBy('tanggal', 'DESC')
+        ->take(3)
+        ->get();
+        // dd($jadwal);
         $auth = true;
 
-        return view('userLBH.beranda', ['list_kasus_hukum' => $kasusHukum, 'auth' => $auth]);
+        return view('userLBH.beranda', ['list_kasus_hukum' => $kasusHukum, 'jadwal' => $jadwal, 'auth' => $auth, 'user'=>$user]);
     }
 
     public function showLogin(){
@@ -38,12 +48,13 @@ class UserController extends Controller
         // $user->save();
 
         if ($user && Hash::check($request->password, $user->password)) {
+            $request->session()->regenerate();
             Session::put('user', $user);
+            // dd($user);
             return redirect()->route('beranda');
         } else {
             return redirect()->back()->withErrors(['email' => 'Invalid credentials']);
         }
-
     }
 
     /**

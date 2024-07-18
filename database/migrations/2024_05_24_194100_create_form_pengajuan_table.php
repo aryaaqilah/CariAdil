@@ -13,6 +13,7 @@ return new class extends Migration
     {
         Schema::create('form_pengajuan', function (Blueprint $table) {
             $table->id('id_form');
+            $table->string('jenis_perkara')->nullable();
             $table->string('nomor_pemohon');
             $table->string('nama');
             $table->string('nama_panggilan');
@@ -43,6 +44,7 @@ return new class extends Migration
             $table->date('tanggal');
             $table->text('image_url');
             $table->timestamps();
+
         });
     }
 
