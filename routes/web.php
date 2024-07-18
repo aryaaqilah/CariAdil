@@ -83,6 +83,8 @@ Route::prefix('/admin')->group(function () {
     Route::get('/pengajuan', [AdminController::class, 'submission']);
 
     Route::get('/kasus-perkara', [AdminController::class, 'activeCases']);
+
+    // Route::get('/kasus-perkara-berita')
     // Route::get('/produk', [AdminController::class, 'index']);
 
     // New added

@@ -30,7 +30,7 @@
                         <td>{{ $case->id_kasus }}</td>
                         <td>{{ $case->form->nama }}</td>
                         <td>{{ $case->lbh->nama_lbh }}</td>
-                        <td>{{ $case->created_at }}</td>
+                        <td>{{ $case->updated_at }}</td>
                         <td>{{ $case->description }}</td>
                         <td><button class="btn detail" type="button">Detail</button></td>
                     </tr>

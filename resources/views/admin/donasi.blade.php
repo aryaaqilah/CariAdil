@@ -80,7 +80,13 @@
                         <td><button
                                 class="btn @if ($percentage >= 100) complete @else
                             inprogress @endif "
-                                type="button">In Progress</button></td>
+                                type="button">
+                                @if ($percentage >= 100)
+                                    Completed
+                                @else
+                                    In Progress
+                                @endif
+                            </button></td>
                     </tr>
                 @endforeach
             </tbody>
