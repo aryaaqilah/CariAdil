@@ -9,6 +9,10 @@ use App\Models\LBH;
 use App\Models\TransaksiDonasi;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Validator;
+use Illuminate\Support\Facades\Storage;
+use Illuminate\Support\Str;
+
 
 class AdminController extends Controller
 {
@@ -165,8 +169,40 @@ class AdminController extends Controller
     }
 
     public function detail_perkara_berlangsung($id){
+        $case = KasusHukum::join('form_pengajuan', 'form_pengajuan.id_form', '=', 'kasus_hukum.id_form')
+        ->select('*')->where('kasus_hukum.id_form', $id)->get();
+        return view('admin.perkara-berita', compact('case'));
+    }
 
-        return view('admin.perkara-berita');
+    public function detail_perkara_berlangsung_create(Request $request){
+        $rules = [
+            "title" => "required",
+            "description" => "required",
+            "image" => "required|mimes:jpg,png,jpeg,gif|max:2048"
+        ];
+
+        $message = ["required" => ":attribute wajib diisi!", 
+        "min" => ":attribute minimal berisi :min karakter!",
+        "max" => ":attribute maksimal berisi :max karakter",
+        "fileLampiran.mimes" => "file harus berupa gambar dengan format jpg, png, jpeg, atau gif",
+        ];
+
+        $validator = Validator::make($request->all(), $rules, $message);
+        if($validator->fails()){
+            return redirect()->back()->withInput()->withErrors($validator)->with('danger', 'Pastikan semua field diisi');
+        }else{
+            $image = $request->file('image_url');
+            $image_url = time().".".$image->getClientOriginalExtension();
+            $path_image_url = Storage::disk('public')->putFileAs('image', $image, $image_url);
+
+            KasusHukum::create([
+                'title' => $request->title,
+                'description' => $request->description,
+                'image_url' => $request->image
+            ]);
+            
+            return redirect()->route('admin.perkara-berlangsung')->with('success', "Tambah berita berhasil!");
+        }
     }
 
     public function terima_pengajuan(Request $request, $id) {

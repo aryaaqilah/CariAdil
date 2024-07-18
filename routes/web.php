@@ -81,6 +81,7 @@ Route::prefix('/admin')->group(function () {
     // New added
     Route::get('/perkara-berlangsung', [AdminController::class, 'perkara_berlangsung']);
     Route::get('/perkara-berlangsung/{id}', [AdminController::class, 'detail_perkara_berlangsung'])->name('detail_perkara_berlangsung');
+    Route::post('/perkara-berlangsung/{id}', [AdminController::class, 'detail_perkara_berlangsung_create'])->name('detail_perkara_berlangsung_create');
 
     Route::get('/role-admin', [AdminController::class, 'adminRole']);
     Route::get('/role-admin/create', [AdminController::class, 'adminCreate']);

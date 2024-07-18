@@ -36,7 +36,8 @@
                         @endif
                         <td>{{ $case->created_at }}</td>
                         <td>{{ $case->description }}</td>
-                        <td><a class="btn detail" href=""type="button">Detail</a>
+                        <td><a class="btn detail"
+                                href="{{ route('detail_perkara_berlangsung', $case->id_form) }}"type="button">Detail</a>
                         </td>
                     </tr>
                 @endforeach

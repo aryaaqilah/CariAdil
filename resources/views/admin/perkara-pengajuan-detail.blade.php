@@ -114,15 +114,6 @@
                 </div>
             </div>
         </div>
-        <div class="col-1"></div>
-        <div class="pembatas80"></div>
-        <div class="col-11">
-            <div class="row d-flex ms-5">
-                <p>Tambahkan Informasi</p>
-                <input class="form-control" type="text" placeholder="Tambahkan Informasi" aria-label="Search"
-                    style="border: 1px solid rgba(232, 123, 47, 1); border-radius: 12px; background-color: #EFEFEF">
-            </div>
-        </div>
 
         <div class="d-flex justify-content-center mt-3 gap-4 mb-4 col-11" style="color:rgba(232, 123, 47, 1)">
             <form action="/admin/pengajuan-perkara/{{ $perkara->id_form }}" method="POST" class="row ms-5"
