@@ -273,6 +273,7 @@ nav {
     position: relative;
   }
   .progress-marker::before {
+    
     content: attr(data-text);
     display: flex;
     justify-content: center;
@@ -310,13 +311,13 @@ nav {
   }
 
   .progress-step .progress-marker {
-    color: #fff;
+    color: white;
   }
   .progress-step .progress-marker::before {
-    background-color: #b6b6b6;
+    background-color: green;
   }
   .progress-step .progress-marker::after {
-    background-color: #b6b6b6;
+    background-color: green;
   }
   .progress-step .progress-text {
     color: #333;
@@ -326,9 +327,13 @@ nav {
   }
   .progress-step.is-complete .progress-marker::before, .progress-step.is-progress .progress-marker::before {
     background-color: rgba(232, 123, 47, 1);;
+    width: 40px;
+    height: 40px;
   }
   .progress-step.is-complete .progress-marker::after, .progress-step.is-progress .progress-marker::after {
-    background-color: #868686;
+    background-color: #000000;
+    opacity: 0.1;
+    margin-top: 10px;
   }
   .progress-step.is-progress-10 .progress-marker::after {
     background-image: linear-gradient(to right, #868686 10%, #b6b6b6 10%);
@@ -358,7 +363,7 @@ nav {
     background-image: linear-gradient(to right, #868686 90%, #b6b6b6 90%);
   }
   .progress-step:hover .progress-marker::before {
-    background-color: #56ADF5;
+    /* background-color: #56ADF5; */
   }
   .progress-tracker--text .progress-step:last-child, .progress-tracker--center .progress-step:last-child, .progress-tracker--right .progress-step:last-child {
     flex-grow: 1;

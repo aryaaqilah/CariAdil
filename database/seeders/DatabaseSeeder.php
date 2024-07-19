@@ -185,7 +185,7 @@ class DatabaseSeeder extends Seeder
                 'tanggal' => Carbon::now(),
                 'target_donasi' => '10000000',
                 // 'id_bank' => 1,
-                'id_form' => 2,
+                'id_form' => 1,
                 'status_pengajuan' => 'Proses',
                 'image_url' => 'tygbh',
                 'created_at' => Carbon::now()

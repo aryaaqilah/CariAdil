@@ -45,7 +45,6 @@
         </div>
 
         <div class="row">
-            {{-- <div class="col-1"></div> --}}
             <div class="col-12">
                 <div class="tab-content" id="pills-tabContent">
                     <div class="tab-pane fade show active" id="pills-home" role="tabpanel"
@@ -54,7 +53,6 @@
                         <div class="row">
                             <div class="row">
                                 @foreach ($pidana as $kasusHukum)
-                                    {{-- @dd($kasusHukum) --}}
                                     <div class="col-4 d-flex g-5">
                                         <div class="card border border-light-subtle" id="card">
                                             <img src="../assets/images/kasus1.png" class="card-img-top" alt="...">
@@ -78,7 +76,6 @@
                         <div class="row">
                             <div class="row">
                                 @foreach ($perdata as $kasusHukum)
-                                    {{-- @dd($kasusHukum) --}}
                                     <div class="col-4 d-flex g-5">
                                         <div class="card border border-light-subtle" id="card">
                                             <img src="../assets/images/kasus1.png" class="card-img-top" alt="...">
