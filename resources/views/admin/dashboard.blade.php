@@ -124,70 +124,70 @@
         <div class="row">
             <div class="progress-bar-area">
                 <div class="progress vertical">
-                    <div class="progress-bar" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100"
-                        style="10%"></div>
+                    <div class="progress-bar-vertical" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100"
+                        style="height: 70%"></div>
                 </div>
                 <h5 class="progress-text">P0011</h5>
             </div>
             <div class="progress-bar-area">
                 <div class="progress vertical">
-                    <div class="progress-bar" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100"
+                    <div class="progress-bar-vertical" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100"
                         style="10%"></div>
                 </div>
                 <h5 class="progress-text">P0012</h5>
             </div>
             <div class="progress-bar-area">
                 <div class="progress vertical">
-                    <div class="progress-bar" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100"
+                    <div class="progress-bar-vertical" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100"
                         style="10%"></div>
                 </div>
                 <h5 class="progress-text">P0013</h5>
             </div>
             <div class="progress-bar-area">
                 <div class="progress vertical">
-                    <div class="progress-bar" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100"
+                    <div class="progress-bar-vertical" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100"
                         style="10%"></div>
                 </div>
                 <h5 class="progress-text">P0014</h5>
             </div>
             <div class="progress-bar-area">
                 <div class="progress vertical">
-                    <div class="progress-bar" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100"
+                    <div class="progress-bar-vertical" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100"
                         style="10%"></div>
                 </div>
                 <h5 class="progress-text">P0015</h5>
             </div>
             <div class="progress-bar-area">
                 <div class="progress vertical">
-                    <div class="progress-bar" role="progressbar" aria-valuenow="0" aria-valuemin="0"
+                    <div class="progress-bar-vertical" role="progressbar" aria-valuenow="0" aria-valuemin="0"
                         aria-valuemax="100" style="10%"></div>
                 </div>
                 <h5 class="progress-text">P0016</h5>
             </div>
             <div class="progress-bar-area">
                 <div class="progress vertical">
-                    <div class="progress-bar" role="progressbar" aria-valuenow="0" aria-valuemin="0"
+                    <div class="progress-bar-vertical" role="progressbar" aria-valuenow="0" aria-valuemin="0"
                         aria-valuemax="100" style="10%"></div>
                 </div>
                 <h5 class="progress-text">P0017</h5>
             </div>
             <div class="progress-bar-area">
                 <div class="progress vertical">
-                    <div class="progress-bar" role="progressbar" aria-valuenow="0" aria-valuemin="0"
+                    <div class="progress-bar-vertical" role="progressbar" aria-valuenow="0" aria-valuemin="0"
                         aria-valuemax="100" style="10%"></div>
                 </div>
                 <h5 class="progress-text">P0018</h5>
             </div>
             <div class="progress-bar-area">
                 <div class="progress vertical">
-                    <div class="progress-bar" role="progressbar" aria-valuenow="0" aria-valuemin="0"
+                    <div class="progress-bar-vertical" role="progressbar" aria-valuenow="0" aria-valuemin="0"
                         aria-valuemax="100" style="10%"></div>
                 </div>
                 <h5 class="progress-text">P0019</h5>
             </div>
             <div class="progress-bar-area">
                 <div class="progress vertical">
-                    <div class="progress-bar" role="progressbar" aria-valuenow="0" aria-valuemin="0"
+                    <div class="progress-bar-vertical" role="progressbar" aria-valuenow="0" aria-valuemin="0"
                         aria-valuemax="100" style="10%"></div>
                 </div>
                 <h5 class="progress-text">P0020</h5>
