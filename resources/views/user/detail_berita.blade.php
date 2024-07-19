@@ -3,14 +3,16 @@
 <x-layout :auth="$auth">
     <div class="container py-4">
         <div class="pembatas"></div>
-        <div class="row m-4">
+        <div class="row m-4 justify-content-center">
 
             <div class="row">
                 <div class="col-11">
                     <h1 style="text-align: justify;">{{ $kasusHukum->title }}</h1>
                 </div>
                 <div class="col-1">
-                    <button type="button" class="btn" id="shareButton" data-bs-toggle="tooltip" data-bs-placement="top" data-bs-title="Copy Link" style="background-color: rgba(232, 123, 47, 1); color:white">
+                    <button type="button" class="btn" id="shareButton" data-bs-toggle="tooltip"
+                        data-bs-placement="top" data-bs-title="Copy Link"
+                        style="background-color: rgba(232, 123, 47, 1); color:white">
                         Share
                     </button>
                 </div>
@@ -18,13 +20,10 @@
 
             <div class="d-flex">
                 <p style="color: orange;">{{ $kasusHukum->nama_lbh }}</p>
-                &nbsp;
-                &nbsp;
                 <i style="color: rgba(232, 123, 47, 1); font-size: 60px; padding-top: 10px; padding-bottom: 10px;"
                     class="bi bi-circle-fill"></i>
                 &nbsp;
-                &nbsp;
-                <p>{{ $kasusHukum->tanggal }}</p>
+                <p class="fs-5">{{ $kasusHukum->tanggal }}</p>
             </div>
 
             <div class="col-12 d-flex justify-content-center">
@@ -33,8 +32,9 @@
                 </div>
             </div>
 
-            <div class="row mt-3">
-                <p style="text-align: justify;">{{ $kasusHukum->description }}</p>
+            <div class="row mt-3 card py-3 mb-3">
+                <strong class="mb-3">Deskripsi</strong>
+                <span style="text-align: justify;">{{ $kasusHukum->description }}</span>
             </div>
 
             <div class="row m-3">
@@ -47,7 +47,9 @@
                                 <div class="progress-text">
                                     <h4 class="progress-title">{{ $prog->topik_progress }}</h4>
                                     <h6>Lokasi : {{ $prog->lokasi }}</h6>
-                                    <h6>Waktu : {{ \Carbon\Carbon::createFromFormat('H:i:s',$prog->waktu)->format('h.i') }}</h6>
+                                    <h6>Waktu :
+                                        {{ \Carbon\Carbon::createFromFormat('H:i:s', $prog->waktu)->format('h.i') }}
+                                    </h6>
                                     {{ $prog->detail }}
                                 </div>
                             </li>
@@ -57,18 +59,20 @@
 
                 <div class="col-6">
                     <h3>Partisipasi Hukum</h3>
-                    <div class="container bg-light my-3 py-3 px-3 rounded-4">
-                        <p>Terkumpul: {{ $total / $kasusHukum->target_donasi * 100 }}%</p>
+                    <div class="container bg-light my-3 py-3 px-3 rounded-2">
+                        <p>Terkumpul: {{ ($total / $kasusHukum->target_donasi) * 100 }}%</p>
                         <div class="progress">
                             <div class="progress-bar" role="progressbar" aria-label="Basic example"
-                                style="width: {{ $total / $kasusHukum->target_donasi * 100 }}%" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"></div>
+                                style="width: {{ ($total / $kasusHukum->target_donasi) * 100 }}%" aria-valuenow="25"
+                                aria-valuemin="0" aria-valuemax="100"></div>
                         </div>
                         <div class="d-flex justify-content-between">
-                            <p>Rp. {{ number_format($total, 2, ",", ".") }}</p>
-                            <p>Rp. {{ number_format($kasusHukum->target_donasi, 2, ",", ".") }}</p>
+                            <p>Rp{{ number_format($total, 2, ',', '.') }}</p>
+                            <p>Rp{{ number_format($kasusHukum->target_donasi, 2, ',', '.') }}</p>
                         </div>
                     </div>
-                    <a class="btn btn" id="buttonDonasi" style="color: white; width: 100%;" href="/berita/donasi/{{ $kasusHukum->id_kasus }}" role="button">Donasi
+                    <a class="btn btn" id="buttonDonasi" style="color: white; width: 100%;"
+                        href="/berita/donasi/{{ $kasusHukum->id_kasus }}" role="button">Donasi
                         Sekarang</a>
                 </div>
             </div>

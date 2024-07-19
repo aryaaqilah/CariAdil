@@ -59,6 +59,7 @@ class DatabaseSeeder extends Seeder
                 'lokasi_pembuatan_form' => 'Bogor',
                 'tanggal' => Carbon::now(),
                 'target_donasi' => 1000000,
+                'status_pengajuan' => 'Accepted',
                 'image_url' => 'yguhnjmk',
             ],
             [
@@ -92,6 +93,7 @@ class DatabaseSeeder extends Seeder
                 'lokasi_pembuatan_form' => 'Bogor',
                 'tanggal' => Carbon::now(),
                 'target_donasi' => 25000000,
+                'status_pengajuan' => 'Pending',
                 'image_url' => 'yguhnjmk',
             ],
             [
@@ -125,6 +127,7 @@ class DatabaseSeeder extends Seeder
                 'lokasi_pembuatan_form' => 'Bogor',
                 'tanggal' => Carbon::now(),
                 'target_donasi' => 4000000,
+                'status_pengajuan' => 'Pending',
                 'image_url' => 'yguhnjmk',
             ],
         ];
@@ -166,30 +169,6 @@ class DatabaseSeeder extends Seeder
                 'image_url' => 'tygbh',
                 'created_at' => Carbon::now()
             ],
-            [
-                'title' => 'Bantu Pemuda Sukabumi Ini',
-                'id_lbh' => 1,
-                'description' => 'Kasus ini adalah tentang seorang pemuda bogor',
-                'tanggal' => Carbon::now(),
-                'target_donasi' => '10000000',
-                // 'id_bank' => 1,
-                'id_form' => 2,
-                'status_pengajuan' => 'Selesai',
-                'image_url' => 'tygbh',
-                'created_at' => Carbon::now()
-            ],
-            [
-                'title' => 'Bantu Wanita Pekanbaru ini',
-                'id_lbh' => NULL,
-                'description' => 'Kasus ini adalah tentang seorang pemuda bogor',
-                'tanggal' => Carbon::now(),
-                'target_donasi' => '10000000',
-                // 'id_bank' => 1,
-                'id_form' => 2,
-                'status_pengajuan' => 'Proses',
-                'image_url' => 'tygbh',
-                'created_at' => Carbon::now()
-            ]
         ];
 
         $progressArray = [
@@ -209,14 +188,14 @@ class DatabaseSeeder extends Seeder
                 'waktu' => Carbon::now(),
                 'detail' => 'Sudah dilaksanakan sidang kedua',
             ],
-            [
-                'id_kasus' => 2,
-                'topik_progress' => 'Sidang 1',
-                'lokasi' => 'PN Sukabumi',
-                'date' => Carbon::now(),
-                'waktu' => Carbon::now(),
-                'detail' => 'Sudah dilaksanakan sidang SATUUUUUU',
-            ]
+            // [
+            //     'id_kasus' => 2,
+            //     'topik_progress' => 'Sidang 1',
+            //     'lokasi' => 'PN Sukabumi',
+            //     'date' => Carbon::now(),
+            //     'waktu' => Carbon::now(),
+            //     'detail' => 'Sudah dilaksanakan sidang SATUUUUUU',
+            // ]
         ];
 
         $transaksiArray = [
@@ -242,17 +221,17 @@ class DatabaseSeeder extends Seeder
                 'status_pembayaran' => 1,
                 'created_at' => Carbon::now()
             ],
-            [
-                'id_kasus_hukum' => 2,
-                'id_bank' => 2,
-                'nominal' => '500000',
-                'nama' => 'Arya',
-                'email' => 'arya@gmail.com',
-                'nomor_telepon' => '087785243656',
-                'dukungan' => '',
-                'status_pembayaran' => 1,
-                'created_at' => Carbon::now()
-            ],
+            // [
+            //     'id_kasus_hukum' => 2,
+            //     'id_bank' => 2,
+            //     'nominal' => '500000',
+            //     'nama' => 'Arya',
+            //     'email' => 'arya@gmail.com',
+            //     'nomor_telepon' => '087785243656',
+            //     'dukungan' => '',
+            //     'status_pembayaran' => 1,
+            //     'created_at' => Carbon::now()
+            // ],
         ];
 
         // $kasusHukumArray = [
@@ -287,6 +266,7 @@ class DatabaseSeeder extends Seeder
             KategoriSeeder::class,
             ProdukSeeder::class,
             AdminSeeder::class,
+            LBHSeeder::class,
         ]);
 
         FormPengajuan::insert($formArray);

@@ -9,8 +9,7 @@
         <div class="row">
             <div class="col-2"></div>
             <div class="col-8">
-                <form class="d-flex" role="search" action="/berita/search"
-                enctype="multipart/form-data" method="GET">
+                <form class="d-flex" role="search" action="/berita/search" enctype="multipart/form-data" method="GET">
                     @csrf
                     <input class="form-control me-2" style="border-radius: 12px" type="search"
                         placeholder="Search Here" aria-label="Search" name="str">
@@ -50,46 +49,48 @@
                             <div class="row">
                                 @foreach ($list_kasus_pidana as $kasusHukum)
                                     {{-- @dd($kasusHukum) --}}
-                                    <div class="col-4 d-flex g-5">
-                                        <div class="card border border-light-subtle" id="card">
-                                            <img src="../assets/images/kasus1.png" class="card-img-top" alt="...">
-                                            <div class="card-body">
-                                                <h5 class="card-title">
-                                                    <a href="/berita/kasus-hukum/{{ $kasusHukum['id_kasus'] }}"
-                                                        style="text-decoration: none; color:black">{{ $kasusHukum['title'] }}</a>
-                                                </h5>
-                                                <p class="card-text">{{ $kasusHukum['description'] }}.</p>
+                                    <a href="/berita/kasus-hukum/{{ $kasusHukum['id_kasus'] }}"
+                                        style="text-decoration: none; color:black" class="col-4">
+                                        <div class="d-flex g-5 berita-card">
+                                            <div class="card border border-light-subtle" id="card">
+                                                <img src="../assets/images/kasus1.png" class="card-img-top"
+                                                    alt="...">
+                                                <div class="card-body">
+                                                    <h5 class="card-title">
+                                                        {{ $kasusHukum['title'] }}
+                                                    </h5>
+                                                    <p class="card-text">{{ $kasusHukum['description'] }}.</p>
+                                                </div>
+                                                <ul class="list-group list-group-flush">
+                                                    <li class="list-group-item">
+                                                        <div class="d-flex" style="flex-direction: row-reverse;">
+                                                            @foreach ($kasusHukum['nama_lbh'] as $lbh)
+                                                                <div class="">{{ $lbh->nama_lbh }}</div>
+                                                            @endforeach
+                                                        </div>
+                                                        <div class="div" style="height: 10px;"></div>
+                                                        <div class="progress">
+                                                            <div class="progress-bar" role="progressbar"
+                                                                aria-label="Basic example"
+                                                                style="width: {{ ($kasusHukum['total'] / $kasusHukum['target_donasi']) * 100 }}%"
+                                                                aria-valuenow="25" aria-valuemin="0"
+                                                                aria-valuemax="100">
+                                                            </div>
+                                                        </div>
+                                                        <div class="div" style="height: 10px;"></div>
+                                                        <div class="d-flex justify-content-between">
+                                                            <div class="">
+                                                                Rp{{ number_format($kasusHukum['total'], 2, ',', '.') }}
+                                                            </div>
+                                                            <div class="">
+                                                                Rp{{ number_format($kasusHukum['target_donasi'], 2, ',', '.') }}
+                                                            </div>
+                                                        </div>
+                                                    </li>
+                                                </ul>
                                             </div>
-                                            <ul class="list-group list-group-flush">
-                                                <li class="list-group-item">
-                                                    <div class="d-flex" style="flex-direction: row-reverse;">
-                                                        @foreach ($kasusHukum['nama_lbh'] as $lbh)
-                                                            <div class="">{{ $lbh->nama_lbh }}</div>
-                                                        @endforeach
-                                                    </div>
-                                                    <div class="div" style="height: 10px;"></div>
-                                                    <div class="progress">
-                                                        <div class="progress-bar" role="progressbar"
-                                                            aria-label="Basic example"
-                                                            style="width: {{ ($kasusHukum['total'] / $kasusHukum['target_donasi']) * 100 }}%"
-                                                            aria-valuenow="25" aria-valuemin="0" aria-valuemax="100">
-                                                        </div>
-                                                    </div>
-                                                    <div class="div" style="height: 10px;"></div>
-                                                    <div class="d-flex justify-content-between">
-                                                        <div class="">
-                                                            Rp.
-                                                            {{ number_format($kasusHukum['total'], 2, ',', '.') }}
-                                                        </div>
-                                                        <div class="">
-                                                            Rp.
-                                                            {{ number_format($kasusHukum['target_donasi'], 2, ',', '.') }}
-                                                        </div>
-                                                    </div>
-                                                </li>
-                                            </ul>
                                         </div>
-                                    </div>
+                                    </a>
                                 @endforeach
                             </div>
                         </div>
@@ -103,7 +104,8 @@
                                     {{-- @dd($kasusHukum) --}}
                                     <div class="col-4 d-flex g-5">
                                         <div class="card border border-light-subtle" id="card">
-                                            <img src="../assets/images/kasus1.png" class="card-img-top" alt="...">
+                                            <img src="../assets/images/kasus1.png" class="card-img-top"
+                                                alt="...">
                                             <div class="card-body">
                                                 <h5 class="card-title">
                                                     <a href="/berita/kasus-hukum/{{ $kasusHukum['id_kasus'] }}"
@@ -129,11 +131,11 @@
                                                     <div class="div" style="height: 10px;"></div>
                                                     <div class="d-flex justify-content-between">
                                                         <div class="">
-                                                            Rp.
+                                                            Rp
                                                             {{ number_format($kasusHukum['total'], 2, ',', '.') }}
                                                         </div>
                                                         <div class="">
-                                                            Rp.
+                                                            Rp
                                                             {{ number_format($kasusHukum['target_donasi'], 2, ',', '.') }}
                                                         </div>
                                                     </div>

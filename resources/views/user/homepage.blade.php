@@ -63,25 +63,26 @@
 
                         <div class="row">
                             @foreach ($list_kasus_hukum as $kasusHukum)
-                                <div class="col-6 box-kasus-hukum d-flex gap-5">
-                                    <div class="detail-box-kasus-hukum" style="width: 100%">
-                                        <div class="img-detail-box-kasus-hukum">
-                                            <button type="button" class="btn"
-                                                style="--bs-btn-padding-y: .25rem; --bs-btn-padding-x: 2rem; --bs-btn-font-size: .75rem;
+                                <a class="title-1 text-truncate col-6"
+                                    href="/berita/kasus-hukum/{{ $kasusHukum->id_kasus }}"
+                                    style="font-size:1.4rem; text-decoration:none">
+                                    <div class="box-kasus-hukum d-flex gap-5">
+                                        <div class="detail-box-kasus-hukum" style="width: 100%">
+                                            <div class="img-detail-box-kasus-hukum">
+                                                <button type="button" class="btn"
+                                                    style="--bs-btn-padding-y: .25rem; --bs-btn-padding-x: 2rem; --bs-btn-font-size: .75rem;
                                 background-color: rgba(232, 123, 47, 1); border-radius: 12px; color: white;
-                                margin-left: 1rem; margin-top: 10px">Disidang</button>
+                                margin-left: 1rem; margin-top: 10px">{{ $kasusHukum->form->jenis_perkara }}</button>
+                                            </div>
+                                            <div class="judul-kasus">{{ $kasusHukum->title }}
+                                                <span
+                                                    class="date col-4 d-flex justify-content-end">{{ $kasusHukum->tanggal }}
+                                                </span>
+                                            </div>
+                                            <p class="desc-kasus">{{ $kasusHukum->description }}</p>
                                         </div>
-                                        <div class="judul-kasus">
-                                            <a class="title-1 text-truncate col-8"
-                                                href="/berita/kasus-hukum/{{ $kasusHukum->id_kasus }}"
-                                                style="font-size:1.4rem; text-decoration:none">{{ $kasusHukum->title }}</a>
-                                            <span
-                                                class="date col-4 d-flex justify-content-end">{{ $kasusHukum->tanggal }}
-                                            </span>
-                                        </div>
-                                        <p class="desc-kasus">{{ $kasusHukum->description }}</p>
                                     </div>
-                                </div>
+                                </a>
                             @endforeach
                         </div>
 
@@ -97,21 +98,21 @@
                     <div class="col-2"></div>
                 </div>
             </div>
+            <div class="jumbotron4">
+                <h2 class="quotes">Terlibat dengan Kasus Hukum yang Tidak Adil?</h2>
+                <div class="box-desc-terlibat">
+                    <p class="desc-terlibat">Jika Anda mengalami ketidakadilan dalam kasus hukum yang sedang Anda alami,
+                        silakan hubungi kami. Kami akan membantu menyediakan Lembaga Bantuan Hukum terbaik dari seluruh
+                        Indonesia.</p>
+                </div>
+
+                <div class="button-lapor-field">
+                    <a href="/form-pengajuan-hukum" type="button" class="btn" id="button_formulir">Formulir
+                        Pengajuan</a>
+                    {{-- <a type="button" class="btn btn-outline" id="button_lapor">Laporkan Bukti</a> --}}
+                </div>
+            </div>
         </div>
         <!-- Terlibat Kasus Hukum? -->
-        <div class="jumbotron4">
-            <h2 class="quotes">Terlibat dengan Kasus Hukum yang Tidak Adil?</h2>
-            <div class="box-desc-terlibat">
-                <p class="desc-terlibat">Jika Anda mengalami ketidakadilan dalam kasus hukum yang sedang Anda alami,
-                    silakan hubungi kami. Kami akan membantu menyediakan Lembaga Bantuan Hukum terbaik dari seluruh
-                    Indonesia.</p>
-            </div>
-
-            <div class="button-lapor-field">
-                <a href="/form-pengajuan-hukum" type="button" class="btn" id="button_formulir">Formulir
-                    Pengajuan</a>
-                {{-- <a type="button" class="btn btn-outline" id="button_lapor">Laporkan Bukti</a> --}}
-            </div>
-        </div>
     </div>
 </x-layout>
