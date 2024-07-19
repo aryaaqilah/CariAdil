@@ -19,7 +19,7 @@ class UserController extends Controller
     {
         $user = Session::get('user');
         // dd($user->id_LBH);
-        $kasusHukum = KasusHukum::orderBy('tanggal', 'DESC')->where('id_LBH', '=', $user->id_LBH)->take(2)->get();
+        $kasusHukum = KasusHukum::orderBy('tanggal', 'DESC')->where('id_lbh', '=', $user->id_LBH)->take(2)->get();
         $jadwal = ProgressKasusHukum::join('kasus_hukum', 'kasus_hukum.id_kasus', '=', 'progress_kasus_hukum.id_kasus')
         ->select('*')
         ->where('kasus_hukum.id_lbh', '=', $user->id_LBH)

@@ -4,18 +4,18 @@
 <x-layout :auth="$auth">
     <div class="container py-5">
 
-        <div class="pembatas"></div>   
-        
+        <div class="pembatas"></div>
+
         <div class = "judul">
             <h1>Perkara Berlangsung</h1>
         </div>
-        <div class="pembatas"></div>   
+        <div class="pembatas"></div>
 
         <div class="row">
             <div class="col-2"></div>
             <div class="col-8">
                 <form class="d-flex" role="search" action="/lbh/perkara-berlangsung/search"
-                enctype="multipart/form-data" method="GET">
+                    enctype="multipart/form-data" method="GET">
                     @csrf
                     <input class="form-control me-2" style="border-radius: 12px" type="search"
                         placeholder="Search Here" aria-label="Search" name="str">
@@ -66,7 +66,7 @@
                                                 </h5>
                                                 <p class="card-text">{{ $kasusHukum['description'] }}.</p>
                                             </div>
-                                            
+
                                         </div>
                                     </div>
                                 @endforeach
@@ -90,7 +90,7 @@
                                                 </h5>
                                                 <p class="card-text">{{ $kasusHukum['description'] }}.</p>
                                             </div>
-                
+
                                         </div>
                                     </div>
                                 @endforeach
@@ -138,7 +138,7 @@
                         <img src="../assets/images/kasus1.png" class="card-img-top" alt="...">
                         <div class="card-body">
                             <h5 class="card-title">{{$pb->title}}</h5>
-                            <p class="card-text">{{$pb->description}}</p>   
+                            <p class="card-text">{{$pb->description}}</p>
                         </div>
                     </div>
                 </div>

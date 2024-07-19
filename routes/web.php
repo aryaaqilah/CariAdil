@@ -97,3 +97,7 @@ Route::prefix('/perkara')->group(function () {
     Route::get('/berlangsung', [PerkaraController::class, 'indexPerkaraBerlangsung']);
 });
 
+Route::get('/donasikonfirmasi', function(){
+    return view('admin.donasi-konfirmasi');
+});
+

@@ -312,7 +312,7 @@
                         required>
                 </div>
                 <div class="col-2">
-                    <span><b>31 May 2024</b></span>
+                    <span><b>{{ \Carbon\Carbon::now()->translatedFormat('l, j F Y') }}</b></span>
                 </div>
             </div>
 

@@ -44,6 +44,7 @@ return new class extends Migration
             $table->date('tanggal');
             $table->text('image_url');
             $table->integer('target_donasi');
+            $table->string('status_pengajuan');
             $table->timestamps();
 
         });
