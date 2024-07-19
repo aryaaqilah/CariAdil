@@ -12,7 +12,7 @@
                 <div class="divider"></div>
                 <div class="kasus">
                     <h2 class="headline-kasus">Kasus Terbaru</h2>
-                    <div class="pembatas20"></div>
+                    {{-- <div class="pembatas20"></div> --}}
                     <div class="column-kasus">
                         @foreach ($list_kasus_hukum as $kasusHukum)
                             <div class="detail-kasus">
@@ -39,7 +39,7 @@
                     </a>
 
                     <a class="detail-box-informasi"
-                        href="mailto:cariAdil@gmail.com?subject=Subjek%20Email&body=Ini%20adalah%20isi%20email.">
+                        href="https://mail.google.com/mail/u/0/?fs=1&to=CariAdil@gmail.com&tf=cm">
                         <i class="fa-solid fa-envelope"></i>
                         <h3 class="informasi">Email</h3>
                         <h5 class="deskripsi-informasi">CariAdil@gmail.com</h5>

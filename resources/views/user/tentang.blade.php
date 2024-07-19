@@ -11,7 +11,7 @@
                     </div>
                 </div>
                 <div class="col-5"></div>
-                <div class="col-12 mt-3">
+                <div class="col-12">
                     <h1>Cari Adil</h1>
                     <p>Adalah sebuah organisasi nonprofit yang bertujuan untuk membantu
                         orang-orang yang butuh bantuan secara hukum. <br> Kami bekerja sama dengan LBH

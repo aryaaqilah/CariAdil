@@ -23,7 +23,7 @@
                                 <span class="product-category">{{ $per_produk->kategori->nama }}</span>
                                 <strong class="product-title">{{ $per_produk->nama }}</strong>
                                 <br>
-                                <img src="{{ asset('assets/images/Product.png') }}" alt="">
+                                <img src="{{ asset('assets/images/store/' . $per_produk->image_url) }}" alt="">
                                 <br>
                                 <strong class="product-price">{{ $per_produk->harga }},00</strong>
                             </div>
