@@ -65,7 +65,7 @@ Route::prefix('/lbh')->group(function () {
 
 //ADMIN
 Route::prefix('/admin')->group(function () {
-    Route::get('/login', [AdminController::class, 'login']);
+Route::get('/login', [AdminController::class, 'login']);
 
     Route::get('/dashboard', [AdminController::class, 'index']);
 
