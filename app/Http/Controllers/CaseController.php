@@ -627,75 +627,101 @@ class CaseController extends Controller
         $auth = true;
 
         $pidana = KasusHukum::join('form_pengajuan', 'kasus_hukum.id_form', '=', 'form_pengajuan.id_form')
-        ->select('id_kasus', 'title', 'description', 'form_pengajuan.tanggal', 'target_donasi', 'kasus_hukum.id_form', 'id_lbh', 'status_pengajuan', 'kasus_hukum.image_url', 'kasus_hukum.created_at', 'kasus_hukum.updated_at')
+        ->select('*')
         ->where('form_pengajuan.jenis_perkara', '=', 'Pidana')
-        ->where('status_pengajuan', '=', 'Selesai')
-        ->where('title', 'LIKE', '%'. $kata_kunci.'%')
+        ->where('kasus_hukum.status_pengajuan', '=', 'Selesai')
+        ->where(function($query) use ($kata_kunci) {
+            $query->where('form_pengajuan.uraian', 'LIKE', '%'. $kata_kunci.'%')
+                  ->orWhere('form_pengajuan.nama', 'LIKE', '%'. $kata_kunci.'%')
+                  ->orWhere('form_pengajuan.alamat_lengkap', 'LIKE', '%'. $kata_kunci.'%')
+                  ->orWhere('form_pengajuan.kabupaten_kota', 'LIKE', '%'. $kata_kunci.'%')
+                  ->orWhere('form_pengajuan.pekerjaan', 'LIKE', '%'. $kata_kunci.'%');
+        })
         ->get();
 
         $perdata = KasusHukum::join('form_pengajuan', 'kasus_hukum.id_form', '=', 'form_pengajuan.id_form')
-        ->select('id_kasus', 'title', 'description', 'form_pengajuan.tanggal', 'target_donasi', 'kasus_hukum.id_form', 'id_lbh', 'status_pengajuan', 'kasus_hukum.image_url', 'kasus_hukum.created_at', 'kasus_hukum.updated_at')
+        ->select('*')
         ->where('form_pengajuan.jenis_perkara', '=', 'Perdata')
-        ->where('status_pengajuan', '=', 'Selesai')
-        ->where('title', 'LIKE', '%'. $kata_kunci.'%')
+        ->where('kasus_hukum.status_pengajuan', '=', 'Selesai')
+        ->where(function($query) use ($kata_kunci) {
+            $query->where('form_pengajuan.uraian', 'LIKE', '%'. $kata_kunci.'%')
+                  ->orWhere('form_pengajuan.nama', 'LIKE', '%'. $kata_kunci.'%')
+                  ->orWhere('form_pengajuan.alamat_lengkap', 'LIKE', '%'. $kata_kunci.'%')
+                  ->orWhere('form_pengajuan.kabupaten_kota', 'LIKE', '%'. $kata_kunci.'%')
+                  ->orWhere('form_pengajuan.pekerjaan', 'LIKE', '%'. $kata_kunci.'%');
+        })
         ->get();
+
+        // $pidana = KasusHukum::join('form_pengajuan', 'kasus_hukum.id_form', '=', 'form_pengajuan.id_form')
+        // ->select('id_kasus', 'title', 'description', 'form_pengajuan.tanggal', 'kasus_hukum.target_donasi', 'kasus_hukum.id_form', 'id_lbh', 'status_pengajuan', 'kasus_hukum.image_url', 'kasus_hukum.created_at', 'kasus_hukum.updated_at')
+        // ->where('form_pengajuan.jenis_perkara', '=', 'Pidana')
+        // ->where('status_pengajuan', '=', 'Selesai')
+        // ->where('title', 'LIKE', '%'. $kata_kunci.'%')
+        // ->get();
+
+        // $perdata = KasusHukum::join('form_pengajuan', 'kasus_hukum.id_form', '=', 'form_pengajuan.id_form')
+        // ->select('id_kasus', 'title', 'description', 'form_pengajuan.tanggal', 'kasus_hukum.target_donasi', 'kasus_hukum.id_form', 'id_lbh', 'status_pengajuan', 'kasus_hukum.image_url', 'kasus_hukum.created_at', 'kasus_hukum.updated_at')
+        // ->where('form_pengajuan.jenis_perkara', '=', 'Perdata')
+        // ->where('status_pengajuan', '=', 'Selesai')
+        // ->where('title', 'LIKE', '%'. $kata_kunci.'%')
+        // ->get();
 
         // dd($pidana);
 
-        $finalPerdata = array();
-        $finalPidana = array();
+        // $finalPerdata = array();
+        // $finalPidana = array();
 
 
-        foreach ($pidana as $kasus) {
-            $conditions = array('id_kasus_hukum' => $kasus->id_kasus, 'status_pembayaran' => 1);
-            $transaksi = TransaksiDonasi::where($conditions)->sum('nominal');
-            $data = [
-                "id_kasus" => $kasus->id_kasus,
-                "title" => $kasus->title,
-                "description" => $kasus->description,
-                "tanggal" => $kasus->tanggal,
-                "target_donasi" => $kasus->target_donasi,
-                "id_bank" => $kasus->id_bank,
-                "id_form" => $kasus->id_form,
-                "id_lbh" => $kasus->id_lbh,
-                "jenis_perkara" => $kasus->jenis_perkara,
-                "status_pengajuan" => $kasus->status_pengajuan,
-                "image_url" => $kasus->image_url,
-                "created_at" => $kasus->created_at,
-                "updated_at" => $kasus->updated_at,
-                "total" => $transaksi,
-                "nama_lbh" => LBH::select('nama_lbh')->where('id_LBH', '=', $kasus->id_lbh)->get()
-            ];
-            array_push($finalPidana, $data);
-        }
+        // foreach ($pidana as $kasus) {
+        //     $conditions = array('id_kasus_hukum' => $kasus->id_kasus, 'status_pembayaran' => 1);
+        //     $transaksi = TransaksiDonasi::where($conditions)->sum('nominal');
+        //     $data = [
+        //         "id_kasus" => $kasus->id_kasus,
+        //         "title" => $kasus->title,
+        //         "description" => $kasus->description,
+        //         "tanggal" => $kasus->tanggal,
+        //         "target_donasi" => $kasus->target_donasi,
+        //         "id_bank" => $kasus->id_bank,
+        //         "id_form" => $kasus->id_form,
+        //         "id_lbh" => $kasus->id_lbh,
+        //         "jenis_perkara" => $kasus->jenis_perkara,
+        //         "status_pengajuan" => $kasus->status_pengajuan,
+        //         "image_url" => $kasus->image_url,
+        //         "created_at" => $kasus->created_at,
+        //         "updated_at" => $kasus->updated_at,
+        //         "total" => $transaksi,
+        //         "nama_lbh" => LBH::select('nama_lbh')->where('id_LBH', '=', $kasus->id_lbh)->get()
+        //     ];
+        //     array_push($finalPidana, $data);
+        // }
 
 
-        foreach ($perdata as $kasus) {
-            // $transaksi = TransaksiDonasi::where('id_kasus_hukum', $kasus->id_kasus)->where('status_pembayaran', 1)->sum('nominal');
-            $conditions = array('id_kasus_hukum' => $kasus->id_kasus, 'status_pembayaran' => 1);
-            $transaksi = TransaksiDonasi::where($conditions)->sum('nominal');
-            $data = [
-                "id_kasus" => $kasus->id_kasus,
-                "title" => $kasus->title,
-                "description" => $kasus->description,
-                "tanggal" => $kasus->tanggal,
-                "target_donasi" => $kasus->target_donasi,
-                "id_bank" => $kasus->id_bank,
-                "id_form" => $kasus->id_form,
-                "id_lbh" => $kasus->id_lbh,
-                "jenis_perkara" => $kasus->jenis_perkara,
-                "status_pengajuan" => $kasus->status_pengajuan,
-                "image_url" => $kasus->image_url,
-                "created_at" => $kasus->created_at,
-                "updated_at" => $kasus->updated_at,
-                "total" => $transaksi,
-                "nama_lbh" => LBH::select('nama_lbh')->where('id_LBH', '=', $kasus->id_lbh)->get()
-            ];
-            array_push($finalPerdata, $data);
-        }
+        // foreach ($perdata as $kasus) {
+        //     // $transaksi = TransaksiDonasi::where('id_kasus_hukum', $kasus->id_kasus)->where('status_pembayaran', 1)->sum('nominal');
+        //     $conditions = array('id_kasus_hukum' => $kasus->id_kasus, 'status_pembayaran' => 1);
+        //     $transaksi = TransaksiDonasi::where($conditions)->sum('nominal');
+        //     $data = [
+        //         "id_kasus" => $kasus->id_kasus,
+        //         "title" => $kasus->title,
+        //         "description" => $kasus->description,
+        //         "tanggal" => $kasus->tanggal,
+        //         "target_donasi" => $kasus->target_donasi,
+        //         "id_bank" => $kasus->id_bank,
+        //         "id_form" => $kasus->id_form,
+        //         "id_lbh" => $kasus->id_lbh,
+        //         "jenis_perkara" => $kasus->jenis_perkara,
+        //         "status_pengajuan" => $kasus->status_pengajuan,
+        //         "image_url" => $kasus->image_url,
+        //         "created_at" => $kasus->created_at,
+        //         "updated_at" => $kasus->updated_at,
+        //         "total" => $transaksi,
+        //         "nama_lbh" => LBH::select('nama_lbh')->where('id_LBH', '=', $kasus->id_lbh)->get()
+        //     ];
+        //     array_push($finalPerdata, $data);
+        // }
 
         // dd($kasus);
-        return view('userLBH.riwayat', ['pidana' => $finalPidana, 'perdata' => $finalPerdata, 'auth' => $auth]);
+        return view('userLBH.riwayat', ['pidana' => $pidana, 'perdata' => $perdata, 'auth' => $auth]);
     }
 
     public function detail_riwayat_kasus($id)
