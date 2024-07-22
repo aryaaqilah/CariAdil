@@ -167,7 +167,7 @@ class DatabaseSeeder extends Seeder
                 // 'id_bank' => 1,
                 'id_form' => 1,
 
-                'status_pengajuan' => 'Proses',
+                'status_pengajuan' => 'Pending',
                 'image_url' => 'tygbh',
                 'created_at' => Carbon::now()
             ],
