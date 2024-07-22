@@ -1,3 +1,5 @@
+<link rel="stylesheet" href="{{ asset('/style/styles.css') }}">
+
 @extends('components/admin-layout')
 
 @section('title', 'Perkara Diproses')
@@ -68,7 +70,8 @@
                         <td>{{ $c->jenis_perkara }}</td>
                         @if ($c->jenis_perkara == null)
                             <td><a class="btn detail" href="{{ route('detail_pengajuan_perkara', $c->id_form) }}"
-                                    type="button">Detail</a></td>
+                                    type="button">Detail</a>
+                            </td>
                         @else
                             <td><button class="btn detail" href="{{ route('detail_pengajuan_perkara', $c->id_form) }}"
                                     type="button" disabled>Completed</button></td>

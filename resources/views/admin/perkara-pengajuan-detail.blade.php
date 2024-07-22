@@ -134,7 +134,7 @@
                 <input type="hidden" name="id_form" value="">
                 {{-- <button type="submit"> --}}
                 <div class="button-wrapper d-flex justify-content-center mt-3">
-                    <button type="submit">
+                    <button type="submit" style="border: none">
                         <div class="accept">
                             <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor"
                                 class="bi bi-check2" viewBox="0 0 16 16" stroke-width="3">

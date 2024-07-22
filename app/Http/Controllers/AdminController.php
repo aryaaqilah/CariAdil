@@ -69,6 +69,37 @@ class AdminController extends Controller
         return view('admin.donasi-detail', compact('data', 'donation', 'total', 'kasusHukum'));
     }
 
+    public function konfirmasi_donasi(){
+        $countWeeklyTransactions = 0;
+        $startOfWeek = Carbon::now()->startOfWeek();
+        $endOfWeek = Carbon::now()->endOfWeek();
+        $cases = KasusHukum::all();
+        $donation = TransaksiDonasi::join('bank', 'transaksi_donasi.id_bank', '=', 'bank.id_bank')
+                    ->select("transaksi_donasi.*", "bank.nama as namaBank")->get();
+        $biggestDonation = TransaksiDonasi::all()->sortByDesc('nominal')->first();
+        foreach ($cases as $case) {
+            foreach ($case->approvedTransactions as $transaction) {
+                if ($transaction->created_at >= $startOfWeek && $transaction->created_at <= $endOfWeek) {
+                    $countWeeklyTransactions++;
+                }
+            }
+        }
+
+        $donasiBulanLalu = TransaksiDonasi::whereMonth('created_at', Carbon::now()->subMonth()->month)
+                                            ->whereYear('created_at', Carbon::now()->subYear()->year)
+                                            ->sum('nominal');
+        $donasiBulanIni = TransaksiDonasi::whereMonth('created_at', Carbon::now()->month)
+                                            ->whereYear('created_at', Carbon::now()->year)
+                                            ->sum('nominal');
+        $persentaseKenaikan = 0;
+        if($donasiBulanLalu > 0){
+            $persentaseKenaikan = (($donasiBulanIni - $donasiBulanLalu)/$donasiBulanLalu)*100;
+        }else{
+            $persentaseKenaikan = 0;
+        }
+        return view('admin.donasi-konfirmasi', compact('countWeeklyTransactions', 'donation', 'startOfWeek', 'endOfWeek', 'cases', 'biggestDonation', 'donasiBulanLalu', 'donasiBulanIni', 'persentaseKenaikan'));
+    }
+
     /**
      * Store a newly created resource in storage.
      */
