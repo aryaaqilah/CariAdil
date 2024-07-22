@@ -11,8 +11,8 @@
                 </div>
                 <div class="info px-4">
                     <h6 class="title">Transaksi Minggu Ini</h6>
-                    {{-- <h2 class="value">{{ $countWeeklyTransactions }}</h2> --}}
-                    <span class="increase"><i class="bi bi-arrow-up"></i> 16% bulan ini</span>
+                    <h2 class="value">{{ $countWeeklyTransactions }}</h2>
+                    <span class="increase"><i class="bi bi-arrow-up"></i> {{ $persentaseKenaikan }}% bulan ini</span>
                 </div>
             </div>
             <div class="col-6 px-3 stat">
@@ -55,37 +55,43 @@
                 <tr>
                     <th scope="col" width="100rem">Time</th>
                     <th scope="col" width="210rem">Nama Donatur</th>
-                    <th scope="col" width="120rem">No Rekening</th>
+                    {{-- <th scope="col" width="120rem">No Rekening</th> --}}
                     <th scope="col" width="100rem">Bank Asal</th>
                     <th scope="col" width="130rem">Nominal</th>
                     <th scope="col">Status</th>
                 </tr>
             </thead>
             <tbody>
-                <tr>
-                    <td class="time">
-                        <p id="date">30/05/2024</p>
-                        <p id="hours">03:00</p>
-                    </td>
-                    <td>Andreas Liujaya Wiranata</td>
-                    <td>721928291</td>
-                    <td>BTN</td>
-                    <td>Rp30.000.000</td>
-                    <td>
-                        <div class="d-flex">
-                            <div class="accept">
-                                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-check2" viewBox="0 0 16 16" stroke-width="3">
-                                    <path d="M13.854 3.646a.5.5 0 0 1 0 .708l-7 7a.5.5 0 0 1-.708 0l-3.5-3.5a.5.5 0 1 1 .708-.708L6.5 10.293l6.646-6.647a.5.5 0 0 1 .708 0"/>
-                                </svg>
+                @foreach ($donation as $d)
+                    <tr>
+                        <td class="time">
+                            <p id="date">{{ $d->created_at }}</p>
+                            <p id="hours">03:00</p>
+                        </td>
+                        <td>{{ $d->transaksi_donasi->nama }}</td>
+                        {{-- <td>721928291</td> --}}
+                        <td>{{ $d->bank->nama }}</td>
+                        <td>{{ $d->nominal }}</td>
+                        <td>
+                            <div class="d-flex">
+                                <div class="accept">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20"
+                                        fill="currentColor" class="bi bi-check2" viewBox="0 0 16 16" stroke-width="3">
+                                        <path
+                                            d="M13.854 3.646a.5.5 0 0 1 0 .708l-7 7a.5.5 0 0 1-.708 0l-3.5-3.5a.5.5 0 1 1 .708-.708L6.5 10.293l6.646-6.647a.5.5 0 0 1 .708 0" />
+                                    </svg>
+                                </div>
+                                <div class="deny">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16"
+                                        fill="currentColor" class="bi bi-x-lg" viewBox="0 0 16 16">
+                                        <path
+                                            d="M2.146 2.854a.5.5 0 1 1 .708-.708L8 7.293l5.146-5.147a.5.5 0 0 1 .708.708L8.707 8l5.147 5.146a.5.5 0 0 1-.708.708L8 8.707l-5.146 5.147a.5.5 0 0 1-.708-.708L7.293 8z" />
+                                    </svg>
+                                </div>
                             </div>
-                            <div class="deny">
-                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-x-lg" viewBox="0 0 16 16">
-                                    <path d="M2.146 2.854a.5.5 0 1 1 .708-.708L8 7.293l5.146-5.147a.5.5 0 0 1 .708.708L8.707 8l5.147 5.146a.5.5 0 0 1-.708.708L8 8.707l-5.146 5.147a.5.5 0 0 1-.708-.708L7.293 8z"/>
-                                </svg>
-                            </div>
-                        </div>
-                    </td>
-                </tr>
+                        </td>
+                    </tr>
+                @endforeach
             </tbody>
         </table>
     </div>

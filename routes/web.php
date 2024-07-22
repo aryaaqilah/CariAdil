@@ -61,6 +61,7 @@ Route::prefix('/lbh')->group(function () {
 
     Route::get('/riwayat-kasus', [CaseController::class, 'riwayat_kasus']);
     Route::get('/riwayat-kasus/search', [CaseController::class, 'search_riwayat']);
+    Route::get('/riwayat-kasus/{id}', [CaseController::class, 'detail_riwayat_kasus']);
 });
 
 //ADMIN
@@ -71,6 +72,7 @@ Route::get('/login', [AdminController::class, 'login']);
 
     Route::get('/donasi', [AdminController::class, 'donation']);
     Route::get('/donasi/{id}', [AdminController::class, 'donation_detail'])->name('donasi_detail');
+    Route::get('/donasi-konfirmasi', [AdminController::class, 'konfirmasi_donasi']);
 
     Route::get('/pengajuan-perkara', [AdminController::class, 'pengajuan_perkara']);
     Route::get('/pengajuan-perkara/{id}', [AdminController::class, 'detail_pengajuan_perkara'])->name('detail_pengajuan_perkara');

@@ -69,6 +69,37 @@ class AdminController extends Controller
         return view('admin.donasi-detail', compact('data', 'donation', 'total', 'kasusHukum'));
     }
 
+    public function konfirmasi_donasi(){
+        $countWeeklyTransactions = 0;
+        $startOfWeek = Carbon::now()->startOfWeek();
+        $endOfWeek = Carbon::now()->endOfWeek();
+        $cases = KasusHukum::all();
+        $donation = TransaksiDonasi::join('bank', 'transaksi_donasi.id_bank', '=', 'bank.id_bank')
+                    ->select("transaksi_donasi.*", "bank.nama as namaBank")->get();
+        $biggestDonation = TransaksiDonasi::all()->sortByDesc('nominal')->first();
+        foreach ($cases as $case) {
+            foreach ($case->approvedTransactions as $transaction) {
+                if ($transaction->created_at >= $startOfWeek && $transaction->created_at <= $endOfWeek) {
+                    $countWeeklyTransactions++;
+                }
+            }
+        }
+
+        $donasiBulanLalu = TransaksiDonasi::whereMonth('created_at', Carbon::now()->subMonth()->month)
+                                            ->whereYear('created_at', Carbon::now()->subYear()->year)
+                                            ->sum('nominal');
+        $donasiBulanIni = TransaksiDonasi::whereMonth('created_at', Carbon::now()->month)
+                                            ->whereYear('created_at', Carbon::now()->year)
+                                            ->sum('nominal');
+        $persentaseKenaikan = 0;
+        if($donasiBulanLalu > 0){
+            $persentaseKenaikan = (($donasiBulanIni - $donasiBulanLalu)/$donasiBulanLalu)*100;
+        }else{
+            $persentaseKenaikan = 0;
+        }
+        return view('admin.donasi-konfirmasi', compact('countWeeklyTransactions', 'donation', 'startOfWeek', 'endOfWeek', 'cases', 'biggestDonation', 'donasiBulanLalu', 'donasiBulanIni', 'persentaseKenaikan'));
+    }
+
     /**
      * Store a newly created resource in storage.
      */
@@ -180,7 +211,7 @@ class AdminController extends Controller
             "image" => "required|mimes:jpg,png,jpeg,gif|max:2048"
         ];
 
-        $message = ["required" => ":attribute wajib diisi!", 
+        $message = ["required" => ":attribute wajib diisi!",
         "min" => ":attribute minimal berisi :min karakter!",
         "max" => ":attribute maksimal berisi :max karakter",
         "fileLampiran.mimes" => "file harus berupa gambar dengan format jpg, png, jpeg, atau gif",
@@ -202,7 +233,7 @@ class AdminController extends Controller
                 'description' => $request->description,
                 'image_url' => $imagePath
             ]);
-            
+
             return redirect('admin.perkara-berlangsung')->with('success', "Tambah berita berhasil!");
         }
     }
@@ -212,13 +243,14 @@ class AdminController extends Controller
 
         $formPengajuan->update([
             'jenis_perkara' => $request->jenis_perkara,
+            'status_pengajuan' => 'Accepted'
         ]);
 
         KasusHukum::create([
             'tanggal' => Carbon::now(),
             'id_form' => $id,
             'target_donasi' => $formPengajuan->target_donasi,
-            'status_pengajuan' => 'Proses',
+            'status_pengajuan' => 'Pending',
         ]);
 
         return redirect('admin/pengajuan-perkara');

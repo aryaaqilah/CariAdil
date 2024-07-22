@@ -66,7 +66,7 @@
                       </a>
                   </li>
                   <li>
-                      <a href="/admin/role-lbh">
+                      <a href="/admin/donasi-konfirmasi">
                           <i class="bi bi-circle"></i><span>Konfirmasi Transaksi Donasi</span>
                       </a>
                   </li>
