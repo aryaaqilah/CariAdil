@@ -3,14 +3,14 @@
     {{-- @foreach ($data as $dt) --}}
     {{-- {{ dd($data) }} --}}
         <div class="container">
-            <div class="row d-flex justify-content-between">
-                <div class="pembatas80"></div>
+            <div class="row d-flex justify-content-evenly">
                 <div class="pembatas"></div>
-                <div class="col-4 card py-4 px-4">
+                <div class="pembatas"></div>
+                <div class="shadow-sm col-4 card py-4 px-4">
                     <div class="row">
-                        <div class="col-3 d-flex align-items-center">
+                        {{-- <div class="col-3 d-flex align-items-center">
                             <div style="width: 60px; height: 60px; background-color: gray; border-radius: 100px;" class="imagePlace "></div>
-                        </div>
+                        </div> --}}
                         <div class="col-9">
                             <h3>Sumber</h3>
                             <h6>{{ $data['nama'] }}</h6>
@@ -19,11 +19,16 @@
                         </div>
                     </div>
                 </div>
-                <div class="col-4 card py-4 px-4">
+                <div class="col-4 d-flex align-items-center justify-content-between">
+                    <svg style="width: 100%; height: 44px" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-arrow-left-right" viewBox="0 0 16 16">
+                        <path fill-rule="evenodd" d="M1 11.5a.5.5 0 0 0 .5.5h11.793l-3.147 3.146a.5.5 0 0 0 .708.708l4-4a.5.5 0 0 0 0-.708l-4-4a.5.5 0 0 0-.708.708L13.293 11H1.5a.5.5 0 0 0-.5.5m14-7a.5.5 0 0 1-.5.5H2.707l3.147 3.146a.5.5 0 1 1-.708.708l-4-4a.5.5 0 0 1 0-.708l4-4a.5.5 0 1 1 .708.708L2.707 4H14.5a.5.5 0 0 1 .5.5"/>
+                      </svg>
+                </div>
+                <div class="shadow-sm col-4 card py-4 px-4">
                     <div class="row">
-                        <div class="col-3 d-flex align-items-center">
+                        {{-- <div class="col-3 d-flex align-items-center">
                             <div style="width: 60px; height: 60px; background-color: gray; border-radius: 100px;" class="imagePlace "></div>
-                        </div>
+                        </div> --}}
                         @foreach ($bank as $bk)
                         <div class="col-9">
                             <h3>Tujuan</h3>
@@ -36,16 +41,18 @@
                 </div>
             </div>
 
-            <div class="card py-4 px-4">
-                <div class="row d-flex justify-content-between">
-                    <div class="col-4">
-                        <h3>Detail Pembayaran</h3>
-                        <h6>Donasi</h6>
-                        <h6>Unique Code</h6>
-                    </div>
-                    <div style="text-align: end;" class="col-4">
-                        <h6>Rp. {{ number_format($data['nominal'], 2, ',', '.') }}</h6>
-                        <h6>{{ $count }}</h6>
+            <div class="row ">
+                <div class="shadow-sm card py-4 px-4 my-4">
+                    <h3>Detail Pembayaran</h3>
+                    <div class="row d-flex justify-content-between">
+                        <div class="col-4">
+                            <h6>Donasi</h6>
+                            <h6>Unique Code</h6>
+                        </div>
+                        <div style="text-align: end;" class="col-4">
+                            <h6>Rp. {{ number_format($data['nominal'], 2, ',', '.') }}</h6>
+                            <h6>{{ $count }}</h6>
+                        </div>
                     </div>
                 </div>
                 <hr class="hr" />

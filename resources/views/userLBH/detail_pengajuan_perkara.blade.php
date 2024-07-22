@@ -51,10 +51,10 @@
             <div class="d-flex justify-content-center mt-2 gap-4 mb-5" style="color:rgba(232, 123, 47, 1)">
                 <form action="{{ url('/lbh/pengajuan-bantuan-hukum/' . $id_form) }}" method="POST">
                     @csrf
-                    @method('PUT')
+                    @method('PUT')  
                     <input type="hidden" name="id_form" value="{{ $id_form }}">
-                    <button type="submit">
-                        <i class="fa-solid fa-circle-check fa-4x"></i>
+                    <button style="border: none; background-color: white" type="submit">
+                        <i style=" color: rgba(232, 123, 47, 1); " class="fa-solid fa-circle-check fa-4x"></i>
                     </button>
                 </form>
                 <i class="fa-solid fa-circle-xmark fa-4x"></i>

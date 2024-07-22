@@ -21,7 +21,7 @@ class FormController extends Controller
         return view('user.form', ['auth' => $auth, 'noPemohon' => $noPemohon]);
     }
 
-    
+
 
     public function create()
     {
@@ -35,11 +35,13 @@ class FormController extends Controller
     {
         // DB::beginTransaction();
 
+
         try {
             if ($request->hasFile('image_url')) {
                 $imagePath = $request->file('image_url')->store('public');
             }
 
+            // dd($request->nama);
             FormPengajuan::create([
                 'nomor_pemohon' => $request->nomor_pemohon,
                 'nama' => $request->nama,
@@ -62,7 +64,7 @@ class FormController extends Controller
                 'keterangan_tidak_mampu' => $request->keterangan_tidak_mampu,
                 'nomor_keterangan_tidak_mampu' => $request->nomor_keterangan_tidak_mampu,
                 'pekerjaan' => $request->pekerjaan,
-                'jumlah_tanggungan' => strval($request->jumlah_tanggungan),
+                'jumlah_tanggungan' => strval($request  ->jumlah_tanggungan),
                 'pendidikan_terakhir' => $request->pendidikan_terakhir,
                 'telepon' => $request->telepon,
                 'hp' => $request->HP,
@@ -70,6 +72,8 @@ class FormController extends Controller
                 'lokasi_pembuatan_form' => $request->lokasi_pembuatan_form,
                 'tanggal' => Carbon::now()->format('Y-m-d'),
                 'image_url' => $imagePath,
+                'status_pengajuan' => 'Pending',
+                'target_donasi' => $request->target_donasi
             ]);
         } catch (\Exception $e) {
             DB::rollBack();
@@ -111,5 +115,5 @@ class FormController extends Controller
         //
     }
 
-    
+
 }

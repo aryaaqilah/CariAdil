@@ -37,7 +37,6 @@ class CaseController extends Controller
         $finalPerdata = array();
         $finalPidana = array();
 
-
         foreach ($pidana as $kasus) {
             // dd($kasus);
             $conditions = array('id_kasus_hukum' => $kasus->id_kasus, 'status_pembayaran' => 1);

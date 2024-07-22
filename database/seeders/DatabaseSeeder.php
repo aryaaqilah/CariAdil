@@ -58,7 +58,7 @@ class DatabaseSeeder extends Seeder
             ],
             [
                 'nomor_pemohon' => 'CA-002',
-                'jenis_perkara' => NULL,
+                'jenis_perkara' => 'Perdata',
                 'nama' => 'Arya Aqilah',
                 'nama_panggilan' => 'Arya',
                 'tempat_lahir' => 'Sukabumi',
@@ -87,7 +87,7 @@ class DatabaseSeeder extends Seeder
                 'lokasi_pembuatan_form' => 'Bogor',
                 'tanggal' => Carbon::now(),
                 'target_donasi' => 25000000,
-                'status_pengajuan' => 'Pending',
+                'status_pengajuan' => 'Accepted',
                 'image_url' => 'yguhnjmk',
             ],
             [
@@ -140,6 +140,11 @@ class DatabaseSeeder extends Seeder
         ];
 
         $lbhArray = [
+            ['nama_lbh' => 'Ojan Lomba',
+            'password' => bcrypt('1234'),
+            'nomor_telepon' => '(0293)-7739234',
+            'email' => 'gmail@com',
+            'alamat' => 'Sukabumi'],
             ['nama_lbh' => 'LBH Maju Abadi',
             'password' => bcrypt('1234maju'),
             'nomor_telepon' => '(0293)-7739234',
@@ -167,7 +172,20 @@ class DatabaseSeeder extends Seeder
                 // 'id_bank' => 1,
                 'id_form' => 1,
 
-                'status_pengajuan' => 'Pending',
+                'status_pengajuan' => 'Accepted',
+                'image_url' => 'tygbh',
+                'created_at' => Carbon::now()
+            ],
+            [
+                'title' => 'Bantu Pemuda Sukabumi Ini',
+                'id_lbh' => 1,
+                'description' => 'Kasus ini adalah tentang seorang pemuda Sukabumi Ini',
+                'tanggal' => Carbon::now(),
+                'target_donasi' => '2500000',
+                // 'id_bank' => 1,
+                'id_form' => 2,
+
+                'status_pengajuan' => 'Accepted',
                 'image_url' => 'tygbh',
                 'created_at' => Carbon::now()
             ],
@@ -268,14 +286,14 @@ class DatabaseSeeder extends Seeder
             KategoriSeeder::class,
             ProdukSeeder::class,
             AdminSeeder::class,
-            LBHSeeder::class,
+            // LBHSeeder::class,
         ]);
 
         FormPengajuan::insert($formArray);
         LBH::insert($lbhArray);
-        // KasusHukum::insert($kasusHukumArray);
+        KasusHukum::insert($kasusHukumArray);
         Bank::insert($bankArray);
-        // ProgressKasusHukum::insert($progressArray);
+        ProgressKasusHukum::insert($progressArray);
         TransaksiDonasi::insert($transaksiArray);
     }
 }

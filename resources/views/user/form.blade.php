@@ -298,6 +298,13 @@
 
             <div class="row me-4 ms-4 mt-3">
                 <div class="col-12">
+                    <label for="exampleFormControlInput1" class="form-label">Target Donasi</label>
+                    <input type="number" class="form-control" name="target_donasi" placeholder="Target Donasi (dalam Rupiah)">
+                </div>
+            </div>
+
+            <div class="row me-4 ms-4 mt-3">
+                <div class="col-12">
                     <label for="exampleFormControlTextarea1" class="form-label"><b>Uraian Singkat Pokok
                             Persoalan</b></label>
                     <textarea class="form-control" name="uraian" rows="5" required></textarea>
