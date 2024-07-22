@@ -53,22 +53,23 @@
                         <h3>Pidana ({{ count($pidana) }})</h3>
                         <div class="row">
                             <div class="row">
-                                @foreach ($pidana as $kasusHukum)
-                                    {{-- @dd($kasusHukum) --}}
-                                    <div class="col-4 d-flex g-5">
-                                        <div class="card border border-light-subtle" id="card">
-                                            <img src="../assets/images/kasus1.png" class="card-img-top" alt="...">
-                                            <div class="card-body">
-                                                <h5 class="card-title">
-                                                    <a href="/lbh/pengajuan-bantuan-hukum/{{ $kasusHukum['id_kasus'] }}"
-                                                        style="text-decoration: none; color:black">{{ $kasusHukum['title'] }}</a>
-                                                </h5>
-                                                <p class="card-text">{{ $kasusHukum['description'] }}.</p>
-                                            </div>
-
+                                @foreach ($pidana as $kasusPidana)
+                                {{-- @dd($kasusHukum) --}}
+                                <a href="/lbh/riwayat-kasus/{{ $kasusPidana->id_form }}"
+                                    class="card col-3" style="text-decoration: none">
+                                    <div class="card-body d-flex flex-column">
+                                        <div class="card-date d-flex flex-row-reverse">
+                                            <span class="text-secondary">{{ $kasusPidana->tanggal }}</span>
+                                        </div>
+                                        <div class="card-content">
+                                            <h5 class="card-title">{{ $kasusPidana->nama }}</h5>
+                                            <h6 class="card-subtitle mb-2 text-body-secondary">
+                                                {{ $kasusPidana->nomor_pemohon }}</h6>
+                                            <p class="card-text">{{ $kasusPidana->uraian }}</p>
                                         </div>
                                     </div>
-                                @endforeach
+                                </a>
+                            @endforeach
                             </div>
                         </div>
                     </div>
@@ -77,22 +78,23 @@
                         <h3>Perdata ({{ count($perdata) }})</h3>
                         <div class="row">
                             <div class="row">
-                                @foreach ($perdata as $kasusHukum)
-                                    {{-- @dd($kasusHukum) --}}
-                                    <div class="col-4 d-flex g-5">
-                                        <div class="card border border-light-subtle" id="card">
-                                            <img src="../assets/images/kasus1.png" class="card-img-top" alt="...">
-                                            <div class="card-body">
-                                                <h5 class="card-title">
-                                                    <a href="/lbh/pengajuan-bantuan-hukum/{{ $kasusHukum['id_kasus'] }}"
-                                                        style="text-decoration: none; color:black">{{ $kasusHukum['title'] }}</a>
-                                                </h5>
-                                                <p class="card-text">{{ $kasusHukum['description'] }}.</p>
-                                            </div>
-
+                                @foreach ($perdata as $kasusPerdata)
+                                {{-- @dd($kasusHukum) --}}
+                                <a href="/lbh/riwayat-kasus/{{ $kasusPerdata->id_form }}" class="card col-3"
+                                    style="text-decoration: none">
+                                    <div class="card-body d-flex flex-column">
+                                        <div class="card-date d-flex flex-row-reverse">
+                                            <span class="text-secondary">{{ $kasusPerdata->tanggal }}</span>
+                                        </div>
+                                        <div class="card-content">
+                                            <h5 class="card-title">{{ $kasusPerdata->nama }}</h5>
+                                            <h6 class="card-subtitle mb-2 text-body-secondary">
+                                                {{ $kasusPerdata->nomor_pemohon }}</h6>
+                                            <p class="card-text">{{ $kasusPerdata->uraian }}</p>
                                         </div>
                                     </div>
-                                @endforeach
+                                </a>
+                            @endforeach
                             </div>
                         </div>
                     </div>

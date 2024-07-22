@@ -61,6 +61,7 @@ Route::prefix('/lbh')->group(function () {
 
     Route::get('/riwayat-kasus', [CaseController::class, 'riwayat_kasus']);
     Route::get('/riwayat-kasus/search', [CaseController::class, 'search_riwayat']);
+    Route::get('/riwayat-kasus/{id}', [CaseController::class, 'detail_riwayat_kasus']);
 });
 
 //ADMIN

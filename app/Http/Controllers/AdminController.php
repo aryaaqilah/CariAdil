@@ -211,7 +211,7 @@ class AdminController extends Controller
             "image" => "required|mimes:jpg,png,jpeg,gif|max:2048"
         ];
 
-        $message = ["required" => ":attribute wajib diisi!", 
+        $message = ["required" => ":attribute wajib diisi!",
         "min" => ":attribute minimal berisi :min karakter!",
         "max" => ":attribute maksimal berisi :max karakter",
         "fileLampiran.mimes" => "file harus berupa gambar dengan format jpg, png, jpeg, atau gif",
@@ -233,7 +233,7 @@ class AdminController extends Controller
                 'description' => $request->description,
                 'image_url' => $imagePath
             ]);
-            
+
             return redirect('admin.perkara-berlangsung')->with('success', "Tambah berita berhasil!");
         }
     }
@@ -243,13 +243,14 @@ class AdminController extends Controller
 
         $formPengajuan->update([
             'jenis_perkara' => $request->jenis_perkara,
+            'status_pengajuan' => 'Accepted'
         ]);
 
         KasusHukum::create([
             'tanggal' => Carbon::now(),
             'id_form' => $id,
             'target_donasi' => $formPengajuan->target_donasi,
-            'status_pengajuan' => 'Proses',
+            'status_pengajuan' => 'Pending',
         ]);
 
         return redirect('admin/pengajuan-perkara');
