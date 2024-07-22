@@ -53,7 +53,7 @@
                                         style="text-decoration: none; color:black" class="col-4">
                                         <div class="d-flex g-5 berita-card">
                                             <div class="card border border-light-subtle" id="card">
-                                                <img src="../assets/images/kasus1.png" class="card-img-top"
+                                                <img src="{{ $kasusHukum->image_url }}" class="card-img-top"
                                                     alt="...">
                                                 <div class="card-body">
                                                     <h5 class="card-title">
@@ -101,11 +101,11 @@
                         <div class="row">
                             <div class="row">
                                 @foreach ($list_kasus_perdata as $kasusHukum)
-                                    {{-- @dd($kasusHukum) --}}
+                                    {{-- @dd($kasusHukum['image_url']) --}}
                                     <div class="col-4 d-flex g-5">
                                         <div class="card border border-light-subtle" id="card">
-                                            <img src="../assets/images/kasus1.png" class="card-img-top"
-                                                alt="...">
+                                            <img src="{{ asset('storage/' . $kasusHukum['image_url']) }}"
+                                                class="card-img-top" alt="...">
                                             <div class="card-body">
                                                 <h5 class="card-title">
                                                     <a href="/berita/kasus-hukum/{{ $kasusHukum['id_kasus'] }}"

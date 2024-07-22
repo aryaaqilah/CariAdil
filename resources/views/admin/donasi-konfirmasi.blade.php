@@ -53,9 +53,8 @@
         <table class="table logaktivitas">
             <thead>
                 <tr>
-                    <th scope="col" width="100rem">Time</th>
+                    <th scope="col" width="180rem">Time</th>
                     <th scope="col" width="210rem">Nama Donatur</th>
-                    {{-- <th scope="col" width="120rem">No Rekening</th> --}}
                     <th scope="col" width="100rem">Bank Asal</th>
                     <th scope="col" width="130rem">Nominal</th>
                     <th scope="col">Status</th>
@@ -66,11 +65,9 @@
                     <tr>
                         <td class="time">
                             <p id="date">{{ $d->created_at }}</p>
-                            <p id="hours">03:00</p>
                         </td>
-                        <td>{{ $d->transaksi_donasi->nama }}</td>
-                        {{-- <td>721928291</td> --}}
-                        <td>{{ $d->bank->nama }}</td>
+                        <td>{{ $d->nama }}</td>
+                        <td>{{ $d->namaBank }}</td>
                         <td>{{ $d->nominal }}</td>
                         <td>
                             <div class="d-flex">

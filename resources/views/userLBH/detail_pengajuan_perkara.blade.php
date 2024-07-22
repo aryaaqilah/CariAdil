@@ -16,8 +16,9 @@
         </div>
         <div class="row d-flex justify-content-center mt-3">
             <div class="col-10 text-center h1">
+                {{ dd($pengajuanBantuan) }}
                 {{-- @foreach ($pengajuanBantuan as $pengajuan) --}}
-                <strong>{{ $pengajuanBantuan->nomor_pemohon }} = {{ $pengajuanBantuan->nama }}</strong>
+                <strong>{{ $pengajuanBantuan['nomor_pemohon'] }} = {{ $pengajuanBantuan->nama }}</strong>
                 {{-- @endforeach --}}
             </div>
 

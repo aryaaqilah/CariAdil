@@ -26,11 +26,14 @@
                 <p class="fs-5">{{ $kasusHukum->tanggal }}</p>
             </div>
 
-            <div class="col-12 d-flex justify-content-center">
-                <div style="border-radius: 20px; width: 80%; height: 90%; padding-bottom: 50%; background-size: cover; background-image: url(https://media.istockphoto.com/id/1449333398/id/foto/pengusaha-berjabat-tangan-pengacara-mitra-atau-pengacara-mendiskusikan-perjanjian-kontrak.jpg?s=1024x1024&w=is&k=20&c=64UHwZ1G3XqegEU-SbdeELLEXKQNYbivpkvHrKJQLcQ=);"
+            <div class="col-2"></div>
+            <div class="col-8 d-flex justify-content-center">
+                {{-- <div style="border-radius: 20px; width: 80%; height: 90%; padding-bottom: 50%; background-size: cover; background-image: url(https://media.istockphoto.com/id/1449333398/id/foto/pengusaha-berjabat-tangan-pengacara-mitra-atau-pengacara-mendiskusikan-perjanjian-kontrak.jpg?s=1024x1024&w=is&k=20&c=64UHwZ1G3XqegEU-SbdeELLEXKQNYbivpkvHrKJQLcQ=);"
                     class="img">
-                </div>
+                </div> --}}
+                <img src="{{ asset('storage/' . $kasusHukum['image_url']) }}" class="img-fluid" alt="...">
             </div>
+            <div class="col-2"></div>
 
             <div class="row mt-3 card py-3 mb-3">
                 <strong class="mb-3">Deskripsi</strong>
