@@ -1,10 +1,9 @@
 <link rel="stylesheet" href="{{ asset('style/styles.css') }}">
 
 <x-layout :auth="$auth">
-    <div class="container-fluid">
+    <div class="container-fluid container">
         <div class="pembatas"></div>
         <div class="row mt-5">
-            <div class="col-1"></div>
             <div class="col-1">
                 <a href="{{ url()->previous() }}" type="button" class="btn btn-orange"
                     style="--bs-btn-padding-y: .25rem; --bs-btn-padding-x: .9rem; --bs-btn-font-size: 1rem;">
@@ -16,19 +15,10 @@
         </div>
         <div class="row d-flex justify-content-center mt-3">
             <div class="col-10 text-center h1">
-                {{ dd($pengajuanBantuan) }}
+                {{-- {{ dd($pengajuanBantuan) }} --}}
                 {{-- @foreach ($pengajuanBantuan as $pengajuan) --}}
                 <strong>{{ $pengajuanBantuan['nomor_pemohon'] }} = {{ $pengajuanBantuan->nama }}</strong>
                 {{-- @endforeach --}}
-            </div>
-
-            <div class="d-flex justify-content-center gap-3 my-3">
-                <span class="badge rounded-pill text-dark"
-                    style="background-color:rgba(225, 223, 209, 1); font-size: 14PX">Pidana</span>
-                <span class="badge rounded-pill text-dark"
-                    style="background-color:rgba(225, 223, 209, 1); font-size: 14PX">Perebutan Hak Asuh Anak</span>
-                <span class="badge rounded-pill text-dark"
-                    style="background-color:rgba(225, 223, 209, 1); font-size: 14PX">Penggugat</span>
             </div>
 
             <div class="d-flex justify-content-center">
@@ -37,35 +27,10 @@
                 {{-- @endforeach --}}
             </div>
 
-            <div class="col-4"></div>
-            <div class="col-4">
-                <img src="/assets/images/jumbotron1.png" class="img-fluid" alt="...",
-                    style="height: 100%; width: 100%; border-radius: 12px">
-            </div>
-            <div class="col-4"></div>
-
-            <div class="d-flex mt-5 justify-content-center">
-                <h4>Terima Perkara Ini?</h4>
-            </div>
-
-            <div class="d-flex justify-content-center mt-2 gap-4 mb-5" style="color:rgba(232, 123, 47, 1)">
-                <form action="{{ url('/lbh/pengajuan-bantuan-hukum/' . $id_form) }}" method="POST">
-                    @csrf
-                    @method('PUT')  
-                    <input type="hidden" name="id_form" value="{{ $id_form }}">
-                    <button style="border: none; background-color: white" type="submit">
-                        <i style=" color: rgba(232, 123, 47, 1); " class="fa-solid fa-circle-check fa-4x"></i>
-                    </button>
-                </form>
-                <i class="fa-solid fa-circle-xmark fa-4x"></i>
-            </div>
-
             <div class="d-flex mt-3 justify-content-center">
                 <h4>Rincian pengajuan</h4>
             </div>
 
-
-            <div class="col-1"></div>
             <div class="col-10 mb-5">
                 <div class="accordion accordion-flush mt-3" id="accordionFlushExample">
                     <div class="accordion-item">
@@ -185,6 +150,25 @@
                         </div>
                     </div>
                 </div>
+            </div>
+
+            <div class="d-flex mt-5 justify-content-center">
+                <h4>Terima Perkara Ini?</h4>
+            </div>
+
+            <div class="d-flex justify-content-center mt-2 gap-4 mb-5" style="color:rgba(232, 123, 47, 1)">
+                <form action="{{ url('/lbh/pengajuan-bantuan-hukum/' . $id_form) }}" method="POST">
+                    @csrf
+                    @method('PUT')  
+                    <input type="hidden" name="id_form" value="{{ $id_form }}">
+                    <button style="border: none; background-color: white" type="submit">
+                        <i style=" color: rgba(232, 123, 47, 1); " class="fa-solid fa-circle-check fa-4x"></i>
+                    </button>
+                </form>
+
+                    <a href="{{ url()->previous() }}" class="reject-button">
+                        <i class="fa-solid fa-xmark fa-2x" style="color:rgba(232, 123, 47, 1)"></i>
+                    </a>
             </div>
         </div>
     </div>

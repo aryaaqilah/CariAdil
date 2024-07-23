@@ -46,53 +46,51 @@
                         aria-labelledby="pills-home-tab" tabindex="0">
                         <h3>Pidana ({{ count($list_kasus_pidana) }})</h3>
                         <div class="row">
-                            <div class="row">
-                                @foreach ($list_kasus_pidana as $kasusHukum)
-                                    {{-- @dd($kasusHukum) --}}
-                                    <a href="/berita/kasus-hukum/{{ $kasusHukum['id_kasus'] }}"
-                                        style="text-decoration: none; color:black" class="col-4">
-                                        <div class="d-flex g-5 berita-card">
-                                            <div class="card border border-light-subtle" id="card">
-                                                <img src="{{ $kasusHukum->image_url }}" class="card-img-top"
-                                                    alt="...">
-                                                <div class="card-body">
-                                                    <h5 class="card-title">
-                                                        {{ $kasusHukum['title'] }}
-                                                    </h5>
-                                                    <p class="card-text">{{ $kasusHukum['description'] }}.</p>
-                                                </div>
-                                                <ul class="list-group list-group-flush">
-                                                    <li class="list-group-item">
-                                                        <div class="d-flex" style="flex-direction: row-reverse;">
-                                                            @foreach ($kasusHukum['nama_lbh'] as $lbh)
-                                                                <div class="">{{ $lbh->nama_lbh }}</div>
-                                                            @endforeach
-                                                        </div>
-                                                        <div class="div" style="height: 10px;"></div>
-                                                        <div class="progress">
-                                                            <div class="progress-bar" role="progressbar"
-                                                                aria-label="Basic example"
-                                                                style="width: {{ ($kasusHukum['total'] / $kasusHukum['target_donasi']) * 100 }}%"
-                                                                aria-valuenow="25" aria-valuemin="0"
-                                                                aria-valuemax="100">
-                                                            </div>
-                                                        </div>
-                                                        <div class="div" style="height: 10px;"></div>
-                                                        <div class="d-flex justify-content-between">
-                                                            <div class="">
-                                                                Rp{{ number_format($kasusHukum['total'], 2, ',', '.') }}
-                                                            </div>
-                                                            <div class="">
-                                                                Rp{{ number_format($kasusHukum['target_donasi'], 2, ',', '.') }}
-                                                            </div>
-                                                        </div>
-                                                    </li>
-                                                </ul>
+                            @foreach ($list_kasus_pidana as $kasusHukum)
+                                {{-- @dd($kasusHukum) --}}
+                                <a href="/berita/kasus-hukum/{{ $kasusHukum['id_kasus'] }}"
+                                    style="text-decoration: none; color:black" class="col-4">
+                                    <div class="d-flex g-5 berita-card">
+                                        <div class="card border border-light-subtle" id="card">
+                                            <img src="{{ asset('storage/' . $kasusHukum['image_url']) }}" class="card-img-top"
+                                                alt="...">
+                                            <div class="card-body">
+                                                <h5 class="card-title">
+                                                    {{ $kasusHukum['title'] }}
+                                                </h5>
+                                                <p class="card-text">{{ \Illuminate\Support\Str::limit($kasusHukum['description'], 120, $end='...') }}.</p>
                                             </div>
+                                            <ul class="list-group list-group-flush">
+                                                <li class="list-group-item">
+                                                    <div class="d-flex" style="flex-direction: row-reverse;">
+                                                        @foreach ($kasusHukum['nama_lbh'] as $lbh)
+                                                            <div class="">{{ $lbh->nama_lbh }}</div>
+                                                        @endforeach
+                                                    </div>
+                                                    <div class="div" style="height: 10px;"></div>
+                                                    <div class="progress">
+                                                        <div class="progress-bar" role="progressbar"
+                                                            aria-label="Basic example"
+                                                            style="width: {{ ($kasusHukum['total'] / $kasusHukum['target_donasi']) * 100 }}%"
+                                                            aria-valuenow="25" aria-valuemin="0"
+                                                            aria-valuemax="100">
+                                                        </div>
+                                                    </div>
+                                                    <div class="div" style="height: 10px;"></div>
+                                                    <div class="d-flex justify-content-between">
+                                                        <div class="">
+                                                            Rp{{ number_format($kasusHukum['total'], 2, ',', '.') }}
+                                                        </div>
+                                                        <div class="">
+                                                            Rp{{ number_format($kasusHukum['target_donasi'], 2, ',', '.') }}
+                                                        </div>
+                                                    </div>
+                                                </li>
+                                            </ul>
                                         </div>
-                                    </a>
-                                @endforeach
-                            </div>
+                                    </div>
+                                </a>
+                            @endforeach
                         </div>
                     </div>
                     <div class="tab-pane fade" id="pills-profile" role="tabpanel" aria-labelledby="pills-profile-tab"

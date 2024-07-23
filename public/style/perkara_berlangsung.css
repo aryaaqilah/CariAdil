@@ -63,6 +63,7 @@ h1{
 
 #card{
     width: 30vw;
+    height: 50vh;
     border-radius: 20px;
     overflow: hidden;
 }
@@ -88,4 +89,13 @@ h1{
 
 .pembatas{
     height: 80px;
+}
+
+.card {
+    height: 900px;
+}
+
+.card img {
+    height: 250px;
+    object-fit: cover;
 }

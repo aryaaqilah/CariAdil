@@ -16,6 +16,7 @@
         </div>
         <div class="row d-flex justify-content-center mt-3">
             <div class="col-10 text-center h1">
+                {{-- {{dd($perkaraBerlangsung)}} --}}
                 {{-- @foreach ($perkaraBerlangsung as $pb) --}}
                 <strong>{{ $perkaraBerlangsung->title }}</strong>
                 {{-- @endforeach --}}

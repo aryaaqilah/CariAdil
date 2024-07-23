@@ -886,3 +886,15 @@ nav {
     box-shadow: 0 0 20px 6px rgba(0, 0, 0, 0.05);
     cursor: pointer;
 }
+
+.reject-button {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 4rem;
+  height: 4rem;
+  /* background: #DF7B74; */
+  border: 3px solid #DF7B74;
+  border-radius: 100px;
+  background: none;
+}

@@ -13,11 +13,11 @@
                 <div class="kasus">
                     <h2 class="headline-kasus">Kasus Terbaru</h2>
                     {{-- <div class="pembatas20"></div> --}}
-                    <div class="column-kasus">
+                    <div class="column-kasus row">
                         @foreach ($list_kasus_hukum as $kasusHukum)
-                            <div class="detail-kasus">
+                            <div class="detail-kasus col-6">
                                 <h3 class="judul-kasus">{{ $kasusHukum->title }}</h3>
-                                <p class="deskripsi-kasus">{{ $kasusHukum->description }}</p>
+                                <p class="deskripsi-kasus">{{ \Illuminate\Support\Str::limit($kasusHukum->description, 150, $end='...') }}</p>
                                 <a href="/berita/kasus-hukum/{{ $kasusHukum->id_kasus }}"
                                     class="berita-selengkapnya">Berita
                                     Selengkapnya ></a>
@@ -69,7 +69,8 @@
                                     <div class="box-kasus-hukum d-flex gap-5">
                                         <div class="detail-box-kasus-hukum" style="width: 100%">
                                             <div class="img-detail-box-kasus-hukum">
-                                                <button type="button" class="btn"
+                                                <img src="{{ asset('storage/' . $kasusHukum->image_url) }}" alt="">
+                                                <button type="button" class="btn kategori-jenis-perkara"
                                                     style="--bs-btn-padding-y: .25rem; --bs-btn-padding-x: 2rem; --bs-btn-font-size: .75rem;
                                 background-color: rgba(232, 123, 47, 1); border-radius: 12px; color: white;
                                 margin-left: 1rem; margin-top: 10px">{{ $kasusHukum->form->jenis_perkara }}</button>
@@ -79,7 +80,7 @@
                                                     class="date col-4 d-flex justify-content-end">{{ $kasusHukum->tanggal }}
                                                 </span>
                                             </div>
-                                            <p class="desc-kasus">{{ $kasusHukum->description }}</p>
+                                            <p class="desc-kasus">{{ \Illuminate\Support\Str::limit($kasusHukum->description, 110, $end='...') }}</p>
                                         </div>
                                     </div>
                                 </a>

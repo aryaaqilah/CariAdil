@@ -52,6 +52,7 @@ Route::prefix('/lbh')->group(function () {
     Route::get('/pengajuan-bantuan-hukum/search', [CaseController::class, 'search_pengajuan']);
     Route::get('/pengajuan-bantuan-hukum/{id}', [CaseController::class, 'detail_pengajuan_bantuan'])->name('detail_pengajuan');
     Route::put('/pengajuan-bantuan-hukum/{id}', [CaseController::class, 'terima_pengajuan']);
+    Route::delete('/tolak-pengajuan-bantuan-hukum/{id}', [CaseController::class, 'tolak_pengajuan']);
 
     Route::get('/perkara-berlangsung', [CaseController::class, 'perkara_berlangsung']);
     Route::get('/perkara-berlangsung/search', [CaseController::class, 'search_perkara']);

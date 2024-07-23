@@ -139,6 +139,7 @@ class CaseController extends Controller
         // $perdata = FormPengajuan::where('jenis_perkara', '=', 'Perdata')->where('status_pengajuan', '=', 'Pending')->get();
 
         $pidana = FormPengajuan::join('kasus_hukum', 'kasus_hukum.id_form', '=', 'form_pengajuan.id_form')
+        ->join('lbh', 'kasus_hukum.id_lbh', '=', 'lbh.id_LBH')
         ->select("*")
         ->where('form_pengajuan.jenis_perkara', '=', 'Pidana')
         ->where('kasus_hukum.id_lbh', '=', $user->id_LBH)
@@ -277,7 +278,7 @@ class CaseController extends Controller
         $perkaraBerlangsung = KasusHukum::join('form_pengajuan', 'form_pengajuan.id_form', '=', 'kasus_hukum.id_form')
         // ->join('transaksi_donasi', 'kasus_hukum.id_kasus', '=', 'transaksi_donasi.id_kasus_hukum')
         ->select('*')
-        ->where('id_kasus', '=', $id)->first();
+        ->where('kasus_hukum.id_form', '=', $id)->first();
         $kasusHukum = KasusHukum::find($id);
         $progress = ProgressKasusHukum::select('*')->where('id_kasus', '=', $id)->get();
         $transaksi = TransaksiDonasi::select('*')->where('id_kasus_hukum', '=', $id)->where('status_pembayaran','=',1)->get();
@@ -569,7 +570,7 @@ class CaseController extends Controller
         $pengajuanBantuan = KasusHukum::join('form_pengajuan', 'form_pengajuan.id_form', '=', 'kasus_hukum.id_form')
         // ->join('transaksi_donasi', 'kasus_hukum.id_kasus', '=', 'transaksi_donasi.id_kasus_hukum')
         ->select('*')
-        ->where('id_kasus', '=', $id)->first();
+        ->where('kasus_hukum.id_form', '=', $id)->first();
         // $kasusHukum = KasusHukum::find($id);
 
         $auth = true;
@@ -593,6 +594,14 @@ class CaseController extends Controller
         ]);
 
         return redirect('/lbh/pengajuan-bantuan-hukum')->with('success', 'Pengajuan berhasil diterima');
+    }
+
+    public function tolak_pengajuan($id) {
+        KasusHukum::where('id_form', $id)->update([
+            'id_form' => NULL,
+        ]);
+
+        return 'tolak ' . $id;
     }
 
     public function riwayat_kasus(){
