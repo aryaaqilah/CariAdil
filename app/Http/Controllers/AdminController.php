@@ -9,6 +9,9 @@ use App\Models\LBH;
 use App\Models\TransaksiDonasi;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Facades\Session;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Str;
@@ -28,6 +31,27 @@ class AdminController extends Controller
         $lbh = LBH::select('*')->get();
 
         return view('admin.dashboard', compact('pengajuan', 'kasusHukum','donasi', 'lbh'));
+    }
+
+    public function showLogin(){
+        return view('admin.login');
+    }
+
+    public function login(Request $request){
+        $request->validate([
+            'username' => 'required',
+            'password' => 'required',
+        ]);
+
+        $admin = Admin::where('username', $request->username)->first();
+
+        if ($admin && Hash::check($request->password, $admin->password)){
+            $request->session()->regenerate();
+            Session::put('admin', $admin);
+            return redirect()->route('admin.dashboard');
+        }else{
+            return redirect()->back()->withErrors(['username' => 'Invalid credentials']);
+        }
     }
 
     /**
