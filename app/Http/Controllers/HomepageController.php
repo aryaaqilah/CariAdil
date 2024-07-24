@@ -12,7 +12,7 @@ class HomepageController extends Controller
      */
     public function index()
     {
-        $kasusHukum = KasusHukum::orderBy('tanggal', 'DESC')->take(2)
+        $kasusHukum = KasusHukum::orderBy('created_at', 'DESC')->take(2)
         ->whereNotNull('id_lbh')
         ->whereNotNull('title')
         ->get();
