@@ -21,7 +21,7 @@
                 <strong>{{ $perkaraBerlangsung->title }}</strong>
                 {{-- @endforeach --}}
             </div>
-
+{{-- 
             <div class="d-flex justify-content-center gap-3 my-3">
                 <span class="badge rounded-pill text-dark"
                     style="background-color:rgba(225, 223, 209, 1); font-size: 14PX">Pidana</span>
@@ -29,7 +29,7 @@
                     style="background-color:rgba(225, 223, 209, 1); font-size: 14PX">Perebutan Hak Asuh Anak</span>
                 <span class="badge rounded-pill text-dark"
                     style="background-color:rgba(225, 223, 209, 1); font-size: 14PX">Penggugat</span>
-            </div>
+            </div> --}}
 
             <div class="d-flex justify-content-center">
                 {{-- @foreach ($perkaraBerlangsung as $pb) --}}
@@ -37,12 +37,11 @@
                 {{-- @endforeach --}}
             </div>
 
-            <div class="col-4"></div>
-            <div class="col-4">
-                <img src="/assets/images/jumbotron1.png" class="img-fluid" alt="...",
-                    style="height: 100%; width: 100%; border-radius: 12px">
+            <div class="col-2"></div>
+            <div class="col-8 d-flex justify-content-center">
+                <img src="{{ asset('storage/' . $image->image_url) }}" class="img-fluid" alt="...">
             </div>
-            <div class="col-4"></div>
+            <div class="col-2"></div>
 
             {{-- Tabs --}}
             <div class="col-1"></div>
@@ -195,16 +194,15 @@
                                 Progress Perkara
                         </div>
                             <div class="d-flex justify-content-center">
-                                <div class="col-10" style="">
+                                <div class="col-10">
                                   <ul class="progress-tracker progress-tracker--text progress-tracker--center">
                                     @foreach ($progress as $index => $prog)
-                                      
-                                    <li class="progress-step is-complete">
-                                      <div style="color: white" class="progress-marker" data-text="{{$index+1}}"></div>
-                                      <div class="progress-text">
-                                        <h4 style="word-wrap: break-word;" class="progress-title">{{$prog->topik_progress}}</h4>
-                                      </div>
-                                    </li>
+                                        <li class="progress-step is-complete">
+                                        <div style="color: white" class="progress-marker" data-text="{{$index+1}}"></div>
+                                        <div class="progress-text">
+                                            <h4 style="word-wrap: break-word;" class="progress-title">{{$prog->topik_progress}}</h4>
+                                        </div>
+                                        </li>
                                     @endforeach
                                   </ul>
                                     
@@ -216,15 +214,11 @@
                             </div>
 
                             <form class="d-flex justify-content-center"
-                                action="{{ url('/lbh/perkara-berangsung/' . $perkaraBerlangsung->id_kasus) }}"
+                                action="{{ url('/lbh/perkara-berangsung/' . $perkaraBerlangsung->id_form) }}"
                                 method="POST">
                                 @csrf
                                 <input type="hidden" name="id_kasus" value=" {{ $perkaraBerlangsung->id_kasus }}">
                                 <div class="col-10">
-                                    {{-- <div class="col-12 mt-3">
-                          <label for="inputAddress" class="form-label">Tanggal</label>
-                            <input type="date" class="form-control" name="date">
-                        </div> --}}
 
                                     <div class="col-12 d-flex justify-content-between gap-4 mt-3">
                                         <div class="col-md-5">
@@ -288,13 +282,13 @@
                         Rp {{ number_format($total, 2, ',', '.') }}
                     </div>
                     <div class="d-flex h7 mt-2">
-                        Terkumpul dari Rp {{ number_format($kasusHukum->target_donasi, 2, ',', '.') }}
+                        Terkumpul dari Rp {{ number_format($perkaraBerlangsung->target_donasi, 2, ',', '.') }}
                     </div>
 
                     <div class="progress mt-4"
                         style="height: 20px; background-color:rgb(255, 223, 200); border-radius: 12px">
                         <div class="progress-bar" role="progressbar"
-                            style="width: {{ ($total / $kasusHukum->target_donasi) * 100 }}%; background-color:rgba(232, 123, 47, 1); border-radius: 12px"
+                            style="width: {{ ($total / $perkaraBerlangsung->target_donasi) * 100 }}%; background-color:rgba(232, 123, 47, 1); border-radius: 12px"
                             aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"></div>
                     </div>
                 </div>

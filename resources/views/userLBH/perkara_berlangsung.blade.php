@@ -55,7 +55,7 @@
                             <div class="row">
                                 @foreach ($pidana as $kasusPidana)
                                     {{-- @dd($kasusPidana) --}}
-                                    <a href="/lbh/perkara-berlangsung/{{ $kasusPidana->id_form }}"
+                                    <a href="/lbh/perkara-berlangsung/{{ $kasusPidana->id_kasus }}"
                                         class="col-4" style="text-decoration: none">
                                         {{-- <div class="card-body d-flex flex-column">
                                             <div class="card-date d-flex flex-row-reverse">

@@ -162,7 +162,7 @@
 
             <div class="col-1"></div>
             <div class="col-10" >
-                <div class="container-total d-flex align-items-center" style="height : 2rem">
+                <div class="container-total d-flex align-items-center" style="height : 3rem">
                     <div class="col-10"></div>
                     <div class="col-2 d-flex align-items-center justify-content-center">
                         <div id="totalBayar" style="font-weight: bold">Total : Rp. 0,00</div>

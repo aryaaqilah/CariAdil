@@ -276,18 +276,24 @@ class CaseController extends Controller
 
     public function detail_perkara_berlangsung($id){
         $perkaraBerlangsung = KasusHukum::join('form_pengajuan', 'form_pengajuan.id_form', '=', 'kasus_hukum.id_form')
-        // ->join('transaksi_donasi', 'kasus_hukum.id_kasus', '=', 'transaksi_donasi.id_kasus_hukum')
         ->select('*')
-        ->where('kasus_hukum.id_form', '=', $id)->first();
+        ->where('kasus_hukum.id_kasus', '=', $id)->first();
+
         $kasusHukum = KasusHukum::find($id);
+
+        $image = KasusHukum::join('form_pengajuan', 'form_pengajuan.id_form', '=', 'kasus_hukum.id_form')
+        ->select('kasus_hukum.image_url')
+        ->where('kasus_hukum.id_kasus', '=', $id)->first();
+
         $progress = ProgressKasusHukum::select('*')->where('id_kasus', '=', $id)->get();
+        // dd($progress);
         $transaksi = TransaksiDonasi::select('*')->where('id_kasus_hukum', '=', $id)->where('status_pembayaran','=',1)->get();
         $total = 0;
         foreach ($transaksi as $trans){
             $total += $trans->nominal;
         }
         $auth = true;
-        return view('userLBH.detail_perkara_berlangsung', ['auth'=> $auth, 'perkaraBerlangsung' => $perkaraBerlangsung, 'progress' => $progress, 'total' => $total, 'kasusHukum' => $kasusHukum]);
+        return view('userLBH.detail_perkara_berlangsung', ['auth'=> $auth, 'perkaraBerlangsung' => $perkaraBerlangsung, 'progress' => $progress, 'total' => $total, 'kasusHukum' => $kasusHukum, 'image' => $image]);
     }
 
 
@@ -316,6 +322,7 @@ class CaseController extends Controller
     {
         $kasusHukum = KasusHukum::find($id);
         $progress = ProgressKasusHukum::select('*')->where('id_kasus', '=', $id)->get();
+        
         $transaksi = TransaksiDonasi::select('*')->where('id_kasus_hukum', '=', $id)->where('status_pembayaran', '=', 1)->get();
         $total = 0;
         foreach ($transaksi as $trans){
