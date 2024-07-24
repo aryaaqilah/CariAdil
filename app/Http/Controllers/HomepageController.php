@@ -12,7 +12,10 @@ class HomepageController extends Controller
      */
     public function index()
     {
-        $kasusHukum = KasusHukum::orderBy('tanggal', 'DESC')->take(2)->get();
+        $kasusHukum = KasusHukum::orderBy('tanggal', 'DESC')->take(2)
+        ->whereNotNull('id_lbh')
+        ->whereNotNull('title')
+        ->get();
         $auth = false;
 
         return view('user.homepage', ['list_kasus_hukum' => $kasusHukum, 'auth' => $auth]);
