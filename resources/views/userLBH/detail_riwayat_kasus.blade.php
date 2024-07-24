@@ -21,15 +21,6 @@
                 {{-- @endforeach --}}
             </div>
 
-            <div class="d-flex justify-content-center gap-3 my-3">
-                <span class="badge rounded-pill text-dark"
-                    style="background-color:rgba(225, 223, 209, 1); font-size: 14PX">Pidana</span>
-                <span class="badge rounded-pill text-dark"
-                    style="background-color:rgba(225, 223, 209, 1); font-size: 14PX">Perebutan Hak Asuh Anak</span>
-                <span class="badge rounded-pill text-dark"
-                    style="background-color:rgba(225, 223, 209, 1); font-size: 14PX">Penggugat</span>
-            </div>
-
             <div class="d-flex justify-content-center">
                 {{-- @foreach ($perkaraBerlangsung as $pb) --}}
                 <p> Diterima tanggal {{ $perkaraBerlangsung->tanggal }} </p>
@@ -195,49 +186,21 @@
                             </div>
                             <div class="d-flex justify-content-center">
                                 <div class="col-10" style="">
-                                    {{-- <div class="position-relative m-4 mt-5">
-                        <div class="progress" role="progressbar" aria-label="Progress" aria-valuenow="50" aria-valuemin="0" aria-valuemax="100" style="height: 1px; ">
-                          <div class="progress-bar" style="width: 100%;"></div>
-                        </div>
-                        <div class="d-flex flex-column justify-content-center align-items-center position-absolute top-0 start-0 translate-middle gap-2 bg-transparent" style="width: 10rem;">
-                          <button type="button" class=" btn btn-sm rounded-pill progress-btn" style="width: 2.5rem; height:2.5rem; background-color:rgba(232, 123, 47, 1); color: white">1</button>
-                        </div>
-                        <div class="d-flex flex-column justify-content-center align-items-center position-absolute top-0 start-50 translate-middle gap-2 bg-transparent" style="width: 10rem">
-                          <button type="button" class=" btn btn-sm rounded-pill progress-btn" style="width: 2.5rem; height:2.5rem; background-color:rgba(232, 123, 47, 1); color: white">2</button>
-                        </div>
-                        <div class="d-flex flex-column justify-content-center align-items-center position-absolute top-0 start-100 translate-middle gap-2 bg-transparent" style="width: 10rem; ">
-                          <button type="button" class=" btn btn-sm rounded-pill progress-btn" style="width: 2.5rem; height:2.5rem;; background-color:rgba(232, 123, 47, 1); color: white">3</button>
-                        </div>
-                      </div>
-
-                      <div class="position-relative m-4 mt-5 ">
-                        <div class="d-flex flex-column justify-content-center align-items-center position-absolute top-0 start-0 translate-middle gap-2 bg-transparent h6" style="width: 10rem">
-                          <p class="text-center h6">Pengajuan Perkara ke Pengadilan</p>
-                        </div>
-
-                        <div class="d-flex flex-column justify-content-center align-items-center position-absolute top-0 start-50 translate-middle gap-2 bg-transparent h6" style="width: 10rem">
-                          <p class="text-center h6">Persidangan Pertama</p>
-                        </div>
-
-                        <div class="d-flex flex-column justify-content-center align-items-center position-absolute top-0 start-100 translate-middle gap-2 bg-transparent h6" style="width: 10rem">
-                          <p class="text-center h6">Persidangan Kedua</p>
-                        </div>
-                      </div>
-
-                    </div> --}}
-
-                                    <ul class="progress-tracker progress-tracker--horizontal">
-                                        @foreach ($progress as $index => $prog)
-                                            <li class="progress-step is-complete">
-                                                <div style="color: white" class="progress-marker"
-                                                    data-text="{{ $index + 1 }}"></div>
-                                                <div class="progress-text" style="background-color:">
-                                                    <h4 class="progress-title">{{ $prog->topik_progress }}</h4>
-                                                    {{-- {{ $prog->detail }} --}}
+                                    <div class="d-flex justify-content-center">
+                                        <div class="col-12">
+                                          <ul class="progress-tracker progress-tracker--text progress-tracker--center">
+                                            @foreach ($progress as $index => $prog)
+                                                <li class="progress-step is-complete">
+                                                <div style="color: white" class="progress-marker" data-text="{{$index+1}}"></div>
+                                                <div class="progress-text">
+                                                    <h4 style="word-wrap: break-word;" class="progress-title">{{$prog->topik_progress}}</h4>
                                                 </div>
-                                            </li>
-                                        @endforeach
-                                    </ul>
+                                                </li>
+                                            @endforeach
+                                          </ul>
+                                            
+                                          </div>
+                                    </div>
                                 </div>
                                 {{-- {{ $progress->links() }} --}}
 

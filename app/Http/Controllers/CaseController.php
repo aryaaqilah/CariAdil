@@ -147,6 +147,7 @@ class CaseController extends Controller
         ->get();
 
         $perdata = FormPengajuan::join('kasus_hukum', 'kasus_hukum.id_form', '=', 'form_pengajuan.id_form')
+        ->join('lbh', 'kasus_hukum.id_lbh', '=', 'lbh.id_LBH')
         ->select("*")
         ->where('form_pengajuan.jenis_perkara', '=', 'Perdata')
         ->where('kasus_hukum.id_lbh', '=', $user->id_LBH)

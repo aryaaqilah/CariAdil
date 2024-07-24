@@ -214,7 +214,7 @@
                             </div>
 
                             <form class="d-flex justify-content-center"
-                                action="{{ url('/lbh/perkara-berangsung/' . $perkaraBerlangsung->id_form) }}"
+                                action="{{ url('/lbh/perkara-berlangsung/' . $perkaraBerlangsung->id_kasus) }}"
                                 method="POST">
                                 @csrf
                                 <input type="hidden" name="id_kasus" value=" {{ $perkaraBerlangsung->id_kasus }}">
@@ -258,7 +258,7 @@
 
                         <div class="d-flex justify-content-center mt-2 gap-4 mb-5"
                             style="color:rgba(232, 123, 47, 1)">
-                            <form action="{{ url('lbh/perkara-berangsung/' . $perkaraBerlangsung->id_kasus) }}"
+                            <form action="{{ url('lbh/perkara-berlangsung')}}"
                                 method="POST">
                                 @csrf
                                 @method('PUT')

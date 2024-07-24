@@ -35,7 +35,7 @@ class ProgressKasusHukumController extends Controller
     }
 
 
-    public function ProgressSelesai(Request $request, $id){
+    public function ProgressSelesai(Request $request){
 
         $request->validate([
             'id_kasus' => 'required|integer|exists:kasus_hukum,id_kasus',
@@ -44,9 +44,8 @@ class ProgressKasusHukumController extends Controller
         $selesai  = KasusHukum::find($request->id_kasus);
         $selesai->status_pengajuan = 'Selesai';
         $selesai -> save();
-        // dd($selesai);
 
-        return redirect()->route('detail_perkara', ['id' => $id, 'selesai' => $selesai])->with('success', 'Progress has been added');
+        return redirect()->route('selesai_progress', ['selesai' => $selesai])->with('success', 'Progress has been added');
 
     }
 }

@@ -57,8 +57,8 @@ Route::prefix('/lbh')->group(function () {
     Route::get('/perkara-berlangsung', [CaseController::class, 'perkara_berlangsung']);
     Route::get('/perkara-berlangsung/search', [CaseController::class, 'search_perkara']);
     Route::get('/perkara-berlangsung/{id}', [CaseController::class, 'detail_perkara_berlangsung'])->name('detail_perkara');
-    Route::post('/perkara-berangsung/{id}', [ProgressKasusHukumController::class, 'UpdateProgress']);
-    Route::put('/perkara-berangsung/{id}', [ProgressKasusHukumController::class, 'ProgressSelesai']);
+    Route::post('/perkara-berlangsung/{id}', [ProgressKasusHukumController::class, 'UpdateProgress']);
+    Route::put('/perkara-berlangsung', [ProgressKasusHukumController::class, 'ProgressSelesai'])->name('selesai_progress');
 
     Route::get('/riwayat-kasus', [CaseController::class, 'riwayat_kasus']);
     Route::get('/riwayat-kasus/search', [CaseController::class, 'search_riwayat']);
