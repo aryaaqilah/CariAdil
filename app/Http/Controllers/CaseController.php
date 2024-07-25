@@ -352,9 +352,39 @@ class CaseController extends Controller
 
         $auth = false;
 
-        $pidana = KasusHukum::select('*')->where('jenis_perkara', '=', 'Pidana')->where('title', 'LIKE', '%'. $kata_kunci.'%')->get();
-        $perdata = KasusHukum::select('*')->where('jenis_perkara', '=', 'Perdata')->where('title', 'LIKE', '%'. $kata_kunci.'%')->get();
-        // dd($perkara);
+        $pidana = KasusHukum::join('form_pengajuan', 'kasus_hukum.id_form', '=', 'form_pengajuan.id_form')
+        ->select('*')
+        ->where('form_pengajuan.jenis_perkara', '=', 'Pidana')
+        ->where('kasus_hukum.status_pengajuan', '=', 'Accepted')
+        ->where('form_pengajuan.status_pengajuan', '=', 'Accepted')
+        ->where(function($query) use ($kata_kunci) {
+            $query->where('form_pengajuan.uraian', 'LIKE', '%'. $kata_kunci.'%')
+                  ->orWhere('form_pengajuan.nama', 'LIKE', '%'. $kata_kunci.'%')
+                  ->orWhere('form_pengajuan.alamat_lengkap', 'LIKE', '%'. $kata_kunci.'%')
+                  ->orWhere('form_pengajuan.kabupaten_kota', 'LIKE', '%'. $kata_kunci.'%')
+                  ->orWhere('form_pengajuan.pekerjaan', 'LIKE', '%'. $kata_kunci.'%');
+        })
+        ->get();
+
+        // dd($pidana);
+
+        $perdata = KasusHukum::join('form_pengajuan', 'kasus_hukum.id_form', '=', 'form_pengajuan.id_form')
+        ->select('*')
+        ->where('form_pengajuan.jenis_perkara', '=', 'Perdata')
+        ->where('kasus_hukum.status_pengajuan', '=', 'Accepted')
+        ->where('form_pengajuan.status_pengajuan', '=', 'Accepted')
+        ->where(function($query) use ($kata_kunci) {
+            $query->where('form_pengajuan.uraian', 'LIKE', '%'. $kata_kunci.'%')
+                  ->orWhere('form_pengajuan.nama', 'LIKE', '%'. $kata_kunci.'%')
+                  ->orWhere('form_pengajuan.alamat_lengkap', 'LIKE', '%'. $kata_kunci.'%')
+                  ->orWhere('form_pengajuan.kabupaten_kota', 'LIKE', '%'. $kata_kunci.'%')
+                  ->orWhere('form_pengajuan.pekerjaan', 'LIKE', '%'. $kata_kunci.'%');
+        })
+        ->get();
+
+        // $pidana = KasusHukum::select('*')->where('jenis_perkara', '=', 'Pidana')->where('title', 'LIKE', '%'. $kata_kunci.'%')->get();
+        // $perdata = KasusHukum::select('*')->where('jenis_perkara', '=', 'Perdata')->where('title', 'LIKE', '%'. $kata_kunci.'%')->get();
+        // // dd($perkara);
 
         $finalPerdata = array();
         $finalPidana = array();
