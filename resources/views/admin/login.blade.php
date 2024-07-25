@@ -206,7 +206,7 @@
                 <div class="boxLogin">
                     <div>
                         <div>
-                            <h1>Masuk</h1>
+                            <h2>Masuk sebagai <strong>Admin</strong></h2>
                         </div>
                         &nbsp;
                         <form method="POST" action="{{ route('admin.login') }}">

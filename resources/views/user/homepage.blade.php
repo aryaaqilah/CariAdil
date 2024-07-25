@@ -82,7 +82,7 @@
                                 margin-left: 1rem; margin-top: 10px">{{ $kasusHukum->form->jenis_perkara }}</button>
                                             </div>
                                             <div class="judul-kasus mb-2" style="text-wrap: pretty; height: 4vh">
-                                                {{ \Illuminate\Support\Str::limit($kasusHukum->title, 25, $end = '...') }}
+                                                {{ \Illuminate\Support\Str::limit($kasusHukum->title, 22, $end = '...') }}
                                                 <span
                                                     class="date col-4 d-flex justify-content-end">{{ $kasusHukum->tanggal }}
                                                 </span>
