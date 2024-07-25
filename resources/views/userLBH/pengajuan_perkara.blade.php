@@ -78,8 +78,8 @@
                         <div class="row justify-content-between" style="align-items: normal">
                             @foreach ($perdata as $kasusPerdata)
                                 {{-- @dd($kasusHukum) --}}
-                                <a href="/lbh/pengajuan-bantuan-hukum/{{ $kasusPerdata->id_for }}" class="card"
-                                    style="text-decoration: none; width: 24%">
+                                <a href="/lbh/pengajuan-bantuan-hukum/{{ $kasusPerdata->id_form }}" class="card col-3"
+                                    style="text-decoration: none">
                                     <div class="card-body d-flex flex-column">
                                         <div class="card-date d-flex flex-row-reverse">
                                             <span class="text-secondary">{{ $kasusPerdata->tanggal }}</span>
