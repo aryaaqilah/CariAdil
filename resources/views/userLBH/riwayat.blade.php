@@ -13,8 +13,8 @@
         <div class="row">
             <div class="col-2"></div>
             <div class="col-8">
-                <form class="d-flex" role="search" action="/lbh/riwayat-kasus/search"
-                enctype="multipart/form-data" method="GET">
+                <form class="d-flex" role="search" action="/lbh/riwayat-kasus/search" enctype="multipart/form-data"
+                    method="GET">
                     @csrf
                     <input class="form-control me-2" style="border-radius: 12px" type="search"
                         placeholder="Search Here" aria-label="Search" name="str">
@@ -52,24 +52,24 @@
                         aria-labelledby="pills-home-tab" tabindex="0">
                         <h3>Pidana ({{ count($pidana) }})</h3>
                         <div class="row">
-                            <div class="row">
+                            <div class="row justify-content-between">
                                 @foreach ($pidana as $kasusPidana)
-                                {{-- @dd($kasusHukum) --}}
-                                <a href="/lbh/riwayat-kasus/{{ $kasusPidana->id_kasus }}"
-                                    class="card col-3" style="text-decoration: none">
-                                    <div class="card-body d-flex flex-column">
-                                        <div class="card-date d-flex flex-row-reverse">
-                                            <span class="text-secondary">{{ $kasusPidana->tanggal }}</span>
+                                    {{-- @dd($kasusHukum) --}}
+                                    <a href="/lbh/riwayat-kasus/{{ $kasusPidana->id_kasus }}" class="card"
+                                        style="text-decoration: none; width: 24%">
+                                        <div class="card-body d-flex flex-column">
+                                            <div class="card-date d-flex flex-row-reverse">
+                                                <span class="text-secondary">{{ $kasusPidana->tanggal }}</span>
+                                            </div>
+                                            <div class="card-content">
+                                                <h5 class="card-title">{{ $kasusPidana->nama }}</h5>
+                                                <h6 class="card-subtitle mb-2 text-body-secondary">
+                                                    {{ $kasusPidana->nomor_pemohon }}</h6>
+                                                <p class="card-text">{{ $kasusPidana->uraian }}</p>
+                                            </div>
                                         </div>
-                                        <div class="card-content">
-                                            <h5 class="card-title">{{ $kasusPidana->nama }}</h5>
-                                            <h6 class="card-subtitle mb-2 text-body-secondary">
-                                                {{ $kasusPidana->nomor_pemohon }}</h6>
-                                            <p class="card-text">{{ $kasusPidana->uraian }}</p>
-                                        </div>
-                                    </div>
-                                </a>
-                            @endforeach
+                                    </a>
+                                @endforeach
                             </div>
                         </div>
                     </div>
@@ -77,24 +77,24 @@
                         tabindex="0">
                         <h3>Perdata ({{ count($perdata) }})</h3>
                         <div class="row">
-                            <div class="row">
+                            <div class="row justify-content-between">
                                 @foreach ($perdata as $kasusPerdata)
-                                {{-- @dd($kasusHukum) --}}
-                                <a href="/lbh/riwayat-kasus/{{ $kasusPerdata->id_kasus }}" class="card col-3"
-                                    style="text-decoration: none">
-                                    <div class="card-body d-flex flex-column">
-                                        <div class="card-date d-flex flex-row-reverse">
-                                            <span class="text-secondary">{{ $kasusPerdata->tanggal }}</span>
+                                    {{-- @dd($kasusHukum) --}}
+                                    <a href="/lbh/riwayat-kasus/{{ $kasusPerdata->id_kasus }}" class="card"
+                                        style="text-decoration: none; width: 24%">
+                                        <div class="card-body d-flex flex-column">
+                                            <div class="card-date d-flex flex-row-reverse">
+                                                <span class="text-secondary">{{ $kasusPerdata->tanggal }}</span>
+                                            </div>
+                                            <div class="card-content">
+                                                <h5 class="card-title">{{ $kasusPerdata->nama }}</h5>
+                                                <h6 class="card-subtitle mb-2 text-body-secondary">
+                                                    {{ $kasusPerdata->nomor_pemohon }}</h6>
+                                                <p class="card-text">{{ $kasusPerdata->uraian }}</p>
+                                            </div>
                                         </div>
-                                        <div class="card-content">
-                                            <h5 class="card-title">{{ $kasusPerdata->nama }}</h5>
-                                            <h6 class="card-subtitle mb-2 text-body-secondary">
-                                                {{ $kasusPerdata->nomor_pemohon }}</h6>
-                                            <p class="card-text">{{ $kasusPerdata->uraian }}</p>
-                                        </div>
-                                    </div>
-                                </a>
-                            @endforeach
+                                    </a>
+                                @endforeach
                             </div>
                         </div>
                     </div>
