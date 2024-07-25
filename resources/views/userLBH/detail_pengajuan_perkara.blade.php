@@ -1,7 +1,7 @@
 <link rel="stylesheet" href="{{ asset('style/styles.css') }}">
 
 <x-layout :auth="$auth">
-    <div class="container-fluid container" style="height: 100vh">
+    <div class="container-fluid container">
         <div class="pembatas"></div>
         <div class="row mt-5">
             <div class="col-1">

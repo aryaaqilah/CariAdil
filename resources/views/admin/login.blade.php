@@ -76,7 +76,7 @@
         .custom-input {
             background-color: orange;
             /* Warna textfield */
-            color: white;
+            color: black;
             /* Warna teks */
             width: 200px;
             /* Lebar textfield diperkecil */
@@ -90,7 +90,7 @@
         .input-group-text {
             background-color: orange;
             /* Warna textfield bagian ikon */
-            color: white;
+            color: black;
             /* Warna ikon */
         }
 
@@ -101,6 +101,7 @@
         .form-control {
             border-top-right-radius: 15px;
             border-bottom-right-radius: 15px;
+            color: black;
         }
 
         #basic-addon1-profile {
@@ -129,14 +130,14 @@
 
         .input-group .input-group-prepend .input-group-text {
             background-color: #ffd998;
-            color: #ffffffcf;
+            color: black;
             border-right: 0px;
             border: 0px;
         }
 
         .input-group .form-control {
             background-color: #ffd998;
-            color: #FFF;
+            color: black;
             border-left: 0px;
             border: 0px;
         }
@@ -205,7 +206,7 @@
             <div class="col-6 half-content right-content d-flex align-items-start justify-content-center text-light">
                 <div class="boxLogin">
                     <div>
-                        <div>
+                        <div class="mb-3">
                             <h2>Masuk sebagai <strong>Admin</strong></h2>
                         </div>
                         &nbsp;
@@ -250,19 +251,10 @@
                                 @endif
                             </div>
 
-                            <a href="#">
-                                <p>Forgot your password?</p>
-                            </a>
-
-                            <div class="btn-login">
+                            <div class="btn-login mt-5">
                                 <button type="submit" class="btn" id="btn-login">Login</button>
                             </div>
-                            &nbsp;
-                            <div class="belum-akun">
-                                <p>Belum punya akun? Daftarkan dirimu <br>di kantor Cari Adil!</p>
-                            </div>
                         </form>
-
                     </div>
                 </div>
             </div>

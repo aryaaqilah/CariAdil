@@ -98,6 +98,7 @@ nav {
     border: 2px solid rgba(var(--primary-color), 1);
     border-radius: 8px;
     padding: 4px 24px;
+    background: none;
 
     .profile-icon {
         color: rgba(var(--primary-color), 1);
