@@ -54,10 +54,10 @@
                         <h3>Pidana ({{ count($pidana) }})</h3>
                             <div class="row">
                                 @foreach ($pidana as $kasusPidana)
-                                    {{-- @dd($kasusPidana) --}}
-                                    <a href="/lbh/perkara-berlangsung/{{ $kasusPidana->id_kasus }}"
-                                        class="col-4" style="text-decoration: none">
-                                        {{-- <div class="card-body d-flex flex-column">
+                                    {{-- @dd($kasusHukum) --}}
+                                    <a href="/lbh/pengajuan-bantuan-hukum/{{ $kasusPidana->id_form }}"
+                                        class="card col-3" style="text-decoration: none">
+                                        <div class="card-body d-flex flex-column">
                                             <div class="card-date d-flex flex-row-reverse">
                                                 <span class="text-secondary">{{ $kasusPidana->tanggal }}</span>
                                             </div>
@@ -67,99 +67,32 @@
                                                     {{ $kasusPidana->nomor_pemohon }}</h6>
                                                 <p class="card-text">{{ $kasusPidana->uraian }}</p>
                                             </div>
-                                        </div> --}}
-
-                                        <div class="card border border-light-subtle" id="card" style="width: 100%;">
-                                            <img src="{{ asset('storage/' . $kasusPidana['image_url']) }}" class="card-img-top"
-                                                alt="...">
-                                            <div class="card-body">
-                                                <h5 class="card-title">
-                                                    {{ $kasusPidana['title'] }}
-                                                </h5>
-                                                <p class="card-text">{{ \Illuminate\Support\Str::limit($kasusPidana['description'], 120, $end='...') }}.</p>
-                                            </div>
-                                            <ul class="list-group list-group-flush">
-                                                <li class="list-group-item">
-                                                    <div class="d-flex" style="flex-direction: row-reverse;">
-                                                        {{$kasusPidana['nama_lbh']}}
-                                                        {{-- @foreach ($kasusPidana['nama_lbh'] as $lbh)
-                                                            <div class="">{{ $lbh->nama_lbh }}</div>
-                                                        @endforeach --}}
-                                                    </div>
-                                                    <div class="div" style="height: 10px;"></div>
-                                                    <div class="progress">
-                                                        <div class="progress-bar" role="progressbar"
-                                                            aria-label="Basic example"
-                                                            style="width: {{ ($kasusPidana['total'] / $kasusPidana['target_donasi']) * 100 }}%"
-                                                            aria-valuenow="25" aria-valuemin="0"
-                                                            aria-valuemax="100">
-                                                        </div>
-                                                    </div>
-                                                    <div class="div" style="height: 10px;"></div>
-                                                    <div class="d-flex justify-content-between">
-                                                        <div class="">
-                                                            Rp{{ number_format($kasusPidana['total'], 2, ',', '.') }}
-                                                        </div>
-                                                        <div class="">
-                                                            Rp{{ number_format($kasusPidana['target_donasi'], 2, ',', '.') }}
-                                                        </div>
-                                                    </div>
-                                                </li>
-                                            </ul>
                                         </div>
                                     </a>
                                 @endforeach
                             </div>
-                    </div>  
+                    </div>
                     <div class="tab-pane fade" id="pills-profile" role="tabpanel" aria-labelledby="pills-profile-tab"
                         tabindex="0">
                         <h3>Perdata ({{ count($perdata) }})</h3>
                             <div class="row">
                                 @foreach ($perdata as $kasusPerdata)
-                                    {{-- @dd($kasusPidana) --}}
-                                    <a href="/lbh/perkara-berlangsung/{{ $kasusPerdata->id_kasus }}"
-                                        class="col-4" style="text-decoration: none">
-
-                                        <div class="card border border-light-subtle" id="card" style="width: 100%;">
-                                            <img src="{{ asset('storage/' . $kasusPerdata['image_url']) }}" class="card-img-top"
-                                                alt="...">
-                                            <div class="card-body">
-                                                <h5 class="card-title">
-                                                    {{ $kasusPerdata['title'] }}
-                                                </h5>
-                                                <p class="card-text">{{ \Illuminate\Support\Str::limit($kasusPerdata['description'], 120, $end='...') }}.</p>
-                                            </div>
-                                            <ul class="list-group list-group-flush">
-                                                <li class="list-group-item">
-                                                    <div class="d-flex" style="flex-direction: row-reverse;">
-                                                        {{ $kasusPerdata['nama_lbh'] }}
-                                                        {{-- @foreach ($kasusPidana['nama_lbh'] as $lbh)
-                                                            <div class="">{{ $lbh->nama_lbh }}</div>
-                                                        @endforeach --}}
-                                                    </div>
-                                                    <div class="div" style="height: 10px;"></div>
-                                                    <div class="progress">
-                                                        <div class="progress-bar" role="progressbar"
-                                                            aria-label="Basic example"
-                                                            style="width: {{ ($kasusPerdata['total'] / $kasusPerdata['target_donasi']) * 100 }}%"
-                                                            aria-valuenow="25" aria-valuemin="0"
-                                                            aria-valuemax="100">
-                                                        </div>
-                                                    </div>
-                                                    <div class="div" style="height: 10px;"></div>
-                                                    <div class="d-flex justify-content-between">
-                                                        <div class="">
-                                                            Rp{{ number_format($kasusPerdata['total'], 2, ',', '.') }}
-                                                        </div>
-                                                        <div class="">
-                                                            Rp{{ number_format($kasusPerdata['target_donasi'], 2, ',', '.') }}
-                                                        </div>
-                                                    </div>
-                                                </li>
-                                            </ul>
+                                {{-- @dd($kasusHukum) --}}
+                                <a href="/lbh/pengajuan-bantuan-hukum/{{ $kasusPerdata->id_form }}" class="card col-3"
+                                    style="text-decoration: none">
+                                    <div class="card-body d-flex flex-column">
+                                        <div class="card-date d-flex flex-row-reverse">
+                                            <span class="text-secondary">{{ $kasusPerdata->tanggal }}</span>
                                         </div>
-                                    </a>
-                                @endforeach
+                                        <div class="card-content">
+                                            <h5 class="card-title">{{ $kasusPerdata->nama }}</h5>
+                                            <h6 class="card-subtitle mb-2 text-body-secondary">
+                                                {{ $kasusPerdata->nomor_pemohon }}</h6>
+                                            <p class="card-text">{{ $kasusPerdata->uraian }}</p>
+                                        </div>
+                                    </div>
+                                </a>
+                            @endforeach
                             </div>
                     </div>
                 </div>
