@@ -38,7 +38,7 @@
             </div>
 
             <div class="col-8 d-flex justify-content-center" style="width: 640px">
-                <img src="{{ asset('storage/' . $image->image_url) }}" class="img-fluid" alt="...">
+                <img src="{{ asset('storage/' . $perkaraBerlangsung->image_url) }}" class="img-fluid" alt="...">
             </div>
 
             {{-- Tabs --}}
