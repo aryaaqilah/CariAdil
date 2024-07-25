@@ -53,7 +53,7 @@
 </head>
 
 <body>
-    <div class="container-fluid">
+    <div class="container-fluid" style="min-height: 100vh">
         <div class="row">
             <div class="col-3">
                 @include('components/admin-sidebar')

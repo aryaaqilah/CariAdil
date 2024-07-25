@@ -17,6 +17,10 @@ class UserController extends Controller
      */
     public function index()
     {
+        if (!Session::has('user')) {
+            return redirect()->route('login');
+        }
+
         $user = Session::get('user');
         // dd($user->id_LBH);
         $kasusHukum = KasusHukum::orderBy('tanggal', 'DESC')->where('id_lbh', '=', $user->id_LBH)->take(2)->get();
@@ -55,6 +59,11 @@ class UserController extends Controller
         } else {
             return redirect()->back()->withErrors(['email' => 'Invalid credentials']);
         }
+    }
+
+    public function logout() {
+        Session::forget('user');
+        return redirect()->route('login');
     }
 
     /**

@@ -52,13 +52,15 @@
                                     style="text-decoration: none; color:black" class="col-4">
                                     <div class="d-flex g-5 berita-card">
                                         <div class="card border border-light-subtle" id="card">
-                                            <img src="{{ asset('storage/' . $kasusHukum['image_url']) }}" class="card-img-top"
-                                                alt="...">
+                                            <img src="{{ asset('storage/' . $kasusHukum['image_url']) }}"
+                                                class="card-img-top" alt="...">
                                             <div class="card-body">
                                                 <h5 class="card-title">
-                                                    {{ $kasusHukum['title'] }}
+                                                    {{ \Illuminate\Support\Str::limit($kasusHukum['title'], 50, $end = '...') }}
                                                 </h5>
-                                                <p class="card-text">{{ \Illuminate\Support\Str::limit($kasusHukum['description'], 120, $end='...') }}.</p>
+                                                <p class="card-text">
+                                                    {{ \Illuminate\Support\Str::limit($kasusHukum['description'], 120, $end = '...') }}.
+                                                </p>
                                             </div>
                                             <ul class="list-group list-group-flush">
                                                 <li class="list-group-item">
@@ -72,8 +74,7 @@
                                                         <div class="progress-bar" role="progressbar"
                                                             aria-label="Basic example"
                                                             style="width: {{ ($kasusHukum['total'] / $kasusHukum['target_donasi']) * 100 }}%"
-                                                            aria-valuenow="25" aria-valuemin="0"
-                                                            aria-valuemax="100">
+                                                            aria-valuenow="25" aria-valuemin="0" aria-valuemax="100">
                                                         </div>
                                                     </div>
                                                     <div class="div" style="height: 10px;"></div>

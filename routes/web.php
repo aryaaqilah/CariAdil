@@ -48,6 +48,8 @@ Route::prefix('/lbh')->group(function () {
     Route::get('/login', [UserController::class, 'showLogin'])->name('login');
     Route::post('/login', [UserController::class, 'login'])->name('login.post');
 
+    Route::post('/logout', [UserController::class, 'logout']);
+
     Route::get('/pengajuan-bantuan-hukum', [CaseController::class, 'pengajuan_bantuan']);
     Route::get('/pengajuan-bantuan-hukum/search', [CaseController::class, 'search_pengajuan']);
     Route::get('/pengajuan-bantuan-hukum/{id}', [CaseController::class, 'detail_pengajuan_bantuan'])->name('detail_pengajuan');
@@ -74,7 +76,9 @@ Route::prefix('/admin')->group(function () {
 
     Route::get('/donasi', [AdminController::class, 'donation']);
     Route::get('/donasi/{id}', [AdminController::class, 'donation_detail'])->name('donasi_detail');
-    Route::get('/donasi-konfirmasi', [AdminController::class, 'konfirmasi_donasi']);
+    Route::get('/donasi-konfirmasi', [AdminController::class, 'konfirmasi_donasi'])->name('admin.konfirmasi_donasi');
+
+    Route::post('/donasi-konfirmasi/terima/{id}', [AdminController::class, 'terima_donasi']);
 
     Route::get('/pengajuan-perkara', [AdminController::class, 'pengajuan_perkara']);
     Route::get('/pengajuan-perkara/{id}', [AdminController::class, 'detail_pengajuan_perkara'])->name('detail_pengajuan_perkara');

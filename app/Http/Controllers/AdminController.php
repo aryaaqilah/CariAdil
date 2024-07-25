@@ -24,13 +24,14 @@ class AdminController extends Controller
     public function index()
     {
         $pengajuan = FormPengajuan::select('*')->get();
-        $kasusHukum = KasusHukum::join('lbh', 'lbh.id_LBH', '=', 'kasus_hukum.id_lbh')
+        $kasusHukum = KasusHukum::join('LBH', 'LBH.id_LBH', '=', 'kasus_hukum.id_lbh')
         ->join('form_pengajuan', 'form_pengajuan.id_form', '=', 'kasus_hukum.id_form')
         ->select('*')->get();
         $donasi = TransaksiDonasi::select('*')->get();
         $lbh = LBH::select('*')->get();
+        $cases = KasusHukum::all();
 
-        return view('admin.dashboard', compact('pengajuan', 'kasusHukum','donasi', 'lbh'));
+        return view('admin.dashboard', compact('pengajuan', 'kasusHukum','donasi', 'lbh', 'cases'));
     }
 
     public function showLogin(){
@@ -99,8 +100,11 @@ class AdminController extends Controller
         $endOfWeek = Carbon::now()->endOfWeek();
         $cases = KasusHukum::all();
         $donation = TransaksiDonasi::join('bank', 'transaksi_donasi.id_bank', '=', 'bank.id_bank')
-                    ->select("transaksi_donasi.*", "bank.nama as namaBank")->get();
+                    ->select("transaksi_donasi.*", "bank.nama as namaBank")
+                    ->where('status_pembayaran', false)
+                    ->get();
         $biggestDonation = TransaksiDonasi::all()->sortByDesc('nominal')->first();
+
         foreach ($cases as $case) {
             foreach ($case->approvedTransactions as $transaction) {
                 if ($transaction->created_at >= $startOfWeek && $transaction->created_at <= $endOfWeek) {
@@ -122,6 +126,15 @@ class AdminController extends Controller
             $persentaseKenaikan = 0;
         }
         return view('admin.donasi-konfirmasi', compact('countWeeklyTransactions', 'donation', 'startOfWeek', 'endOfWeek', 'cases', 'biggestDonation', 'donasiBulanLalu', 'donasiBulanIni', 'persentaseKenaikan'));
+    }
+
+    public function terima_donasi($id){
+        $donasi = TransaksiDonasi::find($id);
+        $donasi->update([
+            'status_pembayaran' => true
+        ]);
+
+        return redirect('admin/donasi-konfirmasi');
     }
 
     /**

@@ -76,7 +76,7 @@
         .custom-input {
             background-color: orange;
             /* Warna textfield */
-            color: white;
+            color: black;
             /* Warna teks */
             width: 200px;
             /* Lebar textfield diperkecil */
@@ -90,7 +90,7 @@
         .input-group-text {
             background-color: orange;
             /* Warna textfield bagian ikon */
-            color: white;
+            color: black;
             /* Warna ikon */
         }
 
@@ -122,21 +122,21 @@
             height: 100%;
             border-radius: 0px;
             background-color: #ffd998;
-            color: #ffffffcf;
+            /* color: #ffffffc; */
             border-right: 0px;
             border: 0px;
         }
 
         .input-group .input-group-prepend .input-group-text {
             background-color: #ffd998;
-            color: #ffffffcf;
+            /* color: #ffffffcf; */
             border-right: 0px;
             border: 0px;
         }
 
         .input-group .form-control {
             background-color: #ffd998;
-            color: #FFF;
+            /* color: #FFF; */
             border-left: 0px;
             border: 0px;
         }
@@ -205,7 +205,7 @@
             <div class="col-6 half-content right-content d-flex align-items-start justify-content-center text-light">
                 <div class="boxLogin">
                     <div>
-                        <div>
+                        <div class="mb-3">
                             <h1>Masuk</h1>
                         </div>
                         &nbsp;
@@ -218,7 +218,7 @@
                                 <div class="input-group mb-3">
                                     <div class="input-group-prepend">
                                         <span class="input-group-text" id="basic-addon1-profile"><i
-                                                class="far fa-user"></i></span>
+                                                class="fa fa-user"></i></span>
                                     </div>
                                     <input type="email" class="form-control" placeholder="Enter Email"
                                         aria-label="Email" aria-describedby="basic-addon1" name="email" required
@@ -235,7 +235,7 @@
                                 <div class="input-group mb-3">
                                     <div class="input-group-prepend">
                                         <span class="input-group-text" id="basic-addon1-lock"><i
-                                                class="fas fa-lock"></i></span>
+                                                class="fa fa-lock"></i></span>
                                     </div>
                                     <input type="password" class="form-control" placeholder="Enter Password"
                                         aria-label="Email" aria-describedby="basic-addon1" name="password" required>
@@ -250,16 +250,8 @@
                                 @endif
                             </div>
 
-                            <a href="#">
-                                <p>Forgot your password?</p>
-                            </a>
-
-                            <div class="btn-login">
+                            <div class="btn-login mt-5">
                                 <button type="submit" class="btn" id="btn-login">Login</button>
-                            </div>
-                            &nbsp;
-                            <div class="belum-akun">
-                                <p>Belum punya akun? Daftarkan dirimu <br>di kantor Cari Adil!</p>
                             </div>
                         </form>
 

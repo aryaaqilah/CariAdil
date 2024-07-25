@@ -1,7 +1,7 @@
 <link rel="stylesheet" href="{{ asset('style/styles.css') }}">
 
 <x-layout :auth="$auth">
-    <div class="container-fluid container">
+    <div class="container-fluid container" style="height: 100vh">
         <div class="pembatas"></div>
         <div class="row mt-5">
             <div class="col-1">
@@ -72,10 +72,10 @@
                                             <p>: {{ $pengajuanBantuan->jumlah_anak }}</p>
                                             <p>: {{ $pengajuanBantuan->jumlah_anak_tanggungan }}</p>
                                             <p>: {{ $pengajuanBantuan->alamat_lengkap }}</p>
-                                            <p>: {{ $pengajuanBantuan->RT_RW }}</p>
-                                            <p>: {{ $pengajuanBantuan->Desa_Kelurahan }}</p>
+                                            <p>: {{ $pengajuanBantuan->rt_rw }}</p>
+                                            <p>: {{ $pengajuanBantuan->desa_kelurahan }}</p>
                                             <p>: {{ $pengajuanBantuan->kecamatan }}</p>
-                                            <p>: {{ $pengajuanBantuan->Kabupaten_Kota }}</p>
+                                            <p>: {{ $pengajuanBantuan->kabupaten_kota }}</p>
                                             <p>: {{ $pengajuanBantuan->provinsi }}</p>
                                             <p>: {{ $pengajuanBantuan->kode_pos }}</p>
                                             {{-- @endforeach --}}
@@ -120,7 +120,7 @@
                                             <p>: {{ $pengajuanBantuan->jumlah_tanggungan }}</p>
                                             <p>: {{ $pengajuanBantuan->pendidikan_terakhir }}</p>
                                             <p>: {{ $pengajuanBantuan->telepon }}</p>
-                                            <p>: {{ $pengajuanBantuan->HP }}</p>
+                                            <p>: {{ $pengajuanBantuan->hp }}</p>
                                             {{-- @endforeach --}}
                                         </div>
                                     </div>
@@ -159,16 +159,16 @@
             <div class="d-flex justify-content-center mt-2 gap-4 mb-5" style="color:rgba(232, 123, 47, 1)">
                 <form action="{{ url('/lbh/pengajuan-bantuan-hukum/' . $id_form) }}" method="POST">
                     @csrf
-                    @method('PUT')  
+                    @method('PUT')
                     <input type="hidden" name="id_form" value="{{ $id_form }}">
                     <button style="border: none; background-color: white" type="submit">
                         <i style=" color: rgba(232, 123, 47, 1); " class="fa-solid fa-circle-check fa-4x"></i>
                     </button>
                 </form>
 
-                    <a href="{{ url()->previous() }}" class="reject-button">
-                        <i class="fa-solid fa-xmark fa-2x" style="color:rgba(232, 123, 47, 1)"></i>
-                    </a>
+                <a href="{{ url()->previous() }}" class="reject-button">
+                    <i class="fa-solid fa-xmark fa-2x" style="color:rgba(232, 123, 47, 1)"></i>
+                </a>
             </div>
         </div>
     </div>

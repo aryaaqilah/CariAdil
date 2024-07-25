@@ -21,17 +21,40 @@
                 </li>
             </ul>
         </div>
-        <div class="navbar-profile">
-            <div class="profile-icon">
-                <i class="fa fa-user"></i>
-            </div>
-            <div class="profile-name">
-                <span>
-                    @if (Session::get('user'))
+        @if (Session::get('user'))
+            <button type="button" class="navbar-profile" data-bs-toggle="modal" data-bs-target="#logoutModal">
+                <div class="profile-icon">
+                    <i class="fa fa-user"></i>
+                </div>
+                <div class="profile-name">
+                    <span>
                         {{ Session::get('user')['nama_lbh'] }}
-                    @endif
-                </span>
+                    </span>
+                </div>
+            </button>
+        @endif
+    </div>
+</nav>
+
+<div class="modal fade" id="logoutModal">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h1 class="modal-title fs-5" id="exampleModalLabel">Logout</h1>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                Apakah Anda yakin ingin logout?
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Batal</button>
+                <form action="/lbh/logout" method="POST">
+                    @csrf
+                    @method('POST')
+
+                    <button type="submit" class="btn btn-primary">Yakin</button>
+                </form>
             </div>
         </div>
     </div>
-</nav>
+</div>

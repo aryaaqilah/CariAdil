@@ -14,14 +14,14 @@
                 <h5>Perkara Berlangsung</h5>
             </div>
         </div>
-        <div class="row d-flex justify-content-center mt-3">
+        <div class="row d-flex justify-content-center align-items-center flex-column mt-3">
             <div class="col-10 text-center h1">
                 {{-- {{dd($perkaraBerlangsung)}} --}}
                 {{-- @foreach ($perkaraBerlangsung as $pb) --}}
-                <strong>{{ $perkaraBerlangsung->title }}</strong>
+                <strong style="font-size: 2.15rem">{{ $perkaraBerlangsung->title }}</strong>
                 {{-- @endforeach --}}
             </div>
-{{-- 
+            {{--
             <div class="d-flex justify-content-center gap-3 my-3">
                 <span class="badge rounded-pill text-dark"
                     style="background-color:rgba(225, 223, 209, 1); font-size: 14PX">Pidana</span>
@@ -37,16 +37,13 @@
                 {{-- @endforeach --}}
             </div>
 
-            <div class="col-2"></div>
-            <div class="col-8 d-flex justify-content-center">
+            <div class="col-8 d-flex justify-content-center" style="width: 640px">
                 <img src="{{ asset('storage/' . $image->image_url) }}" class="img-fluid" alt="...">
             </div>
-            <div class="col-2"></div>
 
             {{-- Tabs --}}
-            <div class="col-1"></div>
-            <div class="col-10 mb-5">
-                <ul class="nav nav-tabs mt-5 d-flex justify-content-center" id="myTab" role="tablist">
+            <div class="mb-5">
+                <ul class="container nav nav-tabs mt-5 d-flex justify-content-center" id="myTab" role="tablist">
                     <li class="nav-item" role="presentation">
                         <button class="nav-link active" id="informasi-tab" data-bs-toggle="tab"
                             data-bs-target="#informasi-tab-pane" type="button" role="tab"
@@ -63,7 +60,7 @@
                             aria-selected="false">Donasi</button>
                     </li>
                 </ul>
-                <div class="tab-content" id="myTabContent">
+                <div class="tab-content container" id="myTabContent">
                     {{-- INFORMASI --}}
                     <div class="tab-pane fade show active" id="informasi-tab-pane" role="tabpanel"
                         aria-labelledby="informasi-tab" tabindex="0">
@@ -107,10 +104,10 @@
                                                     <p>: {{ $perkaraBerlangsung->jumlah_anak }}</p>
                                                     <p>: {{ $perkaraBerlangsung->jumlah_anak_tanggungan }}</p>
                                                     <p>: {{ $perkaraBerlangsung->alamat_lengkap }}</p>
-                                                    <p>: {{ $perkaraBerlangsung->RT_RW }}</p>
-                                                    <p>: {{ $perkaraBerlangsung->Desa_Kelurahan }}</p>
+                                                    <p>: {{ $perkaraBerlangsung->rt_rw }}</p>
+                                                    <p>: {{ $perkaraBerlangsung->desa_kelurahan }}</p>
                                                     <p>: {{ $perkaraBerlangsung->kecamatan }}</p>
-                                                    <p>: {{ $perkaraBerlangsung->Kabupaten_Kota }}</p>
+                                                    <p>: {{ $perkaraBerlangsung->kabupaten_kota }}</p>
                                                     <p>: {{ $perkaraBerlangsung->provinsi }}</p>
                                                     <p>: {{ $perkaraBerlangsung->kode_pos }}</p>
                                                     {{-- @endforeach --}}
@@ -154,7 +151,7 @@
                                                     <p>: {{ $perkaraBerlangsung->jumlah_tanggungan }}</p>
                                                     <p>: {{ $perkaraBerlangsung->pendidikan_terakhir }}</p>
                                                     <p>: {{ $perkaraBerlangsung->telepon }}</p>
-                                                    <p>: {{ $perkaraBerlangsung->HP }}</p>
+                                                    <p>: {{ $perkaraBerlangsung->hp }}</p>
                                                     {{-- @endforeach --}}
                                                 </div>
                                             </div>
@@ -164,9 +161,9 @@
                             </div>
                             <div class="accordion-item">
                                 <h2 class="accordion-header">
-                                    <button class="accordion-button collapsed" type="button"
-                                        data-bs-toggle="collapse" data-bs-target="#flush-collapseThree"
-                                        aria-expanded="false" aria-controls="flush-collapseThree">
+                                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                                        data-bs-target="#flush-collapseThree" aria-expanded="false"
+                                        aria-controls="flush-collapseThree">
                                         Pokok Persoalan
                                     </button>
                                 </h2>
@@ -192,21 +189,23 @@
                         <div class="row m-4">
                             <div class="d-flex h5 ms-5">
                                 Progress Perkara
-                        </div>
+                            </div>
                             <div class="d-flex justify-content-center">
                                 <div class="col-10">
-                                  <ul class="progress-tracker progress-tracker--text progress-tracker--center">
-                                    @foreach ($progress as $index => $prog)
-                                        <li class="progress-step is-complete">
-                                        <div style="color: white" class="progress-marker" data-text="{{$index+1}}"></div>
-                                        <div class="progress-text">
-                                            <h4 style="word-wrap: break-word;" class="progress-title">{{$prog->topik_progress}}</h4>
-                                        </div>
-                                        </li>
-                                    @endforeach
-                                  </ul>
-                                    
-                                  </div>
+                                    <ul class="progress-tracker progress-tracker--text progress-tracker--center">
+                                        @foreach ($progress as $index => $prog)
+                                            <li class="progress-step is-complete">
+                                                <div style="color: white" class="progress-marker"
+                                                    data-text="{{ $index + 1 }}"></div>
+                                                <div class="progress-text">
+                                                    <h4 style="word-wrap: break-word;" class="progress-title">
+                                                        {{ $prog->topik_progress }}</h4>
+                                                </div>
+                                            </li>
+                                        @endforeach
+                                    </ul>
+
+                                </div>
                             </div>
 
                             <div class="d-flex mt-5 h5 ms-5">
@@ -258,13 +257,13 @@
 
                         <div class="d-flex justify-content-center mt-2 gap-4 mb-5"
                             style="color:rgba(232, 123, 47, 1)">
-                            <form action="{{ url('lbh/perkara-berlangsung')}}"
-                                method="POST">
+                            <form action="{{ url('lbh/perkara-berlangsung') }}" method="POST">
                                 @csrf
                                 @method('PUT')
                                 <input type="hidden" name="id_kasus" value="{{ $perkaraBerlangsung->id_kasus }}">
                                 <button type="submit" style="border: none; background: none">
-                                    <i style="color: rgba(232, 123, 47, 1) " class="fa-solid fa-circle-check fa-4x"></i>
+                                    <i style="color: rgba(232, 123, 47, 1) "
+                                        class="fa-solid fa-circle-check fa-4x"></i>
                                 </button>
                             </form>
                             <i class="fa-solid fa-circle-xmark fa-4x"></i>

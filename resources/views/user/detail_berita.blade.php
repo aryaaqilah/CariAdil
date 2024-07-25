@@ -5,9 +5,10 @@
         <div class="pembatas"></div>
         <div class="row m-4 justify-content-center">
 
-            <div class="row">
+            <div class="row align-items-center">
                 <div class="col-11">
-                    <h1 style="text-align: justify;">{{ $kasusHukum->title }}</h1>
+                    <h1 style="text-align: left; font-size: 2rem">
+                        {{ $kasusHukum->title }}</h1>
                 </div>
                 <div class="col-1">
                     <button type="button" class="btn" id="shareButton" data-bs-toggle="tooltip"
@@ -27,7 +28,7 @@
             </div>
 
             <div class="col-2"></div>
-            <div class="col-8 d-flex justify-content-center">
+            <div class="col-8 d-flex justify-content-center detail-berita-image">
                 {{-- <div style="border-radius: 20px; width: 80%; height: 90%; padding-bottom: 50%; background-size: cover; background-image: url(https://media.istockphoto.com/id/1449333398/id/foto/pengusaha-berjabat-tangan-pengacara-mitra-atau-pengacara-mendiskusikan-perjanjian-kontrak.jpg?s=1024x1024&w=is&k=20&c=64UHwZ1G3XqegEU-SbdeELLEXKQNYbivpkvHrKJQLcQ=);"
                     class="img">
                 </div> --}}

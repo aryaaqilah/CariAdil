@@ -131,7 +131,12 @@ class CaseController extends Controller
         return view('user.detail_berita', ['auth' => $auth]);
     }
     public function perkara_berlangsung(){
+        if (!Session::has('user')) {
+            return redirect()->route('login');
+        }
+
         $user = Session::get('user');
+        // dd($user->id_LBH);
 
         // $pidana = FormPengajuan::where('jenis_perkara', '=', 'Pidana')
         // ->where('status_pengajuan', '=', 'Pending')
@@ -139,7 +144,7 @@ class CaseController extends Controller
         // $perdata = FormPengajuan::where('jenis_perkara', '=', 'Perdata')->where('status_pengajuan', '=', 'Pending')->get();
 
         $pidana = FormPengajuan::join('kasus_hukum', 'kasus_hukum.id_form', '=', 'form_pengajuan.id_form')
-        ->join('lbh', 'kasus_hukum.id_lbh', '=', 'lbh.id_LBH')
+        ->join('LBH', 'kasus_hukum.id_lbh', '=', 'LBH.id_LBH')
         ->select("*")
         ->where('form_pengajuan.jenis_perkara', '=', 'Pidana')
         ->where('kasus_hukum.id_lbh', '=', $user->id_LBH)
@@ -147,7 +152,7 @@ class CaseController extends Controller
         ->get();
 
         $perdata = FormPengajuan::join('kasus_hukum', 'kasus_hukum.id_form', '=', 'form_pengajuan.id_form')
-        ->join('lbh', 'kasus_hukum.id_lbh', '=', 'lbh.id_LBH')
+        ->join('LBH', 'kasus_hukum.id_lbh', '=', 'LBH.id_LBH')
         ->select("*")
         ->where('form_pengajuan.jenis_perkara', '=', 'Perdata')
         ->where('kasus_hukum.id_lbh', '=', $user->id_LBH)
@@ -163,6 +168,9 @@ class CaseController extends Controller
     }
 
     public function search_perkara(Request $request){
+        if (!Session::has('user')) {
+            return redirect()->route('login');
+        }
         // $kata_kunci = isset($_GET['kata_kunci']) ? $_GET['kata_kunci'] : '';
         $kata_kunci = $request->str;
         // dd($kata_kunci);
@@ -276,6 +284,10 @@ class CaseController extends Controller
     }
 
     public function detail_perkara_berlangsung($id){
+        if (!Session::has('user')) {
+            return redirect()->route('login');
+        }
+
         $perkaraBerlangsung = KasusHukum::join('form_pengajuan', 'form_pengajuan.id_form', '=', 'kasus_hukum.id_form')
         ->select('*')
         ->where('kasus_hukum.id_kasus', '=', $id)->first();
@@ -323,7 +335,7 @@ class CaseController extends Controller
     {
         $kasusHukum = KasusHukum::find($id);
         $progress = ProgressKasusHukum::select('*')->where('id_kasus', '=', $id)->get();
-        
+
         $transaksi = TransaksiDonasi::select('*')->where('id_kasus_hukum', '=', $id)->where('status_pembayaran', '=', 1)->get();
         $total = 0;
         foreach ($transaksi as $trans){
@@ -441,6 +453,9 @@ class CaseController extends Controller
 
     public function pengajuan_bantuan()
     {
+        if (!Session::has('user')) {
+            return redirect()->route('login');
+        }
         // $pidana = KasusHukum::join('form_pengajuan', 'kasus_hukum.id_form', '=', 'form_pengajuan.id_form')
         // ->select('id_kasus', 'title', 'description', 'form_pengajuan.tanggal', 'kasus_hukum.target_donasi', 'kasus_hukum.id_form', 'id_lbh', 'status_pengajuan', 'kasus_hukum.image_url', 'kasus_hukum.created_at', 'kasus_hukum.updated_at')
         // ->where('form_pengajuan.jenis_perkara', '=', 'Pidana')
@@ -478,6 +493,9 @@ class CaseController extends Controller
     }
 
     public function search_pengajuan(Request $request){
+        if (!Session::has('user')) {
+            return redirect()->route('login');
+        }
         // $kata_kunci = isset($_GET['kata_kunci']) ? $_GET['kata_kunci'] : '';
         $kata_kunci = $request->str;
         // dd($kata_kunci);
@@ -575,6 +593,10 @@ class CaseController extends Controller
 
     public function detail_pengajuan_bantuan($id)
     {
+        if (!Session::has('user')) {
+            return redirect()->route('login');
+        }
+
         $pengajuanBantuan = KasusHukum::join('form_pengajuan', 'form_pengajuan.id_form', '=', 'kasus_hukum.id_form')
         // ->join('transaksi_donasi', 'kasus_hukum.id_kasus', '=', 'transaksi_donasi.id_kasus_hukum')
         ->select('*')
@@ -613,6 +635,10 @@ class CaseController extends Controller
     }
 
     public function riwayat_kasus(){
+        if (!Session::has('user')) {
+            return redirect()->route('login');
+        }
+
         $pidana = KasusHukum::join('form_pengajuan', 'kasus_hukum.id_form', '=', 'form_pengajuan.id_form')
         ->select('*')
         ->where('form_pengajuan.jenis_perkara', '=', 'Pidana')
@@ -637,6 +663,9 @@ class CaseController extends Controller
     }
 
     public function search_riwayat(Request $request){
+        if (!Session::has('user')) {
+            return redirect()->route('login');
+        }
         // $kata_kunci = isset($_GET['kata_kunci']) ? $_GET['kata_kunci'] : '';
         $kata_kunci = $request->str;
         // dd($kata_kunci);
@@ -742,6 +771,10 @@ class CaseController extends Controller
 
     public function detail_riwayat_kasus($id)
     {
+        if (!Session::has('user')) {
+            return redirect()->route('login');
+        }
+
         $perkaraBerlangsung = KasusHukum::join('form_pengajuan', 'form_pengajuan.id_form', '=', 'kasus_hukum.id_form')
         // ->join('transaksi_donasi', 'kasus_hukum.id_kasus', '=', 'transaksi_donasi.id_kasus_hukum')
         ->select('*')

@@ -897,4 +897,9 @@ nav {
   border: 3px solid #DF7B74;
   border-radius: 100px;
   background: none;
+  text-decoration: none;
+}
+
+.detail-berita-image {
+    width: 640px;
 }
