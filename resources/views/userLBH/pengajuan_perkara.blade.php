@@ -51,11 +51,11 @@
                         aria-labelledby="pills-home-tab" tabindex="0">
                         <h3>Pidana ({{ count($pidana) }})</h3>
                         <div class="row">
-                            <div class="row justify-content-between">
+                            <div class="row">
                                 @foreach ($pidana as $kasusPidana)
                                     {{-- @dd($kasusHukum) --}}
                                     <a href="/lbh/pengajuan-bantuan-hukum/{{ $kasusPidana->id_form }}" class="card"
-                                        style="text-decoration: none; width: 24%">
+                                        style="text-decoration: none; width: 23%; margin-left: 1rem">
                                         <div class="card-body d-flex flex-column">
                                             <div class="card-date d-flex flex-row-reverse">
                                                 <span class="text-secondary">{{ $kasusPidana->tanggal }}</span>
@@ -75,11 +75,11 @@
                     <div class="tab-pane fade" id="pills-profile" role="tabpanel" aria-labelledby="pills-profile-tab"
                         tabindex="0">
                         <h3 class="mb-3">Perdata ({{ count($perdata) }})</h3>
-                        <div class="row justify-content-between" style="align-items: normal">
+                        <div class="row" style="align-items: normal">
                             @foreach ($perdata as $kasusPerdata)
                                 {{-- @dd($kasusHukum) --}}
                                 <a href="/lbh/pengajuan-bantuan-hukum/{{ $kasusPerdata->id_form }}" class="card col-3"
-                                    style="text-decoration: none">
+                                    style="text-decoration: none; width: 23%; margin-right: 1rem">
                                     <div class="card-body d-flex flex-column">
                                         <div class="card-date d-flex flex-row-reverse">
                                             <span class="text-secondary">{{ $kasusPerdata->tanggal }}</span>
