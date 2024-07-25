@@ -98,10 +98,10 @@
                                                     <p>: {{ $perkaraBerlangsung->jumlah_anak }}</p>
                                                     <p>: {{ $perkaraBerlangsung->jumlah_anak_tanggungan }}</p>
                                                     <p>: {{ $perkaraBerlangsung->alamat_lengkap }}</p>
-                                                    <p>: {{ $perkaraBerlangsung->RT_RW }}</p>
-                                                    <p>: {{ $perkaraBerlangsung->Desa_Kelurahan }}</p>
+                                                    <p>: {{ $perkaraBerlangsung->rt_rw }}</p>
+                                                    <p>: {{ $perkaraBerlangsung->desa_kelurahan }}</p>
                                                     <p>: {{ $perkaraBerlangsung->kecamatan }}</p>
-                                                    <p>: {{ $perkaraBerlangsung->Kabupaten_Kota }}</p>
+                                                    <p>: {{ $perkaraBerlangsung->kabupaten_kota }}</p>
                                                     <p>: {{ $perkaraBerlangsung->provinsi }}</p>
                                                     <p>: {{ $perkaraBerlangsung->kode_pos }}</p>
                                                     {{-- @endforeach --}}
@@ -145,7 +145,7 @@
                                                     <p>: {{ $perkaraBerlangsung->jumlah_tanggungan }}</p>
                                                     <p>: {{ $perkaraBerlangsung->pendidikan_terakhir }}</p>
                                                     <p>: {{ $perkaraBerlangsung->telepon }}</p>
-                                                    <p>: {{ $perkaraBerlangsung->HP }}</p>
+                                                    <p>: {{ $perkaraBerlangsung->hp }}</p>
                                                     {{-- @endforeach --}}
                                                 </div>
                                             </div>
@@ -198,7 +198,7 @@
                                                 </li>
                                             @endforeach
                                           </ul>
-                                            
+
                                           </div>
                                     </div>
                                 </div>
