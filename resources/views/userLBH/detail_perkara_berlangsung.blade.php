@@ -200,6 +200,8 @@
                                                 <div class="progress-text">
                                                     <h4 style="word-wrap: break-word;" class="progress-title">
                                                         {{ $prog->topik_progress }}</h4>
+                                                    <h5 class="deskripsi-informasi">{{ \Carbon\Carbon::parse($prog->date)->format('d F  Y') }}</h5>
+                                                    <h5 class="deskripsi-informasi">{{ $prog->lokasi }}</h5>
                                                 </div>
                                             </li>
                                         @endforeach

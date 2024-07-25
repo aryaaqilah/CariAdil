@@ -33,15 +33,12 @@ class FormController extends Controller
      */
     public function store(Request $request)
     {
-        // DB::beginTransaction();
-
 
         try {
             if ($request->hasFile('image_url')) {
                 $imagePath = $request->file('image_url')->store('public');
             }
 
-            // dd($request->nama);
             FormPengajuan::create([
                 'nomor_pemohon' => $request->nomor_pemohon,
                 'nama' => $request->nama,

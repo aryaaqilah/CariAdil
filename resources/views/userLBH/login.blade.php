@@ -235,20 +235,38 @@
                                 <div class="input-group mb-3">
                                     <div class="input-group-prepend">
                                         <span class="input-group-text" id="basic-addon1-lock"><i
-                                                class="fa fa-lock"></i></span>
+                                                class="fas fa-lock"></i></span>
                                     </div>
-                                    <input type="password" class="form-control" placeholder="Enter Password"
-                                        aria-label="Email" aria-describedby="basic-addon1" name="password" required>
-
-                                    <div class="input-group-prepend">
-                                        <span class="input-group-text" id="basic-addon1-eye"><i
-                                                class="fa fa-eye"></i></span>
+                                    <input type="password" id="password" class="form-control" placeholder="Enter Password"
+                                        aria-label="password" aria-describedby="basic-addon1" name="password" required>
+                        
+                                    <div class="input-group-prepend"  id="togglePassword">
+                                        <span style="border-top-right-radius: 15px; border-bottom-right-radius: 15px"  class="input-group-text">
+                                            <i class="fa fa-eye" ></i>
+                                        </span>
                                     </div>
                                 </div>
                                 @if ($errors->has('password'))
                                     <span class="text-danger">{{ $errors->first('password') }}</span>
                                 @endif
                             </div>
+                        
+                            <script>
+                                document.getElementById('togglePassword').addEventListener('click', function () {
+                                    const passwordInput = document.getElementById('password');
+                                    const eyeIcon = this;
+                                
+                                    if (passwordInput.type === 'password') {
+                                        passwordInput.type = 'text';
+                                        // eyeIcon.classList.remove('fa-eye');
+                                        // eyeIcon.classList.add('fa-eye-slash');
+                                    } else {
+                                        passwordInput.type = 'password';
+                                        // eyeIcon.classList.remove('fa-eye-slash');
+                                        // eyeIcon.classList.add('fa-eye');
+                                    }
+                                });
+                            </script>
 
                             <div class="btn-login mt-5">
                                 <button type="submit" class="btn" id="btn-login">Login</button>
