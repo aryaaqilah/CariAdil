@@ -7,7 +7,9 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
     <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
     <title>Admin Login</title>
+    
     <style>
         .half-bg {
             height: 100vh;
@@ -238,18 +240,73 @@
                                         <span class="input-group-text" id="basic-addon1-lock"><i
                                                 class="fas fa-lock"></i></span>
                                     </div>
-                                    <input type="password" class="form-control" placeholder="Enter Password"
+                                    <input type="password" id="password" class="form-control" placeholder="Enter Password"
                                         aria-label="password" aria-describedby="basic-addon1" name="password" required>
-
-                                    <div class="input-group-prepend">
-                                        <span class="input-group-text" id="basic-addon1-eye"><i
-                                                class="fa fa-eye"></i></span>
+                        
+                                    <div class="input-group-prepend"  id="togglePassword">
+                                        <span style="border-top-right-radius: 15px; border-bottom-right-radius: 15px"  class="input-group-text">
+                                            <i class="fa fa-eye" ></i>
+                                        </span>
                                     </div>
                                 </div>
                                 @if ($errors->has('password'))
                                     <span class="text-danger">{{ $errors->first('password') }}</span>
                                 @endif
                             </div>
+                        
+                            <script>
+                                document.getElementById('togglePassword').addEventListener('click', function () {
+                                    const passwordInput = document.getElementById('password');
+                                    const eyeIcon = this;
+                                
+                                    if (passwordInput.type === 'password') {
+                                        passwordInput.type = 'text';
+                                        // eyeIcon.classList.remove('fa-eye');
+                                        // eyeIcon.classList.add('fa-eye-slash');
+                                    } else {
+                                        passwordInput.type = 'password';
+                                        // eyeIcon.classList.remove('fa-eye-slash');
+                                        // eyeIcon.classList.add('fa-eye');
+                                    }
+                                });
+                            </script>
+
+                            {{-- <div class="form-row">
+                                <label class="form-label" for="form3Example3">Password</label>
+                                <div class="input-group mb-3">
+                                    <div class="input-group-prepend">
+                                        <span class="input-group-text" id="basic-addon1-lock"><i
+                                                class="fas fa-lock"></i></span>
+                                    </div>
+                                    <input type="password" id="password" class="form-control" placeholder="Enter Password"
+                                        aria-label="password" aria-describedby="basic-addon1" name="password" required>
+
+                                    <div class="input-group-prepend">
+                                        <span class="input-group-text" id="basic-addon1-eye"><i
+                                                class="fa fa-eye" id="togglePassword"></i></span>
+                                    </div>
+                                </div>
+                                @if ($errors->has('password'))
+                                    <span class="text-danger">{{ $errors->first('password') }}</span>
+                                @endif
+                            </div>
+
+                            <script>
+                                document.getElementById('togglePassword').addEventListener('click', function () {
+                                    const passwordInput = document.getElementById('password');
+                                    const eyeIcon = this;
+                                
+                                    if (passwordInput.type === 'password') {
+                                        passwordInput.type = 'text';
+                                        eyeIcon.classList.remove('fa-eye');
+                                        eyeIcon.classList.add('fa-eye-slash');
+                                    } else {
+                                        passwordInput.type = 'password';
+                                        eyeIcon.classList.remove('fa-eye-slash');
+                                        eyeIcon.classList.add('fa-eye');
+                                    }
+                                });
+                            </script> --}}
 
                             <div class="btn-login mt-5">
                                 <button type="submit" class="btn" id="btn-login">Login</button>
@@ -270,6 +327,8 @@
             </ul>
         </div>
     @endif
+
+    
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous">

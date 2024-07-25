@@ -5,12 +5,13 @@
     <div class="pembatas"></div>
     <div class="pembatas"></div>
     <div class="container card">
-        <form class="row g-3 needs-validation pe-4" method="POST" action="/form-pengajuan-hukum"
+        <form class="row g-3 needs-validation pe-4" id="formPengajuan" method="POST" action="/form-pengajuan-hukum"
             enctype="multipart/form-data" style="width: 100%" novalidate>
             @csrf
             @method('POST')
             <div class="pembatas"></div>
             <h1 style="text-align: center;">Formulir Permohonan Pengajuan Hukum</h1>
+
 
             <div class="row m-4">
                 <div class="col-5">
@@ -22,7 +23,7 @@
                 </div>
             </div>
 
-
+            {{-- Input --}}
             <div class="row me-4 ms-4">
                 <h2>Data Pribadi</h2>
                 <div class="col-5">
@@ -41,6 +42,7 @@
                 </div>
             </div>
 
+            {{-- Input --}}
             <div class="row me-4 ms-4">
                 <div class="col-5">
                     <div class="mb-3">
@@ -53,11 +55,12 @@
                 <div class="col-5">
                     <div class="mb-3">
                         <label for="exampleFormControlInput1" class="form-label">Tanggal Lahir</label>
-                        <input type="date" class="form-control" name="date" placeholder="Tanggal Lahir">
+                        <input type="date" class="form-control" name="date" placeholder="Tanggal Lahir" required>
                     </div>
                 </div>
             </div>
 
+            {{-- Input --}}
             <div class="row me-4 ms-4">
                 <label for="exampleFormControlInput1" class="form-label">Jenis Kelamin</label>
                 <div class="col-2">
@@ -76,6 +79,7 @@
                 </div>
             </div>
 
+            {{-- Input --}}
             <div class="row me-4 ms-4 mt-3">
                 <label for="exampleFormControlInput1" class="form-label">Agama</label>
                 <div class="col-5">
@@ -91,6 +95,7 @@
                 </div>
             </div>
 
+            {{-- Input --}}
             <div class="row me-4 ms-4 mt-3">
                 <label for="exampleFormControlInput1" class="form-label">Status Perkawinan</label>
                 <div class="col-5">
@@ -105,6 +110,7 @@
                 </div>
             </div>
 
+            {{-- Input --}}
             <div class="row me-4 ms-4 mt-3">
                 <div class="col-5">
                     <label for="jumlahAnak">Jumlah Anak</label>
@@ -129,6 +135,7 @@
                 </div>
             </div>
 
+            {{-- Input --}}
             <div class="row me-4 ms-4 mt-3">
                 <div class="my-3">
                     <label for="exampleFormControlTextarea1" class="form-label">Alamat Lengkap</label>
@@ -136,6 +143,7 @@
                 </div>
             </div>
 
+            {{-- Input --}}
             <div class="row me-4 ms-4 mt-3">
                 <div class="col-5">
                     <div class="mb-3">
@@ -152,6 +160,7 @@
                 </div>
             </div>
 
+            {{-- Input --}}
             <div class="row me-4 ms-4 mt-3">
                 <div class="col-5">
                     <div class="mb-3">
@@ -170,6 +179,7 @@
                 </div>
             </div>
 
+            {{-- Input --}}
             <div class="row me-4 ms-4 mt-3">
                 <div class="col-5">
                     <div class="mb-3">
@@ -187,6 +197,7 @@
                 </div>
             </div>
 
+            {{-- Input --}}
             <div class="row me-4 ms-4 mt-3">
                 <div class="h2">Data Tambahan</div>
                 <label for="exampleFormControlInput1" class="form-label">Identitas Diri</label>
@@ -201,6 +212,7 @@
                 </div>
             </div>
 
+            {{-- Input --}}
             <div class="row me-4 ms-4 mt-3">
                 <div class="col-5">
                     <div class="mb-3">
@@ -211,6 +223,7 @@
                 </div>
             </div>
 
+            {{-- Input --}}
             <div class="row me-4 ms-4 mt-3">
                 <label for="exampleFormControlInput1" class="form-label">Keterangan Tidak Mampu</label>
                 <div class="col-5">
@@ -226,6 +239,7 @@
                 </div>
             </div>
 
+            {{-- Input --}}
             <div class="row me-4 ms-4 mt-3">
                 <div class="col-5">
                     <div class="">
@@ -236,6 +250,7 @@
                 </div>
             </div>
 
+            {{-- Input --}}
             <div class="row me-4 ms-4 mt-3">
                 <label for="exampleFormControlInput1" class="form-label">Pekerjaan</label>
                 <div class="col-5">
@@ -252,6 +267,7 @@
                 </div>
             </div>
 
+            {{-- Input --}}
             <div class="row me-4 ms-4 mt-3">
                 <label for="jumlahAnak">Jumlah Tanggungan</label> <span style="font-size: 10px; opacity: 0.4;">*tidak
                     termasuk
@@ -267,6 +283,7 @@
                 </div>
             </div>
 
+            {{-- Input --}}
             <div class="row me-4 ms-4 mt-3">
                 <label for="exampleFormControlInput1" class="form-label">Pendidikan Terakhir</label>
                 <div class="col-5">
@@ -282,6 +299,7 @@
                 </div>
             </div>
 
+            {{-- Input --}}
             <div class="row me-4 ms-4 mt-3">
                 <div class="col-5">
                     <label for="exampleFormControlInput1" class="form-label">Telpon</label>
@@ -289,6 +307,7 @@
                 </div>
             </div>
 
+            {{-- Input --}}
             <div class="row me-4 ms-4 mt-3">
                 <div class="col-5">
                     <label for="exampleFormControlInput1" class="form-label">HP</label>
@@ -296,13 +315,15 @@
                 </div>
             </div>
 
+            {{-- Input --}}
             <div class="row me-4 ms-4 mt-3">
                 <div class="col-12">
                     <label for="exampleFormControlInput1" class="form-label">Target Donasi</label>
-                    <input type="number" class="form-control" name="target_donasi" placeholder="Target Donasi (dalam Rupiah)">
+                    <input type="number" class="form-control" name="target_donasi" placeholder="Target Donasi (dalam Rupiah)" required>
                 </div>
             </div>
 
+            {{-- Input --}}
             <div class="row me-4 ms-4 mt-3">
                 <div class="col-12">
                     <label for="exampleFormControlTextarea1" class="form-label"><b>Uraian Singkat Pokok
@@ -311,6 +332,7 @@
                 </div>
             </div>
 
+            {{-- Input --}}
             <div class="row me-4 ms-4 mt-3">
                 <p>Demikian permohonan ini saya buat dengan sesungguhnya untuk keperluan mendapatkan bantuan hukum.</p>
                 <label for="exampleFormControlInput1" class="form-label">Dibuat di:</label>
@@ -323,6 +345,7 @@
                 </div>
             </div>
 
+            {{-- Input --}}
             <div class="row me-4 ms-4 mt-3">
                 <div class="row">
                     <div class="mb-3">
@@ -350,7 +373,7 @@
 
                 <div class="row mb-4">
                     <div class="col">
-                        <button style="background-color: rgba(232, 123, 47, 1); color: white" type="button"
+                        <button style="background-color: rgba(232, 123, 47, 1); color: white" type="button" id="submitBtn"
                             class="btn btn-warning" data-bs-toggle="modal" data-bs-target="#exampleModal">
                             Submit
                         </button>
@@ -373,12 +396,14 @@
                         </div>
                         <div class="modal-footer">
                             <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Batal</button>
-                            <button type="submit" class="btn btn-primary">Kirimkan</button>
+                            <button type="submit" class="btn btn-primary" id="confirmSubmit">Kirimkan</button>
                         </div>
                     </div>
                 </div>
             </div>
+
         </form>
+
         <script>
             function previewImage(event) {
                 var output = document.getElementById('output');
@@ -411,6 +436,7 @@
                     }, false)
                 })
             })()
+
         </script>
     </div>
     <div class="pembatas"></div>
