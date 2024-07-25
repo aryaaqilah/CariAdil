@@ -508,6 +508,8 @@ class CaseController extends Controller
         ->whereNULL('id_lbh')
         ->get();
 
+        // dd($perdata);
+
         // $pidana = FormPengajuan::where('jenis_perkara', '=', 'Pidana')->where('status_pengajuan', '=', 'Pending')->get();
         // $perdata = FormPengajuan::where('jenis_perkara', '=', 'Perdata')->where('status_pengajuan', '=', 'Pending')->get();
 
