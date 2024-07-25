@@ -2,7 +2,7 @@
 
 @extends('components/admin-layout')
 
-@section('title', 'Perkara Diproses')
+@section('title', 'Perkara Pengajuan')
 
 @section('content')
     <div class="summary-area">

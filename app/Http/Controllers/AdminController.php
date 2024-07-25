@@ -23,6 +23,10 @@ class AdminController extends Controller
      */
     public function index()
     {
+        if (!Session::has('admin')) {
+            return redirect()->route('admin.login');
+        }
+
         $pengajuan = FormPengajuan::select('*')->get();
         $kasusHukum = KasusHukum::join('LBH', 'LBH.id_LBH', '=', 'kasus_hukum.id_lbh')
         ->join('form_pengajuan', 'form_pengajuan.id_form', '=', 'kasus_hukum.id_form')
@@ -55,11 +59,20 @@ class AdminController extends Controller
         }
     }
 
+    public function logout() {
+        Session::forget('admin');
+        return redirect()->route('admin.login');
+    }
+
     /**
      * Show the form for creating a new resource.
      */
     public function donation()
     {
+        if (!Session::has('admin')) {
+            return redirect()->route('admin.login');
+        }
+
         // Halaman Donasi
         $cases = KasusHukum::all();
         $countWeeklyTransactions = 0;
@@ -78,6 +91,10 @@ class AdminController extends Controller
     }
 
     public function donation_detail($id){
+        if (!Session::has('admin')) {
+            return redirect()->route('admin.login');
+        }
+
         $data = KasusHukum::join('form_pengajuan', 'kasus_hukum.id_form', '=', 'form_pengajuan.id_form')
         ->join('lbh', 'lbh.id_LBH', '=', 'kasus_hukum.id_lbh')->select('*')
         ->where('kasus_hukum.id_kasus', '=', $id)->first();
@@ -95,6 +112,10 @@ class AdminController extends Controller
     }
 
     public function konfirmasi_donasi(){
+        if (!Session::has('admin')) {
+            return redirect()->route('admin.login');
+        }
+
         $countWeeklyTransactions = 0;
         $startOfWeek = Carbon::now()->startOfWeek();
         $endOfWeek = Carbon::now()->endOfWeek();
@@ -142,6 +163,10 @@ class AdminController extends Controller
      */
     public function adminRole()
     {
+        if (!Session::has('admin')) {
+            return redirect()->route('admin.login');
+        }
+
         // Halaman Role Admin
         $lbh = LBH::all();
         $admins = Admin::all();
@@ -151,6 +176,10 @@ class AdminController extends Controller
 
     public function adminCreate()
     {
+        if (!Session::has('admin')) {
+            return redirect()->route('admin.login');
+        }
+
         $lbh = LBH::all();
         $admins = Admin::all();
 
@@ -178,6 +207,10 @@ class AdminController extends Controller
      */
     public function lbhRole()
     {
+        if (!Session::has('admin')) {
+            return redirect()->route('admin.login');
+        }
+
         // Halaman Role LBH
         $lbh = LBH::all();
         $admins = Admin::all();
@@ -187,6 +220,10 @@ class AdminController extends Controller
 
     public function lbhCreate()
     {
+        if (!Session::has('admin')) {
+            return redirect()->route('admin.login');
+        }
+
         // Halaman Tambah LBH
         $lbh = LBH::all();
         $admins = Admin::all();
@@ -219,6 +256,10 @@ class AdminController extends Controller
 
 
     public function pengajuan_perkara(){
+        if (!Session::has('admin')) {
+            return redirect()->route('admin.login');
+        }
+
         $cases = FormPengajuan::orderBy('id_form', 'asc')->get();
         $belumVerifikasi = FormPengajuan::whereNull('form_pengajuan.jenis_perkara')->get();
         $verifikasi = FormPengajuan::whereNotNull('form_pengajuan.jenis_perkara')->get();
@@ -226,16 +267,28 @@ class AdminController extends Controller
     }
 
     public function detail_pengajuan_perkara($id){
+        if (!Session::has('admin')) {
+            return redirect()->route('admin.login');
+        }
+
         $perkara = FormPengajuan::select('*')->where('form_pengajuan.id_form', '=', $id)->first();
         return view('admin.perkara-pengajuan-detail', ['perkara'=>$perkara]);
     }
 
     public function perkara_berlangsung(){
+        if (!Session::has('admin')) {
+            return redirect()->route('admin.login');
+        }
+
         $cases = KasusHukum::all();
         return view('admin.perkara-berlangsung', compact('cases'));
     }
 
     public function detail_perkara_berlangsung($id){
+        if (!Session::has('admin')) {
+            return redirect()->route('admin.login');
+        }
+
         $case = KasusHukum::join('form_pengajuan', 'form_pengajuan.id_form', '=', 'kasus_hukum.id_form')
         ->select('*')->where('kasus_hukum.id_form', $id)->get();
         return view('admin.perkara-berita', compact('case', 'id'));

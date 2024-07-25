@@ -59,7 +59,11 @@
                 @include('components/admin-sidebar')
             </div>
             <div class="col-9">
-                <h5 class="px-5 pt-5" style="font-weight: bold">Hello, Evotianus</h5>
+                <h5 class="px-5 pt-5" style="font-weight: bold">Hello,
+                    @if (Session::get('admin'))
+                        {{ Session::get('admin')->username }}
+                    @endif
+                </h5>
                 @yield('content')
             </div>
         </div>
