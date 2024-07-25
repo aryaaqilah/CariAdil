@@ -357,7 +357,7 @@ class AdminController extends Controller
             'status_pengajuan' => 'Accepted'
         ]);
 
-       
+
         KasusHukum::create([
             'tanggal' => Carbon::now(),
             'id_form' => $id,

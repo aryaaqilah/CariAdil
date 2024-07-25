@@ -15,6 +15,7 @@ class HomepageController extends Controller
         $kasusHukum = KasusHukum::orderBy('created_at', 'DESC')->take(2)
         ->whereNotNull('id_lbh')
         ->whereNotNull('title')
+        ->where('status_pengajuan', '!=', 'Selesai')
         ->get();
         $auth = false;
 
