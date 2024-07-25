@@ -331,11 +331,16 @@ class AdminController extends Controller
     public function terima_pengajuan(Request $request, $id) {
         $formPengajuan = FormPengajuan::find($id);
 
+        $request->validate([
+            'jenis_perkara' => 'required|string|exists:form_pengajuan',
+        ]);
+
         $formPengajuan->update([
             'jenis_perkara' => $request->jenis_perkara,
             'status_pengajuan' => 'Accepted'
         ]);
 
+       
         KasusHukum::create([
             'tanggal' => Carbon::now(),
             'id_form' => $id,
