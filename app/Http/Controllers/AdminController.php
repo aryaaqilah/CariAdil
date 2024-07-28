@@ -271,10 +271,7 @@ class AdminController extends Controller
             return redirect()->route('admin.login');
         }
 
-        $cases = FormPengajuan::join('kasus_hukum', 'form_pengajuan.id_form', '=', 'kasus_hukum.id_form')
-        ->orderBy('form_pengajuan.id_form', 'ASC')
-        ->whereNull('kasus_hukum.id_lbh')
-        ->get();
+        $cases = FormPengajuan::all()->where('status_pengajuan', 'Pending');
 
         // dd($cases);
 
