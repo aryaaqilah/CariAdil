@@ -92,7 +92,7 @@
         </div>
         <div class="col-6 big-stat" style="margin-right: 0">
             <h6 style="font-weight: bold">Perkara Berlangsung</h6>
-            <p style="font-size: 0.75rem">Menunggu konfirmasi User LBH</p>
+            <p style="font-size: 0.75rem">Perkara yang sedang berlangsung</p>
             <table class="table logaktivitas">
                 <thead>
                     <tr>
