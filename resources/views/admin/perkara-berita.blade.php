@@ -30,7 +30,7 @@
                 <textarea class="form-control" id="isiKasus" rows="15" name="description"></textarea>
             </div>
 
-            <button class="btn btn-warning" type="submit">Create</button>
+            <button style="background-color: rgba(232, 123, 47, 1)" class="btn btn-warning" type="submit">Create</button>
         </form>
         </div>
 

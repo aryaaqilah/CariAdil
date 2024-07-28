@@ -27,8 +27,19 @@ class AdminController extends Controller
             return redirect()->route('admin.login');
         }
 
-        $pengajuan = FormPengajuan::select('*')->get();
+        $pengajuan = FormPengajuan::select('*')
+        ->where('jenis_perkara', '=', NULL)
+        ->get();
+
+        // $pengajuan = FormPengajuan::join('kasus_hukum', 'form_pengajuan.id_form', '=', 'kasus_hukum.id_form')
+        // ->orderBy('form_pengajuan.id_form', 'ASC')
+        // ->whereNull('kasus_hukum.id_lbh')
+        // ->get();
+
+        // dd($pengajuan);
+
         $kasusHukum = KasusHukum::join('LBH', 'LBH.id_LBH', '=', 'kasus_hukum.id_lbh')
+        ->orderBy('kasus_hukum.created_at', 'DESC')
         ->join('form_pengajuan', 'form_pengajuan.id_form', '=', 'kasus_hukum.id_form')
         ->select('*')->get();
         $donasi = TransaksiDonasi::select('*')->get();
@@ -260,7 +271,13 @@ class AdminController extends Controller
             return redirect()->route('admin.login');
         }
 
-        $cases = FormPengajuan::orderBy('id_form', 'asc')->get();
+        $cases = FormPengajuan::join('kasus_hukum', 'form_pengajuan.id_form', '=', 'kasus_hukum.id_form')
+        ->orderBy('form_pengajuan.id_form', 'ASC')
+        ->whereNull('kasus_hukum.id_lbh')
+        ->get();
+
+        // dd($cases);
+
         $belumVerifikasi = FormPengajuan::whereNull('form_pengajuan.jenis_perkara')->get();
         $verifikasi = FormPengajuan::whereNotNull('form_pengajuan.jenis_perkara')->get();
         return view('admin.perkara-pengajuan', compact('cases', 'belumVerifikasi', 'verifikasi'));

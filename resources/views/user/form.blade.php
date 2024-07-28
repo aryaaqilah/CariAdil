@@ -373,7 +373,7 @@
 
                 <div class="row mb-4">
                     <div class="col">
-                        <button style="background-color: rgba(232, 123, 47, 1); color: white" type="button" id="submitBtn"
+                        <button style="background-color: rgba(232, 123, 47, 1); color: white; border-color: rgba(232, 123, 47, 1)" type="button" id="submitBtn"
                             class="btn btn-warning" data-bs-toggle="modal" data-bs-target="#exampleModal">
                             Submit
                         </button>
