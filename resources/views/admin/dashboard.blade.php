@@ -71,7 +71,7 @@
             <table class="table logaktivitas">
                 <thead>
                     <tr>
-                        <th scope="col" width="100rem">Nama Pemohon</th>
+                        <th scope="col" width="170rem">Nama Pemohon</th>
                         <th scope="col">Tanggal Dikirim</th>
                         <th scope="col">Detail</th>
                     </tr>

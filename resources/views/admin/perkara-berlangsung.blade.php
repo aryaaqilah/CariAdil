@@ -20,6 +20,7 @@
                     <th scope="col" width="150rem">Nama Pemohon</th>
                     <th scope="col" width="100rem">LBH</th>
                     <th scope="col" width="110rem">Tanggal Diterima</th>
+                    <th scope="col" width="100rem">Kategori</th>
                     <th scope="col" width="120rem">Berita</th>
                     <th scope="col" width="120rem">Progress</th>
                 </tr>
@@ -34,7 +35,8 @@
                         @else
                             <td>-</td>
                         @endif
-                        <td>{{ \Carbon\Carbon::parse($case->created_at)->translatedFormat('l, j F Y') }}</td>
+                        <td>{{ \Carbon\Carbon::parse($case->created_at)->translatedFormat('j F Y') }}</td>
+                        <td>{{ $case->form->jenis_perkara }}</td>
                         <td>{{ $case->description }}</td>
                         @if ($case->description == null)
                             <td><a class="btn detail" href="/admin/perkara-berlangsung/{{ $case->id_kasus }}"

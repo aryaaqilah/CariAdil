@@ -29,7 +29,7 @@
 
             <div class="col-4"></div>
             <div class="col-4">
-                <img src="{{ asset('storage/' . $perkaraBerlangsung->image_url) }}" class="img-fluid" alt="...",
+                <img src="{{ asset('storage/' . $perkaraBerlangsung->image) }}" class="img-fluid" alt="...",
                     style="height: 100%; width: 100%; border-radius: 12px">
             </div>
             <div class="col-4"></div>
