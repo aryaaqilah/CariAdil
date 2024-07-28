@@ -48,7 +48,8 @@ Route::prefix('/lbh')->group(function () {
     Route::get('/login', [UserController::class, 'showLogin'])->name('login');
     Route::post('/login', [UserController::class, 'login'])->name('login.post');
 
-    Route::post('/logout', [UserController::class, 'logout']);
+    Route::post('/logout', [UserController::class, 'logout
+    ']);
 
     Route::get('/pengajuan-bantuan-hukum', [CaseController::class, 'pengajuan_bantuan']);
     Route::get('/pengajuan-bantuan-hukum/search', [CaseController::class, 'search_pengajuan']);
