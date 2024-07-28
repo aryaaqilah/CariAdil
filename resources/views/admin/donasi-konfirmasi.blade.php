@@ -21,8 +21,6 @@
                 </div>
                 <div class="info px-4">
                     <h6 class="title">Donasi Terbesar</h6>
-                    <h2 class="value">Rp {{ number_format($biggestDonation->nominal) }}</h2>
-                    <span class="increase">dari {{ $biggestDonation->nama }}</span>
                 </div>
             </div>
         </div>
