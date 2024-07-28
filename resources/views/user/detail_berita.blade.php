@@ -20,9 +20,9 @@
             </div>
 
             <div class="d-flex">
-                <p style="color: orange;">{{ $kasusHukum->nama_lbh }}</p>
+                <p style="color: orange;">{{ $kasusHukum->lbh->nama_lbh }}</p>
                 <i style="color: rgba(232, 123, 47, 1); font-size: 60px; padding-top: 10px; padding-bottom: 10px;"
-                    class="bi bi-circle-fill"></i>
+                    class="fa fa-circle"></i>
                 &nbsp;
                 <p class="fs-5">{{ $kasusHukum->tanggal }}</p>
             </div>
