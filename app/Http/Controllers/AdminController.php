@@ -44,11 +44,12 @@ class AdminController extends Controller
         ->orderBy('kasus_hukum.created_at', 'DESC')
         ->join('form_pengajuan', 'form_pengajuan.id_form', '=', 'kasus_hukum.id_form')
         ->select('*')->get();
+        $countPendingDonasi = TransaksiDonasi::all()->where('status_pembayaran', FALSE);
         $donasi = TransaksiDonasi::select('*')->get();
         $lbh = LBH::select('*')->get();
         $cases = KasusHukum::all();
 
-        return view('admin.dashboard', compact('pengajuan', 'kasusHukum','donasi', 'lbh', 'cases'));
+        return view('admin.dashboard', compact('pengajuan', 'kasusHukum','donasi', 'lbh', 'cases', 'countPendingDonasi'));
     }
 
     public function showLogin(){
