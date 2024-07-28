@@ -373,6 +373,15 @@ class AdminController extends Controller
     public function update_perkara_berlangsung(Request $request, $id) {
         $kasusHukum = KasusHukum::find($id);
 
+        // dd($request);
+
+        $request->validate([
+            'title' => 'required|string|exists:kasus_hukum',
+            'description' => 'required|string|exists:kasus_hukum'
+        ]);
+
+
+
         if (!Storage::disk('public')->exists('kasus_hukum')) {
             Storage::disk('public')->makeDirectory('kasus_hukum');
         }
