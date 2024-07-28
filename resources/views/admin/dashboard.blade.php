@@ -31,12 +31,6 @@
                 <div class="info px-4">
                     <h6 class="title">Konfirmasi Donasi</h6>
                     <h2 class="value">{{ count($countPendingDonasi) }}</h2>
-                    <span class="increase">
-                        @foreach ($donasi->take(1) as $d)
-                            {{ $d->nama }}
-                        @endforeach
-                        {{ count($donasi) - 1 < 0 ? '' : ' and ' . count($donasi) - 1 . ' others' }}
-                    </span>
                 </div>
             </div>
             <div class="col-4 stat">
