@@ -27,17 +27,14 @@
                 {{-- @endforeach --}}
             </div>
 
-            <div class="col-4"></div>
-            <div class="col-4">
-                <img src="{{ asset('storage/' . $perkaraBerlangsung->image) }}" class="img-fluid" alt="...",
+            <div class="col-8 d-flex justify-content-center" style="width: 640px">
+                <img src="{{ asset('storage/' . $perkaraBerlangsung->image) }}" class="img-fluid" alt="..."
                     style="height: 100%; width: 100%; border-radius: 12px">
             </div>
-            <div class="col-4"></div>
 
             {{-- Tabs --}}
-            <div class="col-1"></div>
             <div class="col-10 mb-5">
-                <ul class="nav nav-tabs mt-5 d-flex justify-content-center" id="myTab" role="tablist">
+                <ul class="container nav nav-tabs mt-5 d-flex justify-content-center" id="myTab" role="tablist">
                     <li class="nav-item" role="presentation">
                         <button class="nav-link active" id="informasi-tab" data-bs-toggle="tab"
                             data-bs-target="#informasi-tab-pane" type="button" role="tab"
@@ -155,9 +152,9 @@
                             </div>
                             <div class="accordion-item">
                                 <h2 class="accordion-header">
-                                    <button class="accordion-button collapsed" type="button"
-                                        data-bs-toggle="collapse" data-bs-target="#flush-collapseThree"
-                                        aria-expanded="false" aria-controls="flush-collapseThree">
+                                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                                        data-bs-target="#flush-collapseThree" aria-expanded="false"
+                                        aria-controls="flush-collapseThree">
                                         Pokok Persoalan
                                     </button>
                                 </h2>
@@ -241,7 +238,7 @@
                     </div>
                 </div>
             </div>
-            <div class="col-1"></div>
+            {{-- <div class="col-1"></div> --}}
 
         </div>
 

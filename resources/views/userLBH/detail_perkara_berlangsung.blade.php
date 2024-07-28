@@ -1,35 +1,27 @@
 <link rel="stylesheet" href="{{ asset('style/styles.css') }}">
 
 <x-layout :auth="$auth">
-    <div class="container-fluid">
+    <div class="container-fluid container">
         <div class="pembatas"></div>
         <div class="row mt-5">
             <div class="col-1"></div>
             <div class="col-1">
-                <button type="button" class="btn btn-orange"
+                <a href="{{ url()->previous() }}" type="button" class="btn btn-orange"
                     style="--bs-btn-padding-y: .25rem; --bs-btn-padding-x: .9rem; --bs-btn-font-size: 1rem;">
-                    < Back</button>
+                    < Back</a>
             </div>
             <div class="col-10">
                 <h5>Perkara Berlangsung</h5>
             </div>
         </div>
-        <div class="row d-flex justify-content-center align-items-center flex-column mt-3">
+        <div class="row d-flex justify-content-center mt-3">
             <div class="col-10 text-center h1">
                 {{-- {{dd($perkaraBerlangsung)}} --}}
                 {{-- @foreach ($perkaraBerlangsung as $pb) --}}
-                <strong style="font-size: 2.15rem">{{ $perkaraBerlangsung->title }}</strong>
+                <strong>{{ $perkaraBerlangsung->title }}</strong>
                 {{-- @endforeach --}}
             </div>
-            {{--
-            <div class="d-flex justify-content-center gap-3 my-3">
-                <span class="badge rounded-pill text-dark"
-                    style="background-color:rgba(225, 223, 209, 1); font-size: 14PX">Pidana</span>
-                <span class="badge rounded-pill text-dark"
-                    style="background-color:rgba(225, 223, 209, 1); font-size: 14PX">Perebutan Hak Asuh Anak</span>
-                <span class="badge rounded-pill text-dark"
-                    style="background-color:rgba(225, 223, 209, 1); font-size: 14PX">Penggugat</span>
-            </div> --}}
+
 
             <div class="d-flex justify-content-center">
                 {{-- @foreach ($perkaraBerlangsung as $pb) --}}
@@ -37,12 +29,16 @@
                 {{-- @endforeach --}}
             </div>
 
+
+
             <div class="col-8 d-flex justify-content-center" style="width: 640px">
-                <img src="{{ asset('storage/' . $perkaraBerlangsung->image) }}" class="img-fluid" alt="...">
+                <img src="{{ asset('storage/' . $perkaraBerlangsung->image) }}" class="img-fluid" alt="..."
+                    style="height: 100%; width: 100%; border-radius: 12px">
             </div>
 
             {{-- Tabs --}}
-            <div class="mb-5">
+
+            <div class="col-10 mb-5">
                 <ul class="container nav nav-tabs mt-5 d-flex justify-content-center" id="myTab" role="tablist">
                     <li class="nav-item" role="presentation">
                         <button class="nav-link active" id="informasi-tab" data-bs-toggle="tab"
@@ -69,7 +65,8 @@
                                 <h2 class="accordion-header">
                                     <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
                                         data-bs-target="#flush-collapseOne" aria-expanded="false"
-                                        aria-controls="flush-collapseOne">Data Pribadi</button>
+                                        aria-controls="flush-collapseOne">Data
+                                        Pribadi</button>
                                 </h2>
                                 <div id="flush-collapseOne" class="accordion-collapse collapse"
                                     data-bs-parent="#accordionFlushExample">
@@ -146,7 +143,8 @@
                                                     <p>: {{ $perkaraBerlangsung->identitas_diri }}</p>
                                                     <p>: {{ $perkaraBerlangsung->nomor_identitas }}</p>
                                                     <p>: {{ $perkaraBerlangsung->keterangan_tidak_mampu }}</p>
-                                                    <p>: {{ $perkaraBerlangsung->nomor_keterangan_tidak_mampu }}</p>
+                                                    <p>: {{ $perkaraBerlangsung->nomor_keterangan_tidak_mampu }}
+                                                    </p>
                                                     <p>: {{ $perkaraBerlangsung->pekerjaan }}</p>
                                                     <p>: {{ $perkaraBerlangsung->jumlah_tanggungan }}</p>
                                                     <p>: {{ $perkaraBerlangsung->pendidikan_terakhir }}</p>
@@ -201,7 +199,8 @@
                                                     <h4 style="word-wrap: break-word;" class="progress-title">
                                                         {{ $prog->topik_progress }}</h4>
                                                     <h5 class="deskripsi-informasi">
-                                                        {{ \Carbon\Carbon::parse($prog->date)->format('d F  Y') }}</h5>
+                                                        {{ \Carbon\Carbon::parse($prog->date)->format('d F  Y') }}
+                                                    </h5>
                                                     <h5 class="deskripsi-informasi">{{ $prog->lokasi }}</h5>
                                                 </div>
                                             </li>
@@ -295,8 +294,9 @@
                     </div>
                 </div>
             </div>
+
         </div>
-        <div class="col-1"></div>
+        {{-- <div class="col-1"></div> --}}
 
     </div>
 

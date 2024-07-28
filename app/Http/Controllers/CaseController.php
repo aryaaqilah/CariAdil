@@ -295,8 +295,9 @@ class CaseController extends Controller
         }
 
         $perkaraBerlangsung = KasusHukum::join('form_pengajuan', 'form_pengajuan.id_form', '=', 'kasus_hukum.id_form')
-        ->select('*', 'kasus_hukum.image_url AS image')
-        ->where('kasus_hukum.id_kasus', '=', $id)->first();
+        ->select('*', 'kasus_hukum.image_url as image')
+        ->where('kasus_hukum.id_form', '=', $id)->first();
+        // dd($perkaraBerlangsung);
 
         $kasusHukum = KasusHukum::find($id);
 
