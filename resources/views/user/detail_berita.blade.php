@@ -22,7 +22,7 @@
             <div class="d-flex mb-2 align-items-center">
                 <span style="color: rgba(232, 123, 47, 1); margin-left: 1rem;">{{ $kasusHukum->lbh->nama_lbh }}</span>
                 &nbsp;&nbsp;&nbsp;
-                <i style="color: rgba(232, 123, 47, 1); font-size: 12px; padding-top: 10px; padding-bottom: 10px; opacity: 0.5;"
+                <i style="color: rgba(232, 123, 47, 1); font-size: 10px; padding-top: 10px; padding-bottom: 10px; opacity: 0.5;"
                     class="fa fa-circle"></i>
                 &nbsp;&nbsp;&nbsp;
                 <span class="fs-5">{{ $kasusHukum->tanggal }}</span>
