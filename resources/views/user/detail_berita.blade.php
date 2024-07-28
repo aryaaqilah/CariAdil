@@ -30,9 +30,6 @@
 
             <div class="col-2"></div>
             <div class="col-8 d-flex justify-content-center detail-berita-image">
-                {{-- <div style="border-radius: 20px; width: 80%; height: 90%; padding-bottom: 50%; background-size: cover; background-image: url(https://media.istockphoto.com/id/1449333398/id/foto/pengusaha-berjabat-tangan-pengacara-mitra-atau-pengacara-mendiskusikan-perjanjian-kontrak.jpg?s=1024x1024&w=is&k=20&c=64UHwZ1G3XqegEU-SbdeELLEXKQNYbivpkvHrKJQLcQ=);"
-                    class="img">
-                </div> --}}
                 <img src="{{ asset('storage/' . $kasusHukum['image_url']) }}" class="img-fluid" alt="...">
             </div>
             <div class="col-2"></div>
@@ -65,7 +62,7 @@
                 <div class="col-6">
                     <h3>Partisipasi Hukum</h3>
                     <div class="container bg-light my-3 py-3 px-3 rounded-2">
-                        <p>Terkumpul: {{ ($total / $kasusHukum->target_donasi) * 100 }}%</p>
+                        <p>Terkumpul: {{ number_format($total / $kasusHukum->target_donasi, 3) * 100 }}%</p>
                         <div class="progress">
                             <div class="progress-bar" role="progressbar" aria-label="Basic example"
                                 style="width: {{ ($total / $kasusHukum->target_donasi) * 100 }}%" aria-valuenow="25"
