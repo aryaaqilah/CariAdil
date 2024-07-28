@@ -20,12 +20,12 @@
             </div>
 
             <div class="d-flex ml-1 align-items-center">
-                <p style="color: rgba(232, 123, 47, 1);">{{ $kasusHukum->lbh->nama_lbh }}</p>
+                <span style="color: rgba(232, 123, 47, 1);">{{ $kasusHukum->lbh->nama_lbh }}</span>
                 &nbsp;&nbsp;&nbsp;
                 <i style="color: rgba(232, 123, 47, 1); font-size: 12px; padding-top: 10px; padding-bottom: 10px;"
                     class="fa fa-circle"></i>
                 &nbsp;&nbsp;&nbsp;
-                <p class="fs-5">{{ $kasusHukum->tanggal }}</p>
+                <span class="fs-5">{{ $kasusHukum->tanggal }}</span>
             </div>
 
             <div class="col-2"></div>
