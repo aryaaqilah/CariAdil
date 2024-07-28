@@ -49,10 +49,10 @@
                     <h6 class="title">User LBH</h6>
                     <h2 class="value">{{ count($lbh) }}</h2>
                     <span class="increase">
-                        @foreach ($lbh->take(1) as $l)
-                            {{ $l->nama }}
+                        @foreach ($lbh->take(2) as $user_lbh)
+                            {{ $user_lbh->nama_lbh }},
                         @endforeach
-                        {{ count($lbh) - 1 < 0 ? '' : ' and ' . count($lbh) - 1 . ' others' }}
+                        {{ count($lbh) - 2 < 0 ? '' : ' and ' . count($lbh) - 2 . ' others' }}
                     </span>
                 </div>
             </div>
