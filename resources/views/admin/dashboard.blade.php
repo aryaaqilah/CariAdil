@@ -62,7 +62,7 @@
 
     <div class="row big-stat-area justify-content-between">
         <div class="col-6 big-stat">
-            <h6 style="font-weight: bold">Perkara Pengajuan</h6>
+            <h6 style="font-weight: bold">Perkara Masuk</h6>
             <p style="font-size: 0.75rem">Verifikasi setiap permohonan perkara</p>
             <table class="table logaktivitas">
                 <thead>

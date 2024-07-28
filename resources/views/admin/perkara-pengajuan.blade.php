@@ -47,7 +47,7 @@
     <div class="form-area">
         <div class="row">
             <div class="col-5">
-                <h6 style="font-weight: bold">Perkara Pengajuan</h6>
+                <h6 style="font-weight: bold">Perkara Masuk</h6>
                 <p style="font-size: 0.75rem">Verifikasi setiap permohonan perkara</p>
             </div>
             <div class="col-4"></div>
