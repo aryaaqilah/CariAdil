@@ -31,6 +31,8 @@ class AdminController extends Controller
         ->where('jenis_perkara', '=', NULL)
         ->get();
 
+
+
         // $pengajuan = FormPengajuan::join('kasus_hukum', 'form_pengajuan.id_form', '=', 'kasus_hukum.id_form')
         // ->orderBy('form_pengajuan.id_form', 'ASC')
         // ->whereNull('kasus_hukum.id_lbh')
@@ -271,7 +273,9 @@ class AdminController extends Controller
             return redirect()->route('admin.login');
         }
 
-        $cases = FormPengajuan::all();
+        $cases = FormPengajuan::select('*')
+        ->where('jenis_perkara', '=', NULL)
+        ->get();
 
         // dd($cases);
 
