@@ -50,32 +50,32 @@
                     <div class="tab-pane fade show active" id="pills-home" role="tabpanel"
                         aria-labelledby="pills-home-tab" tabindex="0">
                         <h3>Pidana ({{ count($pidana) }})</h3>
-                        <div class="row">
-                            <div class="row">
-                                @foreach ($pidana as $kasusPidana)
-                                    {{-- @dd($kasusHukum) --}}
-                                    <a href="/lbh/pengajuan-bantuan-hukum/{{ $kasusPidana->id_form }}" class="card"
-                                        style="text-decoration: none; width: 23%; margin-left: 1rem">
-                                        <div class="card-body d-flex flex-column">
-                                            <div class="card-date d-flex flex-row-reverse">
-                                                <span class="text-secondary">{{ $kasusPidana->tanggal }}</span>
-                                            </div>
-                                            <div class="card-content">
-                                                <h5 class="card-title">{{ $kasusPidana->nama }}</h5>
-                                                <h6 class="card-subtitle mb-2 text-body-secondary">
-                                                    {{ $kasusPidana->nomor_pemohon }}</h6>
-                                                <p class="card-text">{{ $kasusPidana->uraian }}</p>
-                                            </div>
+                        {{-- <div class="row"> --}}
+                        <div class="row" style="align-items: normal; row-gap: 1rem;">
+                            @foreach ($pidana as $kasusPidana)
+                                {{-- @dd($kasusHukum) --}}
+                                <a href="/lbh/pengajuan-bantuan-hukum/{{ $kasusPidana->id_form }}" class="card"
+                                    style="text-decoration: none; width: 23%; margin-left: 1rem">
+                                    <div class="card-body d-flex flex-column">
+                                        <div class="card-date d-flex flex-row-reverse">
+                                            <span class="text-secondary">{{ $kasusPidana->tanggal }}</span>
                                         </div>
-                                    </a>
-                                @endforeach
-                            </div>
+                                        <div class="card-content">
+                                            <h5 class="card-title">{{ $kasusPidana->nama }}</h5>
+                                            <h6 class="card-subtitle mb-2 text-body-secondary">
+                                                {{ $kasusPidana->nomor_pemohon }}</h6>
+                                            <p class="card-text">{{ $kasusPidana->uraian }}</p>
+                                        </div>
+                                    </div>
+                                </a>
+                            @endforeach
                         </div>
+                        {{-- </div> --}}
                     </div>
                     <div class="tab-pane fade" id="pills-profile" role="tabpanel" aria-labelledby="pills-profile-tab"
                         tabindex="0">
                         <h3 class="mb-3">Perdata ({{ count($perdata) }})</h3>
-                        <div class="row" style="align-items: normal">
+                        <div class="row" style="align-items: normal; row-gap: 1rem;">
                             @foreach ($perdata as $kasusPerdata)
                                 {{-- @dd($kasusHukum) --}}
                                 <a href="/lbh/pengajuan-bantuan-hukum/{{ $kasusPerdata->id_form }}" class="card col-3"
