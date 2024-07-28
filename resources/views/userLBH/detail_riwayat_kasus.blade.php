@@ -1,14 +1,14 @@
 <link rel="stylesheet" href="{{ asset('style/styles.css') }}">
 
 <x-layout :auth="$auth">
-    <div class="container-fluid">
+    <div class="container-fluid container">
         <div class="pembatas"></div>
         <div class="row mt-5">
             <div class="col-1"></div>
             <div class="col-1">
-                <button type="button" class="btn btn-orange"
+                <a href="{{ url()->previous() }}" type="button" class="btn btn-orange"
                     style="--bs-btn-padding-y: .25rem; --bs-btn-padding-x: .9rem; --bs-btn-font-size: 1rem;">
-                    < Back</button>
+                    < Back</a>
             </div>
             <div class="col-10">
                 <h5>Perkara Berlangsung</h5>
@@ -29,7 +29,7 @@
 
             <div class="col-4"></div>
             <div class="col-4">
-                <img src="/assets/images/jumbotron1.png" class="img-fluid" alt="...",
+                <img src="{{ asset('storage/' . $perkaraBerlangsung->image_url) }}" class="img-fluid" alt="...",
                     style="height: 100%; width: 100%; border-radius: 12px">
             </div>
             <div class="col-4"></div>
@@ -188,20 +188,25 @@
                                 <div class="col-10" style="">
                                     <div class="d-flex justify-content-center">
                                         <div class="col-12">
-                                          <ul class="progress-tracker progress-tracker--text progress-tracker--center">
-                                            @foreach ($progress as $index => $prog)
-                                                <li class="progress-step is-complete">
-                                                <div style="color: white" class="progress-marker" data-text="{{$index+1}}"></div>
-                                                <div class="progress-text">
-                                                    <h4 style="word-wrap: break-word;" class="progress-title">{{$prog->topik_progress}}</h4>
-                                                    <h5 class="deskripsi-informasi">{{ \Carbon\Carbon::parse($prog->date)->format('d F  Y') }}</h5>
-                                                    <h5 class="deskripsi-informasi">{{ $prog->lokasi }}</h5>
-                                                </div>
-                                                </li>
-                                            @endforeach
-                                          </ul>
+                                            <ul
+                                                class="progress-tracker progress-tracker--text progress-tracker--center">
+                                                @foreach ($progress as $index => $prog)
+                                                    <li class="progress-step is-complete">
+                                                        <div style="color: white" class="progress-marker"
+                                                            data-text="{{ $index + 1 }}"></div>
+                                                        <div class="progress-text">
+                                                            <h4 style="word-wrap: break-word;" class="progress-title">
+                                                                {{ $prog->topik_progress }}</h4>
+                                                            <h5 class="deskripsi-informasi">
+                                                                {{ \Carbon\Carbon::parse($prog->date)->format('d F  Y') }}
+                                                            </h5>
+                                                            <h5 class="deskripsi-informasi">{{ $prog->lokasi }}</h5>
+                                                        </div>
+                                                    </li>
+                                                @endforeach
+                                            </ul>
 
-                                          </div>
+                                        </div>
                                     </div>
                                 </div>
                                 {{-- {{ $progress->links() }} --}}
@@ -211,34 +216,34 @@
                       </div> --}}
                             </div>
 
-                    </div>
-                </div>
-
-                {{-- DONASI --}}
-                <div class="tab-pane fade" id="donasi-tab-pane" role="tabpanel" aria-labelledby="donasi-tab"
-                    tabindex="0">
-                    <div class="d-flex h5 mt-4">
-                        Donasi untuk Perkara
-                    </div>
-                    <div class="d-flex h7 mt-4" style="color: rgba(232, 123, 47, 1);">
-                        Rp {{ number_format($total, 2, ',', '.') }}
-                    </div>
-                    <div class="d-flex h7 mt-2">
-                        Terkumpul dari Rp {{ number_format($kasusHukum->target_donasi, 2, ',', '.') }}
+                        </div>
                     </div>
 
-                    <div class="progress mt-4"
-                        style="height: 20px; background-color:rgb(255, 223, 200); border-radius: 12px">
-                        <div class="progress-bar" role="progressbar"
-                            style="width: {{ ($total / $kasusHukum->target_donasi) * 100 }}%; background-color:rgba(232, 123, 47, 1); border-radius: 12px"
-                            aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"></div>
+                    {{-- DONASI --}}
+                    <div class="tab-pane fade" id="donasi-tab-pane" role="tabpanel" aria-labelledby="donasi-tab"
+                        tabindex="0">
+                        <div class="d-flex h5 mt-4">
+                            Donasi untuk Perkara
+                        </div>
+                        <div class="d-flex h7 mt-4" style="color: rgba(232, 123, 47, 1);">
+                            Rp {{ number_format($total, 2, ',', '.') }}
+                        </div>
+                        <div class="d-flex h7 mt-2">
+                            Terkumpul dari Rp {{ number_format($kasusHukum->target_donasi, 2, ',', '.') }}
+                        </div>
+
+                        <div class="progress mt-4"
+                            style="height: 20px; background-color:rgb(255, 223, 200); border-radius: 12px">
+                            <div class="progress-bar" role="progressbar"
+                                style="width: {{ ($total / $kasusHukum->target_donasi) * 100 }}%; background-color:rgba(232, 123, 47, 1); border-radius: 12px"
+                                aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"></div>
+                        </div>
                     </div>
                 </div>
             </div>
-        </div>
-        <div class="col-1"></div>
+            <div class="col-1"></div>
 
-    </div>
+        </div>
 
     </div>
 
