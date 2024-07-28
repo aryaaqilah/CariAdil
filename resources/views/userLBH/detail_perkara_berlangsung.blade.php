@@ -38,7 +38,7 @@
             </div>
 
             <div class="col-8 d-flex justify-content-center" style="width: 640px">
-                <img src="{{ asset('storage/' . $perkaraBerlangsung->image_url) }}" class="img-fluid" alt="...">
+                <img src="{{ asset('storage/' . $perkaraBerlangsung->image) }}" class="img-fluid" alt="...">
             </div>
 
             {{-- Tabs --}}
@@ -200,7 +200,8 @@
                                                 <div class="progress-text">
                                                     <h4 style="word-wrap: break-word;" class="progress-title">
                                                         {{ $prog->topik_progress }}</h4>
-                                                    <h5 class="deskripsi-informasi">{{ \Carbon\Carbon::parse($prog->date)->format('d F  Y') }}</h5>
+                                                    <h5 class="deskripsi-informasi">
+                                                        {{ \Carbon\Carbon::parse($prog->date)->format('d F  Y') }}</h5>
                                                     <h5 class="deskripsi-informasi">{{ $prog->lokasi }}</h5>
                                                 </div>
                                             </li>
