@@ -58,6 +58,8 @@
         <h6 style="font-size: 0.8rem">28 Mei 2024</h6>
     </div>
 
+    <br>
+
     <div class="row big-stat-area justify-content-between">
         <div class="col-6 big-stat">
             <h6 style="font-weight: bold">Perkara Pengajuan</h6>
