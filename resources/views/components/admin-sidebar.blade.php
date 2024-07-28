@@ -18,7 +18,7 @@
           </li><!-- End Dashboard Nav -->
 
           <li class="nav-item">
-              <a class="nav-link collapsed {{ request()->is('admin/pengajuan-perkara/*') ? 'active' : '' }} {{ request()->is('admin/perkara-berlangsung/*') ? 'active' : '' }}"
+              <a class="nav-link collapsed {{ request()->is('admin/pengajuan-perkara*') ? 'active' : '' }} {{ request()->is('admin/perkara-berlangsung*') ? 'active' : '' }}"
                   data-bs-target="#components-nav" data-bs-toggle="collapse" href="">
                   <i class="bi bi-menu-button-wide"></i><span>Perkara</span><i class="bi bi-chevron-down ms-auto"></i>
               </a>
@@ -37,7 +37,7 @@
           </li><!-- End Components Nav -->
 
           <li class="nav-item">
-              <a class="nav-link collapsed {{ request()->is('admin/role-admin/*') ? 'active' : '' }} {{ request()->is('admin/role-lbh/*') ? 'active' : '' }} {{ request()->is('admin/role-lbh/create') ? 'active' : '' }} {{ request()->is('admin/role-admin/create') ? 'active' : '' }}"
+              <a class="nav-link collapsed {{ request()->is('admin/role-admin*') ? 'active' : '' }} {{ request()->is('admin/role-lbh*') ? 'active' : '' }} {{ request()->is('admin/role-lbh/create') ? 'active' : '' }} {{ request()->is('admin/role-admin/create') ? 'active' : '' }}"
                   data-bs-target="#components-nav-account" data-bs-toggle="collapse" href="">
                   <i class="bi bi-menu-button-wide"></i><span>Accounts</span><i class="bi bi-chevron-down ms-auto"></i>
               </a>
