@@ -19,9 +19,9 @@
                 </div>
             </div>
 
-            <div class="d-flex">
+            <div class="d-flex ml-1">
                 <p style="color: orange;">{{ $kasusHukum->lbh->nama_lbh }}</p>
-                <i style="color: rgba(232, 123, 47, 1); font-size: 60px; padding-top: 10px; padding-bottom: 10px;"
+                <i style="color: rgba(232, 123, 47, 1); font-size: 14px; padding-top: 10px; padding-bottom: 10px;"
                     class="fa fa-circle"></i>
                 &nbsp;
                 <p class="fs-5">{{ $kasusHukum->tanggal }}</p>
