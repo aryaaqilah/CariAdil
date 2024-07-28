@@ -165,10 +165,6 @@
                         <i style=" color: rgba(232, 123, 47, 1); " class="fa-solid fa-circle-check fa-4x"></i>
                     </button>
                 </form>
-
-                <a href="{{ url()->previous() }}" class="reject-button">
-                    <i class="fa-solid fa-xmark fa-2x" style="color:rgba(232, 123, 47, 1)"></i>
-                </a>
             </div>
         </div>
     </div>
