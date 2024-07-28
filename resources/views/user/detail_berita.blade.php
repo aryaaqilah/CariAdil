@@ -19,7 +19,7 @@
                 </div>
             </div>
 
-            <div class="d-flex ml-1 align-items-center">
+            <div class="d-flex mb-2 align-items-center">
                 <span style="color: rgba(232, 123, 47, 1); margin-left: 1rem;">{{ $kasusHukum->lbh->nama_lbh }}</span>
                 &nbsp;&nbsp;&nbsp;
                 <i style="color: rgba(232, 123, 47, 1); font-size: 12px; padding-top: 10px; padding-bottom: 10px;"
