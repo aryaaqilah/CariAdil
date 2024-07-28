@@ -30,7 +30,7 @@
                 </div>
                 <div class="info px-4">
                     <h6 class="title">Konfirmasi Donasi</h6>
-                    <h2 class="value">{{ count($donasi) }}</h2>
+                    <h2 class="value">{{ count($countPendingDonasi) }}</h2>
                     <span class="increase">
                         @foreach ($donasi->take(1) as $d)
                             {{ $d->nama }}
