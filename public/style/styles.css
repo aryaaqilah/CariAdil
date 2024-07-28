@@ -773,8 +773,8 @@ nav {
     color: white !important;
   }
 
-  .accordion{
-    --bs-accordion-btn-focus-box-shadow: 0 0 0 0.25rem rgba(var(--primary-color), 0.2);
+  .accordion-button {
+    transition: all 0.2s;
   }
 
   .accordion-button:hover{
@@ -784,12 +784,22 @@ nav {
   .accordion-button:not(.collapsed){
     background-color: rgba(var(--primary-color), 0.8);
     color: white;
+    padding-left: 0.75rem;
   }
   .accordion-button:not(.collapsed):hover{
     background-color: rgba(var(--primary-color), 0.5);
     color: white;
   }
-
+  .accordion-flush .accordion-body {
+    padding: 0 0 0 0;
+    color: #3e4f6f;
+    font-size: 15px;
+    }
+    .accordion-flush .accordion-button:not(.collapsed) {
+    box-shadow: none;
+    color: white;
+    /* color: #4154f1; */
+}
 
   /* BOTTOM NAVBAR */
   .bottom-nav{
