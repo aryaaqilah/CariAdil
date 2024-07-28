@@ -271,7 +271,7 @@ class AdminController extends Controller
             return redirect()->route('admin.login');
         }
 
-        $cases = FormPengajuan::all()->where('status_pengajuan', 'Pending');
+        $cases = FormPengajuan::all();
 
         // dd($cases);
 
