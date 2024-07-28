@@ -15,7 +15,7 @@
             <h2 class="headline-kasus">Kasus Hukum</h2>
             <div class="box-kasus-hukum d-flex gap-5">
                 @foreach ($list_kasus_hukum as $kasusHukum)
-                    <a class="title-1 text-truncate col-6" href="/berita/kasus-hukum/{{ $kasusHukum->id_kasus }}"
+                    <a class="title-1 text-truncate col-6" href="/lbh/perkara-berlangsung/{{ $kasusHukum->id_kasus }}"
                         style="font-size:1.4rem; text-decoration:none">
                         <div class="box-kasus-hukum d-flex gap-5">
                             <div class="detail-box-kasus-hukum" style="width: 100%">
