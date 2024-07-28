@@ -31,8 +31,8 @@
     <div class="form-area">
         <div class="row">
             <div class="col-5">
-                <h6 style="font-weight: bold">Donasi</h6>
-                <p style="font-size: 0.75rem">Donasi yang sedang berlangsung</p>
+                <h6 style="font-weight: bold">Konfirmasi Donasi</h6>
+                <p style="font-size: 0.75rem">Donasi yang perlu di konfirmasi</p>
             </div>
             <div class="col-4">
                 <div class="input-group">
