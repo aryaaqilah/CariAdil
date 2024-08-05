@@ -28,8 +28,8 @@ class AdminController extends Controller
         }
 
         $pengajuan = FormPengajuan::select('*')
-        ->where('jenis_perkara', '=', NULL)
-        ->get();
+            ->where('jenis_perkara', '=', NULL)
+            ->get();
 
 
 
@@ -41,22 +41,24 @@ class AdminController extends Controller
         // dd($pengajuan);
 
         $kasusHukum = KasusHukum::join('LBH', 'LBH.id_LBH', '=', 'kasus_hukum.id_lbh')
-        ->orderBy('kasus_hukum.created_at', 'DESC')
-        ->join('form_pengajuan', 'form_pengajuan.id_form', '=', 'kasus_hukum.id_form')
-        ->select('*')->get();
+            ->orderBy('kasus_hukum.created_at', 'DESC')
+            ->join('form_pengajuan', 'form_pengajuan.id_form', '=', 'kasus_hukum.id_form')
+            ->select('*')->get();
         $countPendingDonasi = TransaksiDonasi::all()->where('status_pembayaran', FALSE);
         $donasi = TransaksiDonasi::select('*')->get();
         $lbh = LBH::select('*')->get();
         $cases = KasusHukum::all();
 
-        return view('admin.dashboard', compact('pengajuan', 'kasusHukum','donasi', 'lbh', 'cases', 'countPendingDonasi'));
+        return view('admin.dashboard', compact('pengajuan', 'kasusHukum', 'donasi', 'lbh', 'cases', 'countPendingDonasi'));
     }
 
-    public function showLogin(){
+    public function showLogin()
+    {
         return view('admin.login');
     }
 
-    public function login(Request $request){
+    public function login(Request $request)
+    {
         $request->validate([
             'username' => 'required',
             'password' => 'required',
@@ -64,16 +66,17 @@ class AdminController extends Controller
 
         $admin = Admin::where('username', $request->username)->first();
 
-        if ($admin && Hash::check($request->password, $admin->password)){
+        if ($admin && Hash::check($request->password, $admin->password)) {
             $request->session()->regenerate();
             Session::put('admin', $admin);
             return redirect()->route('admin.dashboard');
-        }else{
+        } else {
             return redirect()->back()->withErrors(['username' => 'Invalid credentials']);
         }
     }
 
-    public function logout() {
+    public function logout()
+    {
         Session::forget('admin');
         return redirect()->route('admin.login');
     }
@@ -104,28 +107,30 @@ class AdminController extends Controller
         return view('admin.donasi', compact('cases', 'countWeeklyTransactions', 'biggestDonation'));
     }
 
-    public function donation_detail($id){
+    public function donation_detail($id)
+    {
         if (!Session::has('admin')) {
             return redirect()->route('admin.login');
         }
 
         $data = KasusHukum::join('form_pengajuan', 'kasus_hukum.id_form', '=', 'form_pengajuan.id_form')
-        ->join('lbh', 'lbh.id_LBH', '=', 'kasus_hukum.id_lbh')->select('*')
-        ->where('kasus_hukum.id_kasus', '=', $id)->first();
+            ->join('lbh', 'lbh.id_LBH', '=', 'kasus_hukum.id_lbh')->select('*')
+            ->where('kasus_hukum.id_kasus', '=', $id)->first();
 
         $donation = TransaksiDonasi::join('kasus_hukum', 'kasus_hukum.id_kasus', '=', 'transaksi_donasi.id_kasus_hukum')
-        ->join('bank', 'transaksi_donasi.id_bank', '=', 'bank.id_bank')
-        ->select('transaksi_donasi.*', 'bank.nama as nama_bank', 'kasus_hukum.*')
-        ->where('kasus_hukum.id_kasus', '=', $id)->get();
+            ->join('bank', 'transaksi_donasi.id_bank', '=', 'bank.id_bank')
+            ->select('transaksi_donasi.*', 'bank.nama as nama_bank', 'kasus_hukum.*')
+            ->where('kasus_hukum.id_kasus', '=', $id)->get();
         $kasusHukum = KasusHukum::find($id);
         $total = 0;
-        foreach ($donation as $d){
-            $total+= $d->nominal;
+        foreach ($donation as $d) {
+            $total += $d->nominal;
         }
         return view('admin.donasi-detail', compact('data', 'donation', 'total', 'kasusHukum'));
     }
 
-    public function konfirmasi_donasi(){
+    public function konfirmasi_donasi()
+    {
         if (!Session::has('admin')) {
             return redirect()->route('admin.login');
         }
@@ -135,9 +140,9 @@ class AdminController extends Controller
         $endOfWeek = Carbon::now()->endOfWeek();
         $cases = KasusHukum::all();
         $donation = TransaksiDonasi::join('bank', 'transaksi_donasi.id_bank', '=', 'bank.id_bank')
-                    ->select("transaksi_donasi.*", "bank.nama as namaBank")
-                    ->where('status_pembayaran', false)
-                    ->get();
+            ->select("transaksi_donasi.*", "bank.nama as namaBank")
+            ->where('status_pembayaran', false)
+            ->get();
         $biggestDonation = TransaksiDonasi::all()->sortByDesc('nominal')->first();
 
         foreach ($cases as $case) {
@@ -149,21 +154,22 @@ class AdminController extends Controller
         }
 
         $donasiBulanLalu = TransaksiDonasi::whereMonth('created_at', Carbon::now()->subMonth()->month)
-                                            ->whereYear('created_at', Carbon::now()->subYear()->year)
-                                            ->sum('nominal');
+            ->whereYear('created_at', Carbon::now()->subYear()->year)
+            ->sum('nominal');
         $donasiBulanIni = TransaksiDonasi::whereMonth('created_at', Carbon::now()->month)
-                                            ->whereYear('created_at', Carbon::now()->year)
-                                            ->sum('nominal');
+            ->whereYear('created_at', Carbon::now()->year)
+            ->sum('nominal');
         $persentaseKenaikan = 0;
-        if($donasiBulanLalu > 0){
-            $persentaseKenaikan = (($donasiBulanIni - $donasiBulanLalu)/$donasiBulanLalu)*100;
-        }else{
+        if ($donasiBulanLalu > 0) {
+            $persentaseKenaikan = (($donasiBulanIni - $donasiBulanLalu) / $donasiBulanLalu) * 100;
+        } else {
             $persentaseKenaikan = 0;
         }
         return view('admin.donasi-konfirmasi', compact('countWeeklyTransactions', 'donation', 'startOfWeek', 'endOfWeek', 'cases', 'biggestDonation', 'donasiBulanLalu', 'donasiBulanIni', 'persentaseKenaikan'));
     }
 
-    public function terima_donasi($id){
+    public function terima_donasi($id)
+    {
         $donasi = TransaksiDonasi::find($id);
         $donasi->update([
             'status_pembayaran' => true
@@ -269,14 +275,15 @@ class AdminController extends Controller
     }
 
 
-    public function pengajuan_perkara(){
+    public function pengajuan_perkara()
+    {
         if (!Session::has('admin')) {
             return redirect()->route('admin.login');
         }
 
         $cases = FormPengajuan::select('*')
-        ->where('jenis_perkara', '=', NULL)
-        ->get();
+            ->where('jenis_perkara', '=', NULL)
+            ->get();
 
         // dd($cases);
 
@@ -285,16 +292,18 @@ class AdminController extends Controller
         return view('admin.perkara-pengajuan', compact('cases', 'belumVerifikasi', 'verifikasi'));
     }
 
-    public function detail_pengajuan_perkara($id){
+    public function detail_pengajuan_perkara($id)
+    {
         if (!Session::has('admin')) {
             return redirect()->route('admin.login');
         }
 
         $perkara = FormPengajuan::select('*')->where('form_pengajuan.id_form', '=', $id)->first();
-        return view('admin.perkara-pengajuan-detail', ['perkara'=>$perkara]);
+        return view('admin.perkara-pengajuan-detail', ['perkara' => $perkara]);
     }
 
-    public function perkara_berlangsung(){
+    public function perkara_berlangsung()
+    {
         if (!Session::has('admin')) {
             return redirect()->route('admin.login');
         }
@@ -303,33 +312,36 @@ class AdminController extends Controller
         return view('admin.perkara-berlangsung', compact('cases'));
     }
 
-    public function detail_perkara_berlangsung($id){
+    public function detail_perkara_berlangsung($id)
+    {
         if (!Session::has('admin')) {
             return redirect()->route('admin.login');
         }
 
         $case = KasusHukum::join('form_pengajuan', 'form_pengajuan.id_form', '=', 'kasus_hukum.id_form')
-        ->select('*')->where('kasus_hukum.id_form', $id)->get();
+            ->select('*')->where('kasus_hukum.id_form', $id)->get();
         return view('admin.perkara-berita', compact('case', 'id'));
     }
 
-    public function detail_perkara_berlangsung_create(Request $request){
+    public function detail_perkara_berlangsung_create(Request $request)
+    {
         $rules = [
             "title" => "required",
             "description" => "required",
             "image" => "required|mimes:jpg,png,jpeg,gif|max:2048"
         ];
 
-        $message = ["required" => ":attribute wajib diisi!",
-        "min" => ":attribute minimal berisi :min karakter!",
-        "max" => ":attribute maksimal berisi :max karakter",
-        "fileLampiran.mimes" => "file harus berupa gambar dengan format jpg, png, jpeg, atau gif",
+        $message = [
+            "required" => ":attribute wajib diisi!",
+            "min" => ":attribute minimal berisi :min karakter!",
+            "max" => ":attribute maksimal berisi :max karakter",
+            "fileLampiran.mimes" => "file harus berupa gambar dengan format jpg, png, jpeg, atau gif",
         ];
 
         $validator = Validator::make($request->all(), $rules, $message);
-        if($validator->fails()){
+        if ($validator->fails()) {
             return redirect()->back()->withInput()->withErrors($validator)->with('danger', 'Pastikan semua field diisi');
-        }else{
+        } else {
             if (!Storage::disk('public')->exists('kasus_hukum')) {
                 Storage::disk('public')->makeDirectory('kasus_hukum');
             }
@@ -347,7 +359,8 @@ class AdminController extends Controller
         }
     }
 
-    public function terima_pengajuan(Request $request, $id) {
+    public function terima_pengajuan(Request $request, $id)
+    {
         $formPengajuan = FormPengajuan::find($id);
 
         $request->validate([
@@ -370,17 +383,15 @@ class AdminController extends Controller
         return redirect('admin/pengajuan-perkara');
     }
 
-    public function update_perkara_berlangsung(Request $request, $id) {
+    public function update_perkara_berlangsung(Request $request, $id)
+    {
         $kasusHukum = KasusHukum::find($id);
 
-        // dd($request);
 
         $request->validate([
-            'title' => 'required|string|exists:kasus_hukum',
-            'description' => 'required|string|exists:kasus_hukum'
+            'title' => 'required|string',
+            'description' => 'required|string'
         ]);
-
-
 
         if (!Storage::disk('public')->exists('kasus_hukum')) {
             Storage::disk('public')->makeDirectory('kasus_hukum');

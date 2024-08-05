@@ -21,8 +21,8 @@ class DatabaseSeeder extends Seeder
      */
     public function run(): void
     {
-            $formArray = [
-                [
+        $formArray = [
+            [
                 'nomor_pemohon' => 'CA-001',
                 'jenis_perkara' => 'Pidana',
                 'nama' => 'Joeliardo Gerald Leviothniel',
@@ -276,26 +276,34 @@ class DatabaseSeeder extends Seeder
         ];
 
         $lbhArray = [
-            ['nama_lbh' => 'Ojan Lomba',
-            'password' => bcrypt('1234'),
-            'nomor_telepon' => '(0293)-7739234',
-            'email' => 'gmail@com',
-            'alamat' => 'Sukabumi'],
-            ['nama_lbh' => 'LBH Maju Abadi',
-            'password' => bcrypt('1234maju'),
-            'nomor_telepon' => '(0293)-7739234',
-            'email' => 'maju_abadi@gmail.com',
-            'alamat' => 'Sukabumi'],
-            ['nama_lbh' => 'LBH Carolus',
-            'password' => bcrypt('carolus123'),
-            'nomor_telepon' => '08868214923',
-            'email' => 'carolus@gmail.com',
-            'alamat' => 'Rumah Talenta BCA'],
-            ['nama_lbh' => 'LBH Evotianus',
-            'password' => bcrypt('011004'),
-            'nomor_telepon' => '08717341497923',
-            'email' => 'evo_lbh@gmail.com',
-            'alamat' => 'Pontianak',],
+            [
+                'nama_lbh' => 'Ojan Lomba',
+                'password' => bcrypt('1234'),
+                'nomor_telepon' => '(0293)-7739234',
+                'email' => 'gmail@com',
+                'alamat' => 'Sukabumi'
+            ],
+            [
+                'nama_lbh' => 'LBH Maju Abadi',
+                'password' => bcrypt('1234maju'),
+                'nomor_telepon' => '(0293)-7739234',
+                'email' => 'maju_abadi@gmail.com',
+                'alamat' => 'Sukabumi'
+            ],
+            [
+                'nama_lbh' => 'LBH Carolus',
+                'password' => bcrypt('carolus123'),
+                'nomor_telepon' => '08868214923',
+                'email' => 'carolus@gmail.com',
+                'alamat' => 'Rumah Talenta BCA'
+            ],
+            [
+                'nama_lbh' => 'LBH Evotianus',
+                'password' => bcrypt('011004'),
+                'nomor_telepon' => '08717341497923',
+                'email' => 'evo_lbh@gmail.com',
+                'alamat' => 'Pontianak',
+            ],
         ];
 
         $kasusHukumArray = [
@@ -378,16 +386,16 @@ class DatabaseSeeder extends Seeder
                 'created_at' => Carbon::now()
             ],
             [
-                'title' => 'Bantu Pemuda Pontianak Ini',
+                'title' => NULL,
                 'id_lbh' => NULL,
-                'description' => 'Kasus ini adalah tentang seorang pemuda Pontianak Ini',
+                'description' => NULL,
                 'tanggal' => Carbon::now(),
                 'target_donasi' => '2500000',
                 // 'id_bank' => 1,
                 'id_form' => 7,
 
                 'status_pengajuan' => 'Pending',
-                'image_url' => 'tygbh',
+                'image_url' => NULL,
                 'created_at' => Carbon::now()
             ],
         ];

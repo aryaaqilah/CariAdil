@@ -26,6 +26,7 @@ Route::get("/donana", [DonationController::class, 'index']);
 
 //USER
 Route::get('/', [HomepageController::class, 'index']);
+
 Route::prefix('/berita')->group(function () {
     Route::get('/', [CaseController::class, 'index']);
     Route::get('/search', [CaseController::class, 'search']);
@@ -34,6 +35,7 @@ Route::prefix('/berita')->group(function () {
     Route::post('/donasi/{id}/confirm', [DonationController::class, 'confirm']);
     Route::post('/donasi/{id}/store', [DonationController::class, 'store']);
 });
+
 Route::get('/tentang', [HomepageController::class, 'tentang']);
 Route::get('/form-pengajuan-hukum', [FormController::class, 'index']); //ok
 Route::post('/form-pengajuan-hukum', [FormController::class, 'store']);
@@ -108,7 +110,6 @@ Route::prefix('/perkara')->group(function () {
     Route::get('/berlangsung', [PerkaraController::class, 'indexPerkaraBerlangsung']);
 });
 
-Route::get('/donasikonfirmasi', function(){
+Route::get('/donasikonfirmasi', function () {
     return view('admin.donasi-konfirmasi');
 });
-

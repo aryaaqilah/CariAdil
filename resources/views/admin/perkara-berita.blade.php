@@ -10,7 +10,6 @@
 
         <h6 style="font-weight: bold">Perkara Berlangsung</h6>
         <p style="font-size: 0.75rem">Buat berita mengenai perkara yang sedang berlangsung</p>
-        <form action="#" method="POST" enctype="multipart/form-data">
             <div class="mb-3">
                 <label for="judulKasus" class="form-label">Judul</label>
                 <input type="text" class="form-control" id="judulKasus" name="title">
@@ -33,6 +32,5 @@
             <button style="background-color: rgba(232, 123, 47, 1); color:white" class="btn"
                 type="submit">Create</button>
         </form>
-        </div>
 
     @endsection
