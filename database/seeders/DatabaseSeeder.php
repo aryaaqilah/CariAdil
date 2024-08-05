@@ -308,9 +308,9 @@ class DatabaseSeeder extends Seeder
 
         $kasusHukumArray = [
             [
-                'title' => 'Bantu Pemuda Bogor Ini',
-                'id_lbh' => 1,
-                'description' => 'Kasus ini adalah tentang seorang pemuda bogor',
+                'title' => 'Pembunuhan ART di Bogor',
+                'id_lbh' => 4,
+                'description' => 'Saya sudah mengajukan laporan pidana pembunuhan pembantu saya yang bernama Aminah di Bogor sejak tiga bulan lalu, namun sampai sekarang tidak ada perkembangan sama sekali dari pihak kepolisian. Pelaku masih bebas berkeliaran tanpa ada tindakan yang nyata. Saya merasa proses hukum ini berjalan sangat lambat dan tidak ada transparansi dalam penanganannya. Mohon agar kasus saya segera ditindaklanjuti.',
                 'tanggal' => Carbon::now(),
                 'target_donasi' => '10000000',
                 // 'id_bank' => 1,
@@ -321,9 +321,9 @@ class DatabaseSeeder extends Seeder
                 'created_at' => Carbon::now()
             ],
             [
-                'title' => 'Bantu Pemuda Sukabumi Ini',
+                'title' => 'Gugatan Sengketa Tanah di Depok Selatan',
                 'id_lbh' => 1,
-                'description' => 'Kasus ini adalah tentang seorang pemuda Sukabumi Ini',
+                'description' => 'Saya telah mengajukan gugatan perdata mengenai Sengketa Tanah di Depok Selatan sejak enam bulan lalu, tapi proses persidangannya berjalan sangat lambat. Pengadilan terus menunda-nunda jadwal sidang tanpa alasan yang jelas. Saya butuh kepastian hukum secepatnya agar masalah ini bisa segera terselesaikan. Mohon pengadilan lebih memperhatikan kasus saya',
                 'tanggal' => Carbon::now(),
                 'target_donasi' => '2500000',
                 // 'id_bank' => 1,
@@ -334,9 +334,9 @@ class DatabaseSeeder extends Seeder
                 'created_at' => Carbon::now()
             ],
             [
-                'title' => 'Bantu Pemuda Jakarta Ini',
-                'id_lbh' => NULL,
-                'description' => 'Kasus ini adalah tentang seorang pemuda Jakarta Ini',
+                'title' => 'Pembagian Harta Warisan yang Tidak Adil',
+                'id_lbh' => 3,
+                'description' => 'Dalam pengajuan gugatan perdata mengenai Pembagian Harta Warisan, saya merasa tidak mendapatkan perlakuan yang adil dari hakim. Hakim terlihat memihak kepada pihak lawan tanpa mempertimbangkan bukti yang saya ajukan. Saya sangat kecewa dengan putusan yang tidak adil ini.',
                 'tanggal' => Carbon::now(),
                 'target_donasi' => '2500000',
                 // 'id_bank' => 1,
@@ -347,9 +347,9 @@ class DatabaseSeeder extends Seeder
                 'created_at' => Carbon::now()
             ],
             [
-                'title' => 'Bantu Pemuda Pontianak Ini',
-                'id_lbh' => NULL,
-                'description' => 'Kasus ini adalah tentang seorang pemuda Pontianak Ini',
+                'title' => 'Ketidakadilan dalam Penipuan Investasi Bodong',
+                'id_lbh' => 2,
+                'description' => 'Proses penyidikan terhadap laporan pidana saya, Siti Rukmini, mengenai kasus Penipuan Investasi Bodong sangat tidak profesional, banyak bukti yang tidak diperhatikan. Saya merasa diabaikan sebagai korban dan pelaku sepertinya mendapat perlakuan istimewa. Saya sangat kecewa dengan kinerja aparat penegak hukum yang terkesan tidak serius. Tolong berikan keadilan yang seharusnya untuk saya.',
                 'tanggal' => Carbon::now(),
                 'target_donasi' => '2500000',
                 // 'id_bank' => 1,
@@ -360,9 +360,9 @@ class DatabaseSeeder extends Seeder
                 'created_at' => Carbon::now()
             ],
             [
-                'title' => 'Bantu Pemuda Pontianak Ini',
-                'id_lbh' => NULL,
-                'description' => 'Kasus ini adalah tentang seorang pemuda Pontianak Ini',
+                'title' => 'Kasus Penipuan Kontrak Kerjasama yang Tak Kunjung Selesai',
+                'id_lbh' => 4,
+                'description' => 'Saya telah mengajukan gugatan perdata mengenai Kasus Penipuan Kontrak Kerjasama sejak lima bulan lalu, tetapi prosesnya sangat berlarut-larut di pengadilan. Jadwal sidang sering kali ditunda tanpa alasan yang jelas dan tidak ada kepastian hukum. Saya sangat membutuhkan penyelesaian segera agar kerugian saya bisa dipulihkan. Mohon pengadilan memberikan perhatian lebih pada kasus saya.',
                 'tanggal' => Carbon::now(),
                 'target_donasi' => '2500000',
                 // 'id_bank' => 1,
@@ -372,32 +372,7 @@ class DatabaseSeeder extends Seeder
                 'image_url' => 'tygbh',
                 'created_at' => Carbon::now()
             ],
-            [
-                'title' => 'Bantu Pemuda Pontianak Ini',
-                'id_lbh' => NULL,
-                'description' => 'Kasus ini adalah tentang seorang pemuda Pontianak Ini',
-                'tanggal' => Carbon::now(),
-                'target_donasi' => '2500000',
-                // 'id_bank' => 1,
-                'id_form' => 6,
-
-                'status_pengajuan' => 'Pending',
-                'image_url' => 'tygbh',
-                'created_at' => Carbon::now()
-            ],
-            [
-                'title' => NULL,
-                'id_lbh' => NULL,
-                'description' => NULL,
-                'tanggal' => Carbon::now(),
-                'target_donasi' => '2500000',
-                // 'id_bank' => 1,
-                'id_form' => 7,
-
-                'status_pengajuan' => 'Pending',
-                'image_url' => NULL,
-                'created_at' => Carbon::now()
-            ],
+            
         ];
 
         $progressArray = [
